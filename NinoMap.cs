@@ -22,6 +22,7 @@ namespace Data_Visual
             if(Convert.ToInt32(dateTimePicker1.Text)> Convert.ToInt32(dateTimePicker2.Text)|| Convert.ToInt32(dateTimePicker4.Text) > Convert.ToInt32(dateTimePicker3.Text))
             {
                 MessageBox.Show("时间区间选择有误");
+                label5.Visible = false;
             }
             else
             {
@@ -32,6 +33,11 @@ namespace Data_Visual
                 NinoShow form = new NinoShow();
                 form.ShowDialog();
             }
+        }
+
+        private void button1_MouseDown(object sender, MouseEventArgs e)
+        {
+            label5.Visible = true;
         }
     }
 }

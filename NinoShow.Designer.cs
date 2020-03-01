@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,10 +47,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView3 = new System.Windows.Forms.ListView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoScrollMinSize = new System.Drawing.Size(1106, 634);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -75,6 +77,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1268, 634);
             this.panel1.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(70, 522);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(169, 73);
+            this.panel5.TabIndex = 21;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(70, 443);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(169, 73);
+            this.panel4.TabIndex = 21;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(70, 372);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(169, 65);
+            this.panel3.TabIndex = 21;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(70, 292);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(169, 73);
+            this.panel2.TabIndex = 20;
             // 
             // label7
             // 
@@ -188,10 +218,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.listView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 163);
+            this.tabPage2.Size = new System.Drawing.Size(979, 158);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Nino3";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -202,16 +232,16 @@
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(3, 3);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(700, 157);
+            this.listView2.Size = new System.Drawing.Size(973, 152);
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.listView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(706, 163);
+            this.tabPage3.Size = new System.Drawing.Size(979, 158);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Nino4";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -222,37 +252,21 @@
             this.listView3.HideSelection = false;
             this.listView3.Location = new System.Drawing.Point(0, 0);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(706, 163);
+            this.listView3.Size = new System.Drawing.Size(979, 158);
             this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
-            // panel2
+            // button3
             // 
-            this.panel2.Location = new System.Drawing.Point(70, 292);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(169, 73);
-            this.panel2.TabIndex = 20;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(70, 372);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(169, 65);
-            this.panel3.TabIndex = 21;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(70, 443);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(169, 73);
-            this.panel4.TabIndex = 21;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(70, 522);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(169, 73);
-            this.panel5.TabIndex = 21;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(99, 207);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 35);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "数据导出";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // NinoShow
             // 
@@ -294,5 +308,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button3;
     }
 }

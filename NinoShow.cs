@@ -13,6 +13,10 @@ using MathWorks.MATLAB.NET.Arrays;
 using nino_plot;
 using System.Threading;
 using System.Runtime.InteropServices;//API
+using Microsoft.Office.Interop.Excel;//Excel
+using ExcelApplication = Microsoft.Office.Interop.Excel.Application;
+using System.Reflection;
+using System.IO;
 
 namespace Data_Visual
 {
@@ -284,6 +288,105 @@ namespace Data_Visual
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             label7.Visible = true;
+        }
+        SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string saveFileName = "";
+            saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel 文件(*.xls)|*.xls";
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileName = saveFileDialog1.FileName;
+
+            saveFileDialog1.FileName = "r_" + label2.Text + "_a_" + label3.Text + "_" + tabControl1.SelectedTab.Text;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if(this.tabControl1.SelectedTab.Controls[0].Text=="listView1")
+                    WriteListViewToExcel(listView1, "LOG");
+                if (this.tabControl1.SelectedTab.Controls[0].Text == "listView2")
+                    WriteListViewToExcel(listView2, "LOG");
+                if (this.tabControl1.SelectedTab.Controls[0].Text == "listView3")
+                    WriteListViewToExcel(listView3, "LOG");
+            }
+        }
+        public void WriteListViewToExcel(ListView listView1, string sheet1)
+        {
+            string Sheetname = sheet1;
+            ListView listView = listView1;
+            if (listView.Items.Count < 1)
+                return;
+            try
+            {
+                ExcelApplication MyExcel = new ExcelApplication();
+
+                MyExcel.Visible = true;   //display excel application；if value set 'false',please enable the ' finally' code below;
+                if (MyExcel == null)
+                {
+                    return;
+                }
+
+                Workbooks MyWorkBooks = (Workbooks)MyExcel.Workbooks;
+
+                Workbook MyWorkBook = (Workbook)MyWorkBooks.Add(Missing.Value);
+
+                Worksheet MyWorkSheet = (Worksheet)MyWorkBook.Worksheets[1];
+
+
+                Range MyRange = MyWorkSheet.get_Range("A1", "H1");
+                MyRange = MyRange.get_Resize(1, listView.Columns.Count);
+                object[] MyHeader = new object[listView.Columns.Count];
+                for (int i = 0; i < listView.Columns.Count; i++)
+                {
+                    MyHeader.SetValue(listView.Columns[i].Text, i);
+                }
+                MyRange.Value2 = MyHeader;
+                MyWorkSheet.Name = Sheetname;
+
+                if (listView.Items.Count > 0)
+                {
+                    MyRange = MyWorkSheet.get_Range("A2", Missing.Value);
+                    object[,] MyData = new Object[listView.Items.Count, listView.Columns.Count];
+                    for (int j = 0; j < listView1.Items.Count; j++)
+                    {
+                        ListViewItem lvi = listView1.Items[j];
+                        for (int k = 0; k < listView.Columns.Count; k++)
+                        {
+
+                            MyData[j, k] = lvi.SubItems[k].Text;
+                        }
+
+                    }
+                    MyRange = MyRange.get_Resize(listView.Items.Count, listView.Columns.Count);
+                    MyRange.Value2 = MyData;
+                    MyRange.EntireColumn.AutoFit();
+                }
+
+                try
+                {
+                    object missing = System.Reflection.Missing.Value;
+                    MyWorkBook.Saved = true;
+                    MyWorkBook.SaveAs(saveFileDialog1.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, missing, missing, false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, missing, missing, missing, missing, missing);
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show("Export Error,Maybe the file is opened by other application!\n" + e1.Message);
+                }
+                /*
+                 finally
+                     {
+                          MyExcel.Quit();
+                          System.GC.Collect();
+                      }
+                 */
+
+                // MyExcel = null;
+
+            }
+            catch (Exception Err)
+            {
+                MessageBox.Show(Err.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

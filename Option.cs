@@ -37,7 +37,8 @@ namespace Data_Visual
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            DataProcess form = new DataProcess();
+            form.ShowDialog();
         }
     }
 }
