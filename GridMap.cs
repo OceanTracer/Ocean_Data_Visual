@@ -34,7 +34,8 @@ namespace Data_Visual
         void WbInit()
         {
             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
-            var setting = new CefSettings();
+            CefSettings setting = new CefSettings();
+
             setting.Locale = "zh-CN";
             // 缓存路径
             setting.CachePath = "/BrowserCache";
@@ -46,6 +47,11 @@ namespace Data_Visual
             setting.PersistSessionCookies = true;
             setting.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (Khtml, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
             setting.UserDataPath = "/userData";
+
+            setting.MultiThreadedMessageLoop = true;
+            setting.CefCommandLineArgs.Add("--disable-web-security", "");
+            setting.CefCommandLineArgs.Add("--user-data-dir", "C:\\MyChromeDevUserData");
+
             CefSharp.Cef.Initialize(setting);
 
         }
@@ -240,6 +246,11 @@ namespace Data_Visual
             {
                 e.Handled = true;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

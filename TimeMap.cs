@@ -46,6 +46,11 @@ namespace Data_Visual
             setting.PersistSessionCookies = true;
             setting.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (Khtml, like Gecko) Chrome/55.0.2883.87 Safari/537.36";
             setting.UserDataPath = "/userData";
+
+            setting.MultiThreadedMessageLoop = true;
+            setting.CefCommandLineArgs.Add("--disable-web-security", "");
+            setting.CefCommandLineArgs.Add("--user-data-dir", "C:\\MyChromeDevUserData");
+
             CefSharp.Cef.Initialize(setting);
             
         }
@@ -157,6 +162,11 @@ namespace Data_Visual
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
             label5.Visible = true;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

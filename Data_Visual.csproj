@@ -61,6 +61,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSkin, Version=16.1.14.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\CSkin.dll</HintPath>
+    </Reference>
     <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
       <HintPath>packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
       <Private>True</Private>
@@ -68,6 +72,10 @@
     <Reference Include="ll_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\ll_grid_plot.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Bson, Version=2.9.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MongoDB.Bson.2.9.2\lib\net452\MongoDB.Bson.dll</HintPath>
@@ -83,6 +91,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\MWArray.dll</HintPath>
     </Reference>
+    <Reference Include="nc2xls, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\nc2xls.dll</HintPath>
+    </Reference>
     <Reference Include="nino_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\nino_plot.dll</HintPath>
@@ -93,6 +105,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
@@ -155,6 +168,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimeMap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +185,54 @@
     </Compile>
     <Compile Include="TimeShow.Designer.cs">
       <DependentUpon>TimeShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="welcome.designer.cs">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="注册成功.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="注册成功.designer.cs">
+      <DependentUpon>注册成功.cs</DependentUpon>
+    </Compile>
+    <Compile Include="注册界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="注册界面.designer.cs">
+      <DependentUpon>注册界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="用户中心.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="用户中心.designer.cs">
+      <DependentUpon>用户中心.cs</DependentUpon>
+    </Compile>
+    <Compile Include="用户主页.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="用户主页.designer.cs">
+      <DependentUpon>用户主页.cs</DependentUpon>
+    </Compile>
+    <Compile Include="登录界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="登录界面.designer.cs">
+      <DependentUpon>登录界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="科普界面new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="科普界面new.designer.cs">
+      <DependentUpon>科普界面new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="管理员页面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="管理员页面.designer.cs">
+      <DependentUpon>管理员页面.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DataProcess.resx">
       <DependentUpon>DataProcess.cs</DependentUpon>
@@ -200,6 +267,30 @@
     <EmbeddedResource Include="TimeShow.resx">
       <DependentUpon>TimeShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="welcome.resx">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="注册成功.resx">
+      <DependentUpon>注册成功.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="注册界面.resx">
+      <DependentUpon>注册界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="用户中心.resx">
+      <DependentUpon>用户中心.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="用户主页.resx">
+      <DependentUpon>用户主页.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="登录界面.resx">
+      <DependentUpon>登录界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="科普界面new.resx">
+      <DependentUpon>科普界面new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="管理员页面.resx">
+      <DependentUpon>管理员页面.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -233,6 +324,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
@@ -242,6 +342,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -45,7 +45,7 @@ namespace Data_Visual
         }
 
         List<double> band = new List<double>();//SST列表
-        List<string> time = new List<string>();//SST列表
+        List<string> time = new List<string>();//time列表
         int section;
         public delegate void UpdateUI();//委托用于更新UI
         Thread startload;//线程用于matlab窗体处理
@@ -272,6 +272,11 @@ namespace Data_Visual
             {
                 MessageBox.Show(Err.Message);
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

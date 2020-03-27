@@ -39,5 +39,15 @@ namespace Data_Visual
         {
             label5.Visible = true;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
