@@ -74,11 +74,15 @@ namespace Data_Visual
             f_user.Owner = this;
             Hide();
             f_user.ShowDialog();
-        }
-
-        private void 用户主页_Load(object sender, EventArgs e)
+        }       private void 用户主页_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NinoShow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -49,18 +48,20 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView3 = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.AutoScrollMinSize = new System.Drawing.Size(1106, 634);
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.AutoScrollMinSize = new System.Drawing.Size(1248, 581);
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.panel5);
@@ -75,30 +76,30 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(9, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1268, 634);
+            this.panel1.Size = new System.Drawing.Size(1248, 581);
             this.panel1.TabIndex = 0;
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(99, 177);
+            this.button3.Location = new System.Drawing.Point(89, 142);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 35);
             this.button3.TabIndex = 22;
             this.button3.Text = "数据导出";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Location = new System.Drawing.Point(70, 522);
+            this.panel5.Location = new System.Drawing.Point(58, 498);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(169, 73);
             this.panel5.TabIndex = 21;
@@ -106,7 +107,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Location = new System.Drawing.Point(70, 443);
+            this.panel4.Location = new System.Drawing.Point(58, 419);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(169, 73);
             this.panel4.TabIndex = 21;
@@ -114,7 +115,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Location = new System.Drawing.Point(70, 372);
+            this.panel3.Location = new System.Drawing.Point(58, 348);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(169, 65);
             this.panel3.TabIndex = 21;
@@ -122,7 +123,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(70, 292);
+            this.panel2.Location = new System.Drawing.Point(58, 268);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(169, 73);
             this.panel2.TabIndex = 20;
@@ -133,7 +134,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("方正粗宋_GBK", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(543, 412);
+            this.label7.Location = new System.Drawing.Point(563, 412);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(211, 25);
             this.label7.TabIndex = 19;
@@ -142,28 +143,30 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(157, 134);
+            this.button2.Location = new System.Drawing.Point(147, 99);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 35);
             this.button2.TabIndex = 18;
             this.button2.Text = "嵌入";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(33, 134);
+            this.button1.Location = new System.Drawing.Point(23, 99);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 35);
             this.button1.TabIndex = 17;
             this.button1.Text = "绘图";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
@@ -173,7 +176,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(181, 97);
+            this.label3.Location = new System.Drawing.Point(171, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 18);
             this.label3.TabIndex = 16;
@@ -185,7 +188,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(181, 57);
+            this.label2.Location = new System.Drawing.Point(171, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 18);
             this.label2.TabIndex = 15;
@@ -197,7 +200,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(30, 97);
+            this.label4.Location = new System.Drawing.Point(20, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 18);
             this.label4.TabIndex = 14;
@@ -209,7 +212,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(30, 57);
+            this.label1.Location = new System.Drawing.Point(20, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 18);
             this.label1.TabIndex = 13;
@@ -221,7 +224,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("张海山锐线体简", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl1.Location = new System.Drawing.Point(282, 47);
+            this.tabControl1.Location = new System.Drawing.Point(272, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(960, 189);
@@ -289,13 +292,29 @@
             this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Data_Visual.Properties.Resources.返回;
+            this.pictureBox1.Location = new System.Drawing.Point(1224, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // NinoShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(111)))));
+            this.BackgroundImage = global::Data_Visual.Properties.Resources.bg8;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1268, 634);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NinoShow";
             this.Text = "NinoShow";
@@ -306,6 +325,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,5 +352,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

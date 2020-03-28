@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GridShow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,15 +41,17 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(111)))));
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -66,7 +67,7 @@
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1136, 599);
+            this.panel1.Size = new System.Drawing.Size(1268, 634);
             this.panel1.TabIndex = 1;
             // 
             // button3
@@ -75,7 +76,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(23, 537);
+            this.button3.Location = new System.Drawing.Point(59, 569);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 41);
             this.button3.TabIndex = 11;
@@ -89,7 +90,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(287, 537);
+            this.button2.Location = new System.Drawing.Point(323, 569);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 41);
             this.button2.TabIndex = 9;
@@ -103,7 +104,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(156, 537);
+            this.button1.Location = new System.Drawing.Point(192, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 41);
             this.button1.TabIndex = 8;
@@ -118,7 +119,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(368, 36);
+            this.label5.Location = new System.Drawing.Point(409, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 18);
             this.label5.TabIndex = 7;
@@ -130,7 +131,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(321, 36);
+            this.label6.Location = new System.Drawing.Point(362, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 18);
             this.label6.TabIndex = 6;
@@ -142,7 +143,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(207, 36);
+            this.label3.Location = new System.Drawing.Point(257, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 18);
             this.label3.TabIndex = 5;
@@ -154,7 +155,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(160, 36);
+            this.label4.Location = new System.Drawing.Point(210, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 18);
             this.label4.TabIndex = 4;
@@ -166,7 +167,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(59, 36);
+            this.label2.Location = new System.Drawing.Point(105, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.TabIndex = 3;
@@ -178,7 +179,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Location = new System.Drawing.Point(58, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 18);
             this.label1.TabIndex = 2;
@@ -189,7 +190,7 @@
             this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(23, 69);
+            this.listView1.Location = new System.Drawing.Point(59, 101);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(396, 453);
             this.listView1.TabIndex = 1;
@@ -197,9 +198,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(185)))), ((int)(((byte)(192)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(464, 36);
+            this.panel2.Location = new System.Drawing.Point(567, 58);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(660, 551);
             this.panel2.TabIndex = 0;
@@ -208,6 +209,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("方正粗宋_GBK", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(244, 251);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(211, 25);
@@ -215,12 +217,25 @@
             this.label7.Text = "Maltab资源载入中...";
             this.label7.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Data_Visual.Properties.Resources.返回;
+            this.pictureBox1.Location = new System.Drawing.Point(1223, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // GridShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(215)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(1136, 599);
+            this.BackgroundImage = global::Data_Visual.Properties.Resources.bg8;
+            this.ClientSize = new System.Drawing.Size(1268, 634);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GridShow";
@@ -231,6 +246,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,5 +266,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

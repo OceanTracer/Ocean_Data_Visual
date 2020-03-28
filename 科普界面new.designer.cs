@@ -41,9 +41,9 @@
             // skinPictureBox1
             // 
             this.skinPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.skinPictureBox1.Location = new System.Drawing.Point(39, 26);
+            this.skinPictureBox1.Location = new System.Drawing.Point(39, 50);
             this.skinPictureBox1.Name = "skinPictureBox1";
-            this.skinPictureBox1.Size = new System.Drawing.Size(503, 301);
+            this.skinPictureBox1.Size = new System.Drawing.Size(503, 288);
             this.skinPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.skinPictureBox1.TabIndex = 1;
             this.skinPictureBox1.TabStop = false;
@@ -56,18 +56,18 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.richTextBox1.Location = new System.Drawing.Point(39, 333);
+            this.richTextBox1.Location = new System.Drawing.Point(39, 344);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(503, 121);
+            this.richTextBox1.Size = new System.Drawing.Size(503, 110);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // buttonNext
             // 
             this.buttonNext.BackColor = System.Drawing.Color.Transparent;
-            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonNext.Location = new System.Drawing.Point(604, 150);
             this.buttonNext.Margin = new System.Windows.Forms.Padding(2);
@@ -81,8 +81,8 @@
             // buttonCollect
             // 
             this.buttonCollect.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCollect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCollect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonCollect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCollect.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCollect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonCollect.Location = new System.Drawing.Point(604, 236);
             this.buttonCollect.Margin = new System.Windows.Forms.Padding(2);
@@ -96,8 +96,8 @@
             // buttonQuit
             // 
             this.buttonQuit.BackColor = System.Drawing.Color.Transparent;
-            this.buttonQuit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuit.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonQuit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonQuit.Location = new System.Drawing.Point(604, 322);
             this.buttonQuit.Margin = new System.Windows.Forms.Padding(2);
@@ -111,8 +111,8 @@
             // buttonPrevious
             // 
             this.buttonPrevious.BackColor = System.Drawing.Color.Transparent;
-            this.buttonPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrevious.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonPrevious.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonPrevious.Location = new System.Drawing.Point(604, 65);
             this.buttonPrevious.Margin = new System.Windows.Forms.Padding(2);

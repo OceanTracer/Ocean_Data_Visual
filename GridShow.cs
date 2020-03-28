@@ -254,5 +254,11 @@ namespace Data_Visual
                 MessageBox.Show(Err.Message);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
     }
 }

@@ -43,7 +43,7 @@
             this.labelSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelSearch.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelSearch.Location = new System.Drawing.Point(181, 149);
+            this.labelSearch.Location = new System.Drawing.Point(162, 282);
             this.labelSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(105, 22);
@@ -58,7 +58,7 @@
             this.labelSelect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelSelect.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelSelect.Location = new System.Drawing.Point(379, 149);
+            this.labelSelect.Location = new System.Drawing.Point(396, 282);
             this.labelSelect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSelect.Name = "labelSelect";
             this.labelSelect.Size = new System.Drawing.Size(86, 22);
@@ -73,7 +73,7 @@
             this.labelUserC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelUserC.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelUserC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelUserC.Location = new System.Drawing.Point(582, 149);
+            this.labelUserC.Location = new System.Drawing.Point(602, 282);
             this.labelUserC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUserC.Name = "labelUserC";
             this.labelUserC.Size = new System.Drawing.Size(86, 22);
@@ -87,7 +87,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(323, 47);
+            this.label4.Location = new System.Drawing.Point(330, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(208, 25);
@@ -99,9 +99,9 @@
             this.ExitButton.BackColor = System.Drawing.Color.Transparent;
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ExitButton.Font = new System.Drawing.Font("张海山锐线体简", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ExitButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ExitButton.ForeColor = System.Drawing.Color.Black;
-            this.ExitButton.Location = new System.Drawing.Point(343, 365);
+            this.ExitButton.Location = new System.Drawing.Point(358, 406);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(2);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(160, 49);
@@ -123,10 +123,11 @@
             this.Controls.Add(this.labelUserC);
             this.Controls.Add(this.labelSelect);
             this.Controls.Add(this.labelSearch);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "用户主页";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "求职者主页";
             this.Load += new System.EventHandler(this.用户主页_Load);
             this.ResumeLayout(false);

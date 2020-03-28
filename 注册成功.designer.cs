@@ -48,12 +48,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(40, 186);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 36);
+            this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "注册成功！";
             // 
@@ -61,10 +61,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("黑体", 10F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(34, 246);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 34);
             this.button1.TabIndex = 8;
@@ -95,12 +95,12 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox4.ForeColor = System.Drawing.Color.White;
             this.checkBox4.Location = new System.Drawing.Point(37, 135);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(105, 28);
+            this.checkBox4.Size = new System.Drawing.Size(93, 24);
             this.checkBox4.TabIndex = 14;
             this.checkBox4.Text = "厄尔尼诺";
             this.checkBox4.UseVisualStyleBackColor = false;
@@ -109,12 +109,12 @@
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox5.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox5.ForeColor = System.Drawing.Color.White;
             this.checkBox5.Location = new System.Drawing.Point(196, 135);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox5.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(86, 28);
+            this.checkBox5.Size = new System.Drawing.Size(77, 24);
             this.checkBox5.TabIndex = 15;
             this.checkBox5.Text = "拉尼娜";
             this.checkBox5.UseVisualStyleBackColor = false;
@@ -123,12 +123,12 @@
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox6.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox6.ForeColor = System.Drawing.Color.White;
             this.checkBox6.Location = new System.Drawing.Point(367, 135);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox6.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(105, 28);
+            this.checkBox6.Size = new System.Drawing.Size(93, 24);
             this.checkBox6.TabIndex = 16;
             this.checkBox6.Text = "海表温度";
             this.checkBox6.UseVisualStyleBackColor = false;
@@ -137,12 +137,12 @@
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox7.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox7.ForeColor = System.Drawing.Color.White;
             this.checkBox7.Location = new System.Drawing.Point(37, 211);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox7.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(143, 28);
+            this.checkBox7.Size = new System.Drawing.Size(126, 24);
             this.checkBox7.TabIndex = 17;
             this.checkBox7.Text = "海洋剖面温度";
             this.checkBox7.UseVisualStyleBackColor = false;
@@ -151,12 +151,12 @@
             // 
             this.checkBox8.AutoSize = true;
             this.checkBox8.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox8.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox8.ForeColor = System.Drawing.Color.White;
             this.checkBox8.Location = new System.Drawing.Point(196, 211);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox8.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(105, 28);
+            this.checkBox8.Size = new System.Drawing.Size(92, 24);
             this.checkBox8.TabIndex = 18;
             this.checkBox8.Text = "洋流运动";
             this.checkBox8.UseVisualStyleBackColor = false;
@@ -165,12 +165,12 @@
             // 
             this.checkBox9.AutoSize = true;
             this.checkBox9.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox9.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox9.ForeColor = System.Drawing.Color.White;
             this.checkBox9.Location = new System.Drawing.Point(367, 211);
-            this.checkBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox9.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(67, 28);
+            this.checkBox9.Size = new System.Drawing.Size(61, 24);
             this.checkBox9.TabIndex = 19;
             this.checkBox9.Text = "其他";
             this.checkBox9.UseVisualStyleBackColor = false;
@@ -179,10 +179,10 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("黑体", 10F);
-            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(441, 381);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 34);
             this.button3.TabIndex = 20;
@@ -201,9 +201,9 @@
             this.groupBox1.Controls.Add(this.checkBox6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(244, 78);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(545, 267);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
@@ -222,7 +222,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "注册成功";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "注册成功";

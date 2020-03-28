@@ -121,6 +121,7 @@
             this.shapeContainer1.Size = new System.Drawing.Size(858, 478);
             this.shapeContainer1.TabIndex = 5;
             this.shapeContainer1.TabStop = false;
+            this.shapeContainer1.Load += new System.EventHandler(this.shapeContainer1_Load);
             // 
             // ovalShape1
             // 
@@ -167,7 +168,7 @@
             this.LogoutButton.Font = new System.Drawing.Font("张海山锐线体简", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LogoutButton.ForeColor = System.Drawing.Color.Transparent;
             this.LogoutButton.Location = new System.Drawing.Point(28, 394);
-            this.LogoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.Size = new System.Drawing.Size(160, 49);
             this.LogoutButton.TabIndex = 16;
@@ -200,9 +201,9 @@
             this.InfoGroupBox.Controls.Add(this.label9);
             this.InfoGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.InfoGroupBox.Location = new System.Drawing.Point(251, 108);
-            this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.InfoGroupBox.Name = "InfoGroupBox";
-            this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.InfoGroupBox.Size = new System.Drawing.Size(592, 335);
             this.InfoGroupBox.TabIndex = 22;
             this.InfoGroupBox.TabStop = false;
@@ -215,7 +216,7 @@
             this.EditButton.Font = new System.Drawing.Font("黑体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.DarkGray;
             this.EditButton.Location = new System.Drawing.Point(484, 18);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(74, 32);
             this.EditButton.TabIndex = 44;
@@ -439,9 +440,9 @@
             this.EditGroupBox.Controls.Add(this.label48);
             this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10F);
             this.EditGroupBox.Location = new System.Drawing.Point(251, 108);
-            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Name = "EditGroupBox";
-            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
             this.EditGroupBox.TabIndex = 45;
             this.EditGroupBox.TabStop = false;
@@ -449,7 +450,7 @@
             // textBoxDesc
             // 
             this.textBoxDesc.Location = new System.Drawing.Point(160, 245);
-            this.textBoxDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDesc.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(325, 66);
@@ -466,7 +467,7 @@
             "道教",
             "其他"});
             this.comboBoxReligion.Location = new System.Drawing.Point(404, 202);
-            this.comboBoxReligion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxReligion.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxReligion.Name = "comboBoxReligion";
             this.comboBoxReligion.Size = new System.Drawing.Size(82, 21);
             this.comboBoxReligion.TabIndex = 52;
@@ -485,7 +486,7 @@
             "媒体设计",
             "其他"});
             this.comboBoxMajor.Location = new System.Drawing.Point(160, 206);
-            this.comboBoxMajor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxMajor.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxMajor.Name = "comboBoxMajor";
             this.comboBoxMajor.Size = new System.Drawing.Size(82, 21);
             this.comboBoxMajor.TabIndex = 51;
@@ -497,7 +498,7 @@
             this.comboBoxSchool.Items.AddRange(new object[] {
             "北京大学"});
             this.comboBoxSchool.Location = new System.Drawing.Point(404, 163);
-            this.comboBoxSchool.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSchool.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSchool.Name = "comboBoxSchool";
             this.comboBoxSchool.Size = new System.Drawing.Size(82, 21);
             this.comboBoxSchool.TabIndex = 50;
@@ -585,7 +586,7 @@
             "博士",
             "其他"});
             this.comboBoxDegree.Location = new System.Drawing.Point(160, 163);
-            this.comboBoxDegree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxDegree.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxDegree.Name = "comboBoxDegree";
             this.comboBoxDegree.Size = new System.Drawing.Size(82, 21);
             this.comboBoxDegree.TabIndex = 49;
@@ -608,7 +609,7 @@
             "无党派人士",
             "群众"});
             this.comboBoxStatus.Location = new System.Drawing.Point(404, 120);
-            this.comboBoxStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxStatus.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(82, 21);
             this.comboBoxStatus.TabIndex = 48;
@@ -620,7 +621,7 @@
             "男",
             "女"});
             this.comboBoxSex.Location = new System.Drawing.Point(404, 78);
-            this.comboBoxSex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSex.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSex.Name = "comboBoxSex";
             this.comboBoxSex.Size = new System.Drawing.Size(82, 21);
             this.comboBoxSex.TabIndex = 47;
@@ -628,7 +629,7 @@
             // textBoxTel
             // 
             this.textBoxTel.Location = new System.Drawing.Point(160, 118);
-            this.textBoxTel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTel.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(80, 23);
             this.textBoxTel.TabIndex = 46;
@@ -636,7 +637,7 @@
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(160, 79);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(80, 23);
             this.textBoxName.TabIndex = 45;
@@ -649,7 +650,7 @@
             this.SaveButton.Font = new System.Drawing.Font("黑体", 10F);
             this.SaveButton.ForeColor = System.Drawing.Color.DarkGray;
             this.SaveButton.Location = new System.Drawing.Point(484, 18);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(74, 32);
             this.SaveButton.TabIndex = 44;
@@ -786,6 +787,7 @@
             this.MyFav.Size = new System.Drawing.Size(86, 22);
             this.MyFav.TabIndex = 23;
             this.MyFav.Text = "我的收藏";
+            this.MyFav.Click += new System.EventHandler(this.MyFav_Click);
             // 
             // RecordLabel
             // 
@@ -834,11 +836,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EditGroupBox);
             this.Controls.Add(this.shapeContainer1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "用户中心";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "用户中心";
+            this.Load += new System.EventHandler(this.用户中心_Load);
             this.InfoGroupBox.ResumeLayout(false);
             this.InfoGroupBox.PerformLayout();
             this.EditGroupBox.ResumeLayout(false);

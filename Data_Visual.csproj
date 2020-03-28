@@ -351,6 +351,18 @@
   <ItemGroup>
     <None Include="bin\x64\Debug\pic\giphy.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\bg6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\bg7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\bg8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\返回.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
