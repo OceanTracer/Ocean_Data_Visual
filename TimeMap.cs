@@ -69,7 +69,7 @@ namespace Data_Visual
 	    					return linksArray;
     					})();";
 
-            wb.EvaluateScriptAsync(script).ContinueWith(x =>
+            Task task = wb.EvaluateScriptAsync(script).ContinueWith(x =>
             {
                 var response = x.Result;
 
@@ -87,6 +87,7 @@ namespace Data_Visual
                     }
                 }
             });
+            task.Wait();
             textBox1.Text = lon_temp.ToString();
             textBox2.Text = lat_temp.ToString();
         }

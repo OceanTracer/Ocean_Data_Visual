@@ -72,7 +72,7 @@ namespace Data_Visual
 	    					return linksArray;
     					})();";
 
-            wb.EvaluateScriptAsync(script).ContinueWith(x =>
+            Task task = wb.EvaluateScriptAsync(script).ContinueWith(x =>
             {
                 var response = x.Result;
 
@@ -93,6 +93,7 @@ namespace Data_Visual
                     }
                 }
             });
+            task.Wait();
             //由于框选的起始点不同，所以无法确定
             if (lat_max - lat_min >= 1||(lat_max==0&&lat_min==0))
             {
