@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(注册界面));
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.PasswLabel2 = new System.Windows.Forms.Label();
@@ -42,8 +41,6 @@
             this.HintLabel2 = new System.Windows.Forms.Label();
             this.HintLabel3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -54,7 +51,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(84, 343);
+            this.button1.Location = new System.Drawing.Point(66, 387);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 34);
@@ -69,7 +66,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(46, 117);
+            this.label4.Location = new System.Drawing.Point(28, 152);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 20);
@@ -82,7 +79,7 @@
             this.PasswLabel2.BackColor = System.Drawing.Color.Transparent;
             this.PasswLabel2.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswLabel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PasswLabel2.Location = new System.Drawing.Point(250, 292);
+            this.PasswLabel2.Location = new System.Drawing.Point(232, 336);
             this.PasswLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PasswLabel2.Name = "PasswLabel2";
             this.PasswLabel2.Size = new System.Drawing.Size(113, 20);
@@ -95,7 +92,7 @@
             this.PasswLabel1.BackColor = System.Drawing.Color.Transparent;
             this.PasswLabel1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.PasswLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PasswLabel1.Location = new System.Drawing.Point(250, 245);
+            this.PasswLabel1.Location = new System.Drawing.Point(232, 289);
             this.PasswLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PasswLabel1.Name = "PasswLabel1";
             this.PasswLabel1.Size = new System.Drawing.Size(143, 20);
@@ -108,7 +105,7 @@
             this.EmailLabel.BackColor = System.Drawing.Color.Transparent;
             this.EmailLabel.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EmailLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.EmailLabel.Location = new System.Drawing.Point(250, 151);
+            this.EmailLabel.Location = new System.Drawing.Point(232, 195);
             this.EmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(129, 20);
@@ -118,7 +115,7 @@
             // PasswBox2
             // 
             this.PasswBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PasswBox2.Location = new System.Drawing.Point(84, 289);
+            this.PasswBox2.Location = new System.Drawing.Point(66, 333);
             this.PasswBox2.Margin = new System.Windows.Forms.Padding(2);
             this.PasswBox2.Name = "PasswBox2";
             this.PasswBox2.PasswordChar = '*';
@@ -129,7 +126,7 @@
             // PasswBox1
             // 
             this.PasswBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PasswBox1.Location = new System.Drawing.Point(84, 243);
+            this.PasswBox1.Location = new System.Drawing.Point(66, 287);
             this.PasswBox1.Margin = new System.Windows.Forms.Padding(2);
             this.PasswBox1.Name = "PasswBox1";
             this.PasswBox1.PasswordChar = '*';
@@ -140,7 +137,7 @@
             // EmailBox
             // 
             this.EmailBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EmailBox.Location = new System.Drawing.Point(84, 150);
+            this.EmailBox.Location = new System.Drawing.Point(66, 194);
             this.EmailBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(151, 24);
@@ -167,7 +164,7 @@
             this.HintLabel1.BackColor = System.Drawing.Color.Transparent;
             this.HintLabel1.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HintLabel1.ForeColor = System.Drawing.Color.Red;
-            this.HintLabel1.Location = new System.Drawing.Point(320, 171);
+            this.HintLabel1.Location = new System.Drawing.Point(302, 215);
             this.HintLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HintLabel1.Name = "HintLabel1";
             this.HintLabel1.Size = new System.Drawing.Size(0, 12);
@@ -179,7 +176,7 @@
             this.HintLabel2.BackColor = System.Drawing.Color.Transparent;
             this.HintLabel2.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HintLabel2.ForeColor = System.Drawing.Color.Red;
-            this.HintLabel2.Location = new System.Drawing.Point(85, 270);
+            this.HintLabel2.Location = new System.Drawing.Point(67, 314);
             this.HintLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HintLabel2.Name = "HintLabel2";
             this.HintLabel2.Size = new System.Drawing.Size(0, 12);
@@ -191,7 +188,7 @@
             this.HintLabel3.BackColor = System.Drawing.Color.Transparent;
             this.HintLabel3.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HintLabel3.ForeColor = System.Drawing.Color.Red;
-            this.HintLabel3.Location = new System.Drawing.Point(86, 317);
+            this.HintLabel3.Location = new System.Drawing.Point(68, 361);
             this.HintLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HintLabel3.Name = "HintLabel3";
             this.HintLabel3.Size = new System.Drawing.Size(0, 12);
@@ -203,7 +200,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(253, 343);
+            this.button2.Location = new System.Drawing.Point(235, 387);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 34);
@@ -212,35 +209,13 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(548, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(95, 16);
-            this.radioButton1.TabIndex = 27;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(665, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 16);
-            this.radioButton2.TabIndex = 28;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(250, 198);
+            this.label1.Location = new System.Drawing.Point(232, 242);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 20);
@@ -250,7 +225,7 @@
             // NameBox
             // 
             this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.NameBox.Location = new System.Drawing.Point(84, 197);
+            this.NameBox.Location = new System.Drawing.Point(66, 241);
             this.NameBox.Margin = new System.Windows.Forms.Padding(2);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(151, 24);
@@ -260,14 +235,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackgroundImage = global::Data_Visual.Properties.Resources.ocean_concept_e1552645652183;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(858, 478);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameBox);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.HintLabel3);
             this.Controls.Add(this.HintLabel2);
@@ -309,8 +283,6 @@
         private System.Windows.Forms.Label HintLabel2;
         private System.Windows.Forms.Label HintLabel3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NameBox;
     }

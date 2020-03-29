@@ -363,6 +363,12 @@
   <ItemGroup>
     <None Include="bin\x64\Debug\pic\返回.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\1920_ocean-sunset-195865.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\ocean-concept-e1552645652183.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(科普界面new));
             this.skinPictureBox1 = new CCWin.SkinControl.SkinPictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonNext = new System.Windows.Forms.Button();
@@ -50,11 +49,11 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(185)))), ((int)(((byte)(192)))));
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.CausesValidation = false;
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.richTextBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.richTextBox1.Location = new System.Drawing.Point(39, 344);
             this.richTextBox1.Name = "richTextBox1";
@@ -68,7 +67,7 @@
             this.buttonNext.BackColor = System.Drawing.Color.Transparent;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNext.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonNext.ForeColor = System.Drawing.Color.Black;
             this.buttonNext.Location = new System.Drawing.Point(604, 150);
             this.buttonNext.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNext.Name = "buttonNext";
@@ -83,7 +82,7 @@
             this.buttonCollect.BackColor = System.Drawing.Color.Transparent;
             this.buttonCollect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCollect.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonCollect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonCollect.ForeColor = System.Drawing.Color.Black;
             this.buttonCollect.Location = new System.Drawing.Point(604, 236);
             this.buttonCollect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCollect.Name = "buttonCollect";
@@ -98,7 +97,7 @@
             this.buttonQuit.BackColor = System.Drawing.Color.Transparent;
             this.buttonQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonQuit.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonQuit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonQuit.ForeColor = System.Drawing.Color.Black;
             this.buttonQuit.Location = new System.Drawing.Point(604, 322);
             this.buttonQuit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonQuit.Name = "buttonQuit";
@@ -113,7 +112,7 @@
             this.buttonPrevious.BackColor = System.Drawing.Color.Transparent;
             this.buttonPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrevious.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonPrevious.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrevious.ForeColor = System.Drawing.Color.Black;
             this.buttonPrevious.Location = new System.Drawing.Point(604, 65);
             this.buttonPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPrevious.Name = "buttonPrevious";
@@ -127,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
             this.ClientSize = new System.Drawing.Size(858, 478);
             this.ControlBox = false;
             this.Controls.Add(this.buttonPrevious);

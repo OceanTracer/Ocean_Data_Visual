@@ -63,6 +63,16 @@ namespace Data_Visual.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _1920_ocean_sunset_195865 {
+            get {
+                object obj = ResourceManager.GetObject("1920_ocean-sunset-195865", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap bg6 {
             get {
                 object obj = ResourceManager.GetObject("bg6", resourceCulture);
@@ -96,6 +106,16 @@ namespace Data_Visual.Properties {
         internal static System.Drawing.Bitmap giphy {
             get {
                 object obj = ResourceManager.GetObject("giphy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ocean_concept_e1552645652183 {
+            get {
+                object obj = ResourceManager.GetObject("ocean-concept-e1552645652183", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

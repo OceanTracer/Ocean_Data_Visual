@@ -20,7 +20,7 @@ namespace Data_Visual
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection(@"Database=OT_user;Data Source=.;Integrated Security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
         public static string user_email = "";
         private void button1_Click(object sender, EventArgs e)
         {
@@ -54,12 +54,13 @@ namespace Data_Visual
                 //Hide();
                 if ( EmailBox.Text.Trim() != "" && NameBox.Text.Trim() != "" && PasswBox1.Text.Trim() != "" && PasswBox2.Text.Trim() !="")
                 {
-                    string mycmd = "insert into user_info  VALUES('" + email + "','" + password + "','" + username + "')";
+                    string mycmd = "insert into user_info  VALUES('" + email + "','" + password + "','" + username + "',null,1)";
                     SqlCommand sqlCommand = new SqlCommand(mycmd, myconn);
                     Console.WriteLine(mycmd);
 
                     myconn.Open();
                     {
+                        
                         sqlCommand.ExecuteNonQuery();
                     }
                     myconn.Close();

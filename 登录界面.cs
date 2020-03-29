@@ -19,7 +19,7 @@ namespace Data_Visual
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection("database=InternJi;data source=DESKTOP-E8FREVT\\VACE;integrated security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
         private void label6_Click(object sender, EventArgs e)
@@ -29,16 +29,15 @@ namespace Data_Visual
         }
         public static int ID = 0, type = 0;
         //登录
-        public int login(String email, String password, ref int ID, ref int type)
+        public int login(string email, string password, ref int type)
         {
-            mysql = "select ID, user_type, user_password from userinfo where user_mail='" + email + "'";
+            mysql = "select upsword,u_status from user_info where umail='" + email + "'";
             SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
             myadapter.Fill(mydataset, "_email");
             try
             {
-                ID = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][0]);
                 type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);
-                String pass = Convert.ToString(mydataset.Tables["_email"].Rows[0][2]);
+                string pass = Convert.ToString(mydataset.Tables["_email"].Rows[0][0]);
                 if (password == pass)
                     return 1;
                 else
@@ -73,7 +72,7 @@ namespace Data_Visual
             {
                 string a = textBox1.Text;
                 string b = textBox2.Text;
-                int c = login(a, b, ref ID, ref type);
+                int c = login(a, b,ref type);
                 if (c == 0)
                     MessageBox.Show("用户名或密码错误！请重试。","登录错误");
                 else
@@ -90,12 +89,6 @@ namespace Data_Visual
                         用户主页 f_see = new 用户主页();
                         f_see.Owner = this.Owner;
                         f_see.ShowDialog();
-                    }
-                    if (type == 2)
-                    {
-                        管理员页面 f_cmp = new 管理员页面();
-                        f_cmp.Owner = this.Owner;
-                        f_cmp.ShowDialog();
                     }
                 }
             }

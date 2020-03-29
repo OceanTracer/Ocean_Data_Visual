@@ -48,5 +48,13 @@ namespace Data_Visual
             Hide();
             form.ShowDialog();
         }
+
+        private void Option_Load(object sender, EventArgs e)
+        {
+            if (登录界面.type == 1)
+                button4.Visible = false;
+            if (登录界面.type == 0)
+                button4.Visible = true;
+        }
     }
 }
