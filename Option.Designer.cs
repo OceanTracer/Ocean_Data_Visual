@@ -95,6 +95,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Data_Visual.Properties.Resources.返回;
             this.pictureBox1.Location = new System.Drawing.Point(813, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -118,6 +119,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Option";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Option_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

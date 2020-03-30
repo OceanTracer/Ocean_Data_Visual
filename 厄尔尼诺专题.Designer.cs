@@ -29,136 +29,88 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(厄尔尼诺专题));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.rtfRichTextBox2 = new CCWin.SkinControl.RtfRichTextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.rtfRichTextBox3 = new CCWin.SkinControl.RtfRichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.rtfRichTextBox6 = new CCWin.SkinControl.RtfRichTextBox();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.rtfRichTextBox7 = new CCWin.SkinControl.RtfRichTextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.rtfRichTextBox2 = new CCWin.SkinControl.RtfRichTextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rtfRichTextBox3 = new CCWin.SkinControl.RtfRichTextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.rtfRichTextBox6 = new CCWin.SkinControl.RtfRichTextBox();
-            this.rtfRichTextBox7 = new CCWin.SkinControl.RtfRichTextBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.定义 = new System.Windows.Forms.Label();
+            this.成因 = new System.Windows.Forms.Label();
+            this.表现 = new System.Windows.Forms.Label();
+            this.影响 = new System.Windows.Forms.Label();
+            this.实例 = new System.Windows.Forms.Label();
+            this.Nino数据查询 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage15.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage18.SuspendLayout();
-            this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(62, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "定义";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(62, 158);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "成因";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(62, 217);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "表现";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(62, 277);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "影响";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(62, 340);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "实例";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox1
             // 
@@ -168,73 +120,6 @@
             this.groupBox1.Size = new System.Drawing.Size(649, 404);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F);
-            this.tabControl1.Location = new System.Drawing.Point(165, 11);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(669, 436);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(661, 403);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(661, 403);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(661, 403);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.groupBox4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(661, 403);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.groupBox5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(661, 403);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
@@ -263,6 +148,38 @@
             this.tabPage6.Text = "名字由来";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox1.Location = new System.Drawing.Point(326, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(313, 323);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 190);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(319, 186);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(293, 170);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.rtfRichTextBox2);
@@ -275,6 +192,30 @@
             this.tabPage7.Text = "定义标准";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // rtfRichTextBox2
+            // 
+            this.rtfRichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtfRichTextBox2.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtfRichTextBox2.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
+            this.rtfRichTextBox2.Location = new System.Drawing.Point(21, 16);
+            this.rtfRichTextBox2.Name = "rtfRichTextBox2";
+            this.rtfRichTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtfRichTextBox2.Size = new System.Drawing.Size(604, 196);
+            this.rtfRichTextBox2.TabIndex = 7;
+            this.rtfRichTextBox2.Text = resources.GetString("rtfRichTextBox2.Text");
+            this.rtfRichTextBox2.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Location = new System.Drawing.Point(87, 218);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(468, 137);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 6;
+            this.pictureBox7.TabStop = false;
+            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.rtfRichTextBox3);
@@ -286,6 +227,78 @@
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "周期";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // rtfRichTextBox3
+            // 
+            this.rtfRichTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtfRichTextBox3.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtfRichTextBox3.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
+            this.rtfRichTextBox3.Location = new System.Drawing.Point(34, 56);
+            this.rtfRichTextBox3.Name = "rtfRichTextBox3";
+            this.rtfRichTextBox3.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtfRichTextBox3.Size = new System.Drawing.Size(581, 82);
+            this.rtfRichTextBox3.TabIndex = 7;
+            this.rtfRichTextBox3.Text = "    厄尔尼诺现象大约每2年～7年发生一次,但也有时间间隔达10年以上的。\n    基本上,如果现象持续期少于五个月,会称为厄尔尼诺情况(condition);" +
+    "如果持续期是五个月或以上,便会称为厄尔尼诺事件(episode)。\n";
+            this.rtfRichTextBox3.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(148, 297);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(344, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "红色线条表示ENSO暖时间，蓝色线条表示ENSO冷事件";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(34, 157);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(581, 157);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F);
+            this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
+            this.tabControl1.Location = new System.Drawing.Point(160, 53);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(669, 403);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 5);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(661, 394);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 5);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(661, 394);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -319,6 +332,46 @@
             this.tabPage9.Text = "成因";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // richTextBox4
+            // 
+            this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox4.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox4.Location = new System.Drawing.Point(323, 6);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(316, 362);
+            this.richTextBox4.TabIndex = 2;
+            this.richTextBox4.Text = resources.GetString("richTextBox4.Text");
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(18, 195);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(290, 176);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(18, 9);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(290, 178);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 5);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(661, 394);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tabControl4);
@@ -350,6 +403,36 @@
             this.tabPage12.Text = "表现";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox3.Location = new System.Drawing.Point(335, 6);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(304, 353);
+            this.richTextBox3.TabIndex = 1;
+            this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(22, 54);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(298, 273);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 5);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(661, 394);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tabControl5);
@@ -380,6 +463,64 @@
             this.tabPage15.Text = "对中国影响";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
+            // rtfRichTextBox6
+            // 
+            this.rtfRichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtfRichTextBox6.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtfRichTextBox6.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
+            this.rtfRichTextBox6.Location = new System.Drawing.Point(35, 59);
+            this.rtfRichTextBox6.Name = "rtfRichTextBox6";
+            this.rtfRichTextBox6.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtfRichTextBox6.Size = new System.Drawing.Size(581, 289);
+            this.rtfRichTextBox6.TabIndex = 1;
+            this.rtfRichTextBox6.Text = resources.GetString("rtfRichTextBox6.Text");
+            this.rtfRichTextBox6.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.pictureBox8);
+            this.tabPage10.Controls.Add(this.rtfRichTextBox7);
+            this.tabPage10.Location = new System.Drawing.Point(4, 26);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(651, 375);
+            this.tabPage10.TabIndex = 1;
+            this.tabPage10.Text = "对全球影响";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(103, 119);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(429, 241);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 5;
+            this.pictureBox8.TabStop = false;
+            // 
+            // rtfRichTextBox7
+            // 
+            this.rtfRichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtfRichTextBox7.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtfRichTextBox7.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
+            this.rtfRichTextBox7.Location = new System.Drawing.Point(29, 32);
+            this.rtfRichTextBox7.Name = "rtfRichTextBox7";
+            this.rtfRichTextBox7.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtfRichTextBox7.Size = new System.Drawing.Size(581, 81);
+            this.rtfRichTextBox7.TabIndex = 1;
+            this.rtfRichTextBox7.Text = "    厄尔尼诺事件导致全球降水量比正常年份明显增多。这导致太平洋中东部及南美太平洋沿岸国家洪涝灾害频繁，同时印度、印度尼西亚、澳大利亚一带则严重干旱，世界多种农" +
+    "作物将受影响。";
+            this.rtfRichTextBox7.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.groupBox5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 5);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(661, 394);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.tabControl6);
@@ -409,194 +550,6 @@
             this.tabPage18.Text = "实例";
             this.tabPage18.UseVisualStyleBackColor = true;
             // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.pictureBox8);
-            this.tabPage10.Controls.Add(this.rtfRichTextBox7);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(651, 379);
-            this.tabPage10.TabIndex = 1;
-            this.tabPage10.Text = "对全球影响";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(293, 170);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 190);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(319, 186);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox1.Location = new System.Drawing.Point(326, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(313, 323);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(87, 218);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(468, 137);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 6;
-            this.pictureBox7.TabStop = false;
-            // 
-            // rtfRichTextBox2
-            // 
-            this.rtfRichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtfRichTextBox2.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rtfRichTextBox2.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
-            this.rtfRichTextBox2.Location = new System.Drawing.Point(21, 16);
-            this.rtfRichTextBox2.Name = "rtfRichTextBox2";
-            this.rtfRichTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtfRichTextBox2.Size = new System.Drawing.Size(604, 196);
-            this.rtfRichTextBox2.TabIndex = 7;
-            this.rtfRichTextBox2.Text = resources.GetString("rtfRichTextBox2.Text");
-            this.rtfRichTextBox2.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(34, 157);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(581, 157);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(148, 297);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "红色线条表示ENSO暖时间，蓝色线条表示ENSO冷事件";
-            // 
-            // rtfRichTextBox3
-            // 
-            this.rtfRichTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtfRichTextBox3.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rtfRichTextBox3.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
-            this.rtfRichTextBox3.Location = new System.Drawing.Point(34, 56);
-            this.rtfRichTextBox3.Name = "rtfRichTextBox3";
-            this.rtfRichTextBox3.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtfRichTextBox3.Size = new System.Drawing.Size(581, 82);
-            this.rtfRichTextBox3.TabIndex = 7;
-            this.rtfRichTextBox3.Text = "    厄尔尼诺现象大约每2年～7年发生一次,但也有时间间隔达10年以上的。\n    基本上,如果现象持续期少于五个月,会称为厄尔尼诺情况(condition);" +
-    "如果持续期是五个月或以上,便会称为厄尔尼诺事件(episode)。\n";
-            this.rtfRichTextBox3.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(18, 9);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(290, 178);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(18, 195);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(290, 176);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // richTextBox4
-            // 
-            this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox4.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox4.Location = new System.Drawing.Point(323, 6);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(316, 362);
-            this.richTextBox4.TabIndex = 2;
-            this.richTextBox4.Text = resources.GetString("richTextBox4.Text");
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(22, 54);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(298, 273);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox3.Location = new System.Drawing.Point(335, 6);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(304, 353);
-            this.richTextBox3.TabIndex = 1;
-            this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
-            // 
-            // rtfRichTextBox6
-            // 
-            this.rtfRichTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtfRichTextBox6.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rtfRichTextBox6.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
-            this.rtfRichTextBox6.Location = new System.Drawing.Point(35, 59);
-            this.rtfRichTextBox6.Name = "rtfRichTextBox6";
-            this.rtfRichTextBox6.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtfRichTextBox6.Size = new System.Drawing.Size(581, 289);
-            this.rtfRichTextBox6.TabIndex = 1;
-            this.rtfRichTextBox6.Text = resources.GetString("rtfRichTextBox6.Text");
-            this.rtfRichTextBox6.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
-            // 
-            // rtfRichTextBox7
-            // 
-            this.rtfRichTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtfRichTextBox7.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rtfRichTextBox7.HiglightColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.White;
-            this.rtfRichTextBox7.Location = new System.Drawing.Point(29, 32);
-            this.rtfRichTextBox7.Name = "rtfRichTextBox7";
-            this.rtfRichTextBox7.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtfRichTextBox7.Size = new System.Drawing.Size(581, 81);
-            this.rtfRichTextBox7.TabIndex = 1;
-            this.rtfRichTextBox7.Text = "    厄尔尼诺事件导致全球降水量比正常年份明显增多。这导致太平洋中东部及南美太平洋沿岸国家洪涝灾害频繁，同时印度、印度尼西亚、澳大利亚一带则严重干旱，世界多种农" +
-    "作物将受影响。";
-            this.rtfRichTextBox7.TextColor = CCWin.SkinControl.RtfRichTextBox.RtfColor.Black;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(103, 119);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(429, 241);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 5;
-            this.pictureBox8.TabStop = false;
-            // 
             // richTextBox2
             // 
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -607,75 +560,166 @@
             this.richTextBox2.TabIndex = 0;
             this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
             // 
-            // button6
+            // 定义
             // 
-            this.button6.Location = new System.Drawing.Point(815, 13);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "返回";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.定义.AutoSize = true;
+            this.定义.BackColor = System.Drawing.Color.Transparent;
+            this.定义.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.定义.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.定义.ForeColor = System.Drawing.Color.Black;
+            this.定义.Location = new System.Drawing.Point(85, 78);
+            this.定义.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.定义.Name = "定义";
+            this.定义.Size = new System.Drawing.Size(48, 22);
+            this.定义.TabIndex = 3;
+            this.定义.Text = "定义";
+            this.定义.Click += new System.EventHandler(this.定义_Click);
+            // 
+            // 成因
+            // 
+            this.成因.AutoSize = true;
+            this.成因.BackColor = System.Drawing.Color.Transparent;
+            this.成因.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.成因.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.成因.ForeColor = System.Drawing.Color.Black;
+            this.成因.Location = new System.Drawing.Point(85, 132);
+            this.成因.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.成因.Name = "成因";
+            this.成因.Size = new System.Drawing.Size(48, 22);
+            this.成因.TabIndex = 4;
+            this.成因.Text = "成因";
+            this.成因.Click += new System.EventHandler(this.成因_Click);
+            // 
+            // 表现
+            // 
+            this.表现.AutoSize = true;
+            this.表现.BackColor = System.Drawing.Color.Transparent;
+            this.表现.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.表现.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.表现.ForeColor = System.Drawing.Color.Black;
+            this.表现.Location = new System.Drawing.Point(85, 187);
+            this.表现.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.表现.Name = "表现";
+            this.表现.Size = new System.Drawing.Size(48, 22);
+            this.表现.TabIndex = 5;
+            this.表现.Text = "表现";
+            this.表现.Click += new System.EventHandler(this.表现_Click);
+            // 
+            // 影响
+            // 
+            this.影响.AutoSize = true;
+            this.影响.BackColor = System.Drawing.Color.Transparent;
+            this.影响.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.影响.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.影响.ForeColor = System.Drawing.Color.Black;
+            this.影响.Location = new System.Drawing.Point(85, 240);
+            this.影响.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.影响.Name = "影响";
+            this.影响.Size = new System.Drawing.Size(48, 22);
+            this.影响.TabIndex = 6;
+            this.影响.Text = "影响";
+            this.影响.Click += new System.EventHandler(this.影响_Click);
+            // 
+            // 实例
+            // 
+            this.实例.AutoSize = true;
+            this.实例.BackColor = System.Drawing.Color.Transparent;
+            this.实例.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.实例.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.实例.ForeColor = System.Drawing.Color.Black;
+            this.实例.Location = new System.Drawing.Point(85, 294);
+            this.实例.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.实例.Name = "实例";
+            this.实例.Size = new System.Drawing.Size(48, 22);
+            this.实例.TabIndex = 7;
+            this.实例.Text = "实例";
+            this.实例.Click += new System.EventHandler(this.实例_Click);
+            // 
+            // Nino数据查询
+            // 
+            this.Nino数据查询.AutoSize = true;
+            this.Nino数据查询.BackColor = System.Drawing.Color.Transparent;
+            this.Nino数据查询.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Nino数据查询.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Nino数据查询.ForeColor = System.Drawing.Color.Black;
+            this.Nino数据查询.Location = new System.Drawing.Point(29, 346);
+            this.Nino数据查询.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Nino数据查询.Name = "Nino数据查询";
+            this.Nino数据查询.Size = new System.Drawing.Size(126, 22);
+            this.Nino数据查询.TabIndex = 8;
+            this.Nino数据查询.Text = "Nino数据查询";
+            this.Nino数据查询.Click += new System.EventHandler(this.Nino数据查询_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Image = global::Data_Visual.Properties.Resources.返回;
+            this.pictureBox9.Location = new System.Drawing.Point(813, 3);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(33, 31);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 19;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // 厄尔尼诺专题
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 476);
-            this.Controls.Add(this.button6);
+            this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
+            this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.Nino数据查询);
+            this.Controls.Add(this.实例);
+            this.Controls.Add(this.影响);
+            this.Controls.Add(this.表现);
+            this.Controls.Add(this.成因);
+            this.Controls.Add(this.定义);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "厄尔尼诺专题";
-            this.Text = "厄尔尼诺专题";
+            this.Text = "ppppppppppppppppppppppppppppppppll";
             this.Load += new System.EventHandler(this.厄尔尼诺专题_Load);
             this.groupBox1.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -717,6 +761,12 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private CCWin.SkinControl.RtfRichTextBox rtfRichTextBox7;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label 定义;
+        private System.Windows.Forms.Label 成因;
+        private System.Windows.Forms.Label 表现;
+        private System.Windows.Forms.Label 影响;
+        private System.Windows.Forms.Label 实例;
+        private System.Windows.Forms.Label Nino数据查询;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }

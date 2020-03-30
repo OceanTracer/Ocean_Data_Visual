@@ -72,5 +72,13 @@ namespace Data_Visual
             Close();
             Owner.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            厄尔尼诺专题 form = new 厄尔尼诺专题();
+            form.Owner = this;
+            Hide();
+            form.ShowDialog();
+        }
     }
 }

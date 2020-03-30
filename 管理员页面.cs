@@ -36,10 +36,10 @@ namespace Data_Visual
 
         private void label2_Click(object sender, EventArgs e)
         {
-          /*   Hide();
-            简历筛选 f2=new 简历筛选();
+            Hide();
+            Option f2 = new Option();
             f2.Owner = this;
-            f2.ShowDialog();*/
+            f2.ShowDialog();
         }
 
         private void label3_Click(object sender, EventArgs e)

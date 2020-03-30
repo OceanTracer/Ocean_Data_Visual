@@ -62,7 +62,7 @@ namespace Data_Visual
 
         private void labelSelect_Click(object sender, EventArgs e)
         {
-            科普界面_选择 f1 = new 科普界面_选择();
+            科普界面new f1 = new 科普界面new();
             f1.Owner = this;
             Hide();
             f1.ShowDialog();

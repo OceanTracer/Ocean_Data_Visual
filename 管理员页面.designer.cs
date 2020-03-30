@@ -61,9 +61,9 @@
             this.label2.Location = new System.Drawing.Point(49, 258);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 22);
+            this.label2.Size = new System.Drawing.Size(86, 22);
             this.label2.TabIndex = 9;
-            this.label2.Text = "简历筛选";
+            this.label2.Text = "数据操作";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
@@ -136,7 +136,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "管理员页面";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "公司";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

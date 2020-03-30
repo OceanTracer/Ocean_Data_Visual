@@ -19,35 +19,43 @@ namespace Data_Visual
 
         private void 厄尔尼诺专题_Load(object sender, EventArgs e)
         {
-
+            this.tabControl1.SelectedTab = this.tabPage1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void 定义_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage1;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void 成因_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage2;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void 表现_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage3;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void 影响_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage4;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void 实例_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage5;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Nino数据查询_Click(object sender, EventArgs e)
+        {
+            NinoMap form = new NinoMap();
+            form.Owner = this;
+            Hide();
+            form.ShowDialog();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
         {
             Close();
             Owner.Show();

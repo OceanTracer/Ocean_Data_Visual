@@ -295,6 +295,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Data_Visual.Properties.Resources.返回;
             this.pictureBox1.Location = new System.Drawing.Point(1224, 6);
             this.pictureBox1.Name = "pictureBox1";
@@ -317,6 +318,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NinoShow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NinoShow";
             this.Load += new System.EventHandler(this.NinoShow_Load);
             this.panel1.ResumeLayout(false);

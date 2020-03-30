@@ -34,6 +34,7 @@
             this.buttonCollect = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.skinPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,8 +65,8 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.BackColor = System.Drawing.Color.Transparent;
-            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.BackColor = System.Drawing.Color.White;
+            this.buttonNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonNext.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonNext.ForeColor = System.Drawing.Color.Black;
             this.buttonNext.Location = new System.Drawing.Point(604, 150);
@@ -79,8 +80,8 @@
             // 
             // buttonCollect
             // 
-            this.buttonCollect.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCollect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCollect.BackColor = System.Drawing.Color.White;
+            this.buttonCollect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCollect.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCollect.ForeColor = System.Drawing.Color.Black;
             this.buttonCollect.Location = new System.Drawing.Point(604, 236);
@@ -94,11 +95,11 @@
             // 
             // buttonQuit
             // 
-            this.buttonQuit.BackColor = System.Drawing.Color.Transparent;
-            this.buttonQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuit.BackColor = System.Drawing.Color.White;
+            this.buttonQuit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonQuit.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonQuit.ForeColor = System.Drawing.Color.Black;
-            this.buttonQuit.Location = new System.Drawing.Point(604, 322);
+            this.buttonQuit.Location = new System.Drawing.Point(604, 396);
             this.buttonQuit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(149, 34);
@@ -109,8 +110,8 @@
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.BackColor = System.Drawing.Color.Transparent;
-            this.buttonPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrevious.BackColor = System.Drawing.Color.White;
+            this.buttonPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPrevious.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonPrevious.ForeColor = System.Drawing.Color.Black;
             this.buttonPrevious.Location = new System.Drawing.Point(604, 65);
@@ -122,6 +123,21 @@
             this.buttonPrevious.UseVisualStyleBackColor = false;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(604, 318);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(149, 34);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "厄尔尼诺专题介绍";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // 科普界面new
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -129,6 +145,7 @@
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
             this.ClientSize = new System.Drawing.Size(858, 478);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonPrevious);
             this.Controls.Add(this.buttonQuit);
             this.Controls.Add(this.buttonCollect);
@@ -139,7 +156,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "科普界面new";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "科普界面new";
             this.Load += new System.EventHandler(this.科普界面new_Load);
             ((System.ComponentModel.ISupportInitialize)(this.skinPictureBox1)).EndInit();
@@ -155,5 +172,6 @@
         private System.Windows.Forms.Button buttonCollect;
         private System.Windows.Forms.Button buttonQuit;
         private System.Windows.Forms.Button buttonPrevious;
+        private System.Windows.Forms.Button button1;
     }
 }
