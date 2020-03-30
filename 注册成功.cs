@@ -19,7 +19,7 @@ namespace Data_Visual
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection("database=InternJi;data source=LAPTOP-KBCJUDIO;integrated security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=.; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         public static string intent;
         DataSet mydataset = new DataSet();
@@ -42,7 +42,7 @@ namespace Data_Visual
                         intent += r.Text + ",";
                 }
             }
-            mysql = "update seeker set seeker_desire='" + intent + "' where seeker_ID=(select ID from userinfo where user_mail='" + 注册界面.user_email + "')";
+            mysql = "update user_info set desire='" + intent + "' where umail='" + 注册界面.user_email + "'";
             SqlCommand mycmd = new SqlCommand(mysql, myconn);
             myconn.Open();
             {

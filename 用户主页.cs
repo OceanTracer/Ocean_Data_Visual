@@ -62,7 +62,7 @@ namespace Data_Visual
 
         private void labelSelect_Click(object sender, EventArgs e)
         {
-            科普界面new f1 = new 科普界面new();
+            科普界面_选择 f1 = new 科普界面_选择();
             f1.Owner = this;
             Hide();
             f1.ShowDialog();
@@ -74,11 +74,15 @@ namespace Data_Visual
             f_user.Owner = this;
             Hide();
             f_user.ShowDialog();
-        }
-
-        private void 用户主页_Load(object sender, EventArgs e)
+        }       private void 用户主页_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }

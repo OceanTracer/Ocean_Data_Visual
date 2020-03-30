@@ -40,5 +40,21 @@ namespace Data_Visual
             DataProcess form = new DataProcess();
             form.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            用户主页 form = new 用户主页();
+            form.Owner = this;
+            Hide();
+            form.ShowDialog();
+        }
+
+        private void Option_Load(object sender, EventArgs e)
+        {
+            if (登录界面.type == 1)
+                button4.Visible = false;
+            if (登录界面.type == 0)
+                button4.Visible = true;
+        }
     }
 }

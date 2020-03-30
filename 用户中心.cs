@@ -111,5 +111,20 @@ namespace Data_Visual
             RecordGroupBox.Hide();
             EditGroupBox.Show();*/
         }
+
+        private void shapeContainer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 用户中心_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MyFav_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
