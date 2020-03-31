@@ -53,8 +53,9 @@ namespace Data_Visual
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose();
+            Close();
+            Owner.Show();
+            
         }
 
         private void NinoMap_Load(object sender, EventArgs e)

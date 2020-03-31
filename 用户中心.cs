@@ -19,31 +19,26 @@ namespace Data_Visual
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
-            fill_info(登录界面.ID);
+            fill_info(登录界面.mail);
             InfoGroupBox.BringToFront();
         }
-        SqlConnection myconn = new SqlConnection("database=InternJi;data source=LAPTOP-KBCJUDIO;integrated security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
 
-        private void fill_info(int ID)
+        private void fill_info(string mail)
         {
             try
             {
-                mysql = "select seeker_name,seeker_sex,seeker_tel,seeker_status,seeker_degree,seeker_school,seeker_major,seeker_religion,seeker_describe from seeker where seeker_ID=" + ID;
+                mysql = "select uname, sex, desire, describe from user_info where umail='" + mail+ "'";
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
                 myadapter.Fill(mydataset, "info");
                 labelUname.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][0]);
-                labelName.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][0]);
                 labelSex.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][1]);
-                labelTel.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][2]);
-                labelStatus.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][3]);
-                labelDegree.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][4]);
-                labelSchool.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][5]);
-                labelMajor.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][6]);
-                labelReligion.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][7]);
-                labelDesc.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][8]);
+                labelDesire.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][2]);
+                labelDesc.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][3]);
+                labelMail.Text = mail;
             }
             catch (Exception)
             {
@@ -53,31 +48,11 @@ namespace Data_Visual
         }
 
 
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            mysql = "update seeker set seeker_name='" + textBoxName.Text + "' , seeker_sex='" + comboBoxSex.SelectedItem + "' , seeker_tel='" + textBoxTel.Text + "' , seeker_status='" + comboBoxStatus.SelectedItem + "' , seeker_degree='" + comboBoxDegree.SelectedItem + "' , seeker_school='" + comboBoxSchool.SelectedItem + "' , seeker_major='" + comboBoxMajor.SelectedItem + "', seeker_religion='" + comboBoxReligion.SelectedItem + "', seeker_describe='" + textBoxDesc.Text + "' where seeker_ID=" + 登录界面.ID;
-            SqlCommand mycmd = new SqlCommand(mysql, myconn);
-            myconn.Open();
-            try
-            {
-                mycmd.ExecuteNonQuery();
-                MessageBox.Show("修改成功！", "提示");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            myconn.Close();
-            fill_info(登录界面.ID);
-           
-            /*EditGroupBox.Hide();
-            InfoGroupBox.Show();*/
-            InfoGroupBox.BringToFront();
-        }
+
 
         private void InfoLabel_Click(object sender, EventArgs e)
         {
-            fill_info(登录界面.ID);
+            fill_info(登录界面.mail);
             InfoGroupBox.BringToFront();
             /*InfoGroupBox.Show();
             RecordGroupBox.Hide();
@@ -119,12 +94,13 @@ namespace Data_Visual
 
         private void 用户中心_Load(object sender, EventArgs e)
         {
-
+            fill_info(登录界面.mail);
+            textBoxMail.Text = 登录界面.mail;
         }
 
         private void MyFav_Click(object sender, EventArgs e)
         {
-            if (account.acc == "")
+            if (登录界面.mail == "")
                 MessageBox.Show("未登录！");
             else
             {
@@ -133,6 +109,38 @@ namespace Data_Visual
                 Hide();
                 f1.ShowDialog();
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+                mysql = "update user_info set sex='" + textBoxSex.Text + "' , desire='" + textBoxDesire.Text + "' , describe='" + textBoxDescribe.Text + "' where umail='" + 登录界面.mail+"'";
+                SqlCommand mycmd = new SqlCommand(mysql, myconn);
+                myconn.Open();
+                try
+                {
+                    mycmd.ExecuteNonQuery();
+                    MessageBox.Show("修改成功！", "提示");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                myconn.Close();
+                fill_info(登录界面.mail);
+
+                /*EditGroupBox.Hide();
+                InfoGroupBox.Show();*/
+                InfoGroupBox.BringToFront();
         }
     }
 }

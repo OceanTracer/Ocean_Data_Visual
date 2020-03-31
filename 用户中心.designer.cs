@@ -52,46 +52,26 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.EditGroupBox = new System.Windows.Forms.GroupBox();
             this.InfoGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBoxDesc = new System.Windows.Forms.TextBox();
+            this.labelMail = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
             this.labelDesc = new System.Windows.Forms.Label();
-            this.labelReligion = new System.Windows.Forms.Label();
-            this.labelMajor = new System.Windows.Forms.Label();
-            this.labelSchool = new System.Windows.Forms.Label();
-            this.labelDegree = new System.Windows.Forms.Label();
-            this.labelStatus = new System.Windows.Forms.Label();
-            this.labelTel = new System.Windows.Forms.Label();
             this.labelSex = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
+            this.labelDesire = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBoxReligion = new System.Windows.Forms.ComboBox();
-            this.comboBoxMajor = new System.Windows.Forms.ComboBox();
-            this.comboBoxSchool = new System.Windows.Forms.ComboBox();
-            this.comboBoxDegree = new System.Windows.Forms.ComboBox();
-            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
-            this.comboBoxSex = new System.Windows.Forms.ComboBox();
-            this.textBoxTel = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxDesire = new System.Windows.Forms.TextBox();
+            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.textBoxSex = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxDescribe = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.EditGroupBox.SuspendLayout();
@@ -309,6 +289,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.InfoGroupBox);
             this.panel1.Controls.Add(this.EditGroupBox);
             this.panel1.Location = new System.Drawing.Point(215, 102);
             this.panel1.Name = "panel1";
@@ -318,61 +299,40 @@
             // EditGroupBox
             // 
             this.EditGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.EditGroupBox.Controls.Add(this.InfoGroupBox);
-            this.EditGroupBox.Controls.Add(this.comboBoxReligion);
-            this.EditGroupBox.Controls.Add(this.comboBoxMajor);
-            this.EditGroupBox.Controls.Add(this.comboBoxSchool);
-            this.EditGroupBox.Controls.Add(this.comboBoxDegree);
-            this.EditGroupBox.Controls.Add(this.comboBoxStatus);
-            this.EditGroupBox.Controls.Add(this.comboBoxSex);
-            this.EditGroupBox.Controls.Add(this.textBoxTel);
-            this.EditGroupBox.Controls.Add(this.textBoxName);
+            this.EditGroupBox.Controls.Add(this.textBoxDesire);
+            this.EditGroupBox.Controls.Add(this.textBoxMail);
+            this.EditGroupBox.Controls.Add(this.textBoxSex);
+            this.EditGroupBox.Controls.Add(this.label5);
+            this.EditGroupBox.Controls.Add(this.textBoxDescribe);
             this.EditGroupBox.Controls.Add(this.SaveButton);
-            this.EditGroupBox.Controls.Add(this.label38);
-            this.EditGroupBox.Controls.Add(this.label39);
-            this.EditGroupBox.Controls.Add(this.label40);
-            this.EditGroupBox.Controls.Add(this.label41);
-            this.EditGroupBox.Controls.Add(this.label42);
-            this.EditGroupBox.Controls.Add(this.label43);
-            this.EditGroupBox.Controls.Add(this.label44);
-            this.EditGroupBox.Controls.Add(this.label45);
-            this.EditGroupBox.Controls.Add(this.label46);
-            this.EditGroupBox.Controls.Add(this.label48);
-            this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10F);
-            this.EditGroupBox.Location = new System.Drawing.Point(17, 8);
+            this.EditGroupBox.Controls.Add(this.label11);
+            this.EditGroupBox.Controls.Add(this.label12);
+            this.EditGroupBox.Controls.Add(this.label13);
+            this.EditGroupBox.Controls.Add(this.label14);
+            this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EditGroupBox.Location = new System.Drawing.Point(16, 15);
             this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Name = "EditGroupBox";
             this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
-            this.EditGroupBox.TabIndex = 45;
+            this.EditGroupBox.TabIndex = 57;
             this.EditGroupBox.TabStop = false;
             // 
             // InfoGroupBox
             // 
             this.InfoGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.InfoGroupBox.Controls.Add(this.textBoxDesc);
+            this.InfoGroupBox.Controls.Add(this.labelMail);
+            this.InfoGroupBox.Controls.Add(this.label4);
             this.InfoGroupBox.Controls.Add(this.EditButton);
             this.InfoGroupBox.Controls.Add(this.labelDesc);
-            this.InfoGroupBox.Controls.Add(this.labelReligion);
-            this.InfoGroupBox.Controls.Add(this.labelMajor);
-            this.InfoGroupBox.Controls.Add(this.labelSchool);
-            this.InfoGroupBox.Controls.Add(this.labelDegree);
-            this.InfoGroupBox.Controls.Add(this.labelStatus);
-            this.InfoGroupBox.Controls.Add(this.labelTel);
             this.InfoGroupBox.Controls.Add(this.labelSex);
-            this.InfoGroupBox.Controls.Add(this.labelName);
+            this.InfoGroupBox.Controls.Add(this.labelDesire);
             this.InfoGroupBox.Controls.Add(this.label21);
-            this.InfoGroupBox.Controls.Add(this.label20);
-            this.InfoGroupBox.Controls.Add(this.label19);
-            this.InfoGroupBox.Controls.Add(this.label18);
-            this.InfoGroupBox.Controls.Add(this.label17);
-            this.InfoGroupBox.Controls.Add(this.label16);
             this.InfoGroupBox.Controls.Add(this.label15);
-            this.InfoGroupBox.Controls.Add(this.label14);
             this.InfoGroupBox.Controls.Add(this.label8);
             this.InfoGroupBox.Controls.Add(this.label9);
             this.InfoGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.InfoGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.InfoGroupBox.Location = new System.Drawing.Point(16, 15);
             this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.InfoGroupBox.Name = "InfoGroupBox";
             this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -380,15 +340,27 @@
             this.InfoGroupBox.TabIndex = 22;
             this.InfoGroupBox.TabStop = false;
             // 
-            // textBoxDesc
+            // labelMail
             // 
-            this.textBoxDesc.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxDesc.Location = new System.Drawing.Point(247, 244);
-            this.textBoxDesc.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxDesc.Multiline = true;
-            this.textBoxDesc.Name = "textBoxDesc";
-            this.textBoxDesc.Size = new System.Drawing.Size(325, 66);
-            this.textBoxDesc.TabIndex = 53;
+            this.labelMail.AutoSize = true;
+            this.labelMail.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelMail.Location = new System.Drawing.Point(168, 82);
+            this.labelMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMail.Name = "labelMail";
+            this.labelMail.Size = new System.Drawing.Size(39, 20);
+            this.labelMail.TabIndex = 55;
+            this.labelMail.Text = "Mail";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(85, 82);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "邮箱：";
             // 
             // EditButton
             // 
@@ -410,199 +382,69 @@
             // 
             this.labelDesc.AutoSize = true;
             this.labelDesc.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDesc.Location = new System.Drawing.Point(166, 246);
+            this.labelDesc.Location = new System.Drawing.Point(167, 198);
             this.labelDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDesc.Name = "labelDesc";
             this.labelDesc.Size = new System.Drawing.Size(73, 20);
             this.labelDesc.TabIndex = 43;
             this.labelDesc.Text = "Describe";
             // 
-            // labelReligion
-            // 
-            this.labelReligion.AutoSize = true;
-            this.labelReligion.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelReligion.Location = new System.Drawing.Point(415, 208);
-            this.labelReligion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelReligion.Name = "labelReligion";
-            this.labelReligion.Size = new System.Drawing.Size(67, 20);
-            this.labelReligion.TabIndex = 42;
-            this.labelReligion.Text = "Religion";
-            // 
-            // labelMajor
-            // 
-            this.labelMajor.AutoSize = true;
-            this.labelMajor.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMajor.Location = new System.Drawing.Point(166, 210);
-            this.labelMajor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelMajor.Name = "labelMajor";
-            this.labelMajor.Size = new System.Drawing.Size(49, 20);
-            this.labelMajor.TabIndex = 41;
-            this.labelMajor.Text = "Major";
-            // 
-            // labelSchool
-            // 
-            this.labelSchool.AutoSize = true;
-            this.labelSchool.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelSchool.Location = new System.Drawing.Point(415, 169);
-            this.labelSchool.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelSchool.Name = "labelSchool";
-            this.labelSchool.Size = new System.Drawing.Size(56, 20);
-            this.labelSchool.TabIndex = 40;
-            this.labelSchool.Text = "School";
-            // 
-            // labelDegree
-            // 
-            this.labelDegree.AutoSize = true;
-            this.labelDegree.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDegree.Location = new System.Drawing.Point(166, 170);
-            this.labelDegree.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelDegree.Name = "labelDegree";
-            this.labelDegree.Size = new System.Drawing.Size(63, 20);
-            this.labelDegree.TabIndex = 39;
-            this.labelDegree.Text = "Degree";
-            // 
-            // labelStatus
-            // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelStatus.Location = new System.Drawing.Point(415, 125);
-            this.labelStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(51, 20);
-            this.labelStatus.TabIndex = 38;
-            this.labelStatus.Text = "Status";
-            // 
-            // labelTel
-            // 
-            this.labelTel.AutoSize = true;
-            this.labelTel.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTel.Location = new System.Drawing.Point(166, 125);
-            this.labelTel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTel.Name = "labelTel";
-            this.labelTel.Size = new System.Drawing.Size(30, 20);
-            this.labelTel.TabIndex = 37;
-            this.labelTel.Text = "Tel";
-            // 
             // labelSex
             // 
             this.labelSex.AutoSize = true;
             this.labelSex.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelSex.Location = new System.Drawing.Point(415, 82);
+            this.labelSex.Location = new System.Drawing.Point(168, 121);
             this.labelSex.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSex.Name = "labelSex";
             this.labelSex.Size = new System.Drawing.Size(34, 20);
             this.labelSex.TabIndex = 36;
             this.labelSex.Text = "Sex";
             // 
-            // labelName
+            // labelDesire
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelName.Location = new System.Drawing.Point(166, 82);
-            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(51, 20);
-            this.labelName.TabIndex = 35;
-            this.labelName.Text = "Name";
+            this.labelDesire.AutoSize = true;
+            this.labelDesire.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelDesire.Location = new System.Drawing.Point(168, 160);
+            this.labelDesire.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDesire.Name = "labelDesire";
+            this.labelDesire.Size = new System.Drawing.Size(55, 20);
+            this.labelDesire.TabIndex = 35;
+            this.labelDesire.Text = "Desire";
+            this.labelDesire.Click += new System.EventHandler(this.labelName_Click);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(84, 246);
+            this.label21.Location = new System.Drawing.Point(85, 198);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(89, 20);
             this.label21.TabIndex = 34;
             this.label21.Text = "个性描述：";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(332, 208);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(58, 20);
-            this.label20.TabIndex = 33;
-            this.label20.Text = "宗教：";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(84, 208);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 20);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "专业：";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(332, 169);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(90, 20);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "毕业院校：";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(84, 125);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 20);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "联系电话：";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(332, 125);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 20);
-            this.label16.TabIndex = 29;
-            this.label16.Text = "政治面貌：";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(332, 82);
+            this.label15.Location = new System.Drawing.Point(85, 121);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(58, 20);
             this.label15.TabIndex = 28;
             this.label15.Text = "性别：";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(84, 169);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 20);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "学历：";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(84, 82);
+            this.label8.Location = new System.Drawing.Point(86, 160);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 20);
+            this.label8.Size = new System.Drawing.Size(57, 20);
             this.label8.TabIndex = 24;
-            this.label8.Text = "真实姓名：";
+            this.label8.Text = "兴趣：";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -615,127 +457,55 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "用户信息";
             // 
-            // comboBoxReligion
+            // textBoxDesire
             // 
-            this.comboBoxReligion.FormattingEnabled = true;
-            this.comboBoxReligion.Items.AddRange(new object[] {
-            "无",
-            "基督教",
-            "伊斯兰教",
-            "佛教",
-            "道教",
-            "其他"});
-            this.comboBoxReligion.Location = new System.Drawing.Point(404, 202);
-            this.comboBoxReligion.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxReligion.Name = "comboBoxReligion";
-            this.comboBoxReligion.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxReligion.TabIndex = 52;
+            this.textBoxDesire.Location = new System.Drawing.Point(148, 160);
+            this.textBoxDesire.Name = "textBoxDesire";
+            this.textBoxDesire.Size = new System.Drawing.Size(115, 23);
+            this.textBoxDesire.TabIndex = 59;
             // 
-            // comboBoxMajor
+            // textBoxMail
             // 
-            this.comboBoxMajor.FormattingEnabled = true;
-            this.comboBoxMajor.Items.AddRange(new object[] {
-            "IT互联网",
-            "市场商务",
-            "电子电气",
-            "人事行政",
-            "外语外贸",
-            "财经法务",
-            "教育咨询",
-            "媒体设计",
-            "其他"});
-            this.comboBoxMajor.Location = new System.Drawing.Point(160, 206);
-            this.comboBoxMajor.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxMajor.Name = "comboBoxMajor";
-            this.comboBoxMajor.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxMajor.TabIndex = 51;
+            this.textBoxMail.Location = new System.Drawing.Point(148, 82);
+            this.textBoxMail.Name = "textBoxMail";
+            this.textBoxMail.ReadOnly = true;
+            this.textBoxMail.Size = new System.Drawing.Size(115, 23);
+            this.textBoxMail.TabIndex = 58;
             // 
-            // comboBoxSchool
+            // textBoxSex
             // 
-            this.comboBoxSchool.ContextMenuStrip = this.contextMenuStrip1;
-            this.comboBoxSchool.FormattingEnabled = true;
-            this.comboBoxSchool.Items.AddRange(new object[] {
-            "北京大学"});
-            this.comboBoxSchool.Location = new System.Drawing.Point(404, 163);
-            this.comboBoxSchool.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxSchool.Name = "comboBoxSchool";
-            this.comboBoxSchool.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxSchool.TabIndex = 50;
+            this.textBoxSex.Location = new System.Drawing.Point(148, 121);
+            this.textBoxSex.Name = "textBoxSex";
+            this.textBoxSex.Size = new System.Drawing.Size(115, 23);
+            this.textBoxSex.TabIndex = 57;
             // 
-            // comboBoxDegree
+            // label5
             // 
-            this.comboBoxDegree.FormattingEnabled = true;
-            this.comboBoxDegree.Items.AddRange(new object[] {
-            "小学",
-            "初中",
-            "高中",
-            "本科",
-            "硕士",
-            "博士",
-            "其他"});
-            this.comboBoxDegree.Location = new System.Drawing.Point(160, 163);
-            this.comboBoxDegree.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxDegree.Name = "comboBoxDegree";
-            this.comboBoxDegree.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxDegree.TabIndex = 49;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(85, 82);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "邮箱：";
             // 
-            // comboBoxStatus
+            // textBoxDescribe
             // 
-            this.comboBoxStatus.FormattingEnabled = true;
-            this.comboBoxStatus.Items.AddRange(new object[] {
-            "中共党员",
-            "中共预备党员",
-            "共青团员",
-            "民革党员",
-            "民盟盟员",
-            "民建会员",
-            "民进会员",
-            "农工党党员",
-            "致公党党员",
-            "九三学社社员",
-            "台盟盟员",
-            "无党派人士",
-            "群众"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(404, 120);
-            this.comboBoxStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxStatus.TabIndex = 48;
-            // 
-            // comboBoxSex
-            // 
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.comboBoxSex.Location = new System.Drawing.Point(404, 78);
-            this.comboBoxSex.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxSex.TabIndex = 47;
-            // 
-            // textBoxTel
-            // 
-            this.textBoxTel.Location = new System.Drawing.Point(160, 118);
-            this.textBoxTel.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxTel.Name = "textBoxTel";
-            this.textBoxTel.Size = new System.Drawing.Size(80, 23);
-            this.textBoxTel.TabIndex = 46;
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(160, 79);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(80, 23);
-            this.textBoxName.TabIndex = 45;
+            this.textBoxDescribe.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxDescribe.Location = new System.Drawing.Point(176, 198);
+            this.textBoxDescribe.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxDescribe.Multiline = true;
+            this.textBoxDescribe.Name = "textBoxDescribe";
+            this.textBoxDescribe.Size = new System.Drawing.Size(325, 66);
+            this.textBoxDescribe.TabIndex = 53;
             // 
             // SaveButton
             // 
             this.SaveButton.BackColor = System.Drawing.Color.Transparent;
             this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SaveButton.Font = new System.Drawing.Font("黑体", 10F);
+            this.SaveButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SaveButton.ForeColor = System.Drawing.Color.DarkGray;
             this.SaveButton.Location = new System.Drawing.Point(484, 18);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
@@ -746,106 +516,49 @@
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // label38
+            // label11
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(84, 246);
-            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(77, 14);
-            this.label38.TabIndex = 34;
-            this.label38.Text = "个性描述：";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(85, 198);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 20);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "个性描述：";
             // 
-            // label39
+            // label12
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(332, 208);
-            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(49, 14);
-            this.label39.TabIndex = 33;
-            this.label39.Text = "宗教：";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(85, 121);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 20);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "性别：";
             // 
-            // label40
+            // label13
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(84, 208);
-            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(49, 14);
-            this.label40.TabIndex = 32;
-            this.label40.Text = "专业：";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(86, 160);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 20);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "兴趣：";
             // 
-            // label41
+            // label14
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(332, 169);
-            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(77, 14);
-            this.label41.TabIndex = 31;
-            this.label41.Text = "毕业院校：";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(84, 125);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(77, 14);
-            this.label42.TabIndex = 30;
-            this.label42.Text = "联系电话：";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(332, 125);
-            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(77, 14);
-            this.label43.TabIndex = 29;
-            this.label43.Text = "政治面貌：";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(332, 82);
-            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(49, 14);
-            this.label44.TabIndex = 28;
-            this.label44.Text = "性别：";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(84, 169);
-            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(49, 14);
-            this.label45.TabIndex = 27;
-            this.label45.Text = "学历：";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(84, 82);
-            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(77, 14);
-            this.label46.TabIndex = 24;
-            this.label46.Text = "真实姓名：";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label48.Location = new System.Drawing.Point(254, 36);
-            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(72, 16);
-            this.label48.TabIndex = 23;
-            this.label48.Text = "编辑信息";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(243, 27);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 20);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "用户信息";
             // 
             // 用户中心
             // 
@@ -904,47 +617,27 @@
         private System.Windows.Forms.ToolStripMenuItem 上海交通大学ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 上海财经大学ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox EditGroupBox;
         private System.Windows.Forms.GroupBox InfoGroupBox;
-        private System.Windows.Forms.TextBox textBoxDesc;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Label labelDesc;
-        private System.Windows.Forms.Label labelReligion;
-        private System.Windows.Forms.Label labelMajor;
-        private System.Windows.Forms.Label labelSchool;
-        private System.Windows.Forms.Label labelDegree;
-        private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.Label labelTel;
         private System.Windows.Forms.Label labelSex;
-        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelDesire;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBoxReligion;
-        private System.Windows.Forms.ComboBox comboBoxMajor;
-        private System.Windows.Forms.ComboBox comboBoxSchool;
-        private System.Windows.Forms.ComboBox comboBoxDegree;
-        private System.Windows.Forms.ComboBox comboBoxStatus;
-        private System.Windows.Forms.ComboBox comboBoxSex;
-        private System.Windows.Forms.TextBox textBoxTel;
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Label labelMail;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox EditGroupBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxDescribe;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxDesire;
+        private System.Windows.Forms.TextBox textBoxMail;
+        private System.Windows.Forms.TextBox textBoxSex;
     }
 }

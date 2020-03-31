@@ -28,14 +28,14 @@ namespace Data_Visual
 
         private void 我的收藏_Load(object sender, EventArgs e)
         {
-            if (account.acc == "")
+            if (登录界面.mail == "")
                 MessageBox.Show("未登录！");
             else
             {
                 num = new int[account.N];
                 int count_all;
-                SqlConnection myconn = new SqlConnection(@"Data Source=.  ; Initial Catalog=OT_user ; Integrated Security=true");
-                string mysql = "select umail,collect_num from collect where umail='" + account.acc + "'";
+                SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
+                string mysql = "select umail,collect_num from collect where umail='" + 登录界面.mail + "'";
                 DataSet mydataset = new DataSet();
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 myadapter.Fill(mydataset, "_email");
@@ -68,20 +68,14 @@ namespace Data_Visual
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Close();
-            Owner.Show();
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             PictureBox pic = (PictureBox)sender;
+            pic.Cursor = Cursors.Hand;
             account.click_num = num[Convert.ToInt32(pic.Tag)];
             MessageBox.Show(num[Convert.ToInt32(pic.Tag)].ToString());
             收藏具体内容 f1 = new 收藏具体内容();
             f1.Owner = this;
-            Hide();
             f1.ShowDialog();
 
         }
@@ -94,6 +88,12 @@ namespace Data_Visual
         private void button2_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage2;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Close();
+            Owner.Show();
         }
     }
 }

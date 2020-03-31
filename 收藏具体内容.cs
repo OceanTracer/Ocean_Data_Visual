@@ -26,15 +26,14 @@ namespace Data_Visual
             richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-            Owner.Show();
-        }
-
         private void richTextBox1_MouseLeave(object sender, EventArgs e)
         {
             pictureBox1.Focus();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

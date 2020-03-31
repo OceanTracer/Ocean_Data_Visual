@@ -653,6 +653,7 @@
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Image = global::Data_Visual.Properties.Resources.返回;
             this.pictureBox9.Location = new System.Drawing.Point(813, 3);
             this.pictureBox9.Name = "pictureBox9";

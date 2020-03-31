@@ -65,15 +65,15 @@ namespace Data_Visual
 
         private void buttonCollect_Click(object sender, EventArgs e)
         {
-            if (account.acc == "")
+            if (登录界面.mail== "")
                 MessageBox.Show("未登录！");
             else
             {
                 try
                 {
-                    SqlConnection myconn = new SqlConnection(@"Data Source=.  ; Initial Catalog=OT_user ; Integrated Security=true");
-                    string mycmd = "insert into collect  VALUES('" + account.acc + "','" + cur + "',null)";
-                    string mycmd1= "select collect_num from collect where umail='" + account.acc+"'";
+                    SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
+                    string mycmd = "insert into collect  VALUES('" + 登录界面.mail + "','" + cur + "',null)";
+                    string mycmd1= "select collect_num from collect where umail='" + 登录界面.mail+"'";
                     //统计已经收藏个数
                     DataSet mydataset = new DataSet();
                     SqlDataAdapter myadapter = new SqlDataAdapter(mycmd1, myconn);
