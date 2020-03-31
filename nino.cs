@@ -12,5 +12,6 @@ namespace Data_Visual
         public static string aim_final;
         public static string ref_start;
         public static string ref_final;
+        public static string MAX_YEAR;
     }
 }

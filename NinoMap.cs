@@ -17,6 +17,7 @@ namespace Data_Visual
             InitializeComponent();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(Convert.ToInt32(dateTimePicker1.Text)> Convert.ToInt32(dateTimePicker2.Text)|| Convert.ToInt32(dateTimePicker4.Text) > Convert.ToInt32(dateTimePicker3.Text))
@@ -54,6 +55,17 @@ namespace Data_Visual
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void NinoMap_Load(object sender, EventArgs e)
+        {
+            if(nino.MAX_YEAR != null)
+            {
+                DateTime d1 = Convert.ToDateTime(nino.MAX_YEAR + "12-31");
+
+                dateTimePicker2.MaxDate = d1;
+                dateTimePicker3.MaxDate = d1;
+            }
         }
     }
 }

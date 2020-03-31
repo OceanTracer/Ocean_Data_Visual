@@ -21,6 +21,7 @@ using System.Diagnostics;
 
 namespace Data_Visual
 {
+    public delegate void ChangeDateSec(bool topmost);
     public partial class DataProcess : Form
     {
         public DataProcess()
@@ -162,7 +163,7 @@ namespace Data_Visual
                     strpath = file.FileName;
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
-                    object[,] data = GetExcelRangeData(strpath, "A2");
+                    object[,] data = GetExcelRangeData(strpath, "A2", 0);
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
 
@@ -189,7 +190,7 @@ namespace Data_Visual
                 }
             }
         }
-        public static object[,] GetExcelRangeData(string excelPath, string stCell)
+        public static object[,] GetExcelRangeData(string excelPath, string stCell, int option)
         {
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
             Workbook workBook = null;
@@ -204,7 +205,11 @@ namespace Data_Visual
 
                 Worksheet workSheet = (Worksheet)workBook.Worksheets.Item[1];
                 int rowCount = workSheet.UsedRange.Cells.Rows.Count;
-                string edCell = "C" + rowCount.ToString();
+                string edCell;
+                if (option == 0)
+                    edCell = "C" + rowCount.ToString();
+                else
+                    edCell = "M" + rowCount.ToString();
                 //使用下述语句可以从头读取到最后，按需使用
                 //var maxN = workSheet.Range[startCell].End[XlDirection.xlDown].Row;
                 return workSheet.Range[stCell + ":" + edCell].Value2;
@@ -293,7 +298,7 @@ namespace Data_Visual
                         //选择了shape文件后
                         string pathName = System.IO.Path.GetDirectoryName(this_file);
                         string fileName = System.IO.Path.GetFileNameWithoutExtension(this_file);
-                        strpath.Add(pathName +'\\'+ fileName+".nc");
+                        strpath.Add(pathName + '\\' + fileName + ".nc");
                         //Console.WriteLine(pathName + '\\' + fileName+".nc");
                     }
 
@@ -345,6 +350,117 @@ namespace Data_Visual
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string path = System.Windows.Forms.Application.StartupPath + @"\nino_cr\crawler.exe";
+            System.Diagnostics.ProcessStartInfo info = new System.Diagnostics.ProcessStartInfo(path);
+            info.WorkingDirectory = Path.GetDirectoryName(path); System.Diagnostics.Process.Start(info);
+            //System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"\nino_cr\crawler.exe");
+            button8.Enabled = true;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string strpath;
+            string filename;
+            string[] file = new string[] { "Nino1+2.xls", "Nino3.xls", "Nino4.xls" };
+            //三种nino数据
+
+            try
+            {
+                for (int idx = 0; idx < 3; idx++)
+                {
+                    dt.Clear();
+                    dt.Columns.Clear();
+                    strpath = System.Windows.Forms.Application.StartupPath + "\\nino_cr\\" + file[idx];
+                    filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
+                    dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
+                    object[,] data = GetExcelRangeData(strpath, "A1", 1);
+                    for (int i = 0; i < data.GetLength(1); i++)
+                        dt.Columns.Add(i.ToString(), typeof(object));
+
+                    for (int i = 0; i < data.GetLength(0); i++)
+                    {
+                        DataRow dr = dt.NewRow();
+                        for (int j = 0; j < data.GetLength(1); j++)
+                        {
+                            dr[j.ToString()] = data[i + 1, j + 1];
+                        }
+                        dt.Rows.Add(dr);
+                    }
+                    //dataGridView2.DataSource = dt;
+
+                    var database = client.GetDatabase("SST_res"); //数据库名称
+                    var collection = database.GetCollection<BsonDocument>(dt2ctname);
+                    database.DropCollection(dt2ctname);
+                    var count = 0;
+                    var batch = new List<BsonDocument>();
+                    if (dt != null)
+                    {
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            count++;
+                            var dictionary = dr.Table.Columns.Cast<DataColumn>().ToDictionary(col => col.ColumnName, col => dr[col.ColumnName]);
+                            batch.Add(new BsonDocument(dictionary));
+
+                            //分批次写入，防止内存溢出
+                            if (batch.Count == 5000)
+                            {
+                                //UpdateUI(() => { lblStatus.Text = "已导入 " + count; });
+                                collection.InsertManyAsync(batch.AsEnumerable());
+                                batch.Clear();
+                                ClearMemory();
+                            }
+                        }
+                        if (batch.Count > 0)
+                        {
+                            //UpdateUI(() => { lblStatus.Text = "已导入 " + count; });
+                            collection.InsertManyAsync(batch.AsEnumerable());
+                            batch.Clear();
+                            ClearMemory();
+                        }
+                    }
+                }
+                label10.Visible = false;
+                MessageBox.Show("更新成功！");
+            }
+            catch (Exception ex)
+            {
+                label10.Visible = false;
+                MessageBox.Show("请先完成数据获取");
+            }
+        }
+
+        //public event ChangeDateSec ChangeSec;
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (dt != null)
+            {
+                int count=0;
+                var array = dt.Rows[dt.Rows.Count - 1].ItemArray;
+
+                foreach (var item in array)
+                {
+                    if (Convert.ToDouble(item) < 0)
+                        count++;
+                }
+
+                if (count <= 13)
+                    MessageBox.Show("数据未足一年，无法更新上限至：" + dt.Rows[dt.Rows.Count - 1][0].ToString());
+                else
+                {
+                    nino.MAX_YEAR = dt.Rows[dt.Rows.Count - 1][0].ToString();
+                    MessageBox.Show("时间上限更新至"+ nino.MAX_YEAR);
+                }
+
+            }
+        }
+
+        private void button8_MouseDown(object sender, MouseEventArgs e)
+        {
+            label10.Visible = true;
         }
     }
 }
