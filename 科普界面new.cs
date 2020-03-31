@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Data_Visual
 {
@@ -21,9 +22,9 @@ namespace Data_Visual
         int FileCount = 0;
         private void 科普界面new_Load(object sender, EventArgs e)
         {
-            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\01.jpg");
+            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\1.jpg");
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\01.txt";
+            openFileDialog.FileName = @"pic_all\1.txt";
             richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
 
             /////获取文件数目
@@ -44,9 +45,9 @@ namespace Data_Visual
             cur = cur - 1;
             if (cur < 1)
                 cur = FileCount;
-            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\0" + cur + ".jpg");
+            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\" + cur + ".jpg");
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\0" + cur + ".txt";
+            openFileDialog.FileName = @"pic_all\" + cur + ".txt";
             richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
         }
 
@@ -55,16 +56,52 @@ namespace Data_Visual
             cur = cur + 1;
             if (cur > FileCount)
                 cur = 1;
-            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\0" + cur + ".jpg");
+            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\" + cur + ".jpg");
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\0" + cur + ".txt";
+            openFileDialog.FileName = @"pic_all\" + cur + ".txt";
             richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
             
         }
 
         private void buttonCollect_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("收藏成功！", "Ocean");
+            if (account.acc == "")
+                MessageBox.Show("未登录！");
+            else
+            {
+                try
+                {
+                    SqlConnection myconn = new SqlConnection(@"Data Source=.  ; Initial Catalog=OT_user ; Integrated Security=true");
+                    string mycmd = "insert into collect  VALUES('" + account.acc + "','" + cur + "',null)";
+                    string mycmd1= "select collect_num from collect where umail='" + account.acc+"'";
+                    //统计已经收藏个数
+                    DataSet mydataset = new DataSet();
+                    SqlDataAdapter myadapter = new SqlDataAdapter(mycmd1, myconn);
+                    myadapter.Fill(mydataset, "_email");
+                    int count_all = mydataset.Tables["_email"].Rows.Count;
+                    if (count_all >= account.N)
+                        MessageBox.Show("收藏已达上限！");
+                    else
+                    {   //收藏
+                        SqlCommand sqlCommand = new SqlCommand(mycmd, myconn);
+                        Console.WriteLine(mycmd);
+                        myconn.Open();
+                        {
+
+                            sqlCommand.ExecuteNonQuery();
+                        }
+                        myconn.Close();
+                        MessageBox.Show("收藏成功！", "Ocean");
+                    }
+ 
+                }
+                catch
+                {
+                    MessageBox.Show("已收藏！");
+                }
+                 
+            }
+            
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)
@@ -79,6 +116,11 @@ namespace Data_Visual
             form.Owner = this;
             Hide();
             form.ShowDialog();
+        }
+
+        private void richTextBox1_MouseLeave(object sender, EventArgs e)
+        {
+            skinPictureBox1.Focus();
         }
     }
 }

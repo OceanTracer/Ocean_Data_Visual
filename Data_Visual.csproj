@@ -135,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="account.cs" />
     <Compile Include="cover.cs" />
     <Compile Include="DataProcess.cs">
       <SubType>Form</SubType>
@@ -205,6 +206,18 @@
     <Compile Include="厄尔尼诺专题.Designer.cs">
       <DependentUpon>厄尔尼诺专题.cs</DependentUpon>
     </Compile>
+    <Compile Include="我的收藏.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的收藏.Designer.cs">
+      <DependentUpon>我的收藏.cs</DependentUpon>
+    </Compile>
+    <Compile Include="收藏具体内容.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="收藏具体内容.Designer.cs">
+      <DependentUpon>收藏具体内容.cs</DependentUpon>
+    </Compile>
     <Compile Include="注册成功.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,12 +253,6 @@
     </Compile>
     <Compile Include="科普界面new.designer.cs">
       <DependentUpon>科普界面new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="科普界面_选择.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="科普界面_选择.Designer.cs">
-      <DependentUpon>科普界面_选择.cs</DependentUpon>
     </Compile>
     <Compile Include="管理员页面.cs">
       <SubType>Form</SubType>
@@ -293,6 +300,12 @@
     <EmbeddedResource Include="厄尔尼诺专题.resx">
       <DependentUpon>厄尔尼诺专题.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="我的收藏.resx">
+      <DependentUpon>我的收藏.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="收藏具体内容.resx">
+      <DependentUpon>收藏具体内容.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="注册成功.resx">
       <DependentUpon>注册成功.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,9 +324,6 @@
     <EmbeddedResource Include="科普界面new.resx">
       <DependentUpon>科普界面new.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="科普界面_选择.resx">
-      <DependentUpon>科普界面_选择.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="管理员页面.resx">
       <DependentUpon>管理员页面.cs</DependentUpon>

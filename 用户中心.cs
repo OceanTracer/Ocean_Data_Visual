@@ -124,7 +124,15 @@ namespace Data_Visual
 
         private void MyFav_Click(object sender, EventArgs e)
         {
-
+            if (account.acc == "")
+                MessageBox.Show("未登录！");
+            else
+            {
+                我的收藏 f1 = new 我的收藏();
+                f1.Owner = this;
+                Hide();
+                f1.ShowDialog();
+            }
         }
     }
 }

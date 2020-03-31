@@ -19,7 +19,7 @@ namespace Data_Visual
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=.  ; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
         private void label6_Click(object sender, EventArgs e)
@@ -77,6 +77,7 @@ namespace Data_Visual
                     MessageBox.Show("用户名或密码错误！请重试。","登录错误");
                 else
                 {
+                    account.acc = a;
                     Hide();
                     if (type == 0)
                     {

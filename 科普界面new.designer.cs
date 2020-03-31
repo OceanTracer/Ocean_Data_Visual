@@ -62,6 +62,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(503, 110);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
+            this.richTextBox1.MouseLeave += new System.EventHandler(this.richTextBox1_MouseLeave);
             // 
             // buttonNext
             // 
