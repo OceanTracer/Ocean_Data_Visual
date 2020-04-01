@@ -81,6 +81,13 @@ namespace Data_Visual
         private void EditButton_Click(object sender, EventArgs e)
         {
             EditGroupBox.BringToFront();
+            textBoxMail.Text = 登录界面.mail;
+            textBoxDesire.Text = labelDesire.Text;
+            textBoxDescribe.Text = labelDesc.Text;
+            if (labelSex.Text == "男")
+                radioButtonMan.Checked = true;
+            if (labelSex.Text == "女")
+                radioButtonWoman.Checked = true;
             /*InfoGroupBox.Hide();
             CVGroupBox.Hide();
             RecordGroupBox.Hide();
@@ -95,7 +102,7 @@ namespace Data_Visual
         private void 用户中心_Load(object sender, EventArgs e)
         {
             fill_info(登录界面.mail);
-            textBoxMail.Text = 登录界面.mail;
+            
         }
 
         private void MyFav_Click(object sender, EventArgs e)
@@ -123,7 +130,12 @@ namespace Data_Visual
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-                mysql = "update user_info set sex='" + textBoxSex.Text + "' , desire='" + textBoxDesire.Text + "' , describe='" + textBoxDescribe.Text + "' where umail='" + 登录界面.mail+"'";
+            string sex="";
+            if (radioButtonMan.Checked == true)
+                sex = "男";
+            if (radioButtonWoman.Checked == true)
+                sex = "女";
+            mysql = "update user_info set sex='" + sex + "' , desire='" + textBoxDesire.Text + "' , describe='" + textBoxDescribe.Text + "' where umail='" + 登录界面.mail+"'";
                 SqlCommand mycmd = new SqlCommand(mysql, myconn);
                 myconn.Open();
                 try

@@ -50,7 +50,6 @@
             this.RecordLabel = new System.Windows.Forms.Label();
             this.HomeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.EditGroupBox = new System.Windows.Forms.GroupBox();
             this.InfoGroupBox = new System.Windows.Forms.GroupBox();
             this.labelMail = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,9 +61,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.EditGroupBox = new System.Windows.Forms.GroupBox();
             this.textBoxDesire = new System.Windows.Forms.TextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
-            this.textBoxSex = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxDescribe = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -72,10 +71,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.radioButtonMan = new System.Windows.Forms.RadioButton();
+            this.radioButtonWoman = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.EditGroupBox.SuspendLayout();
             this.InfoGroupBox.SuspendLayout();
+            this.EditGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -289,34 +290,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.InfoGroupBox);
             this.panel1.Controls.Add(this.EditGroupBox);
+            this.panel1.Controls.Add(this.InfoGroupBox);
             this.panel1.Location = new System.Drawing.Point(215, 102);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(617, 352);
             this.panel1.TabIndex = 46;
-            // 
-            // EditGroupBox
-            // 
-            this.EditGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.EditGroupBox.Controls.Add(this.textBoxDesire);
-            this.EditGroupBox.Controls.Add(this.textBoxMail);
-            this.EditGroupBox.Controls.Add(this.textBoxSex);
-            this.EditGroupBox.Controls.Add(this.label5);
-            this.EditGroupBox.Controls.Add(this.textBoxDescribe);
-            this.EditGroupBox.Controls.Add(this.SaveButton);
-            this.EditGroupBox.Controls.Add(this.label11);
-            this.EditGroupBox.Controls.Add(this.label12);
-            this.EditGroupBox.Controls.Add(this.label13);
-            this.EditGroupBox.Controls.Add(this.label14);
-            this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EditGroupBox.Location = new System.Drawing.Point(16, 15);
-            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.EditGroupBox.Name = "EditGroupBox";
-            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
-            this.EditGroupBox.TabIndex = 57;
-            this.EditGroupBox.TabStop = false;
             // 
             // InfoGroupBox
             // 
@@ -457,6 +436,29 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "用户信息";
             // 
+            // EditGroupBox
+            // 
+            this.EditGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditGroupBox.Controls.Add(this.radioButtonWoman);
+            this.EditGroupBox.Controls.Add(this.radioButtonMan);
+            this.EditGroupBox.Controls.Add(this.textBoxDesire);
+            this.EditGroupBox.Controls.Add(this.textBoxMail);
+            this.EditGroupBox.Controls.Add(this.label5);
+            this.EditGroupBox.Controls.Add(this.textBoxDescribe);
+            this.EditGroupBox.Controls.Add(this.SaveButton);
+            this.EditGroupBox.Controls.Add(this.label11);
+            this.EditGroupBox.Controls.Add(this.label12);
+            this.EditGroupBox.Controls.Add(this.label13);
+            this.EditGroupBox.Controls.Add(this.label14);
+            this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EditGroupBox.Location = new System.Drawing.Point(16, 15);
+            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.EditGroupBox.Name = "EditGroupBox";
+            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
+            this.EditGroupBox.TabIndex = 57;
+            this.EditGroupBox.TabStop = false;
+            // 
             // textBoxDesire
             // 
             this.textBoxDesire.Location = new System.Drawing.Point(148, 160);
@@ -471,13 +473,6 @@
             this.textBoxMail.ReadOnly = true;
             this.textBoxMail.Size = new System.Drawing.Size(115, 23);
             this.textBoxMail.TabIndex = 58;
-            // 
-            // textBoxSex
-            // 
-            this.textBoxSex.Location = new System.Drawing.Point(148, 121);
-            this.textBoxSex.Name = "textBoxSex";
-            this.textBoxSex.Size = new System.Drawing.Size(115, 23);
-            this.textBoxSex.TabIndex = 57;
             // 
             // label5
             // 
@@ -560,6 +555,30 @@
             this.label14.TabIndex = 23;
             this.label14.Text = "用户信息";
             // 
+            // radioButtonMan
+            // 
+            this.radioButtonMan.AutoSize = true;
+            this.radioButtonMan.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonMan.Location = new System.Drawing.Point(148, 121);
+            this.radioButtonMan.Name = "radioButtonMan";
+            this.radioButtonMan.Size = new System.Drawing.Size(40, 21);
+            this.radioButtonMan.TabIndex = 60;
+            this.radioButtonMan.TabStop = true;
+            this.radioButtonMan.Text = "男";
+            this.radioButtonMan.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonWoman
+            // 
+            this.radioButtonWoman.AutoSize = true;
+            this.radioButtonWoman.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonWoman.Location = new System.Drawing.Point(204, 121);
+            this.radioButtonWoman.Name = "radioButtonWoman";
+            this.radioButtonWoman.Size = new System.Drawing.Size(40, 21);
+            this.radioButtonWoman.TabIndex = 61;
+            this.radioButtonWoman.TabStop = true;
+            this.radioButtonWoman.Text = "女";
+            this.radioButtonWoman.UseVisualStyleBackColor = true;
+            // 
             // 用户中心
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -585,10 +604,10 @@
             this.Load += new System.EventHandler(this.用户中心_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.EditGroupBox.ResumeLayout(false);
-            this.EditGroupBox.PerformLayout();
             this.InfoGroupBox.ResumeLayout(false);
             this.InfoGroupBox.PerformLayout();
+            this.EditGroupBox.ResumeLayout(false);
+            this.EditGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -638,6 +657,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBoxDesire;
         private System.Windows.Forms.TextBox textBoxMail;
-        private System.Windows.Forms.TextBox textBoxSex;
+        private System.Windows.Forms.RadioButton radioButtonWoman;
+        private System.Windows.Forms.RadioButton radioButtonMan;
     }
 }
