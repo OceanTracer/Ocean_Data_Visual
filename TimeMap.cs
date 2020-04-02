@@ -33,6 +33,7 @@ namespace Data_Visual
         }
         void WbInit()
         {
+            Cef.EnableHighDPISupport();     //适应屏幕缩放
             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
             var setting = new CefSettings();
             setting.Locale = "zh-CN";
@@ -116,6 +117,8 @@ namespace Data_Visual
                 onepoint.start = dateTimePicker1.Text.ToString();
                 onepoint.final = dateTimePicker2.Text.ToString();
                 TimeShow form = new TimeShow();
+                form.Owner = this;
+                Hide();
                 form.ShowDialog();
             }
         }
@@ -173,7 +176,8 @@ namespace Data_Visual
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
+            //this.Dispose(); //Dispose()方法在这里会让Cef每次都耗费同样的时间加载；不使用Dispose()似乎可以节省二次加载时间(不是很确定)
+            this.Owner.Show();
         }
     }
 }

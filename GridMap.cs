@@ -33,6 +33,7 @@ namespace Data_Visual
         }
         void WbInit()
         {
+            Cef.EnableHighDPISupport();     //适应屏幕缩放
             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
             CefSettings setting = new CefSettings();
 
@@ -172,6 +173,8 @@ namespace Data_Visual
                 cover.lon_min = Convert.ToDouble(textBox3.Text)+0.025;
                 cover.time = dateTimePicker1.Text;
                 GridShow form = new GridShow();
+                form.Owner = this;
+                Hide();
                 form.ShowDialog();
             }
         }
@@ -257,7 +260,7 @@ namespace Data_Visual
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
+            this.Owner.Show();
         }
     }
 }

@@ -292,7 +292,7 @@ namespace Data_Visual
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
+            this.Owner.Show();
         }
     }
 }
