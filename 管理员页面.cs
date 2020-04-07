@@ -27,11 +27,11 @@ namespace Data_Visual
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {/* 
+        {
             Hide();
-            发布招聘 f1=new 发布招聘();
+            科普管理 f1=new 科普管理();
             f1.Owner = this;
-            f1.ShowDialog();*/
+            f1.ShowDialog();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -44,10 +44,10 @@ namespace Data_Visual
 
         private void label3_Click(object sender, EventArgs e)
         {
-            /*    Hide();
-               修改信息 f3 = new 修改信息();
+               Hide();
+               用户信息 f3 = new 用户信息();
                f3.Owner = this;
-               f3.ShowDialog();*/
+               f3.ShowDialog();
         }
     }
 }

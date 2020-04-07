@@ -73,12 +73,12 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(251, 258);
+            this.label1.Location = new System.Drawing.Point(240, 258);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 22);
             this.label1.TabIndex = 10;
-            this.label1.Text = "发布招聘";
+            this.label1.Text = "科普管理";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
@@ -88,12 +88,12 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(442, 258);
+            this.label3.Location = new System.Drawing.Point(433, 258);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 22);
+            this.label3.Size = new System.Drawing.Size(124, 22);
             this.label3.TabIndex = 11;
-            this.label3.Text = "信息修改";
+            this.label3.Text = "用户信息管理";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button2
