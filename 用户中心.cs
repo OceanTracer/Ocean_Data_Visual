@@ -22,7 +22,7 @@ namespace Data_Visual
             fill_info(登录界面.mail);
             InfoGroupBox.BringToFront();
         }
-        SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=. ; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
 

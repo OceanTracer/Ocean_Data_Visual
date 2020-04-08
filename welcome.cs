@@ -41,5 +41,10 @@ namespace Data_Visual
             f_log.Owner = this;
             f_log.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
