@@ -73,7 +73,7 @@ namespace Data_Visual
             PictureBox pic = (PictureBox)sender;
             pic.Cursor = Cursors.Hand;
             account.click_num = num[Convert.ToInt32(pic.Tag)];
-            MessageBox.Show(num[Convert.ToInt32(pic.Tag)].ToString());
+            //MessageBox.Show(num[Convert.ToInt32(pic.Tag)].ToString());
             收藏具体内容 f1 = new 收藏具体内容();
             f1.Owner = this;
             f1.ShowDialog();

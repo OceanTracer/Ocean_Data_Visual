@@ -32,6 +32,8 @@ namespace Data_Visual
                 nino.aim_start = dateTimePicker4.Text;
                 nino.aim_final = dateTimePicker3.Text;
                 NinoShow form = new NinoShow();
+                form.Owner = this;
+                Hide();
                 form.ShowDialog();
             }
         }

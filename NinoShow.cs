@@ -392,7 +392,7 @@ namespace Data_Visual
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
+            this.Owner.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
