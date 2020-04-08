@@ -19,14 +19,26 @@ namespace Data_Visual
         {
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ; Initial Catalog=OT_user ; Integrated Security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=. ; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
         int kp_lastnum;
-
+        int inopen = 0;//判断保存修改那里是否修改了图片！
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            label3.Text = comboBox1.Text;
+            try
+            { 
+            FileStream pFileStream = new FileStream(@"pic_all\" + comboBox1.Text.ToString() + ".jpg", FileMode.Open, FileAccess.Read);
+            pictureBox1.Image = Image.FromStream(pFileStream);
+            pFileStream.Close();
+            pFileStream.Dispose();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.FileName = @"pic_all\" + comboBox1.Text.ToString() + ".txt";
+            richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            }
+            catch
+            { }
         }
 
         private void 科普管理_Load(object sender, EventArgs e)
@@ -43,6 +55,8 @@ namespace Data_Visual
             //MessageBox.Show(mydataset.Tables["info"].Rows[0][0].ToString());
             comboBox1.DisplayMember = "collect_num";
             comboBox1.DataSource = mydataset.Tables["info"];
+            comboBox2.DisplayMember = "collect_num";
+            comboBox2.DataSource = mydataset.Tables["info"];
             int last = mydataset.Tables["info"].Rows.Count;
             kp_lastnum = Convert.ToInt32(mydataset.Tables["info"].Rows[last - 1][0].ToString());
         }
@@ -64,8 +78,9 @@ namespace Data_Visual
                     {
                         strpath = file.FileName;
                         filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
-                        pictureBox1.Image = Image.FromFile(filename);
+                        pictureBox1.Image = Image.FromFile(strpath);
                         //Console.WriteLine(pathName + '\\' + fileName+".nc");
+                        inopen = 1;
                     }
 
                 }
@@ -89,6 +104,7 @@ namespace Data_Visual
             {
                 try
                 {
+                    richTextBox1.Text = "";
                     foreach (string this_file in file.FileNames)
                     {
                         strpath = file.FileName;
@@ -114,38 +130,40 @@ namespace Data_Visual
             }
             sr.Close();
         }
+        public void TXT_read2(string path)
+        {
+            StreamReader sr = new StreamReader(path, Encoding.Default);
+            String line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                richTextBox2.Text += line.ToString() + "\r\n"; 
+            }
+            sr.Close();
+        }
 
         public void TXT_write(string path)
         {
-            FileStream fs = new FileStream(path, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            //开始写入
-            sw.Write(richTextBox1.Text);
-            //清空缓冲区
-            sw.Flush();
-            //关闭流
-            sw.Close();
-            fs.Close();
+            richTextBox1.SaveFile(path, RichTextBoxStreamType.PlainText);
+        }
+        public void TXT_write2(string path)
+        {
+            richTextBox2.SaveFile(path, RichTextBoxStreamType.PlainText);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string kp_no = comboBox1.Text;
-            string pic_name = System.Windows.Forms.Application.StartupPath + "\\pic_all\\'" + kp_no + ".jpg";
-            string txt_name = System.Windows.Forms.Application.StartupPath + "\\pic_all\\'" + kp_no + ".txt";
-
-            if (File.Exists(pic_name))
+            string pic_name = "pic_all\\" + kp_no + ".jpg";
+            string txt_name = "pic_all\\" + kp_no + ".txt";
+            label3.Text = pic_name;
+            if(inopen==1)
             {
-                File.Delete(pic_name);
+                pictureBox1.Image.Save(pic_name);
             }
-
-            if (File.Exists(txt_name))
-            {
-                File.Delete(txt_name);
-            }
-
-            pictureBox1.Image.Save(pic_name, System.Drawing.Imaging.ImageFormat.Jpeg);
             TXT_write(txt_name);
+            GetKPNum();
+            MessageBox.Show("保存成功！");
+            inopen = 0;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -171,7 +189,7 @@ namespace Data_Visual
                     {
                         strpath = file.FileName;
                         filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
-                        pictureBox2.Image = Image.FromFile(filename);
+                        pictureBox2.Image = Image.FromFile(strpath);
                         //Console.WriteLine(pathName + '\\' + fileName+".nc");
                     }
 
@@ -187,7 +205,7 @@ namespace Data_Visual
         {
             OpenFileDialog file = new OpenFileDialog();
             file.Multiselect = true;
-            file.Filter = "文本文件|*.png;*.jpg";
+            file.Filter = "文本文件|*.txt";
 
             string strpath;
             string filename;
@@ -200,7 +218,8 @@ namespace Data_Visual
                     {
                         strpath = file.FileName;
                         filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
-                        TXT_read(strpath);
+                        TXT_read2(strpath);
+                       // richTextBox2.Text = TXT_read(strpath);
                     }
 
                 }
@@ -212,18 +231,30 @@ namespace Data_Visual
         }
 
         private void button7_Click(object sender, EventArgs e)
-        {
-            string pic_name = System.Windows.Forms.Application.StartupPath + "\\pic_all\\'" + (kp_lastnum + 1).ToString() + ".jpg";
-            string txt_name = System.Windows.Forms.Application.StartupPath + "\\pic_all\\'" + (kp_lastnum + 1).ToString() + ".txt";
-            mysql = "insert into collect_info VALUES('" + (kp_lastnum + 1).ToString() + "','" + pic_name + "','" + txt_name + "')";
-            SqlCommand mycmd = new SqlCommand(mysql, myconn);
-            myconn.Open();
-            {
-                mycmd.ExecuteNonQuery();
+        {   
+            string pic_name = "pic_all\\" + (kp_lastnum + 1).ToString()+".jpg";
+            string txt_name = "pic_all\\" + (kp_lastnum + 1).ToString() + ".txt";
+            //SaveFileDialog sfd = new SaveFileDialog();
+            if (pictureBox2.Image!=null)
+            { 
+                pictureBox2.Image.Save(pic_name);
+                richTextBox2.SaveFile(txt_name, RichTextBoxStreamType.PlainText);
+                mysql = "insert into collect_info VALUES('" + (kp_lastnum + 1).ToString() + "','" + pic_name + "','" + txt_name + "')";
+                SqlCommand mycmd = new SqlCommand(mysql, myconn);
+                myconn.Open();
+                {
+                    mycmd.ExecuteNonQuery();
+                }
+                myconn.Close();
+                MessageBox.Show("添加成功");
+                pictureBox2.Image=null;
+                richTextBox2.Text="";
+                GetKPNum();
             }
-            myconn.Close();
-            MessageBox.Show("添加成功");
-            GetKPNum();
+            else
+            {
+                MessageBox.Show("No picture!");
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -236,8 +267,18 @@ namespace Data_Visual
                 mycmd.ExecuteNonQuery();
             }
             myconn.Close();
+            //删除文件夹文件！
+            string pic_name = "pic_all\\" + to_delete + ".jpg";
+            string txt_name = "pic_all\\" + to_delete + ".txt";
+            File.Delete(pic_name);
+            File.Delete(txt_name);
             MessageBox.Show("删除成功");
             GetKPNum();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
