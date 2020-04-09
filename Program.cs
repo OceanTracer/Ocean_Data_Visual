@@ -16,7 +16,7 @@ namespace Data_Visual
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 科普管理());
+            Application.Run(new SQLEnsure());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Data_Visual
         {
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection(@"Data Source=. ; Initial Catalog=OT_user ; Integrated Security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ;Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
 

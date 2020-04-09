@@ -71,7 +71,7 @@ namespace Data_Visual
             {
                 try
                 {
-                    SqlConnection myconn = new SqlConnection(@"Data Source=. ; Initial Catalog=OT_user ; Integrated Security=true");
+                    SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ;Initial Catalog=OT_user ; Integrated Security=true");
                     string mycmd = "insert into collect  VALUES('" + 登录界面.mail + "','" + cur + "',null)";
                     string mycmd1= "select collect_num from collect where umail='" + 登录界面.mail+"'";
                     //统计已经收藏个数

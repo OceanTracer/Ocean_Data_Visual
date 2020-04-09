@@ -50,6 +50,18 @@
             this.RecordLabel = new System.Windows.Forms.Label();
             this.HomeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EditGroupBox = new System.Windows.Forms.GroupBox();
+            this.radioButtonWoman = new System.Windows.Forms.RadioButton();
+            this.radioButtonMan = new System.Windows.Forms.RadioButton();
+            this.textBoxDesire = new System.Windows.Forms.TextBox();
+            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxDescribe = new System.Windows.Forms.TextBox();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.InfoGroupBox = new System.Windows.Forms.GroupBox();
             this.labelMail = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,22 +73,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.EditGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBoxDesire = new System.Windows.Forms.TextBox();
-            this.textBoxMail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxDescribe = new System.Windows.Forms.TextBox();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.radioButtonMan = new System.Windows.Forms.RadioButton();
-            this.radioButtonWoman = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.InfoGroupBox.SuspendLayout();
             this.EditGroupBox.SuspendLayout();
+            this.InfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -297,6 +297,149 @@
             this.panel1.Size = new System.Drawing.Size(617, 352);
             this.panel1.TabIndex = 46;
             // 
+            // EditGroupBox
+            // 
+            this.EditGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditGroupBox.Controls.Add(this.radioButtonWoman);
+            this.EditGroupBox.Controls.Add(this.radioButtonMan);
+            this.EditGroupBox.Controls.Add(this.textBoxDesire);
+            this.EditGroupBox.Controls.Add(this.textBoxMail);
+            this.EditGroupBox.Controls.Add(this.label5);
+            this.EditGroupBox.Controls.Add(this.textBoxDescribe);
+            this.EditGroupBox.Controls.Add(this.SaveButton);
+            this.EditGroupBox.Controls.Add(this.label11);
+            this.EditGroupBox.Controls.Add(this.label12);
+            this.EditGroupBox.Controls.Add(this.label13);
+            this.EditGroupBox.Controls.Add(this.label14);
+            this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EditGroupBox.Location = new System.Drawing.Point(16, 15);
+            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.EditGroupBox.Name = "EditGroupBox";
+            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
+            this.EditGroupBox.TabIndex = 57;
+            this.EditGroupBox.TabStop = false;
+            // 
+            // radioButtonWoman
+            // 
+            this.radioButtonWoman.AutoSize = true;
+            this.radioButtonWoman.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonWoman.Location = new System.Drawing.Point(204, 121);
+            this.radioButtonWoman.Name = "radioButtonWoman";
+            this.radioButtonWoman.Size = new System.Drawing.Size(40, 21);
+            this.radioButtonWoman.TabIndex = 61;
+            this.radioButtonWoman.TabStop = true;
+            this.radioButtonWoman.Text = "女";
+            this.radioButtonWoman.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonMan
+            // 
+            this.radioButtonMan.AutoSize = true;
+            this.radioButtonMan.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonMan.Location = new System.Drawing.Point(148, 121);
+            this.radioButtonMan.Name = "radioButtonMan";
+            this.radioButtonMan.Size = new System.Drawing.Size(40, 21);
+            this.radioButtonMan.TabIndex = 60;
+            this.radioButtonMan.TabStop = true;
+            this.radioButtonMan.Text = "男";
+            this.radioButtonMan.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDesire
+            // 
+            this.textBoxDesire.Location = new System.Drawing.Point(148, 160);
+            this.textBoxDesire.Name = "textBoxDesire";
+            this.textBoxDesire.Size = new System.Drawing.Size(115, 23);
+            this.textBoxDesire.TabIndex = 59;
+            // 
+            // textBoxMail
+            // 
+            this.textBoxMail.Location = new System.Drawing.Point(148, 82);
+            this.textBoxMail.Name = "textBoxMail";
+            this.textBoxMail.ReadOnly = true;
+            this.textBoxMail.Size = new System.Drawing.Size(115, 23);
+            this.textBoxMail.TabIndex = 58;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(85, 82);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "邮箱：";
+            // 
+            // textBoxDescribe
+            // 
+            this.textBoxDescribe.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxDescribe.Location = new System.Drawing.Point(176, 198);
+            this.textBoxDescribe.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxDescribe.Multiline = true;
+            this.textBoxDescribe.Name = "textBoxDescribe";
+            this.textBoxDescribe.Size = new System.Drawing.Size(325, 66);
+            this.textBoxDescribe.TabIndex = 53;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.Color.Transparent;
+            this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SaveButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SaveButton.ForeColor = System.Drawing.Color.DarkGray;
+            this.SaveButton.Location = new System.Drawing.Point(484, 18);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(74, 32);
+            this.SaveButton.TabIndex = 44;
+            this.SaveButton.Text = "保存";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(85, 198);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 20);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "个性描述：";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(85, 121);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 20);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "性别：";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(86, 160);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 20);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "兴趣：";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(243, 27);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 20);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "用户信息";
+            // 
             // InfoGroupBox
             // 
             this.InfoGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -436,149 +579,6 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "用户信息";
             // 
-            // EditGroupBox
-            // 
-            this.EditGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.EditGroupBox.Controls.Add(this.radioButtonWoman);
-            this.EditGroupBox.Controls.Add(this.radioButtonMan);
-            this.EditGroupBox.Controls.Add(this.textBoxDesire);
-            this.EditGroupBox.Controls.Add(this.textBoxMail);
-            this.EditGroupBox.Controls.Add(this.label5);
-            this.EditGroupBox.Controls.Add(this.textBoxDescribe);
-            this.EditGroupBox.Controls.Add(this.SaveButton);
-            this.EditGroupBox.Controls.Add(this.label11);
-            this.EditGroupBox.Controls.Add(this.label12);
-            this.EditGroupBox.Controls.Add(this.label13);
-            this.EditGroupBox.Controls.Add(this.label14);
-            this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EditGroupBox.Location = new System.Drawing.Point(16, 15);
-            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.EditGroupBox.Name = "EditGroupBox";
-            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
-            this.EditGroupBox.TabIndex = 57;
-            this.EditGroupBox.TabStop = false;
-            // 
-            // textBoxDesire
-            // 
-            this.textBoxDesire.Location = new System.Drawing.Point(148, 160);
-            this.textBoxDesire.Name = "textBoxDesire";
-            this.textBoxDesire.Size = new System.Drawing.Size(115, 23);
-            this.textBoxDesire.TabIndex = 59;
-            // 
-            // textBoxMail
-            // 
-            this.textBoxMail.Location = new System.Drawing.Point(148, 82);
-            this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.ReadOnly = true;
-            this.textBoxMail.Size = new System.Drawing.Size(115, 23);
-            this.textBoxMail.TabIndex = 58;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(85, 82);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
-            this.label5.TabIndex = 54;
-            this.label5.Text = "邮箱：";
-            // 
-            // textBoxDescribe
-            // 
-            this.textBoxDescribe.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxDescribe.Location = new System.Drawing.Point(176, 198);
-            this.textBoxDescribe.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxDescribe.Multiline = true;
-            this.textBoxDescribe.Name = "textBoxDescribe";
-            this.textBoxDescribe.Size = new System.Drawing.Size(325, 66);
-            this.textBoxDescribe.TabIndex = 53;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.BackColor = System.Drawing.Color.Transparent;
-            this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SaveButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SaveButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.SaveButton.Location = new System.Drawing.Point(484, 18);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(74, 32);
-            this.SaveButton.TabIndex = 44;
-            this.SaveButton.Text = "保存";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(85, 198);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 20);
-            this.label11.TabIndex = 34;
-            this.label11.Text = "个性描述：";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(85, 121);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 20);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "性别：";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(86, 160);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 20);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "兴趣：";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(243, 27);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 20);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "用户信息";
-            // 
-            // radioButtonMan
-            // 
-            this.radioButtonMan.AutoSize = true;
-            this.radioButtonMan.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonMan.Location = new System.Drawing.Point(148, 121);
-            this.radioButtonMan.Name = "radioButtonMan";
-            this.radioButtonMan.Size = new System.Drawing.Size(40, 21);
-            this.radioButtonMan.TabIndex = 60;
-            this.radioButtonMan.TabStop = true;
-            this.radioButtonMan.Text = "男";
-            this.radioButtonMan.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonWoman
-            // 
-            this.radioButtonWoman.AutoSize = true;
-            this.radioButtonWoman.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonWoman.Location = new System.Drawing.Point(204, 121);
-            this.radioButtonWoman.Name = "radioButtonWoman";
-            this.radioButtonWoman.Size = new System.Drawing.Size(40, 21);
-            this.radioButtonWoman.TabIndex = 61;
-            this.radioButtonWoman.TabStop = true;
-            this.radioButtonWoman.Text = "女";
-            this.radioButtonWoman.UseVisualStyleBackColor = true;
-            // 
             // 用户中心
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -601,13 +601,14 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "用户中心";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = " ";
             this.Load += new System.EventHandler(this.用户中心_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.InfoGroupBox.ResumeLayout(false);
-            this.InfoGroupBox.PerformLayout();
             this.EditGroupBox.ResumeLayout(false);
             this.EditGroupBox.PerformLayout();
+            this.InfoGroupBox.ResumeLayout(false);
+            this.InfoGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

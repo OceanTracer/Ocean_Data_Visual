@@ -19,7 +19,7 @@ namespace Data_Visual
         {
             InitializeComponent();
         }
-        SqlConnection myconn = new SqlConnection(@"Data Source=. ; Initial Catalog=OT_user ; Integrated Security=true");
+        SqlConnection myconn = new SqlConnection(@"Data Source="+sql_source.dt_source+" ; Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
         int kp_lastnum;
@@ -44,6 +44,12 @@ namespace Data_Visual
         private void 科普管理_Load(object sender, EventArgs e)
         {
             GetKPNum();
+            comboBox1.SelectedItem = null;
+            comboBox2.SelectedItem = null;
+            pictureBox1.Image = null;
+            pictureBox4.Image = null;
+            richTextBox1.Text = "";
+            richTextBox3.Text = "";
         }
 
        void GetKPNum()
@@ -152,18 +158,29 @@ namespace Data_Visual
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string kp_no = comboBox1.Text;
-            string pic_name = "pic_all\\" + kp_no + ".jpg";
-            string txt_name = "pic_all\\" + kp_no + ".txt";
-            label3.Text = pic_name;
-            if(inopen==1)
+            DialogResult dr = MessageBox.Show("您确定要修改"+comboBox1.Text+"号科普的内容吗？", "修改确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
             {
-                pictureBox1.Image.Save(pic_name);
+                string kp_no = comboBox1.Text;
+                string pic_name = "pic_all\\" + kp_no + ".jpg";
+                string txt_name = "pic_all\\" + kp_no + ".txt";
+                label3.Text = pic_name;
+                if (inopen == 1)
+                {
+                    pictureBox1.Image.Save(pic_name);
+                }
+                TXT_write(txt_name);
+                GetKPNum();
+                MessageBox.Show("保存成功！");
+                inopen = 0;
+                comboBox1.SelectedItem = null;
+                pictureBox1.Image = null;
+                richTextBox1.Text = "";
             }
-            TXT_write(txt_name);
-            GetKPNum();
-            MessageBox.Show("保存成功！");
-            inopen = 0;
+            else
+            {       
+                //
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -231,54 +248,126 @@ namespace Data_Visual
         }
 
         private void button7_Click(object sender, EventArgs e)
-        {   
-            string pic_name = "pic_all\\" + (kp_lastnum + 1).ToString()+".jpg";
-            string txt_name = "pic_all\\" + (kp_lastnum + 1).ToString() + ".txt";
-            //SaveFileDialog sfd = new SaveFileDialog();
-            if (pictureBox2.Image!=null)
-            { 
-                pictureBox2.Image.Save(pic_name);
-                richTextBox2.SaveFile(txt_name, RichTextBoxStreamType.PlainText);
-                mysql = "insert into collect_info VALUES('" + (kp_lastnum + 1).ToString() + "','" + pic_name + "','" + txt_name + "')";
+        {
+            DialogResult dr = MessageBox.Show("您确定要添加如下科普内容吗？", "添加确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                string pic_name = "pic_all\\" + (kp_lastnum + 1).ToString() + ".jpg";
+                string txt_name = "pic_all\\" + (kp_lastnum + 1).ToString() + ".txt";
+                //SaveFileDialog sfd = new SaveFileDialog();
+                if (pictureBox2.Image != null)
+                {
+                    pictureBox2.Image.Save(pic_name);
+                    richTextBox2.SaveFile(txt_name, RichTextBoxStreamType.PlainText);
+                    mysql = "insert into collect_info VALUES('" + (kp_lastnum + 1).ToString() + "','" + pic_name + "','" + txt_name + "')";
+                    SqlCommand mycmd = new SqlCommand(mysql, myconn);
+                    myconn.Open();
+                    {
+                        mycmd.ExecuteNonQuery();
+                    }
+                    myconn.Close();
+                    MessageBox.Show("添加成功");
+                    pictureBox2.Image = null;
+                    richTextBox2.Text = "";
+                    GetKPNum();
+                }
+                else
+                {
+                    MessageBox.Show("没有上传图片!");
+                }
+            }
+            else
+            {
+                //
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("您确定要删除" + comboBox2.Text + "号科普的内容吗？", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                string to_delete = comboBox2.Text;
+                mysql = "delete from collect_info where collect_num = '" + to_delete + "'";
                 SqlCommand mycmd = new SqlCommand(mysql, myconn);
                 myconn.Open();
                 {
                     mycmd.ExecuteNonQuery();
                 }
                 myconn.Close();
-                MessageBox.Show("添加成功");
-                pictureBox2.Image=null;
-                richTextBox2.Text="";
+                //删除文件夹文件！
+                string pic_name = "pic_all\\" + to_delete + ".jpg";
+                string txt_name = "pic_all\\" + to_delete + ".txt";
+                File.Delete(pic_name);
+                File.Delete(txt_name);
+
+                //更新删除文件后的序号
+                int to_update = Convert.ToInt32(to_delete);
+                for (to_update = Convert.ToInt32(to_delete) + 1; to_update <= kp_lastnum; to_update++)
+                {
+                    string srcjpgFileName = @"pic_all\" + to_update.ToString() + ".jpg";
+                    string destjpgFileName = @"pic_all\" + (to_update - 1).ToString() + ".jpg";
+                    string srctxtFileName = @"pic_all\" + to_update.ToString() + ".txt";
+                    string desttxtFileName = @"pic_all\" + (to_update - 1).ToString() + ".txt";
+                    if (File.Exists(srcjpgFileName))
+                    {
+                        File.Move(srcjpgFileName, destjpgFileName);
+                    }
+                    if (File.Exists(srctxtFileName))
+                    {
+                        File.Move(srctxtFileName, desttxtFileName);
+                    }
+                    mysql = "update collect_info set collect_num = '" + (to_update - 1).ToString() + "', collect_pic = '" + destjpgFileName + "', collect_txt = '" + desttxtFileName + "' where collect_num =  '" + to_update.ToString() + "'";
+                    SqlCommand updatecmd = new SqlCommand(mysql, myconn);
+                    myconn.Open();
+                    {
+                        updatecmd.ExecuteNonQuery();
+                    }
+                    myconn.Close();
+                }
+
+                MessageBox.Show("删除成功");
                 GetKPNum();
+                comboBox2.SelectedItem = null;
+                pictureBox4.Image = null;
+                richTextBox3.Text = "";
             }
             else
             {
-                MessageBox.Show("No picture!");
+                //
             }
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            string to_delete = comboBox2.Text;
-            mysql = "delete from collect_info where collect_num = '" + to_delete + "'";
-            SqlCommand mycmd = new SqlCommand(mysql, myconn);
-            myconn.Open();
-            {
-                mycmd.ExecuteNonQuery();
-            }
-            myconn.Close();
-            //删除文件夹文件！
-            string pic_name = "pic_all\\" + to_delete + ".jpg";
-            string txt_name = "pic_all\\" + to_delete + ".txt";
-            File.Delete(pic_name);
-            File.Delete(txt_name);
-            MessageBox.Show("删除成功");
-            GetKPNum();
+ 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                FileStream pFileStream = new FileStream(@"pic_all\" + comboBox2.Text.ToString() + ".jpg", FileMode.Open, FileAccess.Read);
+                pictureBox4.Image = Image.FromStream(pFileStream);
+                pFileStream.Close();
+                pFileStream.Dispose();
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.FileName = @"pic_all\" + comboBox2.Text.ToString() + ".txt";
+                richTextBox3.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            }
+            catch
+            { }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.SelectedItem = null;
+            comboBox2.SelectedItem = null;
+            pictureBox1.Image = null;
+            pictureBox4.Image = null;
+            richTextBox1.Text = "";
+            richTextBox3.Text = "";
         }
     }
 }
