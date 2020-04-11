@@ -106,6 +106,58 @@ namespace Data_Visual
             myconn.Close();
         }
 
-        
+        /// <summary>统计科普收藏量</summary>
+        /// 本函数将<科普ID,收藏人数>的键值对储存在了一个字典中并返回，可以利用字典中的数据实现各种展示；
+        /// 实际使用时直接用DataSet的SQL查询结果也可以，字典只是将前后端分离的中转站（实际上也有将查询结果转换为合理类型储存、避免多次查询的作用）
+        private Dictionary<int, int> CollectCount()
+        {
+            Dictionary<int, int> collects = new Dictionary<int, int>();
+            string sql = "select collect_num, count(*) from collect group by collect_num";
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "count");
+            for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
+            {
+                int collect_num = Convert.ToInt32(mydataset.Tables["info"].Rows[i][0]);
+                int count = Convert.ToInt32(mydataset.Tables["info"].Rows[i][1]);
+                collects[collect_num] = count;
+            }
+            return collects;
+            /*eg: how to access the data in a Dictionary*/
+            //foreach(KeyValuePair<int, int> clct in collects)
+            //{
+            //    Console.Write("科普ID："+clct.Key+" 收藏数量："+clct.Value);
+            //}
+        }
+
+        /// <summary>统计不同兴趣数量</summary>
+        /// 本函数将<兴趣,人数>的键值对储存在了一个字典中并返回，可以利用字典中的数据实现各种展示；
+        /// 与上一个函数不同的是，因为desire属性在数据库中合并储存，因此必须手动分割计数，不能直接用DataSet的结果
+        private Dictionary<string, int> DesireCount()
+        {
+            Dictionary<string, int> desires = new Dictionary<string, int>();
+            string sql = "select desire from user_info";
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "count");
+            for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
+            {
+                string des = mydataset.Tables["info"].Rows[i][0].ToString();
+                string[] splits = des.Split(',');
+                foreach (string s in splits)
+                    if (!desires.ContainsKey(s))
+                        desires[s] = 1;
+                    else
+                        desires[s]++;
+            }
+            return desires;
+            /*eg: how to access the data in a Dictionary*/
+            //foreach(KeyValuePair<string, int> dsr in collects)
+            //{
+            //    Console.Write("兴趣："+dsr.Key+" 人数："+dsr.Value);
+            //}
+        }
+
+
     }
 }

@@ -53,3 +53,5 @@ update user_info set desire='厄尔尼诺现象,拉尼娜,海表温度,海表剖面温度,洋流运动,
 
 update user_info set enabled='N' where umail=umail
 
+select collect_num, count(*) from collect group by collect_num
+select desire from user_info
