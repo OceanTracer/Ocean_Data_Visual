@@ -112,7 +112,8 @@ namespace Data_Visual
         private Dictionary<int, int> CollectCount()
         {
             Dictionary<int, int> collects = new Dictionary<int, int>();
-            string sql = "select collect_num, count(*) from collect group by collect_num";
+            string sql = @"select collect_num, count(*) as 'count' from collect group by collect_num UNION
+            select collect_num, 0 as 'count' from collect_info where collect_num not in(select collect_num from collect)";
             SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
             mydataset.Clear();
             myadapter.Fill(mydataset, "count");
@@ -159,5 +160,72 @@ namespace Data_Visual
         }
 
 
+        /// <summary>向指定用户发送通知</summary>
+        /// <param name="umail">用户邮箱</param>
+        /// <param name="notice_content">通知内容，最大长度400(中文字符长度为2)</param>
+        private void SendNotice(string umail, string notice_content)
+        {
+            string sql = "insert into notice values('" + umail + "','" + notice_content + "',GETDATE())";
+            SqlCommand mycmd = new SqlCommand(sql, myconn);
+            myconn.Open();
+            try
+            {
+                mycmd.ExecuteNonQuery();
+                MessageBox.Show("通知发送成功", "OceanTracer");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
+
+        /// <summary>向所有用户群发通知</summary>
+        /// <param name="notice_content">通知内容，最大长度400(中文字符长度为2)</param>
+        private void SendGroupNotice(string notice_content)
+        {
+            SqlCommand mycmd = new SqlCommand("groupNotice", myconn);   //利用数据库的存储过程实现
+            mycmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter content = new SqlParameter("@notice_content ", SqlDbType.VarChar, 400);
+            mycmd.Parameters.Add(content);
+            content.Value = notice_content;
+            myconn.Open();
+            try
+            {
+                mycmd.ExecuteNonQuery();
+                MessageBox.Show("通知群发成功", "OceanTracer");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
+
+        ///<summary>用户查询收到的通知</summary>
+        ///<param name="umail">用户邮箱</param>
+        ///本函数将[通知内容,通知时间]的二元组按通知时间倒序储存在了一个List中并返回，可以用List中的数据实现各种展示；
+        ///实际使用时也可以直接用DataSet的查询结果输出
+        private List<string[]> GetNotice(string umail)
+        {
+            List<string[]> noticeList = new List<string[]>();
+            //按时间倒序查询此用户收到的通知
+            string sql = "select notice_content, notice_time from notice where umail='" + umail + "'order by notice_time desc";
+            string ntc_content, ntc_time;
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "notice");
+            for (int i = 0; i < mydataset.Tables["notice"].Rows.Count; i++)
+            {
+                ntc_content = mydataset.Tables["notice"].Rows[i][0].ToString();
+                ntc_time = mydataset.Tables["notice"].Rows[i][1].ToString();
+                string[] ntc = new string[] { ntc_content, ntc_time};
+                noticeList.Add(ntc);
+            }
+            return noticeList;
+            /*eg: how to access the data in a List<string[]>*/
+            //for(int i=0;i<noticeList.Count;i++)
+            //    Console.Write("通知内容：" + noticeList[i][0] + " 时间：" + noticeList[i][1]);
+        }
     }
 }
