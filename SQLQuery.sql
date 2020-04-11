@@ -76,9 +76,11 @@ select uname, sex, desire, describe from user_info where umail='user@test.com'
 
 update user_info set desire='厄尔尼诺现象,拉尼娜,海表温度,海表剖面温度,洋流运动,其他' where umail='user@test.com'
 
-update user_info set enabled='N' where umail='umail'
+update user_info set enabled='N' where umail='user@test.com'
 
 select collect_num, count(*) as 'count' from collect group by collect_num
+UNION
+select collect_num, 0 as 'count' from collect_info where collect_num not in(select collect_num from collect)
 
 select desire from user_info
 

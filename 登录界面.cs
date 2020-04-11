@@ -32,22 +32,37 @@ namespace Data_Visual
         //登录
         public int login(string email, string password, ref int type)
         {
-            mysql = "select upsword,u_status from user_info where umail='" + email + "'";
-            mail = email; 
-            SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
-            myadapter.Fill(mydataset, "_email");
+            /*检查用户是否被禁用*/
+            mysql = "select enabled from user_info where umail='" + email + "'";
             try
             {
-                type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);
-                string pass = Convert.ToString(mydataset.Tables["_email"].Rows[0][0]);
-                if (password == pass)
-                    return 1;
-                else
-                    return 0;
+                SqlDataAdapter myadapter0 = new SqlDataAdapter(mysql, myconn);
+                myadapter0.Fill(mydataset, "checkEnabled");
+                string enabled = mydataset.Tables["checkEnabled"].Rows[0][0].ToString();
+                if (enabled == "N")
+                    return 2;
             }
             catch (Exception)
             {
-                return 0;
+                return 3;
+            }
+            /*核对登录密码*/
+            mysql = "select upsword,u_status from user_info where umail='" + email + "'";
+            mail = email;
+            try
+            {
+                SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+                myadapter.Fill(mydataset, "_email");
+                type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);
+                string pass = Convert.ToString(mydataset.Tables["_email"].Rows[0][0]);
+                if (password == pass)
+                    return 0;
+                else
+                    return 1;
+            }
+            catch (Exception)
+            {
+                return 3;
             }
             
         }
@@ -75,8 +90,12 @@ namespace Data_Visual
                 string a = textBox1.Text;
                 string b = textBox2.Text;
                 int c = login(a, b,ref type);
-                if (c == 0)
-                    MessageBox.Show("用户名或密码错误！请重试。","登录错误");
+                if (c == 1)
+                    MessageBox.Show("用户名或密码错误！请重试。", "登录错误");
+                else if (c == 2)
+                    MessageBox.Show("您的账号已被禁用！", "登录错误");
+                else if (c == 3)
+                    MessageBox.Show("未知错误！请重试。", "登录错误");
                 else
                 {
                     Hide();
