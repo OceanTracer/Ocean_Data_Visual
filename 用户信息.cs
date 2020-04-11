@@ -55,5 +55,57 @@ namespace Data_Visual
             listView1.Columns.Add("身份", 70);
             listView1.Columns.Add("描述", 200);
         }
+
+
+        /// <summary>
+        /// 根据用户名查找用户邮箱；需要在listView1已被填充后调用
+        /// </summary>
+        /// <param name="uname">用户名</param>
+        private string SearchUser(string uname)
+        {
+            ListViewItem res = listView1.FindItemWithText(uname, true, 0, true);
+            string umail = res.SubItems[0].Text;
+            return umail;
+        }
+
+        /// <summary>根据用户邮箱封禁用户</summary>
+        /// <param name="umail">用户邮箱</param>
+        private void DisableUser(string umail)
+        {
+            string sql = "update user_info set enabled='N' where umail='" + umail + "'";
+            SqlCommand mycmd = new SqlCommand(sql, myconn);
+            myconn.Open();
+            try
+            {
+                mycmd.ExecuteNonQuery();
+                MessageBox.Show("已禁用用户"+umail, "OceanTracer");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
+
+        /// <summary>根据用户邮箱解封用户</summary>
+        /// <param name="umail">用户邮箱</param>
+        private void EnableUser(string umail)
+        {
+            string sql = "update user_info set enabled='Y' where umail='" + umail + "'";
+            SqlCommand mycmd = new SqlCommand(sql, myconn);
+            myconn.Open();
+            try
+            {
+                mycmd.ExecuteNonQuery();
+                MessageBox.Show("已启用用户" + umail, "OceanTracer");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
+
+        
     }
 }
