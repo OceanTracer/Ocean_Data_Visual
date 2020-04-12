@@ -31,6 +31,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,20 +52,38 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(349, 66);
+            this.listView1.Location = new System.Drawing.Point(428, 66);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(467, 348);
+            this.listView1.Size = new System.Drawing.Size(388, 348);
             this.listView1.TabIndex = 20;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(57, 83);
+            this.button1.Location = new System.Drawing.Point(35, 66);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 44);
             this.button1.TabIndex = 21;
             this.button1.Text = "用户筛选";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(35, 128);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 44);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "用户封禁";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(202, 128);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(141, 44);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "用户解禁";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // 用户信息
             // 
@@ -71,6 +91,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
             this.ClientSize = new System.Drawing.Size(842, 439);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBox3);
@@ -88,5 +110,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -369,5 +369,20 @@ namespace Data_Visual
             richTextBox1.Text = "";
             richTextBox3.Text = "";
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage1;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage3;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage2;
+        }
     }
 }
