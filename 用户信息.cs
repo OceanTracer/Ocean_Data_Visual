@@ -18,6 +18,7 @@ namespace Data_Visual
             InitializeComponent();
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ;Initial Catalog=OT_user ; Integrated Security=true");
+        //SqlConnection myconn = new SqlConnection(@"Data Source=.\SQLEXPRESS ;Initial Catalog=OT_user ; Integrated Security=true");
         string mysql;
         DataSet mydataset = new DataSet();
 
@@ -29,33 +30,78 @@ namespace Data_Visual
 
         private void 用户信息_Load(object sender, EventArgs e)
         {
-            mysql = "select umail, uname, sex, desire, u_status, describe from user_info";
+            ListViewInit();
+        }
+
+        void ListViewInit()
+        {
+            listView1.Columns.Add("用户邮箱", 120);
+            listView1.Columns.Add("用户名", 70);
+            listView1.Columns.Add("性别", 70);
+            listView1.Columns.Add("兴趣", 70);
+            listView1.Columns.Add("权限", 70);
+            listView1.Columns.Add("账号状态", 70);
+            listView1.Columns.Add("描述", 250);
+
+            mysql = "select umail, uname, sex, desire, u_status, enabled, describe from user_info";
             SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
             mydataset.Clear();
             myadapter.Fill(mydataset, "info");
-            ListViewInit();
 
             for (int i = 0; i < mydataset.Tables["info"].Rows.Count; i++)
             {
                 ListViewItem lt = new ListViewItem();
+                string status_temp;
+                string enable_temp;
                 lt.Text = mydataset.Tables["info"].Rows[i][0].ToString();
-                for (int j = 0; j < 5; j++)
-                    lt.SubItems.Add(mydataset.Tables["info"].Rows[i][j].ToString());
+                for (int j = 1; j < 7; j++)
+                {
+                    //账号身份判断
+                    if (j == 4)
+                    {
+                        status_temp = "用户";
+                        if (mydataset.Tables["info"].Rows[i][j].ToString() == "0")
+                            status_temp = "管理员";
+                        lt.SubItems.Add(status_temp);
+                    }
+                    //账号封禁状态判断
+                    else if (j == 5)
+                    {
+                        enable_temp = "可用";
+                        if (mydataset.Tables["info"].Rows[i][j].ToString() == "N")
+                            enable_temp = "禁用";
+                        lt.SubItems.Add(enable_temp);
+                    }
+
+                    else
+                        lt.SubItems.Add(mydataset.Tables["info"].Rows[i][j].ToString());
+                }
                 listView1.Items.Add(lt);
             }
             this.listView1.View = System.Windows.Forms.View.Details;
         }
 
-        void ListViewInit()
+        void ListViewUpdate()
         {
-            listView1.Columns.Add("用户邮箱", 80);
-            listView1.Columns.Add("用户名", 70);
-            listView1.Columns.Add("性别", 70);
-            listView1.Columns.Add("兴趣", 70);
-            listView1.Columns.Add("身份", 70);
-            listView1.Columns.Add("描述", 200);
-        }
+            //针对用户可用/禁用更新
+            mysql = "select umail, uname, sex, desire, u_status, enabled, describe from user_info";
+            SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "info");
 
+            string enable_temp = "可用";
+            for (int i = 0; i<listView1.Items.Count; i++)
+            {
+                enable_temp = "可用";
+                //MessageBox.Show(mydataset.Tables["info"].Rows[i][5].ToString());
+                if (mydataset.Tables["info"].Rows[i][5].ToString() == "N")
+                {
+                    enable_temp = "禁用";
+                }
+                listView1.Items[i].SubItems[5].Text = enable_temp;
+            }
+            
+        }
 
         /// <summary>
         /// 根据用户名查找用户邮箱；需要在listView1已被填充后调用
@@ -63,8 +109,12 @@ namespace Data_Visual
         /// <param name="uname">用户名</param>
         private string SearchUser(string uname)
         {
-            ListViewItem res = listView1.FindItemWithText(uname, true, 0, true);
-            string umail = res.SubItems[0].Text;
+            ListViewItem res = listView1.FindItemWithText(uname, true, 0, false);
+            string umail;
+            if (res == null)
+                umail = "";
+            else
+                umail = res.SubItems[0].Text;
             return umail;
         }
 
@@ -119,8 +169,8 @@ namespace Data_Visual
             myadapter.Fill(mydataset, "count");
             for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
             {
-                int collect_num = Convert.ToInt32(mydataset.Tables["info"].Rows[i][0]);
-                int count = Convert.ToInt32(mydataset.Tables["info"].Rows[i][1]);
+                int collect_num = Convert.ToInt32(mydataset.Tables["count"].Rows[i][0]);
+                int count = Convert.ToInt32(mydataset.Tables["count"].Rows[i][1]);
                 collects[collect_num] = count;
             }
             return collects;
@@ -143,7 +193,7 @@ namespace Data_Visual
             myadapter.Fill(mydataset, "count");
             for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
             {
-                string des = mydataset.Tables["info"].Rows[i][0].ToString();
+                string des = mydataset.Tables["count"].Rows[i][0].ToString();
                 string[] splits = des.Split(',');
                 foreach (string s in splits)
                     if (!desires.ContainsKey(s))
@@ -206,6 +256,7 @@ namespace Data_Visual
         ///<param name="umail">用户邮箱</param>
         ///本函数将[通知内容,通知时间]的二元组按通知时间倒序储存在了一个List中并返回，可以用List中的数据实现各种展示；
         ///实际使用时也可以直接用DataSet的查询结果输出
+        ///先将该函数移植至用户中心  管理员位置改为查询通知历史记录功能
         private List<string[]> GetNotice(string umail)
         {
             List<string[]> noticeList = new List<string[]>();
@@ -226,6 +277,204 @@ namespace Data_Visual
             /*eg: how to access the data in a List<string[]>*/
             //for(int i=0;i<noticeList.Count;i++)
             //    Console.Write("通知内容：" + noticeList[i][0] + " 时间：" + noticeList[i][1]);
+        }
+
+        private List<string[]> GetNoticeHistory()
+        {
+            List<string[]> noticeList = new List<string[]>();
+            //按时间倒序查询此用户收到的通知
+            string sql = "select umail, notice_content, notice_time from notice";
+            string umail, ntc_content, ntc_time;
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "notice");
+            for (int i = 0; i < mydataset.Tables["notice"].Rows.Count; i++)
+            {
+                umail = mydataset.Tables["notice"].Rows[i][0].ToString();
+                ntc_content = mydataset.Tables["notice"].Rows[i][1].ToString();
+                ntc_time = mydataset.Tables["notice"].Rows[i][2].ToString();
+                string[] ntc = new string[] { umail, ntc_content, ntc_time };
+                noticeList.Add(ntc);
+            }
+            return noticeList;
+            /*eg: how to access the data in a List<string[]>*/
+            //for(int i=0;i<noticeList.Count;i++)
+            //    Console.Write("通知内容：" + noticeList[i][0] + " 时间：" + noticeList[i][1]);
+        }
+
+        private void 定义_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage1;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage2;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage3;
+            Collect_statistics();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage4;
+            Desire_statistics();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage5;
+            Notice_Update();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            label6.Visible = false;
+            label7.Text = "";
+            string result ="";
+            if (textBox1.Text.Trim() == "")
+                MessageBox.Show("用户名不能为空");
+            else 
+                result = SearchUser(textBox1.Text);
+            if (result == "")
+                MessageBox.Show("未查找到该用户");
+            else
+            {
+                label6.Visible = true;
+                label7.Text = result;
+            }
+            ListViewInit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string umail = textBox2.Text;
+            ListViewItem res = listView1.FindItemWithText(umail, true, 0, false);
+            if (umail == "")
+                MessageBox.Show("用户邮箱不能为空");
+            else if (res == null)
+                MessageBox.Show("未找到该用户");
+            else if (res.SubItems[4].Text == "管理员")
+                MessageBox.Show("无法封禁管理员账户");
+            else
+                DisableUser(umail);
+            ListViewUpdate();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string umail = textBox2.Text;
+            ListViewItem res = listView1.FindItemWithText(umail, true, 0, false);
+            if (umail == "")
+                MessageBox.Show("用户邮箱不能为空");
+            else if (res == null)
+                MessageBox.Show("未找到该用户");
+            else if (res.SubItems[4].Text == "管理员")
+                MessageBox.Show("无法解禁管理员账户");
+            else
+                EnableUser(umail);
+            ListViewUpdate();
+        }
+
+        private void Collect_statistics()
+        {
+            Dictionary<int, int> collects = CollectCount();
+
+            listView2.Columns.Add("科普序号", 140);
+            listView2.Columns.Add("收藏人数", 140);
+            for ( int i = 1; i <= collects.Count; i++)
+            {
+                ListViewItem It = new ListViewItem();
+                It.Text = i.ToString();
+                It.SubItems.Add(collects[i].ToString());
+                listView2.Items.Add(It);
+            }
+            this.listView2.View = System.Windows.Forms.View.Details;
+        }
+
+        private void Desire_statistics()
+        {
+            Dictionary<string, int> desires = DesireCount();
+
+            listView3.Columns.Add("兴趣", 140);
+            listView3.Columns.Add("感兴趣人数", 140);
+            foreach (KeyValuePair<string, int> dsr in desires)
+            {
+                if (dsr.Key == "")
+                    continue;
+                ListViewItem It = new ListViewItem();
+                It.Text = dsr.Key.ToString();
+                It.SubItems.Add(dsr.Value.ToString());
+                listView3.Items.Add(It);
+            }
+            this.listView3.View = System.Windows.Forms.View.Details;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string umail = textBox3.Text;
+            string content = richTextBox1.Text;
+            ListViewItem res = listView1.FindItemWithText(umail, true, 0, false);
+            if (umail == "")
+                MessageBox.Show("用户邮箱不能为空");
+            else if (content == "")
+                MessageBox.Show("通知内容不能为空");
+            else if (res == null)
+                MessageBox.Show("未找到该用户");
+            else if (res.SubItems[4].Text == "管理员")
+                MessageBox.Show("无法通知管理员");
+            else
+            {
+                DialogResult dr = MessageBox.Show("您确定要通知以下内容 \n" + richTextBox1.Text + "\n吗？", "通知确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.OK)
+                {
+                    SendNotice(umail, content);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string broadcast = richTextBox1.Text; 
+            if(broadcast == "")
+                MessageBox.Show("广播内容不能为空");
+            else
+            {
+                DialogResult dr = MessageBox.Show("您确定要广播以下内容 \n" + richTextBox1.Text + "\n吗？", "广播确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.OK)
+                {
+                    SendGroupNotice(broadcast);
+                }
+            }
+        }
+
+        private void Notice_Update()
+        {
+            listView4.Clear();
+            listView4.Columns.Add("用户邮箱", 120);
+            listView4.Columns.Add("通知内容", 400);
+            listView4.Columns.Add("通知时间", 200);
+
+            List<string[]> history = GetNoticeHistory();
+            for (int i = 0; i < history.Count; i++)
+            {
+                ListViewItem It = new ListViewItem();
+                It.Text = history[i][0];
+                It.SubItems.Add(history[i][1]);
+                It.SubItems.Add(history[i][2]);
+                listView4.Items.Add(It);
+            }
+            this.listView4.View = System.Windows.Forms.View.Details;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            label12.Visible = true;
+            listView4.Visible = true;
+            Notice_Update();
         }
     }
 }

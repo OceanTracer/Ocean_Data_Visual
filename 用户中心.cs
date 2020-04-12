@@ -53,6 +53,7 @@ namespace Data_Visual
         private void InfoLabel_Click(object sender, EventArgs e)
         {
             fill_info(登录界面.mail);
+            NoticeBox.SendToBack();
             InfoGroupBox.BringToFront();
             /*InfoGroupBox.Show();
             RecordGroupBox.Hide();
@@ -80,6 +81,7 @@ namespace Data_Visual
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+            InfoGroupBox.SendToBack();
             EditGroupBox.BringToFront();
             textBoxMail.Text = 登录界面.mail;
             textBoxDesire.Text = labelDesire.Text;
@@ -131,6 +133,7 @@ namespace Data_Visual
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string sex="";
+            radioButtonMan.Checked = true;
             if (radioButtonMan.Checked == true)
                 sex = "男";
             if (radioButtonWoman.Checked == true)
@@ -150,9 +153,48 @@ namespace Data_Visual
                 myconn.Close();
                 fill_info(登录界面.mail);
 
-                /*EditGroupBox.Hide();
-                InfoGroupBox.Show();*/
-                InfoGroupBox.BringToFront();
+            /*EditGroupBox.Hide();
+            InfoGroupBox.Show();*/
+            EditGroupBox.SendToBack();
+            NoticeBox.SendToBack();
+            InfoGroupBox.BringToFront();
+        }
+
+        private List<string[]> GetNotice(string umail)
+        {
+            List<string[]> noticeList = new List<string[]>();
+            //按时间倒序查询此用户收到的通知
+            string sql = "select notice_content, notice_time from notice where umail='" + umail + "'order by notice_time desc";
+            string ntc_content, ntc_time;
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "notice");
+            for (int i = 0; i < mydataset.Tables["notice"].Rows.Count; i++)
+            {
+                ntc_content = mydataset.Tables["notice"].Rows[i][0].ToString();
+                ntc_time = mydataset.Tables["notice"].Rows[i][1].ToString();
+                string[] ntc = new string[] { ntc_content, ntc_time };
+                noticeList.Add(ntc);
+            }
+            return noticeList;
+        }
+
+        private void RecordLabel_Click(object sender, EventArgs e)
+        {
+            NoticeBox.BringToFront();
+
+            listView1.Clear();
+            listView1.Columns.Add("通知内容", 400);
+            listView1.Columns.Add("通知时间", 150);
+            List<string[]> history= GetNotice(登录界面.mail);
+            for (int i = 0; i < history.Count; i++)
+            {
+                ListViewItem It = new ListViewItem();
+                It.Text = history[i][0];
+                It.SubItems.Add(history[i][1]);
+                listView1.Items.Add(It);
+            }
+            this.listView1.View = System.Windows.Forms.View.Details;
         }
     }
 }

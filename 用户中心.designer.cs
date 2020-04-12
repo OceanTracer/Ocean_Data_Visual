@@ -73,10 +73,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.NoticeBox = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.EditGroupBox.SuspendLayout();
             this.InfoGroupBox.SuspendLayout();
+            this.NoticeBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -119,12 +122,12 @@
             this.labelUname.AutoSize = true;
             this.labelUname.BackColor = System.Drawing.Color.Transparent;
             this.labelUname.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.labelUname.Font = new System.Drawing.Font("张海山锐线体简", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelUname.Font = new System.Drawing.Font("张海山锐线体简", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelUname.ForeColor = System.Drawing.Color.Black;
-            this.labelUname.Location = new System.Drawing.Point(42, 270);
+            this.labelUname.Location = new System.Drawing.Point(56, 266);
             this.labelUname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUname.Name = "labelUname";
-            this.labelUname.Size = new System.Drawing.Size(113, 38);
+            this.labelUname.Size = new System.Drawing.Size(75, 25);
             this.labelUname.TabIndex = 6;
             this.labelUname.Text = "用户名";
             // 
@@ -133,12 +136,12 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label3.Font = new System.Drawing.Font("张海山锐线体简", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("张海山锐线体简", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(32, 310);
+            this.label3.Location = new System.Drawing.Point(46, 306);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 38);
+            this.label3.Size = new System.Drawing.Size(103, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Welcome.";
             // 
@@ -266,12 +269,13 @@
             this.RecordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecordLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RecordLabel.ForeColor = System.Drawing.Color.Black;
-            this.RecordLabel.Location = new System.Drawing.Point(570, 61);
+            this.RecordLabel.Location = new System.Drawing.Point(560, 61);
             this.RecordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.RecordLabel.Name = "RecordLabel";
-            this.RecordLabel.Size = new System.Drawing.Size(51, 22);
+            this.RecordLabel.Size = new System.Drawing.Size(87, 22);
             this.RecordLabel.TabIndex = 24;
-            this.RecordLabel.Text = "2333";
+            this.RecordLabel.Text = "通知历史";
+            this.RecordLabel.Click += new System.EventHandler(this.RecordLabel_Click);
             // 
             // HomeLabel
             // 
@@ -290,8 +294,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.EditGroupBox);
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.InfoGroupBox);
+            this.panel1.Controls.Add(this.EditGroupBox);
+            this.panel1.Controls.Add(this.NoticeBox);
             this.panel1.Location = new System.Drawing.Point(215, 102);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(617, 352);
@@ -299,7 +305,7 @@
             // 
             // EditGroupBox
             // 
-            this.EditGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditGroupBox.BackColor = System.Drawing.Color.White;
             this.EditGroupBox.Controls.Add(this.radioButtonWoman);
             this.EditGroupBox.Controls.Add(this.radioButtonMan);
             this.EditGroupBox.Controls.Add(this.textBoxDesire);
@@ -312,7 +318,7 @@
             this.EditGroupBox.Controls.Add(this.label13);
             this.EditGroupBox.Controls.Add(this.label14);
             this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EditGroupBox.Location = new System.Drawing.Point(16, 15);
+            this.EditGroupBox.Location = new System.Drawing.Point(11, 6);
             this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Name = "EditGroupBox";
             this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -346,9 +352,10 @@
             // 
             // textBoxDesire
             // 
+            this.textBoxDesire.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBoxDesire.Location = new System.Drawing.Point(148, 160);
             this.textBoxDesire.Name = "textBoxDesire";
-            this.textBoxDesire.Size = new System.Drawing.Size(115, 23);
+            this.textBoxDesire.Size = new System.Drawing.Size(115, 25);
             this.textBoxDesire.TabIndex = 59;
             // 
             // textBoxMail
@@ -372,6 +379,7 @@
             // 
             // textBoxDescribe
             // 
+            this.textBoxDescribe.BackColor = System.Drawing.Color.White;
             this.textBoxDescribe.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBoxDescribe.Location = new System.Drawing.Point(176, 198);
             this.textBoxDescribe.Margin = new System.Windows.Forms.Padding(2);
@@ -442,7 +450,7 @@
             // 
             // InfoGroupBox
             // 
-            this.InfoGroupBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.InfoGroupBox.BackColor = System.Drawing.Color.White;
             this.InfoGroupBox.Controls.Add(this.labelMail);
             this.InfoGroupBox.Controls.Add(this.label4);
             this.InfoGroupBox.Controls.Add(this.EditButton);
@@ -454,7 +462,7 @@
             this.InfoGroupBox.Controls.Add(this.label8);
             this.InfoGroupBox.Controls.Add(this.label9);
             this.InfoGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.InfoGroupBox.Location = new System.Drawing.Point(16, 15);
+            this.InfoGroupBox.Location = new System.Drawing.Point(11, 6);
             this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.InfoGroupBox.Name = "InfoGroupBox";
             this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -579,6 +587,29 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "用户信息";
             // 
+            // NoticeBox
+            // 
+            this.NoticeBox.BackColor = System.Drawing.Color.White;
+            this.NoticeBox.Controls.Add(this.listView1);
+            this.NoticeBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NoticeBox.Location = new System.Drawing.Point(11, 6);
+            this.NoticeBox.Margin = new System.Windows.Forms.Padding(2);
+            this.NoticeBox.Name = "NoticeBox";
+            this.NoticeBox.Padding = new System.Windows.Forms.Padding(2);
+            this.NoticeBox.Size = new System.Drawing.Size(592, 335);
+            this.NoticeBox.TabIndex = 62;
+            this.NoticeBox.TabStop = false;
+            // 
+            // listView1
+            // 
+            this.listView1.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(6, 18);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(581, 305);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // 用户中心
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -609,6 +640,7 @@
             this.EditGroupBox.PerformLayout();
             this.InfoGroupBox.ResumeLayout(false);
             this.InfoGroupBox.PerformLayout();
+            this.NoticeBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,5 +692,7 @@
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.RadioButton radioButtonWoman;
         private System.Windows.Forms.RadioButton radioButtonMan;
+        private System.Windows.Forms.GroupBox NoticeBox;
+        private System.Windows.Forms.ListView listView1;
     }
 }
