@@ -21,7 +21,7 @@ namespace Data_Visual
         {
             TimeMap form = new TimeMap();
             form.Owner = this;
-            Hide();
+            //Hide();
             form.ShowDialog();
         }
 
@@ -29,7 +29,7 @@ namespace Data_Visual
         {
             GridMap form = new GridMap();
             form.Owner = this;
-            Hide();
+            //Hide();
             form.ShowDialog();
         }
 
@@ -37,7 +37,7 @@ namespace Data_Visual
         {
             NinoMap form = new NinoMap();
             form.Owner = this;
-            Hide();
+            //Hide();
             form.ShowDialog();
         }
 

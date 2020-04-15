@@ -101,7 +101,10 @@ namespace Data_Visual
         private void 用户主页_Load(object sender, EventArgs e)
         {
             List<string[]> notice = GetNotice(登录界面.mail);
-            label1.Text = "Attention : " + notice[0][0];
+            if(notice.Count != 0)
+                label1.Text = "Attention : " + notice[0][0];
+            else
+                label1.Text = "No Attention ";
         }
 
         private void label1_Click(object sender, EventArgs e)
