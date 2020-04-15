@@ -36,7 +36,6 @@
             this.PasswBox2 = new System.Windows.Forms.TextBox();
             this.PasswBox1 = new System.Windows.Forms.TextBox();
             this.EmailBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.HintLabel1 = new System.Windows.Forms.Label();
             this.HintLabel2 = new System.Windows.Forms.Label();
             this.HintLabel3 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -144,20 +144,6 @@
             this.EmailBox.TabIndex = 17;
             this.EmailBox.TextChanged += new System.EventHandler(this.EmailBox_TextChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(27, 34);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Join Us";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // HintLabel1
             // 
             this.HintLabel1.AutoSize = true;
@@ -197,6 +183,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -254,7 +241,6 @@
             this.Controls.Add(this.EmailBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "注册界面";
@@ -278,7 +264,6 @@
         private System.Windows.Forms.TextBox PasswBox2;
         private System.Windows.Forms.TextBox PasswBox1;
         private System.Windows.Forms.TextBox EmailBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label HintLabel1;
         private System.Windows.Forms.Label HintLabel2;
         private System.Windows.Forms.Label HintLabel3;

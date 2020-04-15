@@ -69,6 +69,7 @@ namespace Data_Visual
             var database = client.GetDatabase("SST_res"); //数据库名称
             int this_year;
             string ctname;
+            string[] months = new string[] {"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec" };
             ref_sec = Convert.ToInt32(nino.ref_final) - Convert.ToInt32(nino.ref_start) + 1;
             aim_sec = Convert.ToInt32(nino.aim_final) - Convert.ToInt32(nino.aim_start) + 1;
             ListViewInit();
@@ -86,12 +87,12 @@ namespace Data_Visual
                 if (i == 0)
                     for (int j=0;j<12;j++)
                     {
-                        ref_12.Add(Convert.ToDouble(result.GetValue((j + 1).ToString())));
+                        ref_12.Add(Convert.ToDouble(result.GetValue(months[j]).ToString()));
                     }
                 else
                     for (int j = 0; j < 12; j++)
                     {
-                        ref_12[j]+=(Convert.ToDouble(result.GetValue((j + 1).ToString())));
+                        ref_12[j]+= (Convert.ToDouble(result.GetValue(months[j]).ToString()));
                     }
                 this_year++;
             }
@@ -113,7 +114,7 @@ namespace Data_Visual
                 var result = collection.Find<BsonDocument>(filter).First();
                 for (int j = 0; j < 12; j++)
                 {
-                    aim_12.Add((Convert.ToDouble(result.GetValue(j + 1).ToString())-ref_12[j]));
+                    aim_12.Add((Convert.ToDouble(result.GetValue(months[j]).ToString())- ref_12[j]));
                     lt.SubItems.Add(aim_12[i*12+j].ToString());
                 }
                 listView1.Items.Add(lt);
@@ -134,12 +135,12 @@ namespace Data_Visual
                 if (i == 0)
                     for (int j = 0; j < 12; j++)
                     {
-                        ref_3.Add(Convert.ToDouble(result.GetValue((j + 1).ToString())));
+                        ref_3.Add(Convert.ToDouble(result.GetValue(months[j]).ToString()));
                     }
                 else
                     for (int j = 0; j < 12; j++)
                     {
-                        ref_3[j] += (Convert.ToDouble(result.GetValue((j + 1).ToString())));
+                        ref_3[j] += (Convert.ToDouble(result.GetValue(months[j]).ToString()));
                     }
                 this_year++;
             }
@@ -161,7 +162,7 @@ namespace Data_Visual
                 var result = collection.Find<BsonDocument>(filter).First();
                 for (int j = 0; j < 12; j++)
                 {
-                    aim_3.Add((Convert.ToDouble(result.GetValue(j + 1).ToString()) - ref_3[j]));
+                    aim_3.Add((Convert.ToDouble(result.GetValue(months[j]).ToString()) - ref_3[j]));
                     lt.SubItems.Add(aim_3[i * 12 + j].ToString());
                 }
                 listView2.Items.Add(lt);
@@ -182,12 +183,12 @@ namespace Data_Visual
                 if (i == 0)
                     for (int j = 0; j < 12; j++)
                     {
-                        ref_4.Add(Convert.ToDouble(result.GetValue((j + 1).ToString())));
+                        ref_4.Add(Convert.ToDouble(result.GetValue(months[j]).ToString()));
                     }
                 else
                     for (int j = 0; j < 12; j++)
                     {
-                        ref_4[j] += (Convert.ToDouble(result.GetValue((j + 1).ToString())));
+                        ref_4[j] += (Convert.ToDouble(result.GetValue(months[j]).ToString()));
                     }
                 this_year++;
             }
@@ -209,7 +210,7 @@ namespace Data_Visual
                 var result = collection.Find<BsonDocument>(filter).First();
                 for (int j = 0; j < 12; j++)
                 {
-                    aim_4.Add((Convert.ToDouble(result.GetValue(j + 1).ToString()) - ref_4[j]));
+                    aim_4.Add((Convert.ToDouble(result.GetValue(months[j]).ToString()) - ref_4[j]));
                     lt.SubItems.Add(aim_4[i * 12 + j].ToString());
                 }
                 listView3.Items.Add(lt);

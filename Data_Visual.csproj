@@ -428,6 +428,18 @@
   <ItemGroup>
     <None Include="bin\x64\Debug\pic\bg9.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\loop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\exitlabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\bt1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\bt2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

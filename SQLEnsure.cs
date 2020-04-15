@@ -21,7 +21,7 @@ namespace Data_Visual
         private void label2_Click(object sender, EventArgs e)
         {
             sql_source.dt_source = ".";
-            登录界面 form = new 登录界面();
+            welcome form = new welcome();
             this.Hide();
             form.ShowDialog();
         }
@@ -29,7 +29,7 @@ namespace Data_Visual
         private void label3_Click(object sender, EventArgs e)
         {
             sql_source.dt_source = @".\SQLEXPRESS";
-            登录界面 form = new 登录界面();
+            welcome form = new welcome();
             this.Hide();
             form.ShowDialog();
         }

@@ -152,6 +152,8 @@ namespace Data_Visual
         string dt2ctname;
         private void button3_Click(object sender, EventArgs e)
         {
+            dt.Clear();
+            dt.Columns.Clear();
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "EXCEL FILE|*.xlsx;*.xls";
             string strpath;
@@ -181,8 +183,8 @@ namespace Data_Visual
                     dataGridView1.Columns[0].HeaderCell.Value = "Lon";
                     dataGridView1.Columns[1].HeaderCell.Value = "Lat";
                     dataGridView1.Columns[2].HeaderCell.Value = "SST(K)";
-                    label6.Text = data.GetLength(0).ToString();
-                    label8.Text = filename;
+                    label8.Text = data.GetLength(0).ToString();
+                    label6.Text = filename;
                 }
                 catch (Exception ex)
                 {
@@ -231,9 +233,17 @@ namespace Data_Visual
                 }
             }
         }
+        public class SST_single
+        {
+            public double Lon { get; set; }
+            public double Lat { get; set; }
+            public double Band { get; set; }
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             var database = client.GetDatabase("SST_res"); //数据库名称
+            database.DropCollection(dt2ctname);
             var collection = database.GetCollection<BsonDocument>(dt2ctname);
             var count = 0;
             var batch = new List<BsonDocument>();
@@ -242,8 +252,15 @@ namespace Data_Visual
                 foreach (DataRow dr in dt.Rows)
                 {
                     count++;
-                    var dictionary = dr.Table.Columns.Cast<DataColumn>().ToDictionary(col => col.ColumnName, col => dr[col.ColumnName]);
-                    batch.Add(new BsonDocument(dictionary));
+
+                    SST_single sST = new SST_single();
+                    sST.Lon = Math.Round(Convert.ToDouble(dr[0].ToString()), 3);
+                    sST.Lat = Math.Round(Convert.ToDouble(dr[1].ToString()), 3);
+                    sST.Band = Convert.ToSingle(dr[2].ToString());
+
+                    var sstdocument = new BsonDocument(sST.ToBsonDocument());
+
+                    batch.Add(new BsonDocument(sstdocument));
 
                     //分批次写入，防止内存溢出
                     if (batch.Count == 5000)
@@ -361,6 +378,23 @@ namespace Data_Visual
             button8.Enabled = true;
         }
 
+        public class NINO_single
+        {
+            public int Year { get; set; }
+            public float Jan { get; set; }
+            public float Feb { get; set; }
+            public float Mar { get; set; }
+            public float Apr { get; set; }
+            public float May { get; set; }
+            public float June { get; set; }
+            public float July { get; set; }
+            public float Aug { get; set; }
+            public float Sept { get; set; }
+            public float Oct { get; set; }
+            public float Nov { get; set; }
+            public float Dec { get; set; }
+        }
+
         private void button8_Click(object sender, EventArgs e)
         {
             string strpath;
@@ -402,14 +436,33 @@ namespace Data_Visual
                         foreach (DataRow dr in dt.Rows)
                         {
                             count++;
-                            var dictionary = dr.Table.Columns.Cast<DataColumn>().ToDictionary(col => col.ColumnName, col => dr[col.ColumnName]);
-                            batch.Add(new BsonDocument(dictionary));
+                            if (count == 1)
+                                continue;
 
+                            NINO_single nino= new NINO_single();
+                            nino.Year = Convert.ToInt32(dr[0].ToString());
+                            nino.Jan = Convert.ToSingle(dr[1].ToString());
+                            nino.Feb = Convert.ToSingle(dr[2].ToString());
+                            nino.Mar = Convert.ToSingle(dr[3].ToString());
+                            nino.Apr = Convert.ToSingle(dr[4].ToString());
+                            nino.May = Convert.ToSingle(dr[5].ToString());
+                            nino.June = Convert.ToSingle(dr[6].ToString());
+                            nino.July = Convert.ToSingle(dr[7].ToString());
+                            nino.Aug = Convert.ToSingle(dr[8].ToString());
+                            nino.Sept = Convert.ToSingle(dr[9].ToString());
+                            nino.Oct = Convert.ToSingle(dr[10].ToString());
+                            nino.Nov = Convert.ToSingle(dr[11].ToString());
+                            nino.Dec = Convert.ToSingle(dr[12].ToString());
+
+
+                            var sstdocument = new BsonDocument(nino.ToBsonDocument());
+
+                            batch.Add(new BsonDocument(sstdocument));
                             //分批次写入，防止内存溢出
                             if (batch.Count == 5000)
                             {
                                 //UpdateUI(() => { lblStatus.Text = "已导入 " + count; });
-                                collection.InsertManyAsync(batch.AsEnumerable());
+                                //collection.InsertManyAsync(typeof(SST_single),batch);
                                 batch.Clear();
                                 ClearMemory();
                             }
@@ -417,7 +470,7 @@ namespace Data_Visual
                         if (batch.Count > 0)
                         {
                             //UpdateUI(() => { lblStatus.Text = "已导入 " + count; });
-                            collection.InsertManyAsync(batch.AsEnumerable());
+                            //collection.InsertManyAsync(batch.AsEnumerable());
                             batch.Clear();
                             ClearMemory();
                         }
@@ -425,6 +478,7 @@ namespace Data_Visual
                 }
                 label10.Visible = false;
                 MessageBox.Show("更新成功！");
+                button9.Enabled = true;
             }
             catch (Exception ex)
             {

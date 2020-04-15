@@ -35,6 +35,8 @@ namespace Data_Visual
 
         void ListViewInit()
         {
+            listView1.Clear();
+
             listView1.Columns.Add("用户邮箱", 120);
             listView1.Columns.Add("用户名", 70);
             listView1.Columns.Add("性别", 70);
