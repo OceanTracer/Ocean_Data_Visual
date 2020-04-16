@@ -43,6 +43,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +57,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(92)))), ((int)(((byte)(111)))));
             this.panel1.BackgroundImage = global::Data_Visual.Properties.Resources.bg7;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.richTextBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.button3);
@@ -94,7 +96,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(832, 521);
+            this.label5.Location = new System.Drawing.Point(832, 595);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 12;
@@ -106,7 +108,7 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(875, 197);
+            this.button3.Location = new System.Drawing.Point(876, 231);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 42);
             this.button3.TabIndex = 9;
@@ -120,7 +122,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(735, 394);
+            this.label1.Location = new System.Drawing.Point(764, 442);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 8;
@@ -131,7 +133,7 @@
             this.dateTimePicker1.CustomFormat = "yyyy-MM";
             this.dateTimePicker1.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(830, 389);
+            this.dateTimePicker1.Location = new System.Drawing.Point(859, 437);
             this.dateTimePicker1.MaxDate = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(1991, 9, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -145,7 +147,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(736, 197);
+            this.button2.Location = new System.Drawing.Point(737, 231);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 42);
             this.button2.TabIndex = 6;
@@ -158,7 +160,7 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(803, 457);
+            this.button1.Location = new System.Drawing.Point(803, 515);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 50);
             this.button1.TabIndex = 5;
@@ -170,7 +172,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(901, 303);
+            this.textBox4.Location = new System.Drawing.Point(906, 346);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(66, 26);
             this.textBox4.TabIndex = 4;
@@ -179,7 +181,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(753, 303);
+            this.textBox3.Location = new System.Drawing.Point(758, 346);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(66, 26);
             this.textBox3.TabIndex = 3;
@@ -188,7 +190,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(827, 337);
+            this.textBox2.Location = new System.Drawing.Point(832, 380);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(66, 26);
             this.textBox2.TabIndex = 2;
@@ -197,7 +199,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(827, 270);
+            this.textBox1.Location = new System.Drawing.Point(832, 313);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(66, 26);
             this.textBox1.TabIndex = 1;
@@ -210,6 +212,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(711, 579);
             this.panel2.TabIndex = 0;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox2.Location = new System.Drawing.Point(739, 61);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox2.Size = new System.Drawing.Size(242, 152);
+            this.richTextBox2.TabIndex = 16;
+            this.richTextBox2.Text = "注：1.数据的空间分辨率为1°，手动输入经纬度时请输入整数，查询时将按照（输入整数）.025进行查询\n      2.数据的时间分辨率为1个月\n      3.当" +
+    "选区范围大时，查询速度会较慢\n";
             // 
             // GridMap
             // 
@@ -246,5 +260,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }

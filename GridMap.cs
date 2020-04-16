@@ -159,12 +159,17 @@ namespace Data_Visual
                 MessageBox.Show("输入范围为空");
                 label5.Visible = false;
             }
-            else if(Convert.ToInt32(textBox1.Text)>90|| Convert.ToInt32(textBox2.Text) > 90|| Convert.ToInt32(textBox1.Text) < -90|| Convert.ToInt32(textBox2.Text) < -90)
+            else if(Convert.ToInt32(textBox1.Text)>=90|| Convert.ToInt32(textBox2.Text) >= 90|| Convert.ToInt32(textBox1.Text) < -90|| Convert.ToInt32(textBox2.Text) < -90)
             {
                 MessageBox.Show("输入范围不合理");
                 label5.Visible = false;
             }
-            else if (Convert.ToInt32(textBox3.Text) > 180 || Convert.ToInt32(textBox4.Text) > 180 || Convert.ToInt32(textBox3.Text) < -180 || Convert.ToInt32(textBox4.Text) < -180)
+            else if (Convert.ToInt32(textBox3.Text) >= 180 || Convert.ToInt32(textBox4.Text) >= 180 || Convert.ToInt32(textBox3.Text) < -180 || Convert.ToInt32(textBox4.Text) < -180)
+            {
+                MessageBox.Show("输入范围不合理");
+                label5.Visible = false;
+            }
+            else if (textBox3.Text == textBox4.Text || textBox1.Text == textBox2.Text)
             {
                 MessageBox.Show("输入范围不合理");
                 label5.Visible = false;
@@ -199,6 +204,10 @@ namespace Data_Visual
             {
                 e.Handled = true;
             }
+            else if (e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
             else if (e.KeyChar == '-' && ((TextBox)sender).Text.Length > 1)
             {
                 e.Handled = true;
@@ -213,6 +222,10 @@ namespace Data_Visual
                 e.Handled = true;
             }
             else if (e.KeyChar == ',')
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.')
             {
                 e.Handled = true;
             }
@@ -233,6 +246,10 @@ namespace Data_Visual
             {
                 e.Handled = true;
             }
+            else if (e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
             else if (e.KeyChar == '-' && ((TextBox)sender).Text.Length > 1)
             {
                 e.Handled = true;
@@ -247,6 +264,10 @@ namespace Data_Visual
                 e.Handled = true;
             }
             else if (e.KeyChar == ',')
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.')
             {
                 e.Handled = true;
             }

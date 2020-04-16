@@ -169,7 +169,6 @@ namespace Data_Visual
 
                 if (count > 0) // 没满就回退一年
                     MAXYEAR = (Convert.ToInt32(MAXYEAR) - 1).ToString();
-                MessageBox.Show(MAXMONTH);
             }
         }
 

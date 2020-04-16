@@ -64,7 +64,7 @@ namespace Data_Visual
         {
             if(登录界面.MAXYEAR != null)
             {
-                DateTime d1 = Convert.ToDateTime(登录界面.MAXYEAR + "12-31");
+                DateTime d1 = Convert.ToDateTime(登录界面.MAXYEAR + "-12-31");
 
                 dateTimePicker2.MaxDate = d1;
                 dateTimePicker3.MaxDate = d1;

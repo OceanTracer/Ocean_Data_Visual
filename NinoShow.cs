@@ -280,7 +280,7 @@ namespace Data_Visual
                 aim3_m[i + 1] = aim_3[i];
                 aim4_m[i + 1] = aim_4[i];
             }
-            if (aim_sec <= 36)
+            if (aim_sec <= 3)
                 plot.nino_plot(aim12_m, aim3_m, aim4_m, Convert.ToInt32(nino.aim_start), Convert.ToInt32(nino.aim_final), 1);
             else
                 plot.nino_plot(aim12_m, aim3_m, aim4_m, Convert.ToInt32(nino.aim_start), Convert.ToInt32(nino.aim_final), 0);

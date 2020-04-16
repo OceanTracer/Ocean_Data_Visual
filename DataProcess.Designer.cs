@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.allsst = new System.Windows.Forms.Label();
             this.nino = new System.Windows.Forms.Label();
@@ -72,6 +72,9 @@
             this.button10 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -84,12 +87,14 @@
             this.panel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.allsst);
             this.panel1.Controls.Add(this.nino);
             this.panel1.Controls.Add(this.singlesst);
@@ -163,6 +168,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -177,15 +183,16 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 31);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(824, 528);
+            this.tabPage1.Size = new System.Drawing.Size(824, 525);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "单条记录操作";
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.richTextBox2);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label4);
@@ -206,7 +213,7 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(314, 294);
+            this.button2.Location = new System.Drawing.Point(321, 211);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 42);
             this.button2.TabIndex = 14;
@@ -217,7 +224,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(302, 252);
+            this.textBox3.Location = new System.Drawing.Point(309, 169);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(101, 26);
             this.textBox3.TabIndex = 13;
@@ -227,7 +234,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(204, 255);
+            this.label4.Location = new System.Drawing.Point(211, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 18);
             this.label4.TabIndex = 12;
@@ -238,7 +245,7 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(207, 294);
+            this.button1.Location = new System.Drawing.Point(214, 211);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 42);
             this.button1.TabIndex = 11;
@@ -251,7 +258,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(204, 223);
+            this.label3.Location = new System.Drawing.Point(211, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 18);
             this.label3.TabIndex = 10;
@@ -262,7 +269,7 @@
             this.dateTimePicker1.CustomFormat = "yyyy-MM";
             this.dateTimePicker1.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(303, 217);
+            this.dateTimePicker1.Location = new System.Drawing.Point(310, 134);
             this.dateTimePicker1.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(1950, 9, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -273,7 +280,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(303, 175);
+            this.textBox2.Location = new System.Drawing.Point(310, 92);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(101, 26);
             this.textBox2.TabIndex = 8;
@@ -282,7 +289,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(303, 136);
+            this.textBox1.Location = new System.Drawing.Point(310, 53);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(101, 26);
             this.textBox1.TabIndex = 7;
@@ -293,7 +300,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(204, 178);
+            this.label2.Location = new System.Drawing.Point(211, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 18);
             this.label2.TabIndex = 6;
@@ -304,7 +311,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(204, 139);
+            this.label1.Location = new System.Drawing.Point(211, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 18);
             this.label1.TabIndex = 5;
@@ -319,27 +326,27 @@
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.ForeColor = System.Drawing.Color.White;
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(824, 528);
+            this.tabPage2.Size = new System.Drawing.Size(824, 525);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "批量记录操作";
             // 
             // dataGridView2
             // 
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("苹方 常规", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SlateGray;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("苹方 常规", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.SlateGray;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridView2.Location = new System.Drawing.Point(336, 16);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
@@ -349,18 +356,18 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle35;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("苹方 常规", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.SlateGray;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("苹方 常规", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.SlateGray;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridView1.Location = new System.Drawing.Point(473, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -458,7 +465,7 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(132, 25);
+            this.button4.Location = new System.Drawing.Point(152, 25);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(103, 32);
             this.button4.TabIndex = 6;
@@ -474,9 +481,9 @@
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(34, 25);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 32);
+            this.button3.Size = new System.Drawing.Size(104, 32);
             this.button3.TabIndex = 0;
-            this.button3.Text = "导入文件";
+            this.button3.Text = "导入xls文件";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -505,12 +512,13 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.richTextBox1);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.button8);
             this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Location = new System.Drawing.Point(4, 31);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(824, 528);
+            this.tabPage3.Size = new System.Drawing.Size(824, 525);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Nino数据更新";
             // 
@@ -518,7 +526,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("方正粗宋_GBK", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(176, 108);
+            this.label10.Location = new System.Drawing.Point(147, 108);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 20);
             this.label10.TabIndex = 15;
@@ -599,6 +607,35 @@
             this.label11.TabIndex = 33;
             this.label11.Text = "请输入表名(yyyy-MM):";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox1.Location = new System.Drawing.Point(34, 181);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(208, 160);
+            this.richTextBox1.TabIndex = 16;
+            this.richTextBox1.Text = "注：1.执行数据获取后将会在后台执行程序爬取NOAA提供的三种NINO数据\n       2.数据获取需要时间，请在获取后稍等片刻再进行数据更新\n";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox2.Location = new System.Drawing.Point(214, 282);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(208, 160);
+            this.richTextBox2.TabIndex = 15;
+            this.richTextBox2.Text = "注：1.数据的空间分辨率为1°，手动输入经纬度时请输入整数，查询时将按照（输入整数）.025进行查询\n\n2.数据的时间分辨率为1个月";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(74, 71);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(917, 30);
+            this.pictureBox1.TabIndex = 46;
+            this.pictureBox1.TabStop = false;
+            // 
             // DataProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -631,6 +668,7 @@
             this.tabPage3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -677,5 +715,8 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

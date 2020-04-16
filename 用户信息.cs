@@ -169,11 +169,14 @@ namespace Data_Visual
             SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
             mydataset.Clear();
             myadapter.Fill(mydataset, "count");
-            for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
+            if (mydataset.Tables["count"].Rows.Count != 0)
             {
-                int collect_num = Convert.ToInt32(mydataset.Tables["count"].Rows[i][0]);
-                int count = Convert.ToInt32(mydataset.Tables["count"].Rows[i][1]);
-                collects[collect_num] = count;
+                for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
+                {
+                    int collect_num = Convert.ToInt32(mydataset.Tables["count"].Rows[i][0]);
+                    int count = Convert.ToInt32(mydataset.Tables["count"].Rows[i][1]);
+                    collects[collect_num] = count;
+                }
             }
             return collects;
             /*eg: how to access the data in a Dictionary*/

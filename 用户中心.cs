@@ -83,6 +83,7 @@ namespace Data_Visual
         {
             InfoGroupBox.SendToBack();
             EditGroupBox.BringToFront();
+            radioButtonMan.Checked = true;
             textBoxMail.Text = 登录界面.mail;
             textBoxDesire.Text = labelDesire.Text;
             textBoxDescribe.Text = labelDesc.Text;
@@ -133,7 +134,6 @@ namespace Data_Visual
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string sex="";
-            radioButtonMan.Checked = true;
             if (radioButtonMan.Checked == true)
                 sex = "男";
             if (radioButtonWoman.Checked == true)
@@ -150,14 +150,14 @@ namespace Data_Visual
                 {
                     MessageBox.Show(ex.ToString());
                 }
-                myconn.Close();
-                fill_info(登录界面.mail);
+            myconn.Close();
 
             /*EditGroupBox.Hide();
             InfoGroupBox.Show();*/
             EditGroupBox.SendToBack();
             NoticeBox.SendToBack();
             InfoGroupBox.BringToFront();
+            fill_info(登录界面.mail);
         }
 
         private List<string[]> GetNotice(string umail)

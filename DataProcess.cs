@@ -170,12 +170,21 @@ namespace Data_Visual
                     DateTime d_toinsert = Convert.ToDateTime(dt2ctname + "-28");
                     DateTime d_nowmax = Convert.ToDateTime(month_list[month_list.Count-1].month + "-28");
 
-                    if( (d_toinsert.Year-d_nowmax.Year)!= 0 || (d_toinsert.Month - d_nowmax.Month) != 1)
+                    if(d_nowmax.Month!= 12 && (d_toinsert.Year-d_nowmax.Year)> 0 ) 
                     {
                         MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
                         return;
                     }
-
+                    else if (d_nowmax.Month == 12 && (d_toinsert.Year - d_nowmax.Year) >1)
+                    {
+                        MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
+                        return;
+                    }
+                    else if ( (d_toinsert.Year - d_nowmax.Year) == 0 && (d_toinsert.Month - d_nowmax.Month) > 1)
+                    {
+                        MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
+                        return;
+                    }
                     object[,] data = GetExcelRangeData(strpath, "A2", 0);
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
@@ -578,7 +587,13 @@ namespace Data_Visual
             }
             else
             {
-                database.DropCollection(ctname);
+                DialogResult dr = MessageBox.Show("将删除\t" + ctname + "\t的记录", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.OK)
+                {
+                    database.DropCollection(ctname);
+                    MessageBox.Show("删除成功");
+                    Month_show();
+                }
             }
         }
     }

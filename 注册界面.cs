@@ -58,12 +58,19 @@ namespace Data_Visual
                     SqlCommand sqlCommand = new SqlCommand(mycmd, myconn);
                     Console.WriteLine(mycmd);
 
-                    myconn.Open();
+                    try
                     {
-                        
-                        sqlCommand.ExecuteNonQuery();
+                        myconn.Open();
+                        {
+                            sqlCommand.ExecuteNonQuery();
+                        }
+                        myconn.Close();
                     }
-                    myconn.Close();
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("该邮箱已被注册！");
+                        return;
+                    }
                     
                     注册成功 f1 = new 注册成功();
                     f1.Owner = this.Owner;

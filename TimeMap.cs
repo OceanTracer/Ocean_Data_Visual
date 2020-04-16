@@ -32,6 +32,7 @@ namespace Data_Visual
              timer1.Start();
 
             DateTime d1 = Convert.ToDateTime(登录界面.MAXMONTH + "-28");
+            dateTimePicker1.MaxDate = d1;
             dateTimePicker2.MaxDate = d1;
 
         }
@@ -104,7 +105,7 @@ namespace Data_Visual
                 MessageBox.Show("输入的经纬度有误");
                 label5.Visible = false;
             }
-            else if (Convert.ToInt32(textBox1.Text) > 180 || Convert.ToInt32(textBox1.Text) < -180|| Convert.ToInt32(textBox2.Text) > 90|| Convert.ToInt32(textBox2.Text) < -90)
+            else if (Convert.ToInt32(textBox1.Text) >= 180 || Convert.ToInt32(textBox1.Text) < -180|| Convert.ToInt32(textBox2.Text) >= 90|| Convert.ToInt32(textBox2.Text) < -90)
             {
                 MessageBox.Show("输入的经纬度有误");
                 label5.Visible = false;

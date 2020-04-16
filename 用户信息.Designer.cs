@@ -62,6 +62,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.listView4 = new System.Windows.Forms.ListView();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -69,6 +70,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox3
@@ -96,7 +98,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -500,12 +502,22 @@
             this.label12.Text = "通知历史：";
             this.label12.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(132, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(386, 25);
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
+            // 
             // 用户信息
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg8;
             this.ClientSize = new System.Drawing.Size(1268, 634);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listView4);
@@ -530,6 +542,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,5 +584,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListView listView4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
