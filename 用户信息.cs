@@ -195,10 +195,10 @@ namespace Data_Visual
             string sql = "select desire from user_info";
             SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
             mydataset.Clear();
-            myadapter.Fill(mydataset, "count");
-            for (int i = 0; i < mydataset.Tables["count"].Rows.Count; i++)
+            myadapter.Fill(mydataset, "dcount");
+            for (int i = 0; i < mydataset.Tables["dcount"].Rows.Count; i++)
             {
-                string des = mydataset.Tables["count"].Rows[i][0].ToString();
+                string des = mydataset.Tables["dcount"].Rows[i][0].ToString();
                 string[] splits = des.Split(',');
                 foreach (string s in splits)
                     if (!desires.ContainsKey(s))
@@ -386,6 +386,8 @@ namespace Data_Visual
 
         private void Collect_statistics()
         {
+            listView2.Clear();
+            
             Dictionary<int, int> collects = CollectCount();
 
             listView2.Columns.Add("科普序号", 140);
@@ -402,6 +404,8 @@ namespace Data_Visual
 
         private void Desire_statistics()
         {
+            listView3.Clear();
+
             Dictionary<string, int> desires = DesireCount();
 
             listView3.Columns.Add("兴趣", 140);
