@@ -251,6 +251,7 @@
             this.ClientSize = new System.Drawing.Size(1003, 659);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "TimeMap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TimeMap";

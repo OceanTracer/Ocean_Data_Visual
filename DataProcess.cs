@@ -63,14 +63,14 @@ namespace Data_Visual
             }
         }
 
-        MongoClient client = new MongoClient("mongodb://localhost");
+        MongoClient client = new MongoClient("mongodb://localhost"); // mongoDB连接
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Trim() == "" || textBox2.Text.Trim() == "" || textBox3.Text.Trim() == "")
             {
                 MessageBox.Show("请完整输入数据");
             }
-            else if (Convert.ToInt32(textBox1.Text) > 180 || Convert.ToInt32(textBox1.Text) < -180 || Convert.ToInt32(textBox2.Text) > 90 || Convert.ToInt32(textBox2.Text) < -90)
+            else if (Convert.ToInt32(textBox1.Text) >= 180 || Convert.ToInt32(textBox1.Text) < -180 || Convert.ToInt32(textBox2.Text) >= 90 || Convert.ToInt32(textBox2.Text) < -90)
             {
                 MessageBox.Show("输入的经纬度有误");
             }
@@ -84,29 +84,28 @@ namespace Data_Visual
                 string ctname = dateTimePicker1.Text;
                 var collection = database.GetCollection<SST>(ctname);
                 var filterBuilder = Builders<SST>.Filter;
-                var filter = filterBuilder.Eq("Lon", Convert.ToDouble(textBox1.Text) + 0.025) & filterBuilder.Eq("Lat", Convert.ToDouble(textBox2.Text) + 0.025);
+                var filter = filterBuilder.Eq("Lon", Math.Round((Convert.ToDouble(textBox1.Text) + 0.025),3)) & filterBuilder.Eq("Lat", Math.Round((Convert.ToDouble(textBox2.Text) + 0.025), 3) );
                 var list = collection.Find<SST>(filter).ToList();
                 if (list.Count == 0)
                 {
-                    MessageBox.Show("未查询到该条记录，将进行插入");
-                    SST s = new SST();
-                    s.Lon = Convert.ToDouble(textBox1.Text) + 0.025;
-                    s.Lat = Convert.ToDouble(textBox2.Text) + 0.025;
-                    s.Band = Convert.ToDouble(textBox3.Text);
-                    collection.InsertOne(s);
-                    MessageBox.Show("插入成功");
+                    MessageBox.Show("未查询到该条记录，请检查您的输入");
                 }
                 else
                 {
-                    MessageBox.Show("查询到已有记录，将进行修改");
-                    var update = Builders<SST>.Update.Set("Band", Convert.ToDouble(textBox3.Text));
-                    var result = collection.UpdateOne(filter, update);
-                    MessageBox.Show("修改成功");
+                    DialogResult dr = MessageBox.Show("将更新\nLon = "+textBox1.Text+"\nLat = "+textBox2.Text+"\nTime = "+dateTimePicker1.Text+"处的SST为\n"+textBox3.Text, "更新确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dr == DialogResult.OK)
+                    {
+                        var update = Builders<SST>.Update.Set("Band", Convert.ToDouble(textBox3.Text));
+                        var result = collection.UpdateOne(filter, update);
+                        MessageBox.Show("修改成功");
+                    }
                 }
             }
 
         }
-
+        ///// <summary>
+        ///// SST单独修改的类
+        ///// </summary>
         public class SST
         {
             public ObjectId _id { get; set; }
@@ -152,7 +151,8 @@ namespace Data_Visual
         string dt2ctname;
         private void button3_Click(object sender, EventArgs e)
         {
-            dt.Clear();
+            //dt.Clear();
+            dt.Rows.Clear();
             dt.Columns.Clear();
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "EXCEL FILE|*.xlsx;*.xls";
@@ -165,6 +165,17 @@ namespace Data_Visual
                     strpath = file.FileName;
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
+
+                    //只能按顺序插入数据
+                    DateTime d_toinsert = Convert.ToDateTime(dt2ctname + "-28");
+                    DateTime d_nowmax = Convert.ToDateTime(month_list[month_list.Count-1].month + "-28");
+
+                    if( (d_toinsert.Year-d_nowmax.Year)!= 0 || (d_toinsert.Month - d_nowmax.Month) != 1)
+                    {
+                        MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
+                        return;
+                    }
+
                     object[,] data = GetExcelRangeData(strpath, "A2", 0);
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
@@ -183,6 +194,7 @@ namespace Data_Visual
                     dataGridView1.Columns[0].HeaderCell.Value = "Lon";
                     dataGridView1.Columns[1].HeaderCell.Value = "Lat";
                     dataGridView1.Columns[2].HeaderCell.Value = "SST(K)";
+                    dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
                     label8.Text = data.GetLength(0).ToString();
                     label6.Text = filename;
                 }
@@ -192,6 +204,15 @@ namespace Data_Visual
                 }
             }
         }
+
+        /// <summary>
+        /// 读入EXCEL文件
+        /// </summary>
+        /// <param name="excelPath"></param>
+        /// <param name="stCell"></param>
+        /// <param name="option"></param>
+        /// <returns></returns>
+        /// 
         public static object[,] GetExcelRangeData(string excelPath, string stCell, int option)
         {
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
@@ -233,6 +254,10 @@ namespace Data_Visual
                 }
             }
         }
+
+       /// <summary>
+       /// SST数据入库的类
+       /// </summary>
         public class SST_single
         {
             public double Lon { get; set; }
@@ -279,6 +304,7 @@ namespace Data_Visual
                     ClearMemory();
                 }
                 MessageBox.Show("导入成功");
+                Month_show();
             }
             else
             {
@@ -286,6 +312,7 @@ namespace Data_Visual
             }
         }
 
+        //手动清除内存
         [DllImport("kernel32.dll", EntryPoint = "SetProcessWorkingSetSize")]
         public static extern int SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
 
@@ -298,6 +325,7 @@ namespace Data_Visual
                 SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
             }
         }
+
         List<string> strpath = new List<string>();//time列表
         private void button5_Click(object sender, EventArgs e)
         {
@@ -353,11 +381,6 @@ namespace Data_Visual
             label9.Visible = false;
         }
 
-        private void button6_KeyDown(object sender, KeyEventArgs e)
-        {
-            label9.Visible = true;
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -378,9 +401,12 @@ namespace Data_Visual
             button8.Enabled = true;
         }
 
+        /// <summary>
+        /// NINO数据入库类
+        /// </summary>
         public class NINO_single
         {
-            public int Year { get; set; }
+            public string Year { get; set; }
             public float Jan { get; set; }
             public float Feb { get; set; }
             public float Mar { get; set; }
@@ -406,12 +432,13 @@ namespace Data_Visual
             {
                 for (int idx = 0; idx < 3; idx++)
                 {
-                    dt.Clear();
+                    //dt.Clear();
+                    dt.Rows.Clear();
                     dt.Columns.Clear();
                     strpath = System.Windows.Forms.Application.StartupPath + "\\nino_cr\\" + file[idx];
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
-                    object[,] data = GetExcelRangeData(strpath, "A1", 1);
+                    object[,] data = GetExcelRangeData(strpath, "A2", 1);
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
 
@@ -436,11 +463,9 @@ namespace Data_Visual
                         foreach (DataRow dr in dt.Rows)
                         {
                             count++;
-                            if (count == 1)
-                                continue;
 
                             NINO_single nino= new NINO_single();
-                            nino.Year = Convert.ToInt32(dr[0].ToString());
+                            nino.Year = dr[0].ToString();
                             nino.Jan = Convert.ToSingle(dr[1].ToString());
                             nino.Feb = Convert.ToSingle(dr[2].ToString());
                             nino.Mar = Convert.ToSingle(dr[3].ToString());
@@ -454,7 +479,6 @@ namespace Data_Visual
                             nino.Nov = Convert.ToSingle(dr[11].ToString());
                             nino.Dec = Convert.ToSingle(dr[12].ToString());
 
-
                             var sstdocument = new BsonDocument(nino.ToBsonDocument());
 
                             batch.Add(new BsonDocument(sstdocument));
@@ -462,7 +486,7 @@ namespace Data_Visual
                             if (batch.Count == 5000)
                             {
                                 //UpdateUI(() => { lblStatus.Text = "已导入 " + count; });
-                                //collection.InsertManyAsync(typeof(SST_single),batch);
+                                collection.InsertManyAsync(batch.AsEnumerable());
                                 batch.Clear();
                                 ClearMemory();
                             }
@@ -470,14 +494,14 @@ namespace Data_Visual
                         if (batch.Count > 0)
                         {
                             //UpdateUI(() => { lblStatus.Text = "已导入 " + count; });
-                            //collection.InsertManyAsync(batch.AsEnumerable());
+                            collection.InsertManyAsync(batch.AsEnumerable());
                             batch.Clear();
                             ClearMemory();
                         }
                     }
                 }
                 label10.Visible = false;
-                MessageBox.Show("更新成功！");
+                MessageBox.Show("更新成功！查询区间将在重新登录后生效");
                 button9.Enabled = true;
             }
             catch (Exception ex)
@@ -487,34 +511,76 @@ namespace Data_Visual
             }
         }
 
-        //public event ChangeDateSec ChangeSec;
-        private void button9_Click(object sender, EventArgs e)
-        {
-            if (dt != null)
-            {
-                int count=0;
-                var array = dt.Rows[dt.Rows.Count - 1].ItemArray;
-
-                foreach (var item in array)
-                {
-                    if (Convert.ToDouble(item) < 0)
-                        count++;
-                }
-
-                if (count <= 13)
-                    MessageBox.Show("数据未足一年，无法更新上限至：" + dt.Rows[dt.Rows.Count - 1][0].ToString());
-                else
-                {
-                    nino.MAX_YEAR = dt.Rows[dt.Rows.Count - 1][0].ToString();
-                    MessageBox.Show("时间上限更新至"+ nino.MAX_YEAR);
-                }
-
-            }
-        }
 
         private void button8_MouseDown(object sender, MouseEventArgs e)
         {
             label10.Visible = true;
+        }
+        public class month_single
+        {
+            public string month { get; set; }
+        }
+
+        List<month_single> month_list = new List<month_single>(); //月份列表
+        List<string> mons_list = new List<string>();
+        private void DataProcess_Load(object sender, EventArgs e)
+        {
+            Month_show();
+        }
+
+        void Month_show()
+        {
+            month_list.Clear();
+            mons_list.Clear();
+            var database = client.GetDatabase("SST_res");
+            var months = database.ListCollectionNames();
+            mons_list = months.ToList();
+            mons_list.Sort();
+            for (int i = 0; i < mons_list.Count - 3; i++) // 最后三个是NINO的表 不要取进来
+            {
+                month_single ms = new month_single();
+                ms.month = mons_list[i];
+                month_list.Add(ms);
+            }
+            BindingList<month_single> bd_list = new BindingList<month_single>(month_list);
+            dataGridView2.DataSource = bd_list;
+            dataGridView2.DefaultCellStyle.ForeColor = Color.Black;
+        }
+
+        private void singlesst_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage1;
+        }
+
+        private void nino_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage3;
+        }
+
+        private void allsst_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage2;
+        }
+
+        private void button6_MouseDown(object sender, MouseEventArgs e)
+        {
+            label9.Visible = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var database = client.GetDatabase("SST_res"); //数据库名称
+            string ctname = textBox4.Text;
+            if (textBox4.Text.Trim() == "")
+                MessageBox.Show("表名不能为空");
+            else if (mons_list.Contains(ctname) == false)
+            {
+                MessageBox.Show("未找到该表，请检查表名");
+            }
+            else
+            {
+                database.DropCollection(ctname);
+            }
         }
     }
 }

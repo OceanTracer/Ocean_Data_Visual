@@ -30,6 +30,10 @@ namespace Data_Visual
              wb.Dock = DockStyle.Fill;
              timer1.Interval = 2000;
              timer1.Start();
+
+            DateTime d1 = Convert.ToDateTime(登录界面.MAXMONTH + "-28");
+            dateTimePicker2.MaxDate = d1;
+
         }
         void WbInit()
         {
