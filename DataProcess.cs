@@ -502,7 +502,6 @@ namespace Data_Visual
                 }
                 label10.Visible = false;
                 MessageBox.Show("更新成功！查询区间将在重新登录后生效");
-                button9.Enabled = true;
             }
             catch (Exception ex)
             {
