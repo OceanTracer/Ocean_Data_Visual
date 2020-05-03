@@ -34,7 +34,7 @@ namespace Data_Visual
             {
                 num = new int[account.N];
                 int count_all;
-                SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user ; Integrated Security=true");
+                SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
                 string mysql = "select umail,collect_num from collect where umail='" + 登录界面.mail + "'";
                 DataSet mydataset = new DataSet();
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);

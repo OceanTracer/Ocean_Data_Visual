@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Data_Visual
 {
@@ -18,20 +19,20 @@ namespace Data_Visual
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            sql_source.dt_source = ".";
-            welcome form = new welcome();
-            this.Hide();
-            form.ShowDialog();
-        }
+            SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
+            try
+            {
+                myconn.Open();
+                MessageBox.Show("链接成功");
+                myconn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            sql_source.dt_source = @".\SQLEXPRESS";
-            welcome form = new welcome();
-            this.Hide();
-            form.ShowDialog();
         }
     }
 }
