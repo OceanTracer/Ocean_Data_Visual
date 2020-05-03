@@ -534,6 +534,7 @@ namespace Data_Visual
         private void DataProcess_Load(object sender, EventArgs e)
         {
             Month_show();
+            dateTimePicker1.MaxDate = Convert.ToDateTime(登录界面.MAXMONTH);
         }
 
         void Month_show()
@@ -578,22 +579,13 @@ namespace Data_Visual
         private void button10_Click(object sender, EventArgs e)
         {
             var database = client.GetDatabase("SST_res"); //数据库名称
-            string ctname = textBox4.Text;
-            if (textBox4.Text.Trim() == "")
-                MessageBox.Show("表名不能为空");
-            else if (mons_list.Contains(ctname) == false)
+            string ctname = dataGridView2.Rows[dataGridView2.Rows.Count - 1].ToString();
+            DialogResult dr = MessageBox.Show("将删除\t" + ctname + "\t的记录", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
             {
-                MessageBox.Show("未找到该表，请检查表名");
-            }
-            else
-            {
-                DialogResult dr = MessageBox.Show("将删除\t" + ctname + "\t的记录", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr == DialogResult.OK)
-                {
-                    database.DropCollection(ctname);
-                    MessageBox.Show("删除成功");
-                    Month_show();
-                }
+                database.DropCollection(ctname);
+                MessageBox.Show("删除成功");
+                Month_show();
             }
         }
     }
