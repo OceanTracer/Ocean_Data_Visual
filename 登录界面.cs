@@ -118,7 +118,8 @@ namespace Data_Visual
                 }
             }
         }
-        MongoClient client = new MongoClient("mongodb://localhost"); // mongoDB连接
+        MongoClient client = new MongoClient("mongodb://admin:password@47.101.201.58:27017/?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&appname=MongoDB%20Compass&ssl=false"); // mongoDB连接
+
         public class NINO_single
         {
             public string Year { get; set; }

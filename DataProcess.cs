@@ -63,7 +63,8 @@ namespace Data_Visual
             }
         }
 
-        MongoClient client = new MongoClient("mongodb://localhost"); // mongoDB连接
+        MongoClient client = new MongoClient("mongodb://admin:password@47.101.201.58:27017/?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&appname=MongoDB%20Compass&ssl=false"); // mongoDB连接
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Trim() == "" || textBox2.Text.Trim() == "" || textBox3.Text.Trim() == "")

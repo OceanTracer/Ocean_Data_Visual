@@ -57,7 +57,8 @@ namespace Data_Visual
         void DataGetnShow()
         {
             string ctname = cover.time;
-            var client = new MongoClient("mongodb://localhost");
+            MongoClient client = new MongoClient("mongodb://admin:password@47.101.201.58:27017/?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&appname=MongoDB%20Compass&ssl=false"); // mongoDB连接
+
             var database = client.GetDatabase("SST_res"); //数据库名称
             var collection = database.GetCollection<BsonDocument>(ctname);
 
