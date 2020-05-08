@@ -181,7 +181,6 @@
             this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -194,7 +193,6 @@
             this.label1.Size = new System.Drawing.Size(53, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "经度：";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // listView1
             // 
@@ -214,7 +212,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(660, 539);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label7
             // 

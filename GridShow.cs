@@ -33,10 +33,16 @@ namespace Data_Visual
         const int WS_CAPTION = 0x00C00000;
         const int WS_THICKFRAME = 0x00040000;
         const int WS_SYSMENU = 0X00080000;
+        const int WM_CLOSE = 0x0010;
+
         [DllImport("user32")]
         private static extern int GetWindowLong(System.IntPtr hwnd, int nIndex);
         [DllImport("user32")]
         private static extern int SetWindowLong(System.IntPtr hwnd, int index, int newLong);
+        [DllImport("User32.dll", EntryPoint = "SendMessage")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll", EntryPoint = "IsWindow")]
+        public static extern bool IsWindow(IntPtr hWnd);
         #endregion
         public GridShow()
         {
@@ -258,6 +264,17 @@ namespace Data_Visual
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (figure1 != IntPtr.Zero && IsWindow(figure1))
+            {
+                SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                //MessageBox.Show("我应该关了");
+            }
+            else
+            {
+                figure1 = IntPtr.Zero;
+                //MessageBox.Show("没找到这个窗口");
+            }
+
             this.Close();
             this.Owner.Show();
         }

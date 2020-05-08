@@ -22,6 +22,7 @@ namespace Data_Visual
 {
     public partial class TimeShow : Form
     {
+
         #region //Windows API
         [DllImport("user32.dll")]
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);//
@@ -33,10 +34,15 @@ namespace Data_Visual
         const int WS_CAPTION = 0x00C00000;
         const int WS_THICKFRAME = 0x00040000;
         const int WS_SYSMENU = 0X00080000;
+        const int WM_CLOSE = 0x0010;
         [DllImport("user32")]
         private static extern int GetWindowLong(System.IntPtr hwnd, int nIndex);
         [DllImport("user32")]
         private static extern int SetWindowLong(System.IntPtr hwnd, int index, int newLong);
+        [DllImport("User32.dll", EntryPoint = "SendMessage")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll", EntryPoint = "IsWindow")]
+        public static extern bool IsWindow(IntPtr hWnd);
         #endregion
 
         public TimeShow()
@@ -50,6 +56,11 @@ namespace Data_Visual
         public delegate void UpdateUI();//委托用于更新UI
         Thread startload;//线程用于matlab窗体处理
         IntPtr figure1;//图像句柄
+
+        /// <summary>
+        /// 图像句柄调用
+        /// </summary>
+
 
         private void TimeShow_Load(object sender, EventArgs e)
         {
@@ -275,23 +286,19 @@ namespace Data_Visual
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            if (figure1 != IntPtr.Zero && IsWindow(figure1))
+            {
+                SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                //MessageBox.Show("我应该关了");
+            }
+            else
+            {
+                figure1 = IntPtr.Zero;
+                //MessageBox.Show("没找到这个窗口");
+            }
+
             this.Close();
             this.Owner.Show();
         }
