@@ -152,9 +152,11 @@ namespace Data_Visual
         string dt2ctname;
         private void button3_Click(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = null;
+            System.Data.DataTable dt2 = new System.Data.DataTable();
             //dt.Clear();
-            dt.Rows.Clear();
-            dt.Columns.Clear();
+            //dt2.Rows.Clear();
+            //dt2.Columns.Clear();
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "EXCEL FILE|*.xlsx;*.xls";
             string strpath;
@@ -188,7 +190,7 @@ namespace Data_Visual
                     }
                     object[,] data = GetExcelRangeData(strpath, "A2", 0);
                     for (int i = 0; i < data.GetLength(1); i++)
-                        dt.Columns.Add(i.ToString(), typeof(object));
+                        dt2.Columns.Add(i.ToString(), typeof(object));
                     //MessageBox.Show("读好了");
                     //DataRow dr = dt.NewRow();
                     for (int i = 0; i < data.GetLength(0); i++)
@@ -198,12 +200,12 @@ namespace Data_Visual
                         {
                             dr[j] = data[i + 1, j + 1];
                         }
-                        dt.Rows.Add(dr);
+                        dt2.Rows.Add(dr);
                         Console.WriteLine(i.ToString());
                     }
                     //MessageBox.Show("读好了");
                     BindingSource bs = new BindingSource();
-                    bs.DataSource = dt;
+                    bs.DataSource = dt2;
                     dataGridView1.DataSource = bs;
                     //dataGridView1.DataSource = dt;
                     dataGridView1.Columns[0].HeaderCell.Value = "Lon";
@@ -212,6 +214,7 @@ namespace Data_Visual
                     dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
                     label8.Text = data.GetLength(0).ToString();
                     label6.Text = filename;
+                    dt = dt2;
                 }
                 catch (Exception ex)
                 {
@@ -372,28 +375,34 @@ namespace Data_Visual
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.Description = "请选择文件路径";
-            string foldPath = "";
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (strpath.Count != 0)
             {
-                foldPath = dialog.SelectedPath + @"\";
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.Description = "请选择文件路径";
+                string foldPath = "";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    foldPath = dialog.SelectedPath + @"\";
+                }
+                Console.WriteLine(foldPath);
+                Nc2xlsClass cvt = new Nc2xlsClass();
+                MWCellArray file_ist = new MWCellArray(strpath.ToArray().Length);
+                for (int i = 0; i < strpath.ToArray().Length; i++)
+                    file_ist[i + 1] = strpath[i];
+
+                string first_file;
+                MWArray temp = cvt.nc2xls(file_ist, foldPath);
+                MWCharArray arr = (MWCharArray)temp;
+                first_file = arr.ToString();
+
+                System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo("Explorer.exe");
+                psi.Arguments = "/e,/select," + foldPath + first_file;
+                System.Diagnostics.Process.Start(psi);
+                label9.Visible = false;
             }
-            Console.WriteLine(foldPath);
-            Nc2xlsClass cvt = new Nc2xlsClass();
-            MWCellArray file_ist = new MWCellArray(strpath.ToArray().Length);
-            for (int i = 0; i < strpath.ToArray().Length; i++)
-                file_ist[i + 1] = strpath[i];
-
-            string first_file;
-            MWArray temp = cvt.nc2xls(file_ist, foldPath);
-            MWCharArray arr = (MWCharArray)temp;
-            first_file = arr.ToString();
-
-            System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo("Explorer.exe");
-            psi.Arguments = "/e,/select," + foldPath + first_file;
-            System.Diagnostics.Process.Start(psi);
-            label9.Visible = false;
+            else
+                MessageBox.Show("请先导入NetCDF文件");
+ 
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -447,13 +456,14 @@ namespace Data_Visual
             {
                 for (int idx = 0; idx < 3; idx++)
                 {
-                    dt.Clear();
-                    //dt.Rows.Clear();
-                    //dt.Columns.Clear();
+                    //dt.Clear();
+                    dt.Rows.Clear();
+                    dt.Columns.Clear();
                     strpath = System.Windows.Forms.Application.StartupPath + "\\nino_cr\\" + file[idx];
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
                     object[,] data = GetExcelRangeData(strpath, "A2", 1);
+                    MessageBox.Show(idx.ToString());
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
 
@@ -521,7 +531,7 @@ namespace Data_Visual
             catch (Exception ex)
             {
                 label10.Visible = false;
-                MessageBox.Show("请先完成数据获取");
+                MessageBox.Show(ex.ToString()+"请先完成数据获取");
             }
         }
 
