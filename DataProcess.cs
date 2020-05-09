@@ -463,7 +463,7 @@ namespace Data_Visual
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
                     object[,] data = GetExcelRangeData(strpath, "A2", 1);
-                    MessageBox.Show(idx.ToString());
+                    //MessageBox.Show(idx.ToString());
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
 

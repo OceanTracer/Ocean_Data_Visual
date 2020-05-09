@@ -109,15 +109,32 @@ namespace Data_Visual
         /// 根据用户名查找用户邮箱；需要在listView1已被填充后调用
         /// </summary>
         /// <param name="uname">用户名</param>
-        private string SearchUser(string uname)
+        private List<string> SearchUser(string uname)
         {
-            ListViewItem res = listView1.FindItemWithText(uname, true, 0, false);
-            string umail;
-            if (res == null)
-                umail = "";
-            else
-                umail = res.SubItems[0].Text;
+            int index = 0;
+            List<string> umail = new List<string>();
+            while (true)
+            {
+                ListViewItem res = listView1.FindItemWithText(uname, true, index, false);
+
+                if (res == null && index == 0)
+                {
+                    umail[0] = "";
+                    break;//未查找到
+                }
+                else if (res == null && index != 0)
+                {
+                    break;//查找完毕
+                }
+                else
+                {
+                    umail.Add(res.SubItems[0].Text);
+                    index = res.Index + 1;
+                }
+             }
+
             return umail;
+                
         }
 
         /// <summary>根据用户邮箱封禁用户</summary>
@@ -339,17 +356,18 @@ namespace Data_Visual
         {
             label6.Visible = false;
             label7.Text = "";
-            string result ="";
+            List<string> result = new List<string>();
             if (textBox1.Text.Trim() == "")
                 MessageBox.Show("用户名不能为空");
             else 
                 result = SearchUser(textBox1.Text);
-            if (result == "")
+            if (result[0] == "")
                 MessageBox.Show("未查找到该用户");
             else
             {
                 label6.Visible = true;
-                label7.Text = result;
+                for (int i = 0; i < result.Count; i++)
+                    label7.Text = label7.Text + result[i] + "\n";
             }
             ListViewInit();
         }
@@ -484,6 +502,11 @@ namespace Data_Visual
             label12.Visible = true;
             listView4.Visible = true;
             Notice_Update();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
