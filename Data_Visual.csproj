@@ -223,6 +223,7 @@
     <Compile Include="TimeShow.Designer.cs">
       <DependentUpon>TimeShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserStatus.cs" />
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
     </Compile>

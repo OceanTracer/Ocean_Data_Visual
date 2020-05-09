@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.Office.Interop.Word;
-using MongoDB.Bson;
-using MongoDB.Driver;
 namespace Data_Visual
 {
     public partial class 登录界面 : Form
@@ -31,8 +29,7 @@ namespace Data_Visual
         }
         public static int  type = 0;
         public static string mail = "";
-        public static string MAXMONTH = "";
-        public static string MAXYEAR = "";
+
         //登录
         public int login(string email, string password, ref int type)
         {
@@ -118,59 +115,10 @@ namespace Data_Visual
                 }
             }
         }
-        MongoClient client = new MongoClient("mongodb://admin:password@47.101.201.58:14285/?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&appname=MongoDB%20Compass&ssl=false"); // mongoDB连接
 
-        public class NINO_single
-        {
-            public string Year { get; set; }
-            public float Jan { get; set; }
-            public float Feb { get; set; }
-            public float Mar { get; set; }
-            public float Apr { get; set; }
-            public float May { get; set; }
-            public float June { get; set; }
-            public float July { get; set; }
-            public float Aug { get; set; }
-            public float Sept { get; set; }
-            public float Oct { get; set; }
-            public float Nov { get; set; }
-            public float Dec { get; set; }
-        }
         private void 登录界面_Load(object sender, EventArgs e)
         {
-            var database = client.GetDatabase("SST_res");
-            var months = database.ListCollectionNames();
-            List<string> mons_list = months.ToList();
-            mons_list.Sort();
-            MAXMONTH = mons_list[mons_list.Count - 4];
 
-            List<double> nino_list = new List<double>();
-            string[] month_label = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" };
-            string ctname = "Nino4";
-            var collection = database.GetCollection<BsonDocument>(ctname);
-            var filterBuilder = Builders<BsonDocument>.Filter;
-
-            var filter = filterBuilder.Empty;
-            var result = collection.Find<BsonDocument>(filter).ToList();
-            var item = result[result.Count - 1];
-
-            MAXYEAR = item.GetValue("Year").ToString();
-            for (int i = 0; i < 12; i++)
-                nino_list.Add(Convert.ToDouble(item.GetValue(month_label[i])));
-
-            ///检查最新一年的数据是否已满
-            int count = 0;
-            if (nino_list != null)
-            {
-                for (int i = 0; i < 12; i++)
-                {
-                    if (Convert.ToDouble(nino_list[i]) < 0)
-                            count++;
-                }
-
-                if (count > 0) // 没满就回退一年
-                    MAXYEAR = (Convert.ToInt32(MAXYEAR) - 1).ToString();
-            }
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)

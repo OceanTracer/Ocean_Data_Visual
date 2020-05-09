@@ -31,7 +31,13 @@ namespace Data_Visual
             timer1.Interval = 2000;
             timer1.Start();
 
-            DateTime d1 = Convert.ToDateTime(登录界面.MAXMONTH + "-28");
+            string MM = "";
+            if (UserStatus.status == 1)
+                MM = 用户主页.MAXMONTH;
+            else if (UserStatus.status == 0)
+                MM = 管理员页面.MAXMONTH;
+            DateTime d1 = Convert.ToDateTime(MM + "-28");
+
             dateTimePicker1.MaxDate = d1;
 
         }

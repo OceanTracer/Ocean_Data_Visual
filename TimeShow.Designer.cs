@@ -222,7 +222,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(211, 25);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Maltab资源载入中...";
+            this.label7.Text = "Matlab资源载入中...";
             this.label7.Visible = false;
             // 
             // TimeShow

@@ -189,18 +189,23 @@ namespace Data_Visual
                     object[,] data = GetExcelRangeData(strpath, "A2", 0);
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt.Columns.Add(i.ToString(), typeof(object));
-
+                    //MessageBox.Show("读好了");
+                    //DataRow dr = dt.NewRow();
                     for (int i = 0; i < data.GetLength(0); i++)
                     {
-                        DataRow dr = dt.NewRow();
+                        object[] dr = new object[data.GetLength(1)];
                         for (int j = 0; j < data.GetLength(1); j++)
                         {
-                            dr[j.ToString()] = data[i + 1, j + 1];
+                            dr[j] = data[i + 1, j + 1];
                         }
                         dt.Rows.Add(dr);
+                        Console.WriteLine(i.ToString());
                     }
-                    //MessageBox.Show(data[1, 2].ToString());
-                    dataGridView1.DataSource = dt;
+                    //MessageBox.Show("读好了");
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dt;
+                    dataGridView1.DataSource = bs;
+                    //dataGridView1.DataSource = dt;
                     dataGridView1.Columns[0].HeaderCell.Value = "Lon";
                     dataGridView1.Columns[1].HeaderCell.Value = "Lat";
                     dataGridView1.Columns[2].HeaderCell.Value = "SST(K)";
@@ -442,9 +447,9 @@ namespace Data_Visual
             {
                 for (int idx = 0; idx < 3; idx++)
                 {
-                    //dt.Clear();
-                    dt.Rows.Clear();
-                    dt.Columns.Clear();
+                    dt.Clear();
+                    //dt.Rows.Clear();
+                    //dt.Columns.Clear();
                     strpath = System.Windows.Forms.Application.StartupPath + "\\nino_cr\\" + file[idx];
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
@@ -535,7 +540,7 @@ namespace Data_Visual
         private void DataProcess_Load(object sender, EventArgs e)
         {
             Month_show();
-            dateTimePicker1.MaxDate = Convert.ToDateTime(登录界面.MAXMONTH);
+            dateTimePicker1.MaxDate = Convert.ToDateTime(用户主页.MAXMONTH);
         }
 
         void Month_show()
@@ -580,7 +585,7 @@ namespace Data_Visual
         private void button10_Click(object sender, EventArgs e)
         {
             var database = client.GetDatabase("SST_res"); //数据库名称
-            string ctname = dataGridView2.Rows[dataGridView2.Rows.Count - 1].ToString();
+            string ctname = dataGridView2.Rows[dataGridView2.Rows.Count - 2].Cells[0].Value.ToString();
             DialogResult dr = MessageBox.Show("将删除\t" + ctname + "\t的记录", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.OK)
             {
@@ -588,6 +593,11 @@ namespace Data_Visual
                 MessageBox.Show("删除成功");
                 Month_show();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

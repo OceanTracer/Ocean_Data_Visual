@@ -124,6 +124,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(625, 483);
             this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // 管理员页面
             // 
@@ -138,6 +139,7 @@
             this.Name = "管理员页面";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "公司";
+            this.Load += new System.EventHandler(this.管理员页面_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

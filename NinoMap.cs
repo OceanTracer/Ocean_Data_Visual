@@ -62,9 +62,15 @@ namespace Data_Visual
 
         private void NinoMap_Load(object sender, EventArgs e)
         {
-            if(登录界面.MAXYEAR != null)
+            string MY = "";
+            if (UserStatus.status == 1)
+                MY = 用户主页.MAXYEAR;
+            else if (UserStatus.status == 0)
+                MY = 管理员页面.MAXYEAR;
+
+            if (MY != null)
             {
-                DateTime d1 = Convert.ToDateTime(登录界面.MAXYEAR + "-12-31");
+                DateTime d1 = Convert.ToDateTime(MY + "-12-31");
 
                 dateTimePicker2.MaxDate = d1;
                 dateTimePicker3.MaxDate = d1;
