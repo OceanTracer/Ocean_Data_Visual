@@ -289,10 +289,15 @@ namespace Data_Visual
             {
                 string to_delete = comboBox2.Text;
                 mysql = "delete from collect_info where collect_num = '" + to_delete + "'";
-                SqlCommand mycmd = new SqlCommand(mysql, myconn);
+                SqlCommand mycmd1 = new SqlCommand(mysql, myconn);
+
+                string mysql1 = "delete from collect where collect_num = '" + to_delete + "'";
+                SqlCommand mycmd2 = new SqlCommand(mysql1, myconn);
+
                 myconn.Open();
                 {
-                    mycmd.ExecuteNonQuery();
+                    mycmd1.ExecuteNonQuery();//删除收藏
+                    mycmd2.ExecuteNonQuery();//删除该收藏的收藏记录
                 }
                 myconn.Close();
                 //删除文件夹文件！
@@ -318,10 +323,15 @@ namespace Data_Visual
                         File.Move(srctxtFileName, desttxtFileName);
                     }
                     mysql = "update collect_info set collect_num = '" + (to_update - 1).ToString() + "', collect_pic = '" + destjpgFileName + "', collect_txt = '" + desttxtFileName + "' where collect_num =  '" + to_update.ToString() + "'";
-                    SqlCommand updatecmd = new SqlCommand(mysql, myconn);
+                    SqlCommand updatecmd1 = new SqlCommand(mysql, myconn);
+
+                    mysql = "update collect set collect_num = '" + (to_update - 1).ToString() + "' where collect_num =  '" + to_update.ToString() + "'";
+                    SqlCommand updatecmd2 = new SqlCommand(mysql, myconn);
+
                     myconn.Open();
                     {
-                        updatecmd.ExecuteNonQuery();
+                        updatecmd1.ExecuteNonQuery();
+                        updatecmd2.ExecuteNonQuery();
                     }
                     myconn.Close();
                 }

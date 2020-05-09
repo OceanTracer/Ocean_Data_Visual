@@ -540,7 +540,7 @@ namespace Data_Visual
         private void DataProcess_Load(object sender, EventArgs e)
         {
             Month_show();
-            dateTimePicker1.MaxDate = Convert.ToDateTime(用户主页.MAXMONTH);
+            dateTimePicker1.MaxDate = Convert.ToDateTime(管理员页面.MAXMONTH);
         }
 
         void Month_show()
