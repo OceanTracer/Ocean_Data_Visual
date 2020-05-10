@@ -196,5 +196,18 @@ namespace Data_Visual
             }
             this.listView1.View = System.Windows.Forms.View.Details;
         }
+
+        private void runlabel_Click(object sender, EventArgs e)
+        {
+            if (登录界面.mail == "")
+                MessageBox.Show("未登录！");
+            else
+            {
+                知识闯关 f1 = new 知识闯关();
+                f1.Owner = this;
+                Hide();
+                f1.ShowDialog();
+            }
+        }
     }
 }

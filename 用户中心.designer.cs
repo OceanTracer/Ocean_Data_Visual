@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.labelUname = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LogoutButton = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.北京ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.北京大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.清华大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.中国人民大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.上海ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.同济大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.复旦大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.上海交通大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.上海财经大学ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.MyFav = new System.Windows.Forms.Label();
             this.RecordLabel = new System.Windows.Forms.Label();
             this.HomeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.InfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.labelMail = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.labelDesc = new System.Windows.Forms.Label();
+            this.labelSex = new System.Windows.Forms.Label();
+            this.labelDesire = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.EditGroupBox = new System.Windows.Forms.GroupBox();
             this.radioButtonWoman = new System.Windows.Forms.RadioButton();
             this.radioButtonMan = new System.Windows.Forms.RadioButton();
@@ -62,23 +62,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.InfoGroupBox = new System.Windows.Forms.GroupBox();
-            this.labelMail = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.labelDesc = new System.Windows.Forms.Label();
-            this.labelSex = new System.Windows.Forms.Label();
-            this.labelDesire = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.NoticeBox = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.runlabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.EditGroupBox.SuspendLayout();
             this.InfoGroupBox.SuspendLayout();
+            this.EditGroupBox.SuspendLayout();
             this.NoticeBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,85 +143,14 @@
             this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogoutButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LogoutButton.ForeColor = System.Drawing.Color.Black;
-            this.LogoutButton.Location = new System.Drawing.Point(28, 394);
+            this.LogoutButton.Location = new System.Drawing.Point(702, 418);
             this.LogoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(160, 49);
+            this.LogoutButton.Size = new System.Drawing.Size(121, 41);
             this.LogoutButton.TabIndex = 16;
             this.LogoutButton.Text = "退出登录";
             this.LogoutButton.UseVisualStyleBackColor = false;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.北京ToolStripMenuItem,
-            this.上海ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
-            // 
-            // 北京ToolStripMenuItem
-            // 
-            this.北京ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.北京大学ToolStripMenuItem,
-            this.清华大学ToolStripMenuItem,
-            this.中国人民大学ToolStripMenuItem});
-            this.北京ToolStripMenuItem.Name = "北京ToolStripMenuItem";
-            this.北京ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.北京ToolStripMenuItem.Text = "北京";
-            // 
-            // 北京大学ToolStripMenuItem
-            // 
-            this.北京大学ToolStripMenuItem.Name = "北京大学ToolStripMenuItem";
-            this.北京大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.北京大学ToolStripMenuItem.Text = "北京大学";
-            // 
-            // 清华大学ToolStripMenuItem
-            // 
-            this.清华大学ToolStripMenuItem.Name = "清华大学ToolStripMenuItem";
-            this.清华大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.清华大学ToolStripMenuItem.Text = "清华大学";
-            // 
-            // 中国人民大学ToolStripMenuItem
-            // 
-            this.中国人民大学ToolStripMenuItem.Name = "中国人民大学ToolStripMenuItem";
-            this.中国人民大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.中国人民大学ToolStripMenuItem.Text = "中国人民大学";
-            // 
-            // 上海ToolStripMenuItem
-            // 
-            this.上海ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.同济大学ToolStripMenuItem,
-            this.复旦大学ToolStripMenuItem,
-            this.上海交通大学ToolStripMenuItem,
-            this.上海财经大学ToolStripMenuItem});
-            this.上海ToolStripMenuItem.Name = "上海ToolStripMenuItem";
-            this.上海ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.上海ToolStripMenuItem.Text = "上海";
-            // 
-            // 同济大学ToolStripMenuItem
-            // 
-            this.同济大学ToolStripMenuItem.Name = "同济大学ToolStripMenuItem";
-            this.同济大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.同济大学ToolStripMenuItem.Text = "同济大学";
-            // 
-            // 复旦大学ToolStripMenuItem
-            // 
-            this.复旦大学ToolStripMenuItem.Name = "复旦大学ToolStripMenuItem";
-            this.复旦大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.复旦大学ToolStripMenuItem.Text = "复旦大学";
-            // 
-            // 上海交通大学ToolStripMenuItem
-            // 
-            this.上海交通大学ToolStripMenuItem.Name = "上海交通大学ToolStripMenuItem";
-            this.上海交通大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.上海交通大学ToolStripMenuItem.Text = "上海交通大学";
-            // 
-            // 上海财经大学ToolStripMenuItem
-            // 
-            this.上海财经大学ToolStripMenuItem.Name = "上海财经大学ToolStripMenuItem";
-            this.上海财经大学ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.上海财经大学ToolStripMenuItem.Text = "上海财经大学";
             // 
             // InfoLabel
             // 
@@ -300,8 +220,147 @@
             this.panel1.Controls.Add(this.NoticeBox);
             this.panel1.Location = new System.Drawing.Point(215, 102);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(617, 352);
+            this.panel1.Size = new System.Drawing.Size(617, 304);
             this.panel1.TabIndex = 46;
+            // 
+            // InfoGroupBox
+            // 
+            this.InfoGroupBox.BackColor = System.Drawing.Color.White;
+            this.InfoGroupBox.Controls.Add(this.labelMail);
+            this.InfoGroupBox.Controls.Add(this.label4);
+            this.InfoGroupBox.Controls.Add(this.EditButton);
+            this.InfoGroupBox.Controls.Add(this.labelDesc);
+            this.InfoGroupBox.Controls.Add(this.labelSex);
+            this.InfoGroupBox.Controls.Add(this.labelDesire);
+            this.InfoGroupBox.Controls.Add(this.label21);
+            this.InfoGroupBox.Controls.Add(this.label15);
+            this.InfoGroupBox.Controls.Add(this.label8);
+            this.InfoGroupBox.Controls.Add(this.label9);
+            this.InfoGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.InfoGroupBox.Location = new System.Drawing.Point(11, 6);
+            this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.InfoGroupBox.Name = "InfoGroupBox";
+            this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.InfoGroupBox.Size = new System.Drawing.Size(592, 286);
+            this.InfoGroupBox.TabIndex = 22;
+            this.InfoGroupBox.TabStop = false;
+            // 
+            // labelMail
+            // 
+            this.labelMail.AutoSize = true;
+            this.labelMail.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelMail.Location = new System.Drawing.Point(168, 82);
+            this.labelMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMail.Name = "labelMail";
+            this.labelMail.Size = new System.Drawing.Size(39, 20);
+            this.labelMail.TabIndex = 55;
+            this.labelMail.Text = "Mail";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(85, 82);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "邮箱：";
+            // 
+            // EditButton
+            // 
+            this.EditButton.BackColor = System.Drawing.Color.Transparent;
+            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EditButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EditButton.ForeColor = System.Drawing.Color.DarkGray;
+            this.EditButton.Location = new System.Drawing.Point(476, 21);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(74, 32);
+            this.EditButton.TabIndex = 44;
+            this.EditButton.Text = "编辑";
+            this.EditButton.UseVisualStyleBackColor = false;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // labelDesc
+            // 
+            this.labelDesc.AutoSize = true;
+            this.labelDesc.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelDesc.Location = new System.Drawing.Point(167, 198);
+            this.labelDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDesc.Name = "labelDesc";
+            this.labelDesc.Size = new System.Drawing.Size(73, 20);
+            this.labelDesc.TabIndex = 43;
+            this.labelDesc.Text = "Describe";
+            // 
+            // labelSex
+            // 
+            this.labelSex.AutoSize = true;
+            this.labelSex.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelSex.Location = new System.Drawing.Point(168, 121);
+            this.labelSex.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSex.Name = "labelSex";
+            this.labelSex.Size = new System.Drawing.Size(34, 20);
+            this.labelSex.TabIndex = 36;
+            this.labelSex.Text = "Sex";
+            // 
+            // labelDesire
+            // 
+            this.labelDesire.AutoSize = true;
+            this.labelDesire.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelDesire.Location = new System.Drawing.Point(168, 160);
+            this.labelDesire.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDesire.Name = "labelDesire";
+            this.labelDesire.Size = new System.Drawing.Size(55, 20);
+            this.labelDesire.TabIndex = 35;
+            this.labelDesire.Text = "Desire";
+            this.labelDesire.Click += new System.EventHandler(this.labelName_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.Location = new System.Drawing.Point(85, 198);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(89, 20);
+            this.label21.TabIndex = 34;
+            this.label21.Text = "个性描述：";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(85, 121);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(58, 20);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "性别：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(86, 160);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 20);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "兴趣：";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(243, 27);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 20);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "用户信息";
             // 
             // EditGroupBox
             // 
@@ -322,7 +381,7 @@
             this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Name = "EditGroupBox";
             this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.EditGroupBox.Size = new System.Drawing.Size(592, 335);
+            this.EditGroupBox.Size = new System.Drawing.Size(592, 286);
             this.EditGroupBox.TabIndex = 57;
             this.EditGroupBox.TabStop = false;
             // 
@@ -448,145 +507,6 @@
             this.label14.TabIndex = 23;
             this.label14.Text = "用户信息";
             // 
-            // InfoGroupBox
-            // 
-            this.InfoGroupBox.BackColor = System.Drawing.Color.White;
-            this.InfoGroupBox.Controls.Add(this.labelMail);
-            this.InfoGroupBox.Controls.Add(this.label4);
-            this.InfoGroupBox.Controls.Add(this.EditButton);
-            this.InfoGroupBox.Controls.Add(this.labelDesc);
-            this.InfoGroupBox.Controls.Add(this.labelSex);
-            this.InfoGroupBox.Controls.Add(this.labelDesire);
-            this.InfoGroupBox.Controls.Add(this.label21);
-            this.InfoGroupBox.Controls.Add(this.label15);
-            this.InfoGroupBox.Controls.Add(this.label8);
-            this.InfoGroupBox.Controls.Add(this.label9);
-            this.InfoGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.InfoGroupBox.Location = new System.Drawing.Point(11, 6);
-            this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.InfoGroupBox.Name = "InfoGroupBox";
-            this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.InfoGroupBox.Size = new System.Drawing.Size(592, 335);
-            this.InfoGroupBox.TabIndex = 22;
-            this.InfoGroupBox.TabStop = false;
-            // 
-            // labelMail
-            // 
-            this.labelMail.AutoSize = true;
-            this.labelMail.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMail.Location = new System.Drawing.Point(168, 82);
-            this.labelMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelMail.Name = "labelMail";
-            this.labelMail.Size = new System.Drawing.Size(39, 20);
-            this.labelMail.TabIndex = 55;
-            this.labelMail.Text = "Mail";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(85, 82);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 20);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "邮箱：";
-            // 
-            // EditButton
-            // 
-            this.EditButton.BackColor = System.Drawing.Color.Transparent;
-            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.EditButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EditButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.EditButton.Location = new System.Drawing.Point(484, 18);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(74, 32);
-            this.EditButton.TabIndex = 44;
-            this.EditButton.Text = "编辑";
-            this.EditButton.UseVisualStyleBackColor = false;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
-            // labelDesc
-            // 
-            this.labelDesc.AutoSize = true;
-            this.labelDesc.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDesc.Location = new System.Drawing.Point(167, 198);
-            this.labelDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelDesc.Name = "labelDesc";
-            this.labelDesc.Size = new System.Drawing.Size(73, 20);
-            this.labelDesc.TabIndex = 43;
-            this.labelDesc.Text = "Describe";
-            // 
-            // labelSex
-            // 
-            this.labelSex.AutoSize = true;
-            this.labelSex.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelSex.Location = new System.Drawing.Point(168, 121);
-            this.labelSex.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelSex.Name = "labelSex";
-            this.labelSex.Size = new System.Drawing.Size(34, 20);
-            this.labelSex.TabIndex = 36;
-            this.labelSex.Text = "Sex";
-            // 
-            // labelDesire
-            // 
-            this.labelDesire.AutoSize = true;
-            this.labelDesire.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDesire.Location = new System.Drawing.Point(168, 160);
-            this.labelDesire.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelDesire.Name = "labelDesire";
-            this.labelDesire.Size = new System.Drawing.Size(55, 20);
-            this.labelDesire.TabIndex = 35;
-            this.labelDesire.Text = "Desire";
-            this.labelDesire.Click += new System.EventHandler(this.labelName_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(85, 198);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(89, 20);
-            this.label21.TabIndex = 34;
-            this.label21.Text = "个性描述：";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(85, 121);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(58, 20);
-            this.label15.TabIndex = 28;
-            this.label15.Text = "性别：";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(86, 160);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 20);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "兴趣：";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(243, 27);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 20);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "用户信息";
-            // 
             // NoticeBox
             // 
             this.NoticeBox.BackColor = System.Drawing.Color.White;
@@ -596,7 +516,7 @@
             this.NoticeBox.Margin = new System.Windows.Forms.Padding(2);
             this.NoticeBox.Name = "NoticeBox";
             this.NoticeBox.Padding = new System.Windows.Forms.Padding(2);
-            this.NoticeBox.Size = new System.Drawing.Size(592, 335);
+            this.NoticeBox.Size = new System.Drawing.Size(592, 286);
             this.NoticeBox.TabIndex = 62;
             this.NoticeBox.TabStop = false;
             // 
@@ -606,9 +526,53 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(6, 18);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(581, 305);
+            this.listView1.Size = new System.Drawing.Size(581, 258);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(52, 365);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 41);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "每日签到";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // runlabel
+            // 
+            this.runlabel.AutoSize = true;
+            this.runlabel.BackColor = System.Drawing.Color.Transparent;
+            this.runlabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.runlabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.runlabel.ForeColor = System.Drawing.Color.Black;
+            this.runlabel.Location = new System.Drawing.Point(309, 426);
+            this.runlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.runlabel.Name = "runlabel";
+            this.runlabel.Size = new System.Drawing.Size(105, 22);
+            this.runlabel.TabIndex = 48;
+            this.runlabel.Text = "闯关大作战";
+            this.runlabel.Click += new System.EventHandler(this.runlabel_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(500, 426);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 22);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "社区共遨游";
             // 
             // 用户中心
             // 
@@ -617,6 +581,9 @@
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.runlabel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.HomeLabel);
             this.Controls.Add(this.RecordLabel);
@@ -634,12 +601,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " ";
             this.Load += new System.EventHandler(this.用户中心_Load);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.EditGroupBox.ResumeLayout(false);
-            this.EditGroupBox.PerformLayout();
             this.InfoGroupBox.ResumeLayout(false);
             this.InfoGroupBox.PerformLayout();
+            this.EditGroupBox.ResumeLayout(false);
+            this.EditGroupBox.PerformLayout();
             this.NoticeBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -658,16 +624,6 @@
         private System.Windows.Forms.Label MyFav;
         private System.Windows.Forms.Label RecordLabel;
         private System.Windows.Forms.Label HomeLabel;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 北京ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 北京大学ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 清华大学ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 中国人民大学ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 上海ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 同济大学ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 复旦大学ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 上海交通大学ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 上海财经大学ToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox InfoGroupBox;
         private System.Windows.Forms.Button EditButton;
@@ -694,5 +650,8 @@
         private System.Windows.Forms.RadioButton radioButtonMan;
         private System.Windows.Forms.GroupBox NoticeBox;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label runlabel;
+        private System.Windows.Forms.Label label6;
     }
 }
