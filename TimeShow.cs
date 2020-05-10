@@ -11,6 +11,10 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MathWorks.MATLAB.NET.Arrays;
 using time_series_plot;
+using series_acf_pacf;
+using series_anormal;
+using series_spectrum;
+using my_sarima;
 using System.Threading;
 using System.Runtime.InteropServices;//API
 using Microsoft.Office.Interop.Excel;//Excel
@@ -67,7 +71,6 @@ namespace Data_Visual
             label2.Text = onepoint.lon.ToString();
             label3.Text = onepoint.lat.ToString();
             label5.Text = onepoint.start + "—" + onepoint.final;
-            DataGetnShow();
         }
         void DataGetnShow()
         {
@@ -115,24 +118,74 @@ namespace Data_Visual
 
 
         }
-        TimePlotClass plot = new TimePlotClass();
+        AnormalPlot plot_1 = new AnormalPlot();
+        SpectrumPlot plot_2 = new SpectrumPlot();
+        AcfPlot plot_3 = new AcfPlot();
+
         private void button1_Click(object sender, EventArgs e)
         {
-            DataFigure();
+
+            FigureClose();
+            AnormalPlot();
+            ListViewItem res = listView2.FindItemWithText("Std", true, 0, false);
+            if (res == null)
+            {
+                it = new ListViewItem();
+                it.Text = "Std";
+                it.SubItems.Add(Std.ToString());
+                listView2.Items.Add(it);
+            }
         }
-        void DataFigure()
+        double Std = -1;
+        void AnormalPlot()
         {
             MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
             MWCellArray time_m = new MWCellArray(section);
-            for(int i=0;i<section;i++)
+            MWArray result;
+            for (int i = 0; i < section; i++)
             {
                 band_m[i + 1] = band[i];
                 time_m[i + 1] = time[i];
             }
             if (section <= 36)
-                plot.time_series_plot(band_m, time_m, 1);
+                result = plot_1.series_anormal(band_m, time_m, 1);
             else
-                plot.time_series_plot(band_m, time_m, 0);
+                result = plot_1.series_anormal(band_m, time_m, 0);
+            var temp = result.ToString();
+            Std = Convert.ToDouble(temp);
+        }
+
+        void SpectrumPlot()
+        {
+            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
+            MWCellArray time_m = new MWCellArray(section);
+            for (int i = 0; i < section; i++)
+            {
+                band_m[i + 1] = band[i];
+                time_m[i + 1] = time[i];
+            }
+            MWArray result;
+            if (section <= 36)
+                result = plot_2.series_spectrum(band_m, time_m, 1);
+            else
+                result = plot_2.series_spectrum(band_m, time_m, 0);
+        }
+        List<double> pq = new List<double>();
+        void AcfPlot()
+        {
+            FigureClose();
+            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
+            MWArray result;
+            for (int i = 0; i < section; i++)
+            {
+                band_m[i + 1] = band[i];
+            }
+            result = plot_3.series_acf_pacf(band_m);
+            var temp = result.ToArray();
+            foreach( var it in temp)
+            {
+                pq.Add(Convert.ToDouble(it));
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -140,15 +193,11 @@ namespace Data_Visual
             startload = new Thread(new ThreadStart(startload_run));
             //运行线程方法
             startload.Start();
-            label7.Visible = false;
         }
         void startload_run()
         {
-
             int count50ms = 0;
             //实例化matlab对象
-
-
             //循环查找figure1窗体
             while (figure1 == IntPtr.Zero)
             {
@@ -160,15 +209,13 @@ namespace Data_Visual
                 //20s超时设置
                 if (count50ms >= 400)
                 {
-                    label7.Text = "matlab资源加载时间过长！";
+                    MessageBox.Show( "matlab资源加载时间过长！");
                     return;
                 }
             }
             //跨线程，用委托方式执行
             UpdateUI update = delegate
             {
-                //隐藏标签
-                label7.Visible = false;
                 //设置matlab图像窗体的父窗体为panel
                 SetParent(figure1, panel2.Handle);
                 //获取窗体原来的风格
@@ -184,11 +231,31 @@ namespace Data_Visual
             //再移动一次，防止显示错误
             Thread.Sleep(100);
             MoveWindow(figure1, 0, 0, panel2.Width, panel2.Height, true);
-        }
+            startload.Abort();
 
+            while (startload.ThreadState != ThreadState.Aborted)
+            {
+                //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止
+                Thread.Sleep(100);
+            }
+        }
+        void FigureClose()
+        {
+            if(startload != null)
+                startload.Abort();
+            if (figure1 != IntPtr.Zero && IsWindow(figure1))
+            {
+                SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                MessageBox.Show("我应该关了");
+            }
+            else
+            {
+                figure1 = IntPtr.Zero;
+                MessageBox.Show("没找到这个窗口");
+            }
+        }
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
-            label7.Visible = true;
         }
         SaveFileDialog saveFileDialog1 = new SaveFileDialog();
         private void button3_Click(object sender, EventArgs e)
@@ -288,19 +355,83 @@ namespace Data_Visual
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (figure1 != IntPtr.Zero && IsWindow(figure1))
-            {
-                SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
-                //MessageBox.Show("我应该关了");
-            }
-            else
-            {
-                figure1 = IntPtr.Zero;
-                //MessageBox.Show("没找到这个窗口");
-            }
 
             this.Close();
             this.Owner.Show();
+        }
+
+        private void TimeShow_Shown(object sender, EventArgs e)
+        {
+            DataGetnShow();
+            StaticsGet();
+        }
+        ListViewItem it;
+        void StaticsGet()
+        {
+            listView2.Columns.Add("统计量", 80);
+            listView2.Columns.Add("数值", 80);
+
+            double band_max = band.Max();
+            double band_min = band.Min();
+            double band_avg = band.Average();
+            it = new ListViewItem();
+            it.Text = "Max";
+            it.SubItems.Add((band_max-272.13).ToString());
+            listView2.Items.Add(it);
+
+            it = new ListViewItem();
+            it.Text = "Min";
+            it.SubItems.Add((band_min-272.13).ToString());
+            listView2.Items.Add(it);
+
+            it = new ListViewItem();
+            it.Text = "Mean";
+            it.SubItems.Add((band_avg-272.13).ToString());
+            listView2.Items.Add(it);
+            this.listView2.View = System.Windows.Forms.View.Details;
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FigureClose();
+            SpectrumPlot();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FigureClose();
+            AcfPlot();
+            ListViewItem res = listView2.FindItemWithText("p", true, 0, false);
+            if (res == null)
+            {
+                it = new ListViewItem();
+                it.Text = "p";
+                it.SubItems.Add(pq[0].ToString());
+                listView2.Items.Add(it);
+
+                it = new ListViewItem();
+                it.Text = "q";
+                it.SubItems.Add(pq[1].ToString());
+                listView2.Items.Add(it);
+            }
+            button6.Enabled = true;
+        }
+        MySarima sarima = new MySarima();
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
+            MWCellArray time_m = new MWCellArray(section);
+            for (int i = 0; i < section; i++)
+            {
+                band_m[i + 1] = band[i];
+                time_m[i + 1] = time[i];
+            }
+            MWArray result;
+            if (section <= 48)
+                MessageBox.Show("选取时间区间过短，无法进行SARIMA预测");
+            else
+                result = sarima.my_sarima(band_m, time_m, pq[0],pq[1]);
         }
     }
 }

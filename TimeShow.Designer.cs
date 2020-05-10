@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,16 +46,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.listView2);
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -68,6 +76,68 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1268, 634);
             this.panel1.TabIndex = 0;
+            // 
+            // listView2
+            // 
+            this.listView2.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(189, 362);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(269, 212);
+            this.listView2.TabIndex = 24;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button7.Location = new System.Drawing.Point(333, 305);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(125, 41);
+            this.button7.TabIndex = 23;
+            this.button7.Text = "帮助";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.Enabled = false;
+            this.button6.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button6.Location = new System.Drawing.Point(46, 533);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(125, 41);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "SARIMA预测";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button5.Location = new System.Drawing.Point(46, 475);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(125, 41);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "查看相关分析";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button4.Location = new System.Drawing.Point(46, 419);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 41);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "查看频谱图";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // pictureBox2
             // 
@@ -87,7 +157,7 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(46, 568);
+            this.button3.Location = new System.Drawing.Point(189, 305);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 41);
             this.button3.TabIndex = 10;
@@ -100,7 +170,7 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(317, 568);
+            this.button2.Location = new System.Drawing.Point(46, 305);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 41);
             this.button2.TabIndex = 9;
@@ -113,11 +183,11 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(186, 568);
+            this.button1.Location = new System.Drawing.Point(46, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 41);
             this.button1.TabIndex = 8;
-            this.button1.Text = "绘图";
+            this.button1.Text = "查看温度与异常";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
@@ -200,30 +270,17 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(46, 91);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(396, 453);
+            this.listView1.Size = new System.Drawing.Size(412, 190);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(545, 70);
+            this.panel2.Location = new System.Drawing.Point(514, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(660, 539);
+            this.panel2.Size = new System.Drawing.Size(725, 539);
             this.panel2.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("方正粗宋_GBK", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(244, 251);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(211, 25);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Matlab资源载入中...";
-            this.label7.Visible = false;
             // 
             // TimeShow
             // 
@@ -238,11 +295,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TimeShow";
             this.Load += new System.EventHandler(this.TimeShow_Load);
+            this.Shown += new System.EventHandler(this.TimeShow_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -260,8 +316,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ListView listView2;
     }
 }
