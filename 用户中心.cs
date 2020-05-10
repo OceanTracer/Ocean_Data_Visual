@@ -105,7 +105,34 @@ namespace Data_Visual
         private void 用户中心_Load(object sender, EventArgs e)
         {
             fill_info(登录界面.mail);
+            string sql = "select last_sign from user_info where umail='" + 登录界面.mail + "'";
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "last_signtime");
+            if(mydataset.Tables["last_signtime"].Rows[0][0].ToString()!="")
+            {
+                DateTime dt;
+                dt = Convert.ToDateTime(mydataset.Tables["last_signtime"].Rows[0][0]);//数据库中存的时间
+                                                                                      // MessageBox.Show((DateTime.Now - dt).ToString());
+                                                                                      //MessageBox.Show((Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")) -Convert.ToDateTime( dt.ToString("yyyy-MM-dd"))).ToString());
+                DateTime dt1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));//只留下日期
+                DateTime dt2 = Convert.ToDateTime(dt.ToString("yyyy-MM-dd"));
+                System.TimeSpan dt3 = dt1 - dt2;
+                double getDay = dt3.TotalDays;
+                if (getDay >= 1)  //注意测试的时候不要出现负数时间！
+                {
+                    button1.Text = "每日签到";
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    button1.Text = "已签到";
+                    button1.Enabled = false;
+                }
+
+            }
             
+
         }
 
         private void MyFav_Click(object sender, EventArgs e)
@@ -207,6 +234,30 @@ namespace Data_Visual
                 f1.Owner = this;
                 Hide();
                 f1.ShowDialog();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string mycmd = "update user_info set last_sign=getdate() where umail='" + 登录界面.mail + "'";
+            SqlCommand sqlCommand = new SqlCommand(mycmd, myconn);
+            Console.WriteLine(mycmd);
+            try
+            {
+                myconn.Open();
+                {
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("签到成功！");
+                    button1.Text = "已签到";
+                    button1.Enabled = false;                  
+                }
+                myconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
             }
         }
     }

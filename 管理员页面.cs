@@ -30,26 +30,26 @@ namespace Data_Visual
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Hide();
             科普管理 f1=new 科普管理();
             f1.Owner = this;
+            Hide();
             f1.ShowDialog();
         }
 
         private void label2_Click(object sender, EventArgs e)
-        {
-            Hide();
+        {           
             Option f2 = new Option();
             f2.Owner = this;
+            Hide();
             f2.ShowDialog();
         }
 
         private void label3_Click(object sender, EventArgs e)
-        {
-               Hide();
-               用户信息 f3 = new 用户信息();
-               f3.Owner = this;
-               f3.ShowDialog();
+        {               
+            用户信息 f3 = new 用户信息();
+            f3.Owner = this;
+            Hide();
+            f3.ShowDialog();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

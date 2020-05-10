@@ -54,7 +54,7 @@ namespace Data_Visual
                 //Hide();
                 if ( EmailBox.Text.Trim() != "" && NameBox.Text.Trim() != "" && PasswBox1.Text.Trim() != "" && PasswBox2.Text.Trim() !="")
                 {
-                    string mycmd = "insert into user_info  VALUES('" + email + "','" + password + "','" + username + "',null,1,null,null,'Y')";
+                    string mycmd = "insert into user_info  VALUES('" + email + "','" + password + "','" + username + "',null,1,null,null,'Y',0,null)";
                     SqlCommand sqlCommand = new SqlCommand(mycmd, myconn);
                     Console.WriteLine(mycmd);
 

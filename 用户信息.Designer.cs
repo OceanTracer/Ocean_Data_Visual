@@ -531,6 +531,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "用户信息";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户信息";
             this.Load += new System.EventHandler(this.用户信息_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
