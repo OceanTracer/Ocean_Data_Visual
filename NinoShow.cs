@@ -53,7 +53,7 @@ namespace Data_Visual
         {
             label2.Text = nino.ref_start + "—" + nino.ref_final;
             label3.Text = nino.aim_start + "—" + nino.aim_final;
-            DataGetnShow();
+            //DataGetnShow();
         }
 
         List<double> aim_12 = new List<double>();
@@ -224,6 +224,8 @@ namespace Data_Visual
                 this_year++;
             }
             this.listView3.View = System.Windows.Forms.View.Details;
+            label5.Visible = false;
+            pictureBox2.Visible = false;
         }
         void ListViewInit()
         {
@@ -274,7 +276,8 @@ namespace Data_Visual
         private void button1_Click(object sender, EventArgs e)
         {
             DataFigure();
-            label7.Visible = true;
+            button5.Enabled = true;
+            
         }
         void DataFigure()
         {
@@ -295,7 +298,6 @@ namespace Data_Visual
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
-            label7.Visible = true;
         }
         SaveFileDialog saveFileDialog1 = new SaveFileDialog();
         private void button3_Click(object sender, EventArgs e)
@@ -397,6 +399,63 @@ namespace Data_Visual
             }
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //选到Nino1+2
+            if (tabControl1.SelectedTab.Text == "Nino1+2")
+            {
+                nino3Box.SendToBack();
+                nino4Box.SendToBack();
+                finalBox.SendToBack();
+                nino12Box.BringToFront();
+            }
+            else if(tabControl1.SelectedTab.Text == "Nino3")
+            {
+                nino12Box.SendToBack();
+                nino4Box.SendToBack();
+                finalBox.SendToBack();
+                nino3Box.BringToFront();
+            }
+            else if (tabControl1.SelectedTab.Text == "Nino4")
+            {
+                nino12Box.SendToBack();
+                nino3Box.SendToBack();
+                finalBox.SendToBack();
+                nino4Box.BringToFront();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            nino12Box.SendToBack();
+            nino3Box.SendToBack();
+            nino4Box.SendToBack();
+            finalBox.BringToFront();
+        }
+        int tick_count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(tick_count == 1)
+            {
+                DataGetnShow();
+                timer1.Stop();
+                timer1.Dispose();
+            }
+            tick_count++;
+        }
+
+        private void NinoShow_Shown(object sender, EventArgs e)
+        {
+            timer1.Interval = 200;
+            timer1.Start();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            NinoShowHelp form = new NinoShowHelp();
+            form.ShowDialog();
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (figure1 != IntPtr.Zero && IsWindow(figure1) && figure2 != IntPtr.Zero && IsWindow(figure2) && figure3 != IntPtr.Zero && IsWindow(figure3) && figure4 != IntPtr.Zero && IsWindow(figure4))
@@ -424,11 +483,10 @@ namespace Data_Visual
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PanelInit();
+            //PanelInit();
             startload = new Thread(new ThreadStart(startload_run));
             //运行线程方法
             startload.Start();
-            label7.Visible = false;
         }
         void startload_run()
         {
@@ -451,7 +509,6 @@ namespace Data_Visual
                 //20s超时设置
                 if (count50ms >= 400)
                 {
-                    label7.Text = "matlab资源加载时间过长！";
                     return;
                 }
             }
@@ -505,19 +562,19 @@ namespace Data_Visual
             MoveWindow(figure3, 0, 0, panel4.Width, panel4.Height, true);
             MoveWindow(figure4, 0, 0, panel5.Width, panel5.Height, true);
         }
-        void PanelInit()
-        {
-            panel2.Location= new System.Drawing.Point(45, 215);
-            panel2.Size = new System.Drawing.Size(1161, 278);
+        //void PanelInit()
+        //{
+        //    panel2.Location= new System.Drawing.Point(45, 215);
+        //    panel2.Size = new System.Drawing.Size(1161, 278);
 
-            panel3.Location = new System.Drawing.Point(45, 493);
-            panel3.Size = new System.Drawing.Size(1161, 278);
+        //    panel3.Location = new System.Drawing.Point(45, 493);
+        //    panel3.Size = new System.Drawing.Size(1161, 278);
 
-            panel4.Location = new System.Drawing.Point(45, 771);
-            panel4.Size = new System.Drawing.Size(1161, 278);
+        //    panel4.Location = new System.Drawing.Point(45, 771);
+        //    panel4.Size = new System.Drawing.Size(1161, 278);
 
-            panel5.Location = new System.Drawing.Point(45, 1049);
-            panel5.Size = new System.Drawing.Size(1161, 278);
-        }
+        //    panel5.Location = new System.Drawing.Point(45, 1049);
+        //    panel5.Size = new System.Drawing.Size(1161, 278);
+        //}
     }
 }

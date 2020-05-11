@@ -114,7 +114,8 @@ namespace Data_Visual
                 this_year=this_year.AddMonths(1);
             }
             this.listView1.View = System.Windows.Forms.View.Details;
-
+            label7.Visible = false;
+            pictureBox1.Visible = false;
 
         }
         AnormalPlot plot_1 = new AnormalPlot();

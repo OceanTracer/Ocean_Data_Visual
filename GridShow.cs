@@ -120,6 +120,8 @@ namespace Data_Visual
                 i++;
             }
             this.listView1.View = System.Windows.Forms.View.Details;
+            label7.Visible = false;
+            pictureBox2.Visible = false;
         }
 
         GridPlotClass plot_1 = new GridPlotClass();
