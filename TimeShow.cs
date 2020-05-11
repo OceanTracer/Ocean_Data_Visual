@@ -190,6 +190,7 @@ namespace Data_Visual
 
         private void button2_Click(object sender, EventArgs e)
         {
+            figure1 = IntPtr.Zero;
             startload = new Thread(new ThreadStart(startload_run));
             //运行线程方法
             startload.Start();
@@ -376,17 +377,17 @@ namespace Data_Visual
             double band_avg = band.Average();
             it = new ListViewItem();
             it.Text = "Max";
-            it.SubItems.Add((band_max-272.13).ToString());
+            it.SubItems.Add((band_max- 272.15).ToString());
             listView2.Items.Add(it);
 
             it = new ListViewItem();
             it.Text = "Min";
-            it.SubItems.Add((band_min-272.13).ToString());
+            it.SubItems.Add((band_min- 272.15).ToString());
             listView2.Items.Add(it);
 
             it = new ListViewItem();
             it.Text = "Mean";
-            it.SubItems.Add((band_avg-272.13).ToString());
+            it.SubItems.Add((band_avg- 272.15).ToString());
             listView2.Items.Add(it);
             this.listView2.View = System.Windows.Forms.View.Details;
 
@@ -424,7 +425,7 @@ namespace Data_Visual
             MWCellArray time_m = new MWCellArray(section);
             for (int i = 0; i < section; i++)
             {
-                band_m[i + 1] = band[i];
+                band_m[i + 1] = band[i]- 272.15;
                 time_m[i + 1] = time[i];
             }
             MWArray result;
@@ -432,6 +433,12 @@ namespace Data_Visual
                 MessageBox.Show("选取时间区间过短，无法进行SARIMA预测");
             else
                 result = sarima.my_sarima(band_m, time_m, pq[0],pq[1]);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            TimeShowHelp form = new TimeShowHelp();
+            form.ShowDialog();
         }
     }
 }
