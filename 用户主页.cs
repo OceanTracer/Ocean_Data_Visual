@@ -125,8 +125,11 @@ namespace Data_Visual
         {
             UserStatus.status = 1;
 
+        }
+        void SectionGet()
+        {
             List<string[]> notice = GetNotice(登录界面.mail);
-            if(notice.Count != 0)
+            if (notice.Count != 0)
                 label1.Text = "Attention : " + notice[0][0];
             else
                 label1.Text = "No Attention ";
@@ -165,11 +168,27 @@ namespace Data_Visual
                     MAXYEAR = (Convert.ToInt32(MAXYEAR) - 1).ToString();
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void 用户主页_Shown(object sender, EventArgs e)
+        {
+            timer1.Interval = 500;
+            timer1.Start();
+        }
+        int tick_count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            tick_count++;
+            if (tick_count == 1)
+            {
+                SectionGet();
+                timer1.Stop();
+                timer1.Dispose();
+            }
         }
     }
 }

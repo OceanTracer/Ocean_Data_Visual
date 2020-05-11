@@ -75,7 +75,7 @@ namespace Data_Visual
             {
                 MessageBox.Show("输入的经纬度有误");
             }
-            else if (Convert.ToDouble(textBox3.Text) < 272.15 || Convert.ToDouble(textBox3.Text) > 322.15)
+            else if (Convert.ToDouble(textBox3.Text) < 273.15 || Convert.ToDouble(textBox3.Text) > 322.15)
             {
                 MessageBox.Show("输入的温度疑似有误，请检查");
             }

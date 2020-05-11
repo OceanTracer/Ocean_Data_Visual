@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MathWorks.MATLAB.NET.Arrays;
-using time_series_plot;
 using series_acf_pacf;
 using series_anormal;
 using series_spectrum;
@@ -38,7 +37,7 @@ namespace Data_Visual
         const int WS_CAPTION = 0x00C00000;
         const int WS_THICKFRAME = 0x00040000;
         const int WS_SYSMENU = 0X00080000;
-        const int WM_CLOSE = 0x0010;
+        const int WM_CLOSE = 0x0010;    
         [DllImport("user32")]
         private static extern int GetWindowLong(System.IntPtr hwnd, int nIndex);
         [DllImport("user32")]
@@ -108,7 +107,7 @@ namespace Data_Visual
                 //将数据库数据转变成ListView类型的一行数据
                 lt.Text = ctname;
                 lt.SubItems.Add(band[i].ToString());
-                lt.SubItems.Add((band[i]-272.15).ToString());
+                lt.SubItems.Add((band[i]-273.15).ToString());
                 //将lt数据添加到listView1控件中
                 listView1.Items.Add(lt);
 
@@ -124,16 +123,22 @@ namespace Data_Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            FigureClose();
-            AnormalPlot();
-            ListViewItem res = listView2.FindItemWithText("Std", true, 0, false);
-            if (res == null)
+            try
             {
-                it = new ListViewItem();
-                it.Text = "Std";
-                it.SubItems.Add(Std.ToString());
-                listView2.Items.Add(it);
+                FigureClose();
+                AnormalPlot();
+                ListViewItem res = listView2.FindItemWithText("Std", true, 0, false);
+                if (res == null)
+                {
+                    it = new ListViewItem();
+                    it.Text = "Std";
+                    it.SubItems.Add(Std.ToString());
+                    listView2.Items.Add(it);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         double Std = -1;
@@ -190,10 +195,17 @@ namespace Data_Visual
 
         private void button2_Click(object sender, EventArgs e)
         {
-            figure1 = IntPtr.Zero;
-            startload = new Thread(new ThreadStart(startload_run));
-            //运行线程方法
-            startload.Start();
+            try
+            {
+                figure1 = IntPtr.Zero;
+                startload = new Thread(new ThreadStart(startload_run));
+                //运行线程方法
+                startload.Start();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         void startload_run()
         {
@@ -220,9 +232,9 @@ namespace Data_Visual
                 //设置matlab图像窗体的父窗体为panel
                 SetParent(figure1, panel2.Handle);
                 //获取窗体原来的风格
-                var style = GetWindowLong(figure1, GWL_STYLE);
+                //var style = GetWindowLong(figure1, GWL_STYLE);
                 //设置新风格，去掉标题,不能通过边框改变尺寸
-                SetWindowLong(figure1, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
+                //SetWindowLong(figure1, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
                 //移动到panel里合适的位置并重绘
                 MoveWindow(figure1, 0, 0, panel2.Width, panel2.Height, true);
 
@@ -242,18 +254,27 @@ namespace Data_Visual
         }
         void FigureClose()
         {
+            int flag = 0;
             if(startload != null)
                 startload.Abort();
             if (figure1 != IntPtr.Zero && IsWindow(figure1))
             {
+                flag = 1;
                 SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
-                MessageBox.Show("我应该关了");
+                // MessageBox.Show("我应该关了");
+
             }
             else
             {
                 figure1 = IntPtr.Zero;
-                MessageBox.Show("没找到这个窗口");
+                // MessageBox.Show("没找到这个窗口");
             }
+
+            //if (flag == 1 && IsWindow(figure1))
+            //{
+            //    MessageBox.Show("窗口未关闭");
+            //}
+
         }
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -261,18 +282,24 @@ namespace Data_Visual
         SaveFileDialog saveFileDialog1 = new SaveFileDialog();
         private void button3_Click(object sender, EventArgs e)
         {
-            string saveFileName = "";
-            saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Excel 文件(*.xls)|*.xls";
-            saveFileDialog1.RestoreDirectory = true;
-            saveFileName = saveFileDialog1.FileName;
-
-            saveFileDialog1.FileName = label2.Text + "_" + label3.Text + "_" + "SST";
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                WriteListViewToExcel(listView1, "LOG");
+                string saveFileName = "";
+                saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "Excel 文件(*.xls)|*.xls";
+                saveFileDialog1.RestoreDirectory = true;
+                saveFileName = saveFileDialog1.FileName;
 
+                saveFileDialog1.FileName = label2.Text + "_" + label3.Text + "_" + "SST";
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    WriteListViewToExcel(listView1, "LOG");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         public void WriteListViewToExcel(ListView listView1, string sheet1)
@@ -363,8 +390,8 @@ namespace Data_Visual
 
         private void TimeShow_Shown(object sender, EventArgs e)
         {
-            DataGetnShow();
-            StaticsGet();
+            timer1.Start();
+            timer1.Interval = 1000;
         }
         ListViewItem it;
         void StaticsGet()
@@ -377,17 +404,17 @@ namespace Data_Visual
             double band_avg = band.Average();
             it = new ListViewItem();
             it.Text = "Max";
-            it.SubItems.Add((band_max- 272.15).ToString());
+            it.SubItems.Add((band_max- 273.15).ToString());
             listView2.Items.Add(it);
 
             it = new ListViewItem();
             it.Text = "Min";
-            it.SubItems.Add((band_min- 272.15).ToString());
+            it.SubItems.Add((band_min- 273.15).ToString());
             listView2.Items.Add(it);
 
             it = new ListViewItem();
             it.Text = "Mean";
-            it.SubItems.Add((band_avg- 272.15).ToString());
+            it.SubItems.Add((band_avg- 273.15).ToString());
             listView2.Items.Add(it);
             this.listView2.View = System.Windows.Forms.View.Details;
 
@@ -395,50 +422,92 @@ namespace Data_Visual
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FigureClose();
-            SpectrumPlot();
+            try
+            {
+                FigureClose();
+                SpectrumPlot();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            FigureClose();
-            AcfPlot();
-            ListViewItem res = listView2.FindItemWithText("p", true, 0, false);
-            if (res == null)
+            try
             {
-                it = new ListViewItem();
-                it.Text = "p";
-                it.SubItems.Add(pq[0].ToString());
-                listView2.Items.Add(it);
+                FigureClose();
+                AcfPlot();
+                ListViewItem res = listView2.FindItemWithText("p", true, 0, false);
+                if (res == null)
+                {
+                    it = new ListViewItem();
+                    it.Text = "p";
+                    it.SubItems.Add(pq[0].ToString());
+                    listView2.Items.Add(it);
 
-                it = new ListViewItem();
-                it.Text = "q";
-                it.SubItems.Add(pq[1].ToString());
-                listView2.Items.Add(it);
+                    it = new ListViewItem();
+                    it.Text = "q";
+                    it.SubItems.Add(pq[1].ToString());
+                    listView2.Items.Add(it);
+                }
+                button6.Enabled = true;
             }
-            button6.Enabled = true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
         MySarima sarima = new MySarima();
         private void button6_Click(object sender, EventArgs e)
         {
-            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
-            MWCellArray time_m = new MWCellArray(section);
-            for (int i = 0; i < section; i++)
+            try
             {
-                band_m[i + 1] = band[i]- 272.15;
-                time_m[i + 1] = time[i];
+                MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
+                MWCellArray time_m = new MWCellArray(section);
+                for (int i = 0; i < section; i++)
+                {
+                    band_m[i + 1] = band[i] - 273.15;
+                    time_m[i + 1] = time[i];
+                }
+                MWArray result;
+                if (section <= 48)
+                    MessageBox.Show("选取时间区间过短，无法进行SARIMA预测");
+                else
+                    result = sarima.my_sarima(band_m, time_m, pq[0], pq[1]);
             }
-            MWArray result;
-            if (section <= 48)
-                MessageBox.Show("选取时间区间过短，无法进行SARIMA预测");
-            else
-                result = sarima.my_sarima(band_m, time_m, pq[0],pq[1]);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            TimeShowHelp form = new TimeShowHelp();
-            form.ShowDialog();
+            try
+            {
+                TimeShowHelp form = new TimeShowHelp();
+                form.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        int tick_count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            tick_count++;
+            if(tick_count ==1)
+            {
+                DataGetnShow();
+                StaticsGet();
+                timer1.Stop();
+                timer1.Dispose();
+            }
+
         }
     }
 }

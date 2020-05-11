@@ -17,6 +17,8 @@ using Microsoft.Office.Interop.Excel;//Excel
 using ExcelApplication = Microsoft.Office.Interop.Excel.Application;
 using System.Reflection;
 using System.IO;
+using months_grid_plot;
+using anormaly_grid_plot;
 
 namespace Data_Visual
 {
@@ -54,12 +56,38 @@ namespace Data_Visual
             label2.Text = cover.lon_min.ToString() + "—" +cover.lon_max.ToString();
             label3.Text = cover.lat_min.ToString() + "—" + cover.lat_max.ToString();
             label5.Text = cover.time;
-            DataGetnShow();
         }
-        List<double> band = new List<double>();//SST列表
+        
         public delegate void UpdateUI();//委托用于更新UI
         Thread startload;//线程用于matlab窗体处理
         IntPtr figure1;//图像句柄
+        MongoClient client = new MongoClient("mongodb://admin:password@47.101.201.58:14285/?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&appname=MongoDB%20Compass&ssl=false"); // mongoDB连接
+        List<double> band = new List<double>();//SST列表
+
+        public MWNumericArray DataGet(string ctname)
+        {
+            int length = band.ToArray().Length;
+            MWNumericArray band_temp = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            //List<double> band_temp = new List<double>();//SST列表
+            
+            var database = client.GetDatabase("SST_res"); //数据库名称
+            var collection = database.GetCollection<BsonDocument>(ctname);
+
+            var filterBuilder = Builders<BsonDocument>.Filter;
+            var filter = filterBuilder.Gte("Lon", cover.lon_min) & filterBuilder.Gte("Lat", cover.lat_min) & filterBuilder.Lte("Lon", cover.lon_max) & filterBuilder.Lte("Lat", cover.lat_max);
+            var result = collection.Find<BsonDocument>(filter).ToList();
+            int i = 1;
+            foreach (var item in result)
+            {
+                //band_temp.Add(Convert.ToDouble(item.GetValue("Band").ToString()));
+                band_temp[i] = (Convert.ToDouble(item.GetValue("Band").ToString()));
+                Console.WriteLine(i);
+                i++;
+            }
+
+            return band_temp;
+        }
+
         void DataGetnShow()
         {
             string ctname = cover.time;
@@ -68,15 +96,14 @@ namespace Data_Visual
             var database = client.GetDatabase("SST_res"); //数据库名称
             var collection = database.GetCollection<BsonDocument>(ctname);
 
+            var filterBuilder = Builders<BsonDocument>.Filter;
+            var filter = filterBuilder.Gte("Lon", cover.lon_min) & filterBuilder.Gte("Lat", cover.lat_min) & filterBuilder.Lte("Lon", cover.lon_max) & filterBuilder.Lte("Lat", cover.lat_max);
+            var result = collection.Find<BsonDocument>(filter).ToList();
             //加入listview
             listView1.Columns.Add("经度(Lon)", 80);
             listView1.Columns.Add("纬度(Lat)", 80);
             listView1.Columns.Add("温度(K)", 80);
             listView1.Columns.Add("温度(°C)", 80);
-
-            var filterBuilder = Builders<BsonDocument>.Filter;
-            var filter = filterBuilder.Gte("Lon", cover.lon_min) & filterBuilder.Gte("Lat", cover.lat_min) & filterBuilder.Lte("Lon", cover.lon_max) & filterBuilder.Lte("Lat", cover.lat_max);
-            var result = collection.Find<BsonDocument>(filter).ToList();
             int i = 0;
             foreach (var item in result)
             {
@@ -87,7 +114,7 @@ namespace Data_Visual
                 lt.Text = Convert.ToDouble(item.GetValue("Lon").ToString()).ToString();
                 lt.SubItems.Add(Convert.ToDouble(item.GetValue("Lat").ToString()).ToString());
                 lt.SubItems.Add(band[i].ToString());
-                lt.SubItems.Add((band[i] - 272.15).ToString());
+                lt.SubItems.Add((band[i] - 273.15).ToString());
                 //将lt数据添加到listView1控件中
                 listView1.Items.Add(lt);
                 i++;
@@ -95,7 +122,9 @@ namespace Data_Visual
             this.listView1.View = System.Windows.Forms.View.Details;
         }
 
-        GridPlotClass plot = new GridPlotClass();
+        GridPlotClass plot_1 = new GridPlotClass();
+        MonthsGridPlot plot_2 = new MonthsGridPlot();
+        AnomalyGridPlot plot_3 = new AnomalyGridPlot();
         private void button1_Click(object sender, EventArgs e)
         {
             DataFigure();
@@ -108,15 +137,15 @@ namespace Data_Visual
             {
                 band_m[i + 1] = band[i];
             }
-            plot.ll_grid_plot(cover.lon_max, cover.lon_min, cover.lat_max, cover.lat_min, band_m, 1, cover.time);
+            plot_1.ll_grid_plot(cover.lon_max, cover.lon_min, cover.lat_max, cover.lat_min, band_m, 1, cover.time);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            figure1 = IntPtr.Zero;
             startload = new Thread(new ThreadStart(startload_run));
             //运行线程方法
             startload.Start();
-            label7.Visible = false;
         }
         void startload_run()
         {
@@ -136,7 +165,6 @@ namespace Data_Visual
                 //20s超时设置
                 if (count50ms >= 400)
                 {
-                    label7.Text = "matlab资源加载时间过长！";
                     return;
                 }
             }
@@ -144,7 +172,6 @@ namespace Data_Visual
             UpdateUI update = delegate
             {
                 //隐藏标签
-                label7.Visible = false;
                 //设置matlab图像窗体的父窗体为panel
                 SetParent(figure1, panel2.Handle);
                 //获取窗体原来的风格
@@ -164,7 +191,6 @@ namespace Data_Visual
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
-            label7.Visible = true;
         }
         SaveFileDialog saveFileDialog1 = new SaveFileDialog();
         private void button3_Click(object sender, EventArgs e)
@@ -277,6 +303,258 @@ namespace Data_Visual
 
             this.Close();
             this.Owner.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MonthsPlot();
+        }
+
+        void MonthsPlot()
+        {
+            int length = band.ToArray().Length;
+            MWNumericArray band_1= new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_2 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_3 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_4 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWCellArray time_m = new MWCellArray(4);
+
+            string this_time = cover.time;
+            DateTime this_date = Convert.ToDateTime(this_time + "-28");
+            string last1_time;
+            string last2_time;
+            string last3_time;
+            
+            if(Convert.ToDouble(this_date.AddMonths(-1).Month) >=10)
+                 last1_time = this_date.AddMonths(-1).Year.ToString() + "-" + this_date.AddMonths(-1).Month.ToString();
+            else
+                last1_time = this_date.AddMonths(-1).Year.ToString() + "-0" + this_date.AddMonths(-1).Month.ToString();
+
+            if (Convert.ToDouble(this_date.AddMonths(-2).Month) >= 10)
+                last2_time = this_date.AddMonths(-2).Year.ToString() + "-" + this_date.AddMonths(-2).Month.ToString();
+            else
+                last2_time = this_date.AddMonths(-2).Year.ToString() + "-0" + this_date.AddMonths(-2).Month.ToString();
+
+            last3_time = this_date.AddMonths(-3).Year.ToString() + "-0" + this_date.AddMonths(-3).Month.ToString();
+
+            //MessageBox.Show(last1_time + last2_time + last3_time);
+
+            band_2 = DataGet(last1_time);
+            band_3 = DataGet(last2_time);
+            band_4 = DataGet(last3_time);
+
+            for (int i = 0; i < length; i++)
+            {
+                band_1[i + 1] = band[i];
+            }
+            time_m[1] = this_time;
+            time_m[2] = last1_time;
+            time_m[3] = last2_time;
+            time_m[4] = last3_time;
+
+            plot_2.months_grid_plot(cover.lon_max, cover.lon_min, cover.lat_max, cover.lat_min, band_1, band_2, band_3, band_4, 1, time_m);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            YearsPlot();
+        }
+
+        void YearsPlot()
+        {
+            int length = band.ToArray().Length;
+            MWNumericArray band_1 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_2 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_3 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_4 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWCellArray time_m = new MWCellArray(4);
+
+            string this_time = cover.time;
+            DateTime this_date = Convert.ToDateTime(this_time + "-28");
+
+            string last1_time;
+            string last2_time;
+            string last3_time;
+
+            if (Convert.ToDouble(this_date.Month) >= 10)
+            {
+                last1_time = this_date.AddYears(-1).Year.ToString() + "-" + this_date.Month.ToString();
+                last2_time = this_date.AddYears(-2).Year.ToString() + "-" + this_date.Month.ToString();
+                last3_time = this_date.AddYears(-3).Year.ToString() + "-" + this_date.Month.ToString();
+            }
+            else
+            {
+                last1_time = this_date.AddYears(-1).Year.ToString() + "-0" + this_date.Month.ToString();
+                last2_time = this_date.AddYears(-2).Year.ToString() + "-0" + this_date.Month.ToString();
+                last3_time = this_date.AddYears(-3).Year.ToString() + "-0" + this_date.Month.ToString();
+            }
+
+
+
+            //MessageBox.Show(last1_time + last2_time + last3_time);
+
+            band_2 = DataGet(last1_time);
+            band_3 = DataGet(last2_time);
+            band_4 = DataGet(last3_time);
+
+            for (int i = 0; i < length; i++)
+            {
+                band_1[i + 1] = band[i];
+            }
+            time_m[1] = this_time;
+            time_m[2] = last1_time;
+            time_m[3] = last2_time;
+            time_m[4] = last3_time;
+
+            plot_2.months_grid_plot(cover.lon_max, cover.lon_min, cover.lat_max, cover.lat_min, band_1, band_2, band_3, band_4, 1, time_m);
+        }
+
+        /// <summary>
+        /// 这俩我直接写到事件里面了
+        /// </summary>
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int length = band.ToArray().Length;
+            MWNumericArray band_1 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_2 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_3 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_4 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWCellArray time_m = new MWCellArray(4);
+
+            string this_time = cover.time;
+            DateTime this_date = Convert.ToDateTime(this_time + "-28");
+            string last1_time;
+            string last2_time;
+            string last3_time;
+
+            if (Convert.ToDouble(this_date.Month) >= 10)
+            {
+                last1_time = this_date.AddYears(-1).Year.ToString() + "-" + this_date.Month.ToString();
+                last2_time = this_date.AddYears(-2).Year.ToString() + "-" + this_date.Month.ToString();
+                last3_time = this_date.AddYears(-3).Year.ToString() + "-" + this_date.Month.ToString();
+            }
+            else
+            {
+                last1_time = this_date.AddYears(-1).Year.ToString() + "-0" + this_date.Month.ToString();
+                last2_time = this_date.AddYears(-2).Year.ToString() + "-0" + this_date.Month.ToString();
+                last3_time = this_date.AddYears(-3).Year.ToString() + "-0" + this_date.Month.ToString();
+            }
+
+
+            //MessageBox.Show(last1_time + last2_time + last3_time);
+
+            band_2 = DataGet(last1_time);
+            band_3 = DataGet(last2_time);
+            band_4 = DataGet(last3_time);
+
+            for (int i = 0; i < length; i++)
+            {
+                band_1[i + 1] = band[i];
+            }
+            time_m[1] = this_time;
+            time_m[2] = last1_time;
+            time_m[3] = last2_time;
+            time_m[4] = last3_time;
+
+            plot_3.anormaly_grid_plot(cover.lon_max, cover.lon_min, cover.lat_max, cover.lat_min, band_1, band_2, band_3, band_4, 1, time_m);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int length = band.ToArray().Length;
+            MWNumericArray band_1 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_2 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_3 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWNumericArray band_4 = new MWNumericArray(MWArrayComplexity.Real, length, 1);
+            MWCellArray time_m = new MWCellArray(4);
+
+            string this_time = cover.time;
+            DateTime this_date = Convert.ToDateTime(this_time + "-28");
+            string last1_time;
+            string last2_time;
+            string last3_time;
+
+            if (Convert.ToDouble(this_date.AddMonths(-1).Month) >= 10)
+                last1_time = this_date.AddMonths(-1).Year.ToString() + "-" + this_date.AddMonths(-1).Month.ToString();
+            else
+                last1_time = this_date.AddMonths(-1).Year.ToString() + "-0" + this_date.AddMonths(-1).Month.ToString();
+
+            if (Convert.ToDouble(this_date.AddMonths(-2).Month) >= 10)
+                last2_time = this_date.AddMonths(-2).Year.ToString() + "-" + this_date.AddMonths(-2).Month.ToString();
+            else
+                last2_time = this_date.AddMonths(-2).Year.ToString() + "-0" + this_date.AddMonths(-2).Month.ToString();
+
+            last3_time = this_date.AddMonths(-3).Year.ToString() + "-0" + this_date.AddMonths(-3).Month.ToString();
+
+            //MessageBox.Show(last1_time + last2_time + last3_time);
+
+            band_2 = DataGet(last1_time);
+            band_3 = DataGet(last2_time);
+            band_4 = DataGet(last3_time);
+
+            for (int i = 0; i < length; i++)
+            {
+                band_1[i + 1] = band[i];
+            }
+            time_m[1] = this_time;
+            time_m[2] = last1_time;
+            time_m[3] = last2_time;
+            time_m[4] = last3_time;
+
+            plot_3.anormaly_grid_plot(cover.lon_max, cover.lon_min, cover.lat_max, cover.lat_min, band_1, band_2, band_3, band_4, 1, time_m);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GridShowHelp form = new GridShowHelp();
+            form.ShowDialog();
+        }
+
+        public class SST_single
+        {
+            public double Lon { get; set; }
+            public double Lat { get; set; }
+            public double Band { get; set; }
+        }
+        List<SST_single> error = new List<SST_single>();
+
+        /// <summary>
+        /// 这块需要用户给管理员发消息
+        /// </summary>
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            for( int i =0; i<band.Count; i++)
+            {
+                if (band[i] > 273.15 + 40 || band[i] < 273.15)
+                {
+                    listView1.Items[i].BackColor = Color.Red;
+                    count++;
+                    SST_single temp = new SST_single();
+                    temp.Band = band[i];
+                    temp.Lon = Convert.ToDouble(listView1.Items[i].SubItems[0].ToString());
+                    temp.Lat = Convert.ToDouble(listView1.Items[i].SubItems[1].ToString());
+                    error.Add(temp);
+                }
+            }
+            MessageBox.Show("共检查到疑似错误记录共" + count.ToString() + "条");
+        }
+
+        private void GridShow_Shown(object sender, EventArgs e)
+        {
+            timer1.Interval = 100;
+            timer1.Start();
+        }
+        int tick_count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(tick_count == 1)
+            {
+                DataGetnShow();
+                timer1.Stop();
+                timer1.Dispose();
+            }
+            tick_count++;
         }
     }
 }

@@ -83,6 +83,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="anormaly_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\anormaly_grid_plot.dll</HintPath>
+    </Reference>
     <Reference Include="CSkin, Version=16.1.14.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\CSkin.dll</HintPath>
@@ -116,6 +120,10 @@
     </Reference>
     <Reference Include="MongoDB.Driver.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MongoDB.Driver.Core.2.7.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="months_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\months_grid_plot.dll</HintPath>
     </Reference>
     <Reference Include="MWArray, Version=2.19.0.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -196,6 +204,12 @@
     </Compile>
     <Compile Include="GridShow.Designer.cs">
       <DependentUpon>GridShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridShowHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridShowHelp.Designer.cs">
+      <DependentUpon>GridShowHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="nino.cs" />
     <Compile Include="NinoMap.cs">
@@ -342,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GridShow.resx">
       <DependentUpon>GridShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridShowHelp.resx">
+      <DependentUpon>GridShowHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NinoMap.resx">
       <DependentUpon>NinoMap.cs</DependentUpon>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(用户主页));
             this.labelSearch = new System.Windows.Forms.Label();
             this.labelSelect = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // labelSearch
@@ -123,6 +125,10 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Attention： 暂无新通知";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // 用户主页
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -144,6 +150,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "求职者主页";
             this.Load += new System.EventHandler(this.用户主页_Load);
+            this.Shown += new System.EventHandler(this.用户主页_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +164,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
