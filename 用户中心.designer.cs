@@ -138,9 +138,8 @@
             // 
             // LogoutButton
             // 
-            this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
+            this.LogoutButton.BackColor = System.Drawing.Color.White;
             this.LogoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogoutButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LogoutButton.ForeColor = System.Drawing.Color.Black;
             this.LogoutButton.Location = new System.Drawing.Point(702, 418);
@@ -159,7 +158,7 @@
             this.InfoLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InfoLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.InfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.InfoLabel.Location = new System.Drawing.Point(273, 64);
+            this.InfoLabel.Location = new System.Drawing.Point(222, 61);
             this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.InfoLabel.Name = "InfoLabel";
             this.InfoLabel.Size = new System.Drawing.Size(86, 22);
@@ -174,7 +173,7 @@
             this.MyFav.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MyFav.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MyFav.ForeColor = System.Drawing.Color.Black;
-            this.MyFav.Location = new System.Drawing.Point(412, 61);
+            this.MyFav.Location = new System.Drawing.Point(328, 61);
             this.MyFav.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MyFav.Name = "MyFav";
             this.MyFav.Size = new System.Drawing.Size(86, 22);
@@ -189,7 +188,7 @@
             this.RecordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecordLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RecordLabel.ForeColor = System.Drawing.Color.Black;
-            this.RecordLabel.Location = new System.Drawing.Point(560, 61);
+            this.RecordLabel.Location = new System.Drawing.Point(443, 61);
             this.RecordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.RecordLabel.Name = "RecordLabel";
             this.RecordLabel.Size = new System.Drawing.Size(87, 22);
@@ -204,7 +203,7 @@
             this.HomeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HomeLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HomeLabel.ForeColor = System.Drawing.Color.Black;
-            this.HomeLabel.Location = new System.Drawing.Point(698, 61);
+            this.HomeLabel.Location = new System.Drawing.Point(746, 61);
             this.HomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HomeLabel.Name = "HomeLabel";
             this.HomeLabel.Size = new System.Drawing.Size(86, 22);
@@ -269,9 +268,8 @@
             // 
             // EditButton
             // 
-            this.EditButton.BackColor = System.Drawing.Color.Transparent;
+            this.EditButton.BackColor = System.Drawing.Color.White;
             this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.EditButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EditButton.ForeColor = System.Drawing.Color.DarkGray;
             this.EditButton.Location = new System.Drawing.Point(476, 21);
@@ -532,9 +530,8 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(52, 365);
@@ -553,12 +550,12 @@
             this.runlabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.runlabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.runlabel.ForeColor = System.Drawing.Color.Black;
-            this.runlabel.Location = new System.Drawing.Point(309, 426);
+            this.runlabel.Location = new System.Drawing.Point(553, 61);
             this.runlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.runlabel.Name = "runlabel";
-            this.runlabel.Size = new System.Drawing.Size(105, 22);
+            this.runlabel.Size = new System.Drawing.Size(86, 22);
             this.runlabel.TabIndex = 48;
-            this.runlabel.Text = "闯关大作战";
+            this.runlabel.Text = "海洋探险";
             this.runlabel.Click += new System.EventHandler(this.runlabel_Click);
             // 
             // label6
@@ -568,12 +565,12 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(500, 426);
+            this.label6.Location = new System.Drawing.Point(669, 61);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 22);
+            this.label6.Size = new System.Drawing.Size(48, 22);
             this.label6.TabIndex = 49;
-            this.label6.Text = "社区共遨游";
+            this.label6.Text = "社区";
             // 
             // 用户中心
             // 

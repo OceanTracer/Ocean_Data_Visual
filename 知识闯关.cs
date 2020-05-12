@@ -73,7 +73,7 @@ namespace Data_Visual
             mydataset.Clear();
             myadapter.Fill(mydataset, "ques1");
             count_all = mydataset.Tables["ques1"].Rows.Count;
-            MessageBox.Show(count_all.ToString());
+            //MessageBox.Show(count_all.ToString());
             panel1.Visible = false;
         }
 
