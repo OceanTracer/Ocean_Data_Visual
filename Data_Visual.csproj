@@ -83,9 +83,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="anormaly_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\anormaly_grid_plot.dll</HintPath>
+    <Reference Include="anormaly_grid_plot">
+      <HintPath>C:\Users\Lenovo\Desktop\package\anormaly_grid_plot\for_redistribution_files_only\anormaly_grid_plot.dll</HintPath>
     </Reference>
     <Reference Include="CSkin, Version=16.1.14.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,7 +96,7 @@
     </Reference>
     <Reference Include="ll_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\ll_grid_plot.dll</HintPath>
+      <HintPath>C:\Users\Lenovo\Desktop\package\ll_grid_plot\for_redistribution_files_only\ll_grid_plot.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -121,9 +120,8 @@
     <Reference Include="MongoDB.Driver.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MongoDB.Driver.Core.2.7.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
-    <Reference Include="months_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\months_grid_plot.dll</HintPath>
+    <Reference Include="months_grid_plot">
+      <HintPath>C:\Users\Lenovo\Desktop\package\months_grid_plot\for_redistribution_files_only\months_grid_plot.dll</HintPath>
     </Reference>
     <Reference Include="MWArray, Version=2.19.0.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -131,7 +129,7 @@
     </Reference>
     <Reference Include="my_sarima, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\my_sarima.dll</HintPath>
+      <HintPath>C:\Users\Lenovo\Desktop\package\my_sarima\for_redistribution_files_only\my_sarima.dll</HintPath>
     </Reference>
     <Reference Include="nc2xls, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -143,11 +141,7 @@
     </Reference>
     <Reference Include="series_acf_pacf, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\series_acf_pacf.dll</HintPath>
-    </Reference>
-    <Reference Include="series_anomal, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\x64\Debug\series_anomal.dll</HintPath>
+      <HintPath>C:\Users\Lenovo\Desktop\package\series_acf_pacf\for_redistribution_files_only\series_acf_pacf.dll</HintPath>
     </Reference>
     <Reference Include="series_anormal, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
