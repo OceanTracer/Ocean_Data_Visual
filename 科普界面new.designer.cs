@@ -172,6 +172,7 @@
             this.buttonDownload.TabIndex = 14;
             this.buttonDownload.Text = "下载此科普";
             this.buttonDownload.UseVisualStyleBackColor = false;
+            this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
             // 
             // label1
             // 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using CCWin.SkinClass;
+using System.Drawing.Imaging;
 
 namespace Data_Visual
 {
@@ -21,7 +22,6 @@ namespace Data_Visual
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
         string sql;
-        DataSet mydataset = new DataSet();
         int FileCount = 0;
         Image img;
         private void 科普界面new_Load(object sender, EventArgs e)
@@ -98,7 +98,6 @@ namespace Data_Visual
             {
                 try
                 {
-                    SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
                     string mycmd = "insert into collect  VALUES('" + 登录界面.mail + "','" + cur + "',null)";
                     string mycmd1= "select collect_num from collect where umail='" + 登录界面.mail+"'";
                     //统计已经收藏个数
@@ -153,6 +152,21 @@ namespace Data_Visual
             form.Owner = this;
             form.ShowDialog();
             initializeCount();
+        }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svdia = new SaveFileDialog();
+            svdia.Title = "请选择目录并输入文件名";
+            svdia.Filter = "所有文件(*.*)|*.*";
+            if (svdia.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = svdia.FileName;
+            richTextBox1.SaveFile(filename+".txt", RichTextBoxStreamType.PlainText);
+            Bitmap bmp = new Bitmap(img);
+            img.Dispose();
+            bmp.Save(filename+".jpg", ImageFormat.Jpeg);
+            MessageBox.Show("保存成功！", "Ocean");
         }
     }
 }
