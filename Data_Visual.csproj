@@ -180,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account.cs" />
+    <Compile Include="BatchSstHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BatchSstHelp.Designer.cs">
+      <DependentUpon>BatchSstHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="cover.cs" />
     <Compile Include="DataProcess.cs">
       <SubType>Form</SubType>
@@ -225,6 +231,12 @@
       <DependentUpon>NinoShowHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="onepoint.cs" />
+    <Compile Include="OneSstHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OneSstHelp.Designer.cs">
+      <DependentUpon>OneSstHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Option.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +366,9 @@
     <Compile Include="管理员页面.designer.cs">
       <DependentUpon>管理员页面.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BatchSstHelp.resx">
+      <DependentUpon>BatchSstHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataProcess.resx">
       <DependentUpon>DataProcess.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NinoShowHelp.resx">
       <DependentUpon>NinoShowHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OneSstHelp.resx">
+      <DependentUpon>OneSstHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Option.resx">
       <DependentUpon>Option.cs</DependentUpon>
@@ -541,6 +559,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\x64\Debug\pic\ninohelp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\egg.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\onessthelp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\onessthelp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\batchssthelp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\liucheng.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
