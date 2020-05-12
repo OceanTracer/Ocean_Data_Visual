@@ -78,10 +78,9 @@ namespace Data_Visual
                 cmd.Parameters.Add(para);
 
                 int res = cmd.ExecuteNonQuery();
-                if (res > 0) {
-                    myconn.Close();
+                if (res > 0)
                     MessageBox.Show("上传成功！", "Ocean");
-                }
+                myconn.Close();
             }
             catch(Exception ex)
             {
