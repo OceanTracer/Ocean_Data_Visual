@@ -48,9 +48,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -232,7 +232,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(409, 68);
+            this.label5.Location = new System.Drawing.Point(442, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 18);
             this.label5.TabIndex = 7;
@@ -244,7 +244,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(362, 68);
+            this.label6.Location = new System.Drawing.Point(395, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 18);
             this.label6.TabIndex = 6;
@@ -319,6 +319,16 @@
             this.panel2.Size = new System.Drawing.Size(675, 551);
             this.panel2.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = global::Data_Visual.Properties.Resources.load;
+            this.pictureBox2.Location = new System.Drawing.Point(126, 214);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(117, 78);
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -334,16 +344,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = global::Data_Visual.Properties.Resources.load;
-            this.pictureBox2.Location = new System.Drawing.Point(126, 214);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(117, 78);
-            this.pictureBox2.TabIndex = 33;
-            this.pictureBox2.TabStop = false;
             // 
             // GridShow
             // 

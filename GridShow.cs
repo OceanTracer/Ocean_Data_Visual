@@ -517,6 +517,7 @@ namespace Data_Visual
             public double Lon { get; set; }
             public double Lat { get; set; }
             public double Band { get; set; }
+            public string time { get; set; }
         }
         List<SST_single> error = new List<SST_single>();
 
@@ -525,21 +526,44 @@ namespace Data_Visual
         /// </summary>
         private void button9_Click(object sender, EventArgs e)
         {
+            var database = client.GetDatabase("SST_res"); //数据库名称
+            var collection = database.GetCollection<BsonDocument>("Error_SST");
+            var sure_coll = database.GetCollection<SST_single>("Error_SST");
+
             int count = 0;
             for( int i =0; i<band.Count; i++)
             {
-                if (band[i] > 273.15 + 40 || band[i] < 273.15)
+                if (band[i] > 273.15 + 40 || band[i] < 273.15 && band[i] !=0)
                 {
                     listView1.Items[i].BackColor = Color.Red;
                     count++;
                     SST_single temp = new SST_single();
+                    //MessageBox.Show(i.ToString());
                     temp.Band = band[i];
-                    temp.Lon = Convert.ToDouble(listView1.Items[i].SubItems[0].ToString());
-                    temp.Lat = Convert.ToDouble(listView1.Items[i].SubItems[1].ToString());
+                    temp.Lon = Convert.ToDouble(listView1.Items[i].Text.ToString());
+                    temp.Lat = Convert.ToDouble(listView1.Items[i].SubItems[1].Text.ToString());
+                    temp.time = cover.time;
                     error.Add(temp);
+
+                    var filterBuilder = Builders<SST_single>.Filter;
+                    var filter = filterBuilder.Eq("Lon", Math.Round((temp.Lon), 3)) & filterBuilder.Eq("Lat", Math.Round((temp.Lat), 3));
+                    var list = sure_coll.Find<SST_single>(filter).ToList();
+
+                    //插入
+                    if(list.Count ==0)
+                    {
+                        var sstdocument = new BsonDocument(temp.ToBsonDocument());
+                        collection.InsertOneAsync(sstdocument);
+                    }
+                    else//更新
+                    {
+                        var update = Builders<SST_single>.Update.Set("Band", temp.Band);
+                        var result = sure_coll.UpdateOne(filter, update);
+                    }
+
                 }
             }
-            MessageBox.Show("共检查到疑似错误记录共" + count.ToString() + "条");
+            MessageBox.Show("共检查到疑似错误记录共" + count.ToString() + "条，已通知管理员处理");
         }
 
         private void GridShow_Shown(object sender, EventArgs e)
@@ -550,13 +574,14 @@ namespace Data_Visual
         int tick_count = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(tick_count == 1)
+            tick_count++;
+            if (tick_count == 2)
             {
                 DataGetnShow();
                 timer1.Stop();
                 timer1.Dispose();
             }
-            tick_count++;
+            
         }
     }
 }

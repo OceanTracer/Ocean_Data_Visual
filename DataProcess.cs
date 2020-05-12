@@ -84,8 +84,9 @@ namespace Data_Visual
                 var database = client.GetDatabase("SST_res"); //数据库名称
                 string ctname = dateTimePicker1.Text;
                 var collection = database.GetCollection<SST>(ctname);
+                var err_coll = database.GetCollection<SST>("Error_SST");
                 var filterBuilder = Builders<SST>.Filter;
-                var filter = filterBuilder.Eq("Lon", Math.Round((Convert.ToDouble(textBox1.Text) + 0.025),3)) & filterBuilder.Eq("Lat", Math.Round((Convert.ToDouble(textBox2.Text) + 0.025), 3) );
+                var filter = filterBuilder.Eq("Lon", Math.Round((Convert.ToDouble(textBox1.Text) + 0.025), 3)) & filterBuilder.Eq("Lat", Math.Round((Convert.ToDouble(textBox2.Text) + 0.025), 3));
                 var list = collection.Find<SST>(filter).ToList();
                 if (list.Count == 0)
                 {
@@ -93,11 +94,15 @@ namespace Data_Visual
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("将更新\nLon = "+textBox1.Text+"\nLat = "+textBox2.Text+"\nTime = "+dateTimePicker1.Text+"处的SST为\n"+textBox3.Text, "更新确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show("将更新\nLon = " + textBox1.Text + "\nLat = " + textBox2.Text + "\nTime = " + dateTimePicker1.Text + "处的SST为\n" + textBox3.Text, "更新确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dr == DialogResult.OK)
                     {
                         var update = Builders<SST>.Update.Set("Band", Convert.ToDouble(textBox3.Text));
                         var result = collection.UpdateOne(filter, update);
+
+                        filter = filterBuilder.Eq("Lon", Math.Round((Convert.ToDouble(textBox1.Text) + 0.025), 3)) & filterBuilder.Eq("Lat", Math.Round((Convert.ToDouble(textBox2.Text) + 0.025), 3)) & filterBuilder.Eq("time", ctname);
+                        var result2 = err_coll.DeleteOne(filter);
+                        Error_GetnShow();
                         MessageBox.Show("修改成功");
                     }
                 }
@@ -129,21 +134,25 @@ namespace Data_Visual
             {
                 var database = client.GetDatabase("SST_res"); //数据库名称
                 string ctname = dateTimePicker1.Text;
+                DateTime d1 = Convert.ToDateTime(ctname + "-28");
+                d1 = d1.AddYears(-1);
+                if (Convert.ToDouble(d1.Month) >= 10)
+                    ctname = d1.Year.ToString() + "-"+ d1.Month.ToString();
+                else
+                    ctname = d1.Year.ToString() + "-0" + d1.Month.ToString();
+
                 var collection = database.GetCollection<SST>(ctname);
                 var filterBuilder = Builders<SST>.Filter;
                 var filter = filterBuilder.Eq("Lon", Convert.ToDouble(textBox1.Text) + 0.025) & filterBuilder.Eq("Lat", Convert.ToDouble(textBox2.Text) + 0.025);
                 var list = collection.Find<SST>(filter).ToList();
                 if (list.Count == 0)
                 {
-                    MessageBox.Show("未查询到该条记录，无法删除");
+                    MessageBox.Show("未查询到该条记录,请检查数据");
                 }
                 else
                 {
-                    if (MessageBox.Show("将删除Lon=" + textBox1.Text + " Lat=" + textBox2.Text + "处的数据，请确认", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                    {
-                        var result = collection.DeleteOne(filter);
-                        MessageBox.Show("删除成功");
-                    }
+                    MessageBox.Show(ctname + "时间\n" + "Lon=" + textBox1.Text + " Lat=" + textBox2.Text + "处的温度为:" + list[0].Band.ToString());
+                    textBox3.Text = list[0].Band.ToString();
                 }
             }
         }
@@ -168,22 +177,24 @@ namespace Data_Visual
                     strpath = file.FileName;
                     filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
                     dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
-
+                    
                     //只能按顺序插入数据
                     DateTime d_toinsert = Convert.ToDateTime(dt2ctname + "-28");
-                    DateTime d_nowmax = Convert.ToDateTime(month_list[month_list.Count-1].month + "-28");
+                    //MessageBox.Show(d_toinsert.ToString());
+                    DateTime d_nowmax = Convert.ToDateTime(month_list[month_list.Count - 1].month + "-28");
+                    //MessageBox.Show(d_nowmax.ToString());
 
-                    if(d_nowmax.Month!= 12 && (d_toinsert.Year-d_nowmax.Year)> 0 ) 
+                    if (d_nowmax.Month != 12 && (d_toinsert.Year - d_nowmax.Year) > 0)
                     {
                         MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
                         return;
                     }
-                    else if (d_nowmax.Month == 12 && (d_toinsert.Year - d_nowmax.Year) >1)
+                    else if (d_nowmax.Month == 12 && (d_toinsert.Year - d_nowmax.Year) > 1)
                     {
                         MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
                         return;
                     }
-                    else if ( (d_toinsert.Year - d_nowmax.Year) == 0 && (d_toinsert.Month - d_nowmax.Month) > 1)
+                    else if ((d_toinsert.Year - d_nowmax.Year) == 0 && (d_toinsert.Month - d_nowmax.Month) > 1)
                     {
                         MessageBox.Show("插入数据与原有月份不连续，请重新选择文件");
                         return;
@@ -273,9 +284,9 @@ namespace Data_Visual
             }
         }
 
-       /// <summary>
-       /// SST数据入库的类
-       /// </summary>
+        /// <summary>
+        /// SST数据入库的类
+        /// </summary>
         public class SST_single
         {
             public double Lon { get; set; }
@@ -285,6 +296,8 @@ namespace Data_Visual
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (dt2ctname == null)
+                return;
             var database = client.GetDatabase("SST_res"); //数据库名称
             database.DropCollection(dt2ctname);
             var collection = database.GetCollection<BsonDocument>(dt2ctname);
@@ -402,7 +415,7 @@ namespace Data_Visual
             }
             else
                 MessageBox.Show("请先导入NetCDF文件");
- 
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -489,7 +502,7 @@ namespace Data_Visual
                         {
                             count++;
 
-                            NINO_single nino= new NINO_single();
+                            NINO_single nino = new NINO_single();
                             nino.Year = dr[0].ToString();
                             nino.Jan = Convert.ToSingle(dr[1].ToString());
                             nino.Feb = Convert.ToSingle(dr[2].ToString());
@@ -531,7 +544,7 @@ namespace Data_Visual
             catch (Exception ex)
             {
                 label10.Visible = false;
-                MessageBox.Show(ex.ToString()+"请先完成数据获取");
+                MessageBox.Show(ex.ToString() + "请先完成数据获取");
             }
         }
 
@@ -549,8 +562,7 @@ namespace Data_Visual
         List<string> mons_list = new List<string>();
         private void DataProcess_Load(object sender, EventArgs e)
         {
-            Month_show();
-            dateTimePicker1.MaxDate = Convert.ToDateTime(管理员页面.MAXMONTH);
+
         }
 
         void Month_show()
@@ -561,7 +573,7 @@ namespace Data_Visual
             var months = database.ListCollectionNames();
             mons_list = months.ToList();
             mons_list.Sort();
-            for (int i = 0; i < mons_list.Count - 3; i++) // 最后三个是NINO的表 不要取进来
+            for (int i = 0; i < mons_list.Count - 4; i++) // 最后三个是NINO的表 不要取进来
             {
                 month_single ms = new month_single();
                 ms.month = mons_list[i];
@@ -608,6 +620,64 @@ namespace Data_Visual
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DataProcess_Shown(object sender, EventArgs e)
+        {
+            timer1.Interval = 200;
+            timer1.Start();
+        }
+        int tick_count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            tick_count++;
+            if (tick_count == 2)
+            {
+                Month_show();
+                Error_GetnShow();
+                dateTimePicker1.MaxDate = Convert.ToDateTime(管理员页面.MAXMONTH);
+                //MessageBox.Show(管理员页面.MAXMONTH);
+                timer1.Stop();
+                timer1.Dispose();
+            }
+        }
+
+        void Error_GetnShow()
+        {
+            listView1.Clear();
+            List<double> band = new List<double>();
+            var database = client.GetDatabase("SST_res"); //数据库名称
+            var collection = database.GetCollection<BsonDocument>("Error_SST");
+
+            var filterBuilder = Builders<BsonDocument>.Filter;
+            var filter = filterBuilder.Empty;
+            var result = collection.Find<BsonDocument>(filter).ToList();
+            //加入listview
+            listView1.Columns.Add("经度(Lon)", 80);
+            listView1.Columns.Add("纬度(Lat)", 80);
+            listView1.Columns.Add("温度(K)", 80);
+            listView1.Columns.Add("时间(YYYY-MM)", 80);
+            int i = 0;
+            if(result.Count!=0)
+            {
+                foreach (var item in result)
+                {
+                    band.Add(Convert.ToDouble(item.GetValue("Band").ToString()));
+
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = Convert.ToDouble(item.GetValue("Lon").ToString()).ToString();
+                    lt.SubItems.Add(Convert.ToDouble(item.GetValue("Lat").ToString()).ToString());
+                    lt.SubItems.Add(band[i].ToString());
+                    lt.SubItems.Add((item.GetValue("time").ToString()));
+                    //将lt数据添加到listView1控件中
+                    listView1.Items.Add(lt);
+                    i++;
+                }
+            }
+            
+            this.listView1.View = System.Windows.Forms.View.Details;
+            label12.Text = "目前共有疑似有误记录" + i.ToString() + "条";
         }
     }
 }

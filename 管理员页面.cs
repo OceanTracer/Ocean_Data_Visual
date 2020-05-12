@@ -80,12 +80,28 @@ namespace Data_Visual
 
         private void 管理员页面_Load(object sender, EventArgs e)
         {
+
+        }
+        int tick_count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            tick_count++;
+            if(tick_count ==2)
+            {
+                SectionGet();
+                label5.Visible = false;
+                timer1.Stop();
+                timer1.Dispose();
+            }
+        }
+        void SectionGet()
+        {
             UserStatus.status = 0;
             var database = client.GetDatabase("SST_res");
             var months = database.ListCollectionNames();
             List<string> mons_list = months.ToList();
             mons_list.Sort();
-            MAXMONTH = mons_list[mons_list.Count - 4];
+            MAXMONTH = mons_list[mons_list.Count - 5];
 
             List<double> nino_list = new List<double>();
             string[] month_label = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" };
@@ -114,6 +130,11 @@ namespace Data_Visual
                 if (count > 0) // 没满就回退一年
                     MAXYEAR = (Convert.ToInt32(MAXYEAR) - 1).ToString();
             }
+        }
+
+        private void 管理员页面_Shown(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

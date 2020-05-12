@@ -186,6 +186,7 @@ namespace Data_Visual
             if (tick_count == 1)
             {
                 SectionGet();
+                label5.Visible = false;
                 timer1.Stop();
                 timer1.Dispose();
             }

@@ -392,7 +392,7 @@ namespace Data_Visual
         private void TimeShow_Shown(object sender, EventArgs e)
         {
             timer1.Start();
-            timer1.Interval = 1000;
+            timer1.Interval = 200;
         }
         ListViewItem it;
         void StaticsGet()
@@ -501,7 +501,7 @@ namespace Data_Visual
         private void timer1_Tick(object sender, EventArgs e)
         {
             tick_count++;
-            if(tick_count ==1)
+            if (tick_count == 2)
             {
                 DataGetnShow();
                 StaticsGet();
