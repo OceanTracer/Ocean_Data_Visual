@@ -138,7 +138,7 @@ namespace Data_Visual
             var months = database.ListCollectionNames();
             List<string> mons_list = months.ToList();
             mons_list.Sort();
-            MAXMONTH = mons_list[mons_list.Count - 4];
+            MAXMONTH = mons_list[mons_list.Count - 5];
 
             List<double> nino_list = new List<double>();
             string[] month_label = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" };

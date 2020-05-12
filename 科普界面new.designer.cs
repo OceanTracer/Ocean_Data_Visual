@@ -38,6 +38,8 @@
             this.buttonUpload = new System.Windows.Forms.Button();
             this.buttonDownload = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.skinPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,6 +187,31 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "1/x";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("张海山锐线体简", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(776, 602);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(234, 22);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "此科普由用户 default 上传.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("张海山锐线体简", 10.8F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label3.Location = new System.Drawing.Point(1006, 602);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 22);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "举报";
+            // 
             // 科普界面new
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -193,6 +220,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1144, 659);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDownload);
             this.Controls.Add(this.buttonUpload);
@@ -229,5 +258,7 @@
         private System.Windows.Forms.Button buttonUpload;
         private System.Windows.Forms.Button buttonDownload;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
