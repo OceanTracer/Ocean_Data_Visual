@@ -49,7 +49,9 @@ namespace Data_Visual
         private void fetchCollect(int id)
         {
             byte[] bytes = new byte[0];
-            sql = "select collect_txt, collect_pic from collect_info where collect_num=" + id.ToString();
+            string upload_user="default";
+            sql = @"select collect_txt, collect_pic, uname from collect_info, user_info 
+                    where collect_info.create_by=user_info.umail and collect_num=" + id.ToString();
             SqlCommand cmd = new SqlCommand(sql, myconn);
             try
             {
@@ -58,6 +60,7 @@ namespace Data_Visual
                 sdr.Read();
                 richTextBox1.Text = sdr["collect_txt"].ToString();
                 bytes = (byte[])sdr["collect_pic"];
+                upload_user = sdr["uname"].ToString();
                 sdr.Close();
                 myconn.Close();
                 MemoryStream mystream = new MemoryStream(bytes);
@@ -71,6 +74,8 @@ namespace Data_Visual
                 MessageBox.Show(ex.ToString());
             }
             label1.Text = cur.ToString() + "/" + FileCount.ToString();
+            label2.Text = "此科普由用户 " + upload_user + " 上传.";
+            label3.Location = new Point(label2.Location.X + label2.Size.Width - 4, label2.Location.Y);
         }
 
         int cur = 1;
@@ -164,7 +169,6 @@ namespace Data_Visual
             string filename = svdia.FileName;
             richTextBox1.SaveFile(filename+".txt", RichTextBoxStreamType.PlainText);
             Bitmap bmp = new Bitmap(img);
-            img.Dispose();
             bmp.Save(filename+".jpg", ImageFormat.Jpeg);
             MessageBox.Show("保存成功！", "Ocean");
         }
