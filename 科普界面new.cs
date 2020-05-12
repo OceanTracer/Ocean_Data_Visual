@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
+using CCWin.SkinClass;
+using System.Drawing.Imaging;
 
 namespace Data_Visual
 {
@@ -18,25 +20,57 @@ namespace Data_Visual
         {
             InitializeComponent();
         }
-
+        SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
+        string sql;
         int FileCount = 0;
+        Image img;
         private void 科普界面new_Load(object sender, EventArgs e)
         {
-            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\1.jpg");
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\1.txt";
-            richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            initializeCount();
+            fetchCollect(1);
+        }
 
-            /////获取文件数目
-
-            DirectoryInfo Dir = new DirectoryInfo(@"pic_all");
-            foreach (FileInfo FI in Dir.GetFiles())
+        private void initializeCount()
+        {
+            sql = "Select count(*) from collect_info";
+            SqlCommand cmd = new SqlCommand(sql, myconn);
+            try
             {
-                if (System.IO.Path.GetExtension(FI.Name) == ".txt")
-                {
-                    FileCount++;
-                }
+                myconn.Open();
+                FileCount = Convert.ToInt32(cmd.ExecuteScalar());
+                myconn.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void fetchCollect(int id)
+        {
+            byte[] bytes = new byte[0];
+            sql = "select collect_txt, collect_pic from collect_info where collect_num=" + id.ToString();
+            SqlCommand cmd = new SqlCommand(sql, myconn);
+            try
+            {
+                myconn.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                sdr.Read();
+                richTextBox1.Text = sdr["collect_txt"].ToString();
+                bytes = (byte[])sdr["collect_pic"];
+                sdr.Close();
+                myconn.Close();
+                MemoryStream mystream = new MemoryStream(bytes);
+                //用指定的数据流来创建一个image图片
+                img = Image.FromStream(mystream,true);
+                skinPictureBox1.Image = img;
+                mystream.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            label1.Text = cur.ToString() + "/" + FileCount.ToString();
         }
 
         int cur = 1;
@@ -45,10 +79,7 @@ namespace Data_Visual
             cur = cur - 1;
             if (cur < 1)
                 cur = FileCount;
-            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\" + cur + ".jpg");
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\" + cur + ".txt";
-            richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            fetchCollect(cur);
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
@@ -56,11 +87,7 @@ namespace Data_Visual
             cur = cur + 1;
             if (cur > FileCount)
                 cur = 1;
-            this.skinPictureBox1.Image = Image.FromFile(@"pic_all\" + cur + ".jpg");
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\" + cur + ".txt";
-            richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
-            
+            fetchCollect(cur);
         }
 
         private void buttonCollect_Click(object sender, EventArgs e)
@@ -71,7 +98,6 @@ namespace Data_Visual
             {
                 try
                 {
-                    SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
                     string mycmd = "insert into collect  VALUES('" + 登录界面.mail + "','" + cur + "',null)";
                     string mycmd1= "select collect_num from collect where umail='" + 登录界面.mail+"'";
                     //统计已经收藏个数
@@ -87,7 +113,6 @@ namespace Data_Visual
                         Console.WriteLine(mycmd);
                         myconn.Open();
                         {
-
                             sqlCommand.ExecuteNonQuery();
                         }
                         myconn.Close();
@@ -99,9 +124,7 @@ namespace Data_Visual
                 {
                     MessageBox.Show("已收藏！");
                 }
-                 
             }
-            
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)
@@ -121,6 +144,29 @@ namespace Data_Visual
         private void richTextBox1_MouseLeave(object sender, EventArgs e)
         {
             skinPictureBox1.Focus();
+        }
+
+        private void buttonUpload_Click(object sender, EventArgs e)
+        {
+            科普上传 form = new 科普上传();
+            form.Owner = this;
+            form.ShowDialog();
+            initializeCount();
+        }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svdia = new SaveFileDialog();
+            svdia.Title = "请选择目录并输入文件名";
+            svdia.Filter = "所有文件(*.*)|*.*";
+            if (svdia.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = svdia.FileName;
+            richTextBox1.SaveFile(filename+".txt", RichTextBoxStreamType.PlainText);
+            Bitmap bmp = new Bitmap(img);
+            img.Dispose();
+            bmp.Save(filename+".jpg", ImageFormat.Jpeg);
+            MessageBox.Show("保存成功！", "Ocean");
         }
     }
 }

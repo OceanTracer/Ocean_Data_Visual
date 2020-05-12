@@ -22,7 +22,7 @@ GO
 create table collect
 (
 	umail varchar(40) not null foreign key references user_info,
-	collect_num int,
+	collect_num int foreign key references collect_info,
 	collect_time date,
 	primary key(umail,collect_num)
 )
@@ -30,10 +30,10 @@ GO
 
 create table collect_info
 (
-	collect_num int not null,
-	collect_pic varchar(99),
-	collect_txt varchar(400),
-	primary key(collect_num)
+	collect_num int not null primary key identity(1,1),
+	collect_txt varchar(2048),
+	collect_pic image,
+	create_by varchar(40) default null
 )
 GO
 

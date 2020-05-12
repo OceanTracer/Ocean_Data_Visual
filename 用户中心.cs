@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using DnsClient.Protocol;
+using CCWin.SkinControl;
+using System.IO;
 
 namespace Data_Visual
 {
@@ -30,15 +33,24 @@ namespace Data_Visual
         {
             try
             {
-                mysql = "select uname, sex, desire, describe from user_info where umail='" + mail+ "'";
+                mysql = "select uname, sex, desire, describe, portrait from user_info where umail='" + mail+ "'";
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
                 myadapter.Fill(mydataset, "info");
-                labelUname.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][0]);
+                labelUname.Text = labelUname2.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][0]);
                 labelSex.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][1]);
                 labelDesire.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][2]);
                 labelDesc.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][3]);
                 labelMail.Text = mail;
+                if(!mydataset.Tables["info"].Rows[0][4].IsNull())
+                {//若用户上传过头像，则显示用户头像；否则显示系统默认头像
+                    byte[] bytes = new byte[0];
+                    bytes = (byte[])mydataset.Tables["info"].Rows[0][4];
+                    MemoryStream mystream = new MemoryStream(bytes);
+                    //用指定的数据流来创建一个image图片
+                    Image portrait = Image.FromStream(mystream, true);
+                    ovalShape1.BackgroundImage = portrait;
+                }
             }
             catch (Exception)
             {
@@ -85,6 +97,7 @@ namespace Data_Visual
             EditGroupBox.BringToFront();
             radioButtonMan.Checked = true;
             textBoxMail.Text = 登录界面.mail;
+            textBoxName.Text = labelUname2.Text;
             textBoxDesire.Text = labelDesire.Text;
             textBoxDescribe.Text = labelDesc.Text;
             if (labelSex.Text == "男")
@@ -165,7 +178,7 @@ namespace Data_Visual
                 sex = "男";
             if (radioButtonWoman.Checked == true)
                 sex = "女";
-            mysql = "update user_info set sex='" + sex + "' , desire='" + textBoxDesire.Text + "' , describe='" + textBoxDescribe.Text + "' where umail='" + 登录界面.mail+"'";
+            mysql = "update user_info set uname='" + textBoxName.Text + "', sex='" + sex + "' , desire='" + textBoxDesire.Text + "' , describe='" + textBoxDescribe.Text + "' where umail='" + 登录界面.mail+"'";
                 SqlCommand mycmd = new SqlCommand(mysql, myconn);
                 myconn.Open();
                 try
@@ -259,6 +272,45 @@ namespace Data_Visual
                 MessageBox.Show(ex.ToString());
                 return;
             }
+        }
+
+        /// <summary>
+        /// 上传头像
+        /// </summary>
+        private void ovalShape1_Click(object sender, EventArgs e)
+        {
+            /*选择头像并在本地显示*/
+            OpenFileDialog opdia = new OpenFileDialog();
+            opdia.Title = "上传头像";
+            opdia.Filter = "图片|*.jpg|*.png|*.bmp";
+            if (opdia.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = opdia.FileName;
+            Image portrait = Image.FromFile(filename);
+            ovalShape1.BackgroundImage = portrait;
+            /*上传数据库*/
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            Byte[] bytes = new byte[fs.Length];
+            fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+            try
+            {
+                myconn.Open();
+                string cmdText = "update user_info set portrait=@imgfile where umail='" + 登录界面.mail + "'";
+                SqlCommand cmd = new SqlCommand(cmdText, myconn);
+                SqlParameter para = new SqlParameter("@imgfile", SqlDbType.Image);
+                para.Value = bytes;
+                cmd.Parameters.Add(para);
+                int res = cmd.ExecuteNonQuery();
+                if (res > 0)
+                    MessageBox.Show("上传头像成功！", "Ocean");
+                myconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }

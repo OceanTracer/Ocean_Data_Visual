@@ -330,6 +330,12 @@
     <Compile Include="知识闯关.Designer.cs">
       <DependentUpon>知识闯关.cs</DependentUpon>
     </Compile>
+    <Compile Include="科普上传.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="科普上传.Designer.cs">
+      <DependentUpon>科普上传.cs</DependentUpon>
+    </Compile>
     <Compile Include="科普界面new.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +432,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="知识闯关.resx">
       <DependentUpon>知识闯关.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="科普上传.resx">
+      <DependentUpon>科普上传.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="科普界面new.resx">
       <DependentUpon>科普界面new.cs</DependentUpon>
