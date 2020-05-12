@@ -435,13 +435,13 @@ namespace Data_Visual
         int tick_count = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(tick_count == 1)
+            tick_count++;
+            if (tick_count == 2)
             {
                 DataGetnShow();
                 timer1.Stop();
                 timer1.Dispose();
             }
-            tick_count++;
         }
 
         private void NinoShow_Shown(object sender, EventArgs e)

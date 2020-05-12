@@ -66,6 +66,7 @@ namespace Data_Visual
 
         private void 知识闯关_Load(object sender, EventArgs e)
         {
+            anslable.Visible = false;
             num = MakeRandom(count_all, N);
             mysql = "select num from question";
             SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
@@ -78,6 +79,8 @@ namespace Data_Visual
 
         private void button4_Click(object sender, EventArgs e)
         {
+            label1.Text = (i + 1).ToString();
+            anslable.Visible = false;
             mysql = "select contents, A, B, C, D from question where num='" + num[i] + "'";
             SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
             mydataset.Clear();
@@ -93,6 +96,7 @@ namespace Data_Visual
 
         private void button5_Click(object sender, EventArgs e)
         {
+            anslable.Visible = true;
             char ans;
             mysql = "select right_ans from question where num='" + num[i] + "'";
             SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
