@@ -35,15 +35,19 @@
             this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonPrevious = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonUpload = new System.Windows.Forms.Button();
+            this.buttonDownload = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.skinPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // skinPictureBox1
             // 
             this.skinPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.skinPictureBox1.Location = new System.Drawing.Point(39, 50);
+            this.skinPictureBox1.Location = new System.Drawing.Point(52, 62);
+            this.skinPictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.skinPictureBox1.Name = "skinPictureBox1";
-            this.skinPictureBox1.Size = new System.Drawing.Size(503, 288);
+            this.skinPictureBox1.Size = new System.Drawing.Size(671, 360);
             this.skinPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.skinPictureBox1.TabIndex = 1;
             this.skinPictureBox1.TabStop = false;
@@ -56,10 +60,11 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.richTextBox1.Location = new System.Drawing.Point(39, 344);
+            this.richTextBox1.Location = new System.Drawing.Point(52, 430);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(503, 110);
+            this.richTextBox1.Size = new System.Drawing.Size(671, 138);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             this.richTextBox1.MouseLeave += new System.EventHandler(this.richTextBox1_MouseLeave);
@@ -70,10 +75,10 @@
             this.buttonNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonNext.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonNext.ForeColor = System.Drawing.Color.Black;
-            this.buttonNext.Location = new System.Drawing.Point(604, 150);
-            this.buttonNext.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNext.Location = new System.Drawing.Point(805, 188);
+            this.buttonNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(149, 34);
+            this.buttonNext.Size = new System.Drawing.Size(199, 42);
             this.buttonNext.TabIndex = 8;
             this.buttonNext.Text = "下一页";
             this.buttonNext.UseVisualStyleBackColor = false;
@@ -85,10 +90,10 @@
             this.buttonCollect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCollect.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCollect.ForeColor = System.Drawing.Color.Black;
-            this.buttonCollect.Location = new System.Drawing.Point(604, 236);
-            this.buttonCollect.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCollect.Location = new System.Drawing.Point(805, 295);
+            this.buttonCollect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCollect.Name = "buttonCollect";
-            this.buttonCollect.Size = new System.Drawing.Size(149, 34);
+            this.buttonCollect.Size = new System.Drawing.Size(199, 42);
             this.buttonCollect.TabIndex = 9;
             this.buttonCollect.Text = "收藏";
             this.buttonCollect.UseVisualStyleBackColor = false;
@@ -100,10 +105,10 @@
             this.buttonQuit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonQuit.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonQuit.ForeColor = System.Drawing.Color.Black;
-            this.buttonQuit.Location = new System.Drawing.Point(604, 396);
-            this.buttonQuit.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonQuit.Location = new System.Drawing.Point(805, 495);
+            this.buttonQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(149, 34);
+            this.buttonQuit.Size = new System.Drawing.Size(199, 42);
             this.buttonQuit.TabIndex = 10;
             this.buttonQuit.Text = "退出";
             this.buttonQuit.UseVisualStyleBackColor = false;
@@ -115,10 +120,10 @@
             this.buttonPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPrevious.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonPrevious.ForeColor = System.Drawing.Color.Black;
-            this.buttonPrevious.Location = new System.Drawing.Point(604, 65);
-            this.buttonPrevious.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPrevious.Location = new System.Drawing.Point(805, 81);
+            this.buttonPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(149, 34);
+            this.buttonPrevious.Size = new System.Drawing.Size(199, 42);
             this.buttonPrevious.TabIndex = 11;
             this.buttonPrevious.Text = "上一页";
             this.buttonPrevious.UseVisualStyleBackColor = false;
@@ -130,22 +135,66 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(604, 318);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(805, 398);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 34);
+            this.button1.Size = new System.Drawing.Size(199, 42);
             this.button1.TabIndex = 12;
             this.button1.Text = "厄尔尼诺专题介绍";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonUpload
+            // 
+            this.buttonUpload.BackColor = System.Drawing.Color.White;
+            this.buttonUpload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUpload.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonUpload.ForeColor = System.Drawing.Color.Black;
+            this.buttonUpload.Location = new System.Drawing.Point(92, 594);
+            this.buttonUpload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonUpload.Name = "buttonUpload";
+            this.buttonUpload.Size = new System.Drawing.Size(199, 42);
+            this.buttonUpload.TabIndex = 13;
+            this.buttonUpload.Text = "上传科普";
+            this.buttonUpload.UseVisualStyleBackColor = false;
+            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
+            // 
+            // buttonDownload
+            // 
+            this.buttonDownload.BackColor = System.Drawing.Color.White;
+            this.buttonDownload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDownload.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDownload.ForeColor = System.Drawing.Color.Black;
+            this.buttonDownload.Location = new System.Drawing.Point(453, 594);
+            this.buttonDownload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonDownload.Name = "buttonDownload";
+            this.buttonDownload.Size = new System.Drawing.Size(199, 42);
+            this.buttonDownload.TabIndex = 14;
+            this.buttonDownload.Text = "下载此科普";
+            this.buttonDownload.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(354, 596);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 24);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "1/x";
+            // 
             // 科普界面new
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
-            this.ClientSize = new System.Drawing.Size(858, 478);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1144, 659);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonDownload);
+            this.Controls.Add(this.buttonUpload);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonPrevious);
             this.Controls.Add(this.buttonQuit);
@@ -153,8 +202,9 @@
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.skinPictureBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "科普界面new";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -162,6 +212,7 @@
             this.Load += new System.EventHandler(this.科普界面new_Load);
             ((System.ComponentModel.ISupportInitialize)(this.skinPictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -174,5 +225,8 @@
         private System.Windows.Forms.Button buttonQuit;
         private System.Windows.Forms.Button buttonPrevious;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonUpload;
+        private System.Windows.Forms.Button buttonDownload;
+        private System.Windows.Forms.Label label1;
     }
 }
