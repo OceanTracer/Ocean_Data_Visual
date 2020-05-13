@@ -22,5 +22,10 @@ namespace Data_Visual
             this.Close();
             this.Dispose();
         }
+
+        private void NinoShowHelp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

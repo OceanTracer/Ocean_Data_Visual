@@ -233,9 +233,9 @@ namespace Data_Visual
                 //设置matlab图像窗体的父窗体为panel
                 SetParent(figure1, panel2.Handle);
                 //获取窗体原来的风格
-                //var style = GetWindowLong(figure1, GWL_STYLE);
+                var style = GetWindowLong(figure1, GWL_STYLE);
                 //设置新风格，去掉标题,不能通过边框改变尺寸
-                //SetWindowLong(figure1, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
+                SetWindowLong(figure1, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
                 //移动到panel里合适的位置并重绘
                 MoveWindow(figure1, 0, 0, panel2.Width, panel2.Height, true);
 

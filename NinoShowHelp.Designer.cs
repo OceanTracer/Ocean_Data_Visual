@@ -58,9 +58,9 @@
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(31, 240);
+            this.button5.Location = new System.Drawing.Point(404, 147);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(229, 35);
+            this.button5.Size = new System.Drawing.Size(180, 35);
             this.button5.TabIndex = 33;
             this.button5.Text = "查看综合Nino数据图像";
             this.button5.UseVisualStyleBackColor = false;
@@ -71,7 +71,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(31, 199);
+            this.button3.Location = new System.Drawing.Point(404, 106);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 35);
             this.button3.TabIndex = 31;
@@ -84,7 +84,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(31, 158);
+            this.button2.Location = new System.Drawing.Point(47, 147);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 35);
             this.button2.TabIndex = 30;
@@ -97,7 +97,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(31, 117);
+            this.button1.Location = new System.Drawing.Point(47, 106);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 35);
             this.button1.TabIndex = 29;
@@ -110,7 +110,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(310, 207);
+            this.label7.Location = new System.Drawing.Point(612, 114);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 18);
             this.label7.TabIndex = 42;
@@ -122,7 +122,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(310, 166);
+            this.label6.Location = new System.Drawing.Point(199, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(180, 18);
             this.label6.TabIndex = 41;
@@ -134,7 +134,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(310, 125);
+            this.label1.Location = new System.Drawing.Point(199, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 18);
             this.label1.TabIndex = 43;
@@ -146,7 +146,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(310, 248);
+            this.label2.Location = new System.Drawing.Point(612, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(215, 18);
             this.label2.TabIndex = 44;
@@ -155,7 +155,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Data_Visual.Properties.Resources.ninohelp1;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 367);
+            this.pictureBox1.Location = new System.Drawing.Point(147, 313);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(232, 57);
             this.pictureBox1.TabIndex = 45;
@@ -164,18 +164,18 @@
             // richTextBox2
             // 
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox2.Location = new System.Drawing.Point(31, 61);
+            this.richTextBox2.Font = new System.Drawing.Font("苹方 常规", 11.95F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox2.Location = new System.Drawing.Point(33, 50);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(534, 50);
+            this.richTextBox2.Size = new System.Drawing.Size(813, 50);
             this.richTextBox2.TabIndex = 46;
-            this.richTextBox2.Text = "该窗体功能主要为三个Nino区的Nino指数可视化，以及综合三种指数计算得到厄尔尼诺指数的可视化，提供功能如下：";
+            this.richTextBox2.Text = "该窗体功能主要为三个Nino区指数的可视化，以及综合三种指数计算厄尔尼诺指数的可视化，提供功能如下：";
             // 
             // richTextBox1
             // 
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox1.Location = new System.Drawing.Point(31, 281);
+            this.richTextBox1.Location = new System.Drawing.Point(72, 235);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(534, 29);
             this.richTextBox1.TabIndex = 47;
@@ -185,7 +185,7 @@
             // 
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox3.Location = new System.Drawing.Point(289, 367);
+            this.richTextBox3.Location = new System.Drawing.Point(413, 313);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(265, 73);
             this.richTextBox3.TabIndex = 48;
@@ -194,7 +194,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Data_Visual.Properties.Resources.ninohelp2;
-            this.pictureBox2.Location = new System.Drawing.Point(33, 457);
+            this.pictureBox2.Location = new System.Drawing.Point(147, 410);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(232, 57);
             this.pictureBox2.TabIndex = 49;
@@ -204,7 +204,7 @@
             // 
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox4.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox4.Location = new System.Drawing.Point(289, 457);
+            this.richTextBox4.Location = new System.Drawing.Point(413, 410);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(265, 73);
             this.richTextBox4.TabIndex = 50;
@@ -214,7 +214,7 @@
             // 
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox5.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox5.Location = new System.Drawing.Point(31, 536);
+            this.richTextBox5.Location = new System.Drawing.Point(164, 508);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(514, 31);
             this.richTextBox5.TabIndex = 51;
@@ -225,7 +225,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::Data_Visual.Properties.Resources.返回;
-            this.pictureBox3.Location = new System.Drawing.Point(534, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(824, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -237,7 +237,7 @@
             // 
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox6.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox6.Location = new System.Drawing.Point(31, 316);
+            this.richTextBox6.Location = new System.Drawing.Point(151, 235);
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.Size = new System.Drawing.Size(523, 27);
             this.richTextBox6.TabIndex = 53;
@@ -250,7 +250,7 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(131, 308);
+            this.button4.Location = new System.Drawing.Point(249, 229);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(78, 35);
             this.button4.TabIndex = 54;
@@ -263,7 +263,7 @@
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button6.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(332, 308);
+            this.button6.Location = new System.Drawing.Point(450, 229);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(173, 35);
             this.button6.TabIndex = 55;
@@ -276,7 +276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg9;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(579, 579);
+            this.ClientSize = new System.Drawing.Size(858, 580);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.richTextBox6);
@@ -299,7 +299,9 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NinoShowHelp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NinoShowHelp";
+            this.Load += new System.EventHandler(this.NinoShowHelp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

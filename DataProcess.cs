@@ -679,5 +679,17 @@ namespace Data_Visual
             this.listView1.View = System.Windows.Forms.View.Details;
             label12.Text = "目前共有疑似有误记录" + i.ToString() + "条";
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            OneSstHelp form = new OneSstHelp();
+            form.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            BatchSstHelp form = new BatchSstHelp();
+            form.ShowDialog();
+        }
     }
 }

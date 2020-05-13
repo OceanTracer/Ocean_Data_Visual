@@ -153,7 +153,7 @@
             this.LogoutButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LogoutButton.ForeColor = System.Drawing.Color.Black;
             this.LogoutButton.Location = new System.Drawing.Point(702, 418);
-            this.LogoutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.Size = new System.Drawing.Size(121, 41);
             this.LogoutButton.TabIndex = 16;
@@ -168,7 +168,7 @@
             this.InfoLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InfoLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.InfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.InfoLabel.Location = new System.Drawing.Point(273, 64);
+            this.InfoLabel.Location = new System.Drawing.Point(211, 61);
             this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.InfoLabel.Name = "InfoLabel";
             this.InfoLabel.Size = new System.Drawing.Size(86, 22);
@@ -183,7 +183,7 @@
             this.MyFav.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MyFav.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MyFav.ForeColor = System.Drawing.Color.Black;
-            this.MyFav.Location = new System.Drawing.Point(412, 61);
+            this.MyFav.Location = new System.Drawing.Point(342, 61);
             this.MyFav.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MyFav.Name = "MyFav";
             this.MyFav.Size = new System.Drawing.Size(86, 22);
@@ -198,7 +198,7 @@
             this.RecordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecordLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RecordLabel.ForeColor = System.Drawing.Color.Black;
-            this.RecordLabel.Location = new System.Drawing.Point(560, 61);
+            this.RecordLabel.Location = new System.Drawing.Point(471, 61);
             this.RecordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.RecordLabel.Name = "RecordLabel";
             this.RecordLabel.Size = new System.Drawing.Size(87, 22);
@@ -213,7 +213,7 @@
             this.HomeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HomeLabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HomeLabel.ForeColor = System.Drawing.Color.Black;
-            this.HomeLabel.Location = new System.Drawing.Point(698, 61);
+            this.HomeLabel.Location = new System.Drawing.Point(585, 426);
             this.HomeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HomeLabel.Name = "HomeLabel";
             this.HomeLabel.Size = new System.Drawing.Size(86, 22);
@@ -249,9 +249,9 @@
             this.InfoGroupBox.Controls.Add(this.label9);
             this.InfoGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.InfoGroupBox.Location = new System.Drawing.Point(11, 6);
-            this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InfoGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.InfoGroupBox.Name = "InfoGroupBox";
-            this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InfoGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.InfoGroupBox.Size = new System.Drawing.Size(592, 286);
             this.InfoGroupBox.TabIndex = 22;
             this.InfoGroupBox.TabStop = false;
@@ -308,7 +308,7 @@
             this.EditButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EditButton.ForeColor = System.Drawing.Color.DarkGray;
             this.EditButton.Location = new System.Drawing.Point(476, 21);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(74, 32);
             this.EditButton.TabIndex = 44;
@@ -413,9 +413,9 @@
             this.EditGroupBox.Controls.Add(this.label14);
             this.EditGroupBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EditGroupBox.Location = new System.Drawing.Point(11, 6);
-            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Name = "EditGroupBox";
-            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.EditGroupBox.Size = new System.Drawing.Size(592, 286);
             this.EditGroupBox.TabIndex = 57;
             this.EditGroupBox.TabStop = false;
@@ -497,7 +497,7 @@
             this.textBoxDescribe.BackColor = System.Drawing.Color.White;
             this.textBoxDescribe.Font = new System.Drawing.Font("张海山锐线体简", 10.5F);
             this.textBoxDescribe.Location = new System.Drawing.Point(176, 222);
-            this.textBoxDescribe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDescribe.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDescribe.Multiline = true;
             this.textBoxDescribe.Name = "textBoxDescribe";
             this.textBoxDescribe.Size = new System.Drawing.Size(325, 54);
@@ -511,7 +511,7 @@
             this.SaveButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SaveButton.ForeColor = System.Drawing.Color.DarkGray;
             this.SaveButton.Location = new System.Drawing.Point(484, 18);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(74, 32);
             this.SaveButton.TabIndex = 44;
@@ -569,9 +569,9 @@
             this.NoticeBox.Controls.Add(this.listView1);
             this.NoticeBox.Font = new System.Drawing.Font("黑体", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NoticeBox.Location = new System.Drawing.Point(11, 6);
-            this.NoticeBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NoticeBox.Margin = new System.Windows.Forms.Padding(2);
             this.NoticeBox.Name = "NoticeBox";
-            this.NoticeBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NoticeBox.Padding = new System.Windows.Forms.Padding(2);
             this.NoticeBox.Size = new System.Drawing.Size(592, 286);
             this.NoticeBox.TabIndex = 62;
             this.NoticeBox.TabStop = false;
@@ -593,7 +593,7 @@
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(52, 365);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 41);
             this.button1.TabIndex = 47;
@@ -608,7 +608,7 @@
             this.runlabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.runlabel.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.runlabel.ForeColor = System.Drawing.Color.Black;
-            this.runlabel.Location = new System.Drawing.Point(222, 426);
+            this.runlabel.Location = new System.Drawing.Point(608, 61);
             this.runlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.runlabel.Name = "runlabel";
             this.runlabel.Size = new System.Drawing.Size(86, 22);
@@ -623,12 +623,12 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(370, 426);
+            this.label6.Location = new System.Drawing.Point(746, 61);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 22);
             this.label6.TabIndex = 49;
-            this.label6.Text = "社区遨游";
+            this.label6.Text = "社区交流";
             // 
             // label10
             // 
@@ -667,7 +667,7 @@
             this.Controls.Add(this.shapeContainer1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "用户中心";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " ";
