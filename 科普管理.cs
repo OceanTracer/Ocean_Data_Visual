@@ -398,6 +398,7 @@ namespace Data_Visual
                 }
                 MessageBox.Show("删除成功");
                 GetKPNum();
+                NotPass();
                 comboBox2.SelectedItem = null;
                 pictureBox4.Image = null;
                 richTextBox3.Text = "";

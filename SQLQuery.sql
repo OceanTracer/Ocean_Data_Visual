@@ -1,4 +1,4 @@
-create database OT_user;
+ï»¿create database OT_user;
 
 DROP table collect;
 DROP table notice;
@@ -12,10 +12,13 @@ create table user_info
 	desire varchar(64) default null,	--long enough
 	u_status int not null default 1,
 	sex char(2) default null
-		check( sex in ('ÄĞ','Å®')),
+		check( sex in ('ç”·','å¥³')),
 	describe varchar(300) default null,
 	enabled char(1) default 'Y'
-		check(enabled in ('Y','N'))	--¿ÉÓÃ/½ûÓÃ
+		check(enabled in ('Y','N')),	--å¯ç”¨/ç¦ç”¨
+	experience int not null default 0,
+	last_sign datetime default null,
+	portraitÂ image
 )
 GO
 
@@ -30,7 +33,7 @@ GO
 
 create table collect_info
 (
-	collect_num int not null primary key identity(1,1),
+	collect_num int not null primary key ,
 	collect_txt varchar(2048),
 	collect_pic image,
 	create_by varchar(40) default null
@@ -46,10 +49,10 @@ create table notice
 )
 GO
 
-insert into user_info  VALUES('user@test.com','123321','test_user',null,1,null,null,'Y')
-insert into user_info  VALUES('admin@1.com','admin','Admin',null,0,null,null,'Y')
-insert into user_info VALUES('1@qq.com','123321','1',null,1,null,null,'Y')
-insert into user_info  VALUES('11@qq.com','123321','123',default,default,default,default,default)
+insert into user_info  VALUES('user@test.com','123321','test_user',null,1,null,null,'Y',0,null,null)
+insert into user_info  VALUES('admin@1.com','admin','Admin',null,0,null,null,'Y',0,null,null)
+insert into user_info VALUES('1@qq.com','123321','1',null,1,null,null,'Y',0,null,null)
+insert into user_info  VALUES('11@qq.com','123321','123',default,default,default,default,default,0,null,null)
 GO
 
 insert into collect VALUES('user@test.com',1,GETDATE())
@@ -74,7 +77,7 @@ insert into collect_info VALUES('8','\\pic_all\\8.jpg','\\pic_all\\8.txt')
 
 select uname, sex, desire, describe from user_info where umail='user@test.com'
 
-update user_info set desire='¶ò¶ûÄáÅµÏÖÏó,À­ÄáÄÈ,º£±íÎÂ¶È,º£±íÆÊÃæÎÂ¶È,ÑóÁ÷ÔË¶¯,ÆäËû' where umail='user@test.com'
+update user_info set desire='å„å°”å°¼è¯ºç°è±¡,æ‹‰å°¼å¨œ,æµ·è¡¨æ¸©åº¦,æµ·è¡¨å‰–é¢æ¸©åº¦,æ´‹æµè¿åŠ¨,å…¶ä»–' where umail='user@test.com'
 
 update user_info set enabled='N' where umail='user@test.com'
 
@@ -91,7 +94,7 @@ select notice_content, notice_time from notice where umail='user@test.com' order
 GO
 
 
-/*ÏòËùÓĞÓÃ»§Èº·¢Í¨Öª*/
+/*å‘æ‰€æœ‰ç”¨æˆ·ç¾¤å‘é€šçŸ¥*/
 CREATE PROC groupNotice
 @notice_content VARCHAR(400)
 AS
@@ -108,7 +111,7 @@ AS
 	CLOSE lcursor
 	DEALLOCATE lcursor
 GO
---²âÊÔ
+--æµ‹è¯•
 DECLARE @notice_content VARCHAR(400)
 SELECT @notice_content='helloworld!'
 EXEC groupNotice @notice_content
