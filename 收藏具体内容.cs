@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace Data_Visual
 {
@@ -16,14 +18,43 @@ namespace Data_Visual
         {
             InitializeComponent();
         }
+        SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
+        string mysql;
+        string sql;
+        Image img;
+        private void fetchCollect(int id)
+        {
+            byte[] bytes = new byte[0];
+            string sql = @"select collect_txt, collect_pic from collect_info 
+                    where collect_num=" + id.ToString();
+            SqlCommand cmd = new SqlCommand(sql, myconn);
+            try
+            {
+                myconn.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                sdr.Read();
+                richTextBox1.Text = sdr["collect_txt"].ToString();
+                bytes = (byte[])sdr["collect_pic"];
+                sdr.Close();
+                myconn.Close();
+                MemoryStream mystream = new MemoryStream(bytes);
+                //用指定的数据流来创建一个image图片
+                img = Image.FromStream(mystream, true);
+                pictureBox1.Image = img;
+                mystream.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
 
         private void 收藏具体内容_Load(object sender, EventArgs e)
         {
             int numb = account.click_num;
-            this.pictureBox1.Image = Image.FromFile(@"pic_all\" + numb.ToString() + ".jpg");
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\" + numb.ToString() + ".txt";
-            richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            fetchCollect(numb);
         }
 
         private void richTextBox1_MouseLeave(object sender, EventArgs e)

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace Data_Visual
 {
@@ -43,7 +45,21 @@ namespace Data_Visual
                 for (int i = 0; i < count_all; i++)
                 {
                     num[i] = Convert.ToInt32(mydataset.Tables["_email"].Rows[i][1]);
-                    imageList1.Images.Add(Image.FromFile(@"pic_all\" + num[i].ToString() + ".jpg"));
+                    string filename = @"pic_all\" + num[i].ToString();
+                    byte[] bytes = new byte[0];
+                    string sql = @"select collect_txt, collect_pic from collect_info 
+                    where collect_num=" + num[i].ToString();
+                    SqlCommand cmd = new SqlCommand(sql, myconn);
+                    myconn.Open();
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    sdr.Read();
+                    bytes = (byte[])sdr["collect_pic"];
+                    sdr.Close();
+                    myconn.Close();
+                    MemoryStream mystream = new MemoryStream(bytes);
+                    //用指定的数据流来创建一个image图片
+                    Image img = Image.FromStream(mystream, true);
+                    imageList1.Images.Add(Image.FromStream(mystream, true));
                 }
                 for (int j = 0; j < count_all; j++)
                 {

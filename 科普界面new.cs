@@ -11,6 +11,8 @@ using System.IO;
 using System.Data.SqlClient;
 using CCWin.SkinClass;
 using System.Drawing.Imaging;
+using System.Collections;
+using CCWin.SkinControl;
 
 namespace Data_Visual
 {
@@ -22,17 +24,20 @@ namespace Data_Visual
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
         string sql;
-        int FileCount = 0;
+        int FileCount = 0;//已经通过审核的数量
+        int[] alist = new int [1000];//设置1000条科普上限
         Image img;
         private void 科普界面new_Load(object sender, EventArgs e)
         {
             initializeCount();
+            countY();
             fetchCollect(1);
+
         }
 
         private void initializeCount()
         {
-            sql = "Select count(*) from collect_info";
+            sql = "Select count(*) from collect_info where approved='Y'";
             SqlCommand cmd = new SqlCommand(sql, myconn);
             try
             {
@@ -46,12 +51,26 @@ namespace Data_Visual
             }
         }
 
+        void countY()//用动态数组将id与collect_num对应起来！
+        {
+            sql = "select collect_num from collect_info where approved='Y'";
+            DataSet mydataset2 = new DataSet();
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset2.Clear();
+            myadapter.Fill(mydataset2, "count");
+            for (int i=0;i<FileCount;i++)
+            {
+                int collect_num = Convert.ToInt32(mydataset2.Tables["count"].Rows[i][0]);
+                alist[i] = collect_num;
+            }
+        }
+
         private void fetchCollect(int id)
         {
             byte[] bytes = new byte[0];
             string upload_user="default";
             sql = @"select collect_txt, collect_pic, uname from collect_info, user_info 
-                    where collect_info.create_by=user_info.umail and collect_num=" + id.ToString();
+                    where collect_info.create_by=user_info.umail and collect_num=" + alist[id-1].ToString();
             SqlCommand cmd = new SqlCommand(sql, myconn);
             try
             {
@@ -103,7 +122,7 @@ namespace Data_Visual
             {
                 try
                 {
-                    string mycmd = "insert into collect  VALUES('" + 登录界面.mail + "','" + cur + "',null)";
+                    string mycmd = "insert into collect  VALUES('" + 登录界面.mail + "','" + alist[cur-1] + "',null)";
                     string mycmd1= "select collect_num from collect where umail='" + 登录界面.mail+"'";
                     //统计已经收藏个数
                     DataSet mydataset = new DataSet();
@@ -128,6 +147,7 @@ namespace Data_Visual
                 catch
                 {
                     MessageBox.Show("已收藏！");
+                    myconn.Close();
                 }
             }
         }

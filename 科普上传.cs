@@ -23,6 +23,17 @@ namespace Data_Visual
         DataSet mydataset = new DataSet();
 
         string imagefile="", textfile="";
+        int FileAll;
+
+        void countAll()//用动态数组将id与collect_num对应起来！
+        {
+            string sql = "select collect_num from collect_info";
+            DataSet mydataset2 = new DataSet();
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset2.Clear();
+            myadapter.Fill(mydataset2, "count");
+            FileAll = Convert.ToInt32(mydataset2.Tables["count"].Rows.Count);
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -62,6 +73,7 @@ namespace Data_Visual
                 MessageBox.Show("请先选择图像与本文", "Ocean");
                 return;
             }
+            countAll();
             FileStream fs = new FileStream(imagefile, FileMode.Open, FileAccess.Read);
             Byte[] bytes = new byte[fs.Length];
             fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
@@ -70,7 +82,7 @@ namespace Data_Visual
             try
             {
                 myconn.Open();
-                string cmdText = "insert into collect_info values('"+ richTextBox1.Text +"', @imgfile,'"+ 登录界面.mail + "')";
+                string cmdText = "insert into collect_info values('"+(FileAll+1).ToString()+"','"+ richTextBox1.Text +"', @imgfile,'"+ 登录界面.mail + "','N')";
                 //string cmdText = "insert into collect_info values('" + richTextBox1.Text + "', @imgfile, null)";
                 SqlCommand cmd = new SqlCommand(cmdText, myconn);
                 SqlParameter para = new SqlParameter("@imgfile", SqlDbType.Image);

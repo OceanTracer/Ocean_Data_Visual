@@ -24,6 +24,7 @@ namespace Data_Visual
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+            Dispose();
             welcome f15 = new welcome();
             f15.ShowDialog();
         }

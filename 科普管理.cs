@@ -21,21 +21,20 @@ namespace Data_Visual
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
         string mysql;
+        string sql;
+        Image img;
         DataSet mydataset = new DataSet();
+        DataSet mydataset1 = new DataSet();
         int kp_lastnum;
+        int kp_nopass;//待审核的总数
         int inopen = 0;//判断保存修改那里是否修改了图片！
+        string filename_img;//imgfile filename_img = file.FileName;
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             label3.Text = comboBox1.Text;
             try
-            { 
-            FileStream pFileStream = new FileStream(@"pic_all\" + comboBox1.Text.ToString() + ".jpg", FileMode.Open, FileAccess.Read);
-            pictureBox1.Image = Image.FromStream(pFileStream);
-            pFileStream.Close();
-            pFileStream.Dispose();
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.FileName = @"pic_all\" + comboBox1.Text.ToString() + ".txt";
-            richTextBox1.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+            {
+                fetchCollect(Convert.ToInt32(comboBox1.Text));
             }
             catch
             { }
@@ -44,6 +43,7 @@ namespace Data_Visual
         private void 科普管理_Load(object sender, EventArgs e)
         {
             GetKPNum();
+            NotPass();
             comboBox1.SelectedItem = null;
             comboBox2.SelectedItem = null;
             pictureBox1.Image = null;
@@ -54,6 +54,7 @@ namespace Data_Visual
 
        void GetKPNum()
         {
+            //已经通过审核的
             mysql = "select collect_num from collect_info";
             SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
             mydataset.Clear();
@@ -66,35 +67,64 @@ namespace Data_Visual
             int last = mydataset.Tables["info"].Rows.Count;
             kp_lastnum = Convert.ToInt32(mydataset.Tables["info"].Rows[last - 1][0].ToString());
         }
+        void NotPass()
+        {
+            string mysql1 = "select collect_num from collect_info where approved='N'";
+            SqlDataAdapter myadapter1 = new SqlDataAdapter(mysql1, myconn);
+            mydataset1.Clear();
+            myadapter1.Fill(mydataset1, "info1");
+            //MessageBox.Show(mydataset.Tables["info"].Rows[0][0].ToString());
+            comboBox3.DisplayMember = "collect_num";
+            comboBox3.DataSource = mydataset1.Tables["info1"];
+            int last = mydataset1.Tables["info1"].Rows.Count;
+            if(last!=0)
+            { kp_nopass = Convert.ToInt32(mydataset1.Tables["info1"].Rows[last - 1][0].ToString()); }
+            
+        }
+
+        private void fetchCollect(int id)
+        {
+            byte[] bytes = new byte[0];
+            sql = @"select collect_txt, collect_pic from collect_info 
+                    where collect_num=" + id.ToString();
+            SqlCommand cmd = new SqlCommand(sql, myconn);
+            try
+            {
+                myconn.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                sdr.Read();
+                richTextBox1.Text = sdr["collect_txt"].ToString();
+                richTextBox3.Text = sdr["collect_txt"].ToString();
+                richTextBox4.Text = sdr["collect_txt"].ToString();
+                bytes = (byte[])sdr["collect_pic"];
+                sdr.Close();
+                myconn.Close();
+                MemoryStream mystream = new MemoryStream(bytes);
+                //用指定的数据流来创建一个image图片
+                img = Image.FromStream(mystream, true);
+                pictureBox1.Image = img;
+                pictureBox4.Image = img;
+                pictureBox6.Image = img;
+                mystream.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OpenFileDialog file = new OpenFileDialog();
-            file.Multiselect = true;
-            file.Filter = "图像文件|*.png;*.jpg";
-
-            string strpath;
-            string filename;
-
-            if (file.ShowDialog() == DialogResult.OK)
+            OpenFileDialog opdia = new OpenFileDialog();
+            opdia.Title = "请选择图像";
+            opdia.Filter = "图片|*.jpg|*.png|*.bmp";
+            if (opdia.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    foreach (string this_file in file.FileNames)
-                    {
-                        strpath = file.FileName;
-                        filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
-                        pictureBox1.Image = Image.FromFile(strpath);
-                        //Console.WriteLine(pathName + '\\' + fileName+".nc");
-                        inopen = 1;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+                filename_img = opdia.FileName;
+                pictureBox1.Load(filename_img);
+                inopen = 1;
+            }                          
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -156,22 +186,60 @@ namespace Data_Visual
             richTextBox2.SaveFile(path, RichTextBoxStreamType.PlainText);
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("您确定要修改"+comboBox1.Text+"号科普的内容吗？", "修改确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.OK)
             {
-                string kp_no = comboBox1.Text;
-                string pic_name = "pic_all\\" + kp_no + ".jpg";
-                string txt_name = "pic_all\\" + kp_no + ".txt";
-                label3.Text = pic_name;
-                if (inopen == 1)
+                int id = Convert.ToInt32(comboBox1.Text);
+                if (inopen == 1)//如果==1，修改图片和文字
                 {
-                    pictureBox1.Image.Save(pic_name);
+                    FileStream fs = new FileStream(filename_img, FileMode.Open, FileAccess.Read);
+                    Byte[] bytes = new byte[fs.Length];
+                    fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
+                    fs.Close();
+                    try
+                    {
+                        myconn.Open();
+                        string cmdText = "update collect_info set collect_txt='" + richTextBox1.Text + "',collect_pic=@imgfile where collect_num="+id.ToString()+" ";
+                        //string cmdText = "insert into collect_info values('" + richTextBox1.Text + "', @imgfile, null)";
+                        SqlCommand cmd = new SqlCommand(cmdText, myconn);
+                        SqlParameter para = new SqlParameter("@imgfile", SqlDbType.Image);
+                        para.Value = bytes;
+                        cmd.Parameters.Add(para);
+
+                        int res = cmd.ExecuteNonQuery();
+                        if (res > 0)
+                            MessageBox.Show("修改成功！", "Ocean");
+                        myconn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
-                TXT_write(txt_name);
+                else //修改文字即可
+                {
+                    string cmdText = "update collect_info set collect_txt='" + richTextBox1.Text + "' where collect_num=" + id.ToString() + " ";
+                    SqlCommand cmd = new SqlCommand(cmdText, myconn);
+                    try
+                    {
+                        myconn.Open();
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("修改成功！", "Ocean");
+
+                        }
+                        myconn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        return;
+                    }
+                }
                 GetKPNum();
-                MessageBox.Show("保存成功！");
                 inopen = 0;
                 comboBox1.SelectedItem = null;
                 pictureBox1.Image = null;
@@ -195,7 +263,6 @@ namespace Data_Visual
             file.Multiselect = true;
             file.Filter = "图像文件|*.png;*.jpg";
 
-            string strpath;
             string filename;
 
             if (file.ShowDialog() == DialogResult.OK)
@@ -204,10 +271,11 @@ namespace Data_Visual
                 {
                     foreach (string this_file in file.FileNames)
                     {
-                        strpath = file.FileName;
-                        filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
-                        pictureBox2.Image = Image.FromFile(strpath);
+                        filename_img = file.FileName;
+                        filename = filename_img.Substring(filename_img.LastIndexOf("\\") + 1);//去掉了路径
+                        pictureBox2.Image = Image.FromFile(filename_img);
                         //Console.WriteLine(pathName + '\\' + fileName+".nc");
+                        inopen = 1;
                     }
 
                 }
@@ -252,29 +320,38 @@ namespace Data_Visual
             DialogResult dr = MessageBox.Show("您确定要添加如下科普内容吗？", "添加确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.OK)
             {
-                string pic_name = "pic_all\\" + (kp_lastnum + 1).ToString() + ".jpg";
-                string txt_name = "pic_all\\" + (kp_lastnum + 1).ToString() + ".txt";
-                //SaveFileDialog sfd = new SaveFileDialog();
-                if (pictureBox2.Image != null)
+                int id = kp_lastnum + 1; //****
+                if (inopen == 1)
                 {
-                    pictureBox2.Image.Save(pic_name);
-                    richTextBox2.SaveFile(txt_name, RichTextBoxStreamType.PlainText);
-                    mysql = "insert into collect_info VALUES('" + (kp_lastnum + 1).ToString() + "','" + pic_name + "','" + txt_name + "')";
-                    SqlCommand mycmd = new SqlCommand(mysql, myconn);
-                    myconn.Open();
+                    FileStream fs = new FileStream(filename_img, FileMode.Open, FileAccess.Read);
+                    Byte[] bytes = new byte[fs.Length];
+                    fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
+                    fs.Close();
+                    try
                     {
-                        mycmd.ExecuteNonQuery();
+                        myconn.Open();
+                        string cmdText = "insert into collect_info values('"+id.ToString()+"','" + richTextBox2.Text + "', @imgfile,'" + 登录界面.mail + "','Y')";
+                        //string cmdText = "insert into collect_info values('" + richTextBox1.Text + "', @imgfile, null)";
+                        SqlCommand cmd = new SqlCommand(cmdText, myconn);
+                        SqlParameter para = new SqlParameter("@imgfile", SqlDbType.Image);
+                        para.Value = bytes;
+                        cmd.Parameters.Add(para);
+
+                        int res = cmd.ExecuteNonQuery();
+                        if (res > 0)
+                            MessageBox.Show("修改成功！", "Ocean");
+                        myconn.Close();
                     }
-                    myconn.Close();
-                    MessageBox.Show("添加成功");
-                    pictureBox2.Image = null;
-                    richTextBox2.Text = "";
-                    GetKPNum();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("没有上传图片!");
-                }
+                GetKPNum();
+                NotPass();
+                inopen = 0;
+                pictureBox2.Image = null;
+                richTextBox2.Text = "";
             }
             else
             {
@@ -300,33 +377,16 @@ namespace Data_Visual
                     mycmd2.ExecuteNonQuery();//删除该收藏的收藏记录
                 }
                 myconn.Close();
-                //删除文件夹文件！
-                string pic_name = "pic_all\\" + to_delete + ".jpg";
-                string txt_name = "pic_all\\" + to_delete + ".txt";
-                File.Delete(pic_name);
-                File.Delete(txt_name);
 
-                //更新删除文件后的序号
                 int to_update = Convert.ToInt32(to_delete);
                 for (to_update = Convert.ToInt32(to_delete) + 1; to_update <= kp_lastnum; to_update++)
                 {
-                    string srcjpgFileName = @"pic_all\" + to_update.ToString() + ".jpg";
-                    string destjpgFileName = @"pic_all\" + (to_update - 1).ToString() + ".jpg";
-                    string srctxtFileName = @"pic_all\" + to_update.ToString() + ".txt";
-                    string desttxtFileName = @"pic_all\" + (to_update - 1).ToString() + ".txt";
-                    if (File.Exists(srcjpgFileName))
-                    {
-                        File.Move(srcjpgFileName, destjpgFileName);
-                    }
-                    if (File.Exists(srctxtFileName))
-                    {
-                        File.Move(srctxtFileName, desttxtFileName);
-                    }
-                    mysql = "update collect_info set collect_num = '" + (to_update - 1).ToString() + "', collect_pic = '" + destjpgFileName + "', collect_txt = '" + desttxtFileName + "' where collect_num =  '" + to_update.ToString() + "'";
-                    SqlCommand updatecmd1 = new SqlCommand(mysql, myconn);
+                    //更新删除文件后的序号
+                    string mysql2 = "update collect_info set collect_num = '" + (to_update - 1).ToString() + "'  where collect_num =  '" + to_update.ToString() + "'";
+                    SqlCommand updatecmd1 = new SqlCommand(mysql2, myconn);
 
-                    mysql = "update collect set collect_num = '" + (to_update - 1).ToString() + "' where collect_num =  '" + to_update.ToString() + "'";
-                    SqlCommand updatecmd2 = new SqlCommand(mysql, myconn);
+                    string mysql3 = "update collect set collect_num = '" + (to_update - 1).ToString() + "' where collect_num =  '" + to_update.ToString() + "'";
+                    SqlCommand updatecmd2 = new SqlCommand(mysql3, myconn);
 
                     myconn.Open();
                     {
@@ -334,8 +394,8 @@ namespace Data_Visual
                         updatecmd2.ExecuteNonQuery();
                     }
                     myconn.Close();
+                    //}
                 }
-
                 MessageBox.Show("删除成功");
                 GetKPNum();
                 comboBox2.SelectedItem = null;
@@ -346,7 +406,7 @@ namespace Data_Visual
             {
                 //
             }
- 
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -358,13 +418,7 @@ namespace Data_Visual
         {
             try
             {
-                FileStream pFileStream = new FileStream(@"pic_all\" + comboBox2.Text.ToString() + ".jpg", FileMode.Open, FileAccess.Read);
-                pictureBox4.Image = Image.FromStream(pFileStream);
-                pFileStream.Close();
-                pFileStream.Dispose();
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.FileName = @"pic_all\" + comboBox2.Text.ToString() + ".txt";
-                richTextBox3.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                fetchCollect(Convert.ToInt32(comboBox2.Text));
             }
             catch
             { }
@@ -374,10 +428,13 @@ namespace Data_Visual
         {
             comboBox1.SelectedItem = null;
             comboBox2.SelectedItem = null;
+            comboBox3.SelectedItem = null;
             pictureBox1.Image = null;
             pictureBox4.Image = null;
+            pictureBox6.Image = null;
             richTextBox1.Text = "";
             richTextBox3.Text = "";
+            richTextBox4.Text = "";
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -393,6 +450,39 @@ namespace Data_Visual
         private void label5_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = this.tabPage2;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                fetchCollect(Convert.ToInt32(comboBox3.Text));
+            }
+            catch
+            { }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage4;
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            mysql = "update collect_info set approved= 'Y'  where collect_num =  '" + comboBox3.Text + "'";
+            SqlCommand updatecmd1 = new SqlCommand(mysql, myconn);
+            myconn.Open();
+            {
+                updatecmd1.ExecuteNonQuery();
+            }
+            myconn.Close();
+            MessageBox.Show("审核成功！");
+            GetKPNum();
+            NotPass();
+            comboBox3.SelectedItem = null;
+            pictureBox6.Image = null;
+            richTextBox4.Text = "";
+
         }
     }
 }
