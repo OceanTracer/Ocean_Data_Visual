@@ -9,6 +9,7 @@ using System.IO;
 using Microsoft.Office.Interop.Excel;//Excel
 using System.Reflection;
 using System.Runtime.InteropServices;
+using Microsoft.Office.Interop.Word;
 
 namespace Data_Visual
 {
@@ -525,6 +526,7 @@ namespace Data_Visual
         }
 
         string dt2ctname;
+        int row_count;
         System.Data.DataTable dt = new System.Data.DataTable();
         private void button9_Click(object sender, EventArgs e)
         {
@@ -545,6 +547,7 @@ namespace Data_Visual
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt2.Columns.Add(i.ToString(), typeof(object));
                     MessageBox.Show("读好了");
+                    row_count = data.GetLength(0);
                     for (int i = 0; i < data.GetLength(0); i++)
                     {
                         object[] dr = new object[data.GetLength(1)];
@@ -572,6 +575,43 @@ namespace Data_Visual
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (dt2ctname == null)
+                return;
+            try
+            {
+                if (dt != null)
+                {
+                    mysql = "select count(num) from question";                
+                    SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+                    mydataset.Clear();
+                    myadapter.Fill(mydataset, "question");
+                    id = Convert.ToInt32(mydataset.Tables["question"].Rows[0][0]);
+                    for(int i=0;i<row_count;i++)
+                    {
+                        string sql = "insert into question values('" + (id + i + 1).ToString() + "','" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[2].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[4].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[5].Value.ToString() + "')";
+                        SqlCommand updatecmd1 = new SqlCommand(mysql, myconn);
+                        myconn.Open();
+                        {
+                            updatecmd1.ExecuteNonQuery();
+                        }
+                        myconn.Close();
+                        MessageBox.Show("添加成功！");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("DataTable为空，请先导入数据");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
