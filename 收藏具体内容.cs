@@ -19,8 +19,6 @@ namespace Data_Visual
             InitializeComponent();
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
-        string mysql;
-        string sql;
         Image img;
         private void fetchCollect(int id)
         {

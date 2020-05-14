@@ -22,23 +22,7 @@ namespace Data_Visual
             InitializeComponent();
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
-        string mysql;
         DataSet mydataset = new DataSet();
-        private void ovalShape1_Click(object sender, EventArgs e)
-        {
-           /* 精准查询 f5 = new 精准查询();
-            f5.Owner = this;
-            Hide();
-            f5.ShowDialog();*/
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /* 推荐 f1 = new 推荐();
-             f1.Owner = this;
-             Hide();
-             f1.ShowDialog();*/
-        }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {

@@ -30,28 +30,10 @@ namespace Data_Visual
                 MessageBox.Show("用户名、密码不能为空！");
             else
             {
-                //SqlCommand mycmd = new SqlCommand("register_new", myconn);
-                //mycmd.CommandType = CommandType.StoredProcedure;
-                //SqlParameter user_type = new SqlParameter("@user_type ", SqlDbType.SmallInt);
-                //mycmd.Parameters.Add(user_type);
-                //SqlParameter email = new SqlParameter("@umail", SqlDbType.VarChar, 40);
-                //mycmd.Parameters.Add(email);
-                //SqlParameter password = new SqlParameter("@upsword", SqlDbType.VarChar, 30);
-                //mycmd.Parameters.Add(password);
-                //SqlParameter username = new SqlParameter("@uname", SqlDbType.VarChar, 30);
-                //mycmd.Parameters.Add(username);
-                string email = EmailBox.Text;
+                 string email = EmailBox.Text;
                 string password = PasswBox1.Text;
                 string username = NameBox.Text;
-                //if (radioButton1.Checked == true) 
-                //    user_type.Value = 1;
-                //else if (radioButton2.Checked == true) 
-                //    user_type.Value = 2;
-                //myconn.Open();
-                //    mycmd.ExecuteNonQuery();
-                //myconn.Close();
                 user_email = EmailBox.Text;
-                //Hide();
                 if ( EmailBox.Text.Trim() != "" && NameBox.Text.Trim() != "" && PasswBox1.Text.Trim() != "" && PasswBox2.Text.Trim() !="")
                 {
                     string mycmd = "insert into user_info  VALUES('" + email + "','" + password + "','" + username + "',null,1,null,null,'Y',0,null,null)";
@@ -66,7 +48,7 @@ namespace Data_Visual
                         }
                         myconn.Close();
                     }
-                    catch(Exception ex)
+                    catch(Exception)
                     {
                         MessageBox.Show("该邮箱已被注册！");
                         return;

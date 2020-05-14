@@ -266,7 +266,7 @@ namespace Data_Visual
                 //var maxN = workSheet.Range[startCell].End[XlDirection.xlDown].Row;
                 return workSheet.Range[stCell + ":" + edCell].Value2;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
