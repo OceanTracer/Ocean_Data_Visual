@@ -137,5 +137,13 @@ namespace Data_Visual
         {
             timer1.Start();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            社区交流 f4 = new 社区交流();
+            f4.Owner = this;
+            Hide();
+            f4.ShowDialog();
+        }
     }
 }

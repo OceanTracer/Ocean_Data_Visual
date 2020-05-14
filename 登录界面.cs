@@ -27,8 +27,8 @@ namespace Data_Visual
             Close();
             System.Environment.Exit(0);
         }
-        public static int  type = 0;
-        public static string mail = "";
+        public static int type = 0;
+        public static string mail = "", uname = "";
 
         //登录
         public int login(string email, string password, ref int type)
@@ -41,25 +41,26 @@ namespace Data_Visual
                 myadapter0.Fill(mydataset, "checkEnabled");
                 string enabled = mydataset.Tables["checkEnabled"].Rows[0][0].ToString();
                 if (enabled == "N")
-                    return 2;
+                    return 2;   //已被封禁
             }
             catch (Exception)
             {
                 return 3;
             }
             /*核对登录密码*/
-            mysql = "select upsword,u_status from user_info where umail='" + email + "'";
+            mysql = "select upsword,u_status,uname from user_info where umail='" + email + "'";
             mail = email;
             try
             {
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 myadapter.Fill(mydataset, "_email");
-                type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);
                 string pass = Convert.ToString(mydataset.Tables["_email"].Rows[0][0]);
+                type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);  //用户类型
+                uname = Convert.ToString(mydataset.Tables["_email"].Rows[0][2]);
                 if (password == pass)
-                    return 0;
+                    return 0;   //成功登录
                 else
-                    return 1;
+                    return 1;   //密码错误
             }
             catch (Exception)
             {
