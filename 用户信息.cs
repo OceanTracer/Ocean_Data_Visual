@@ -529,11 +529,12 @@ namespace Data_Visual
                 //可以将(report_id,reported,post_id)暂存或用特殊方式标记，便于后续删除/封禁/审核操作，
                 //将(reporter,reported,post_title,report_reason,report_time)展示在前台以审阅 下同
                 mysql = @"select report_id, reporter, reported, post_id, post_title, report_reason, report_time from report, posts
-                          where report_type='post' and reviewed=" + (reviewed?"'Y'":"'N'")+" and report.content_id=posts.post_id" +
+                          where report_type='post' and reviewed=" + (reviewed ?"'Y'":"'N'")+" and report.content_id=posts.post_id" +
                           " order by report_time desc";
                 //Console.WriteLine(mysql);
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
+                mydataset.Tables.Clear();//不加清不干净
                 myadapter.Fill(mydataset, "report");
                 //后续展示...
             }
@@ -546,8 +547,11 @@ namespace Data_Visual
                 Console.WriteLine(mysql);
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
+                mydataset.Tables.Clear();
                 myadapter.Fill(mydataset, "report");
+
             }
+            
         }
 
         /// <summary>
@@ -618,15 +622,16 @@ namespace Data_Visual
         {
             SelectReports(type, false);
             listView5.Clear();
+            listView5.Columns.Clear();
             listView5.Columns.Add("举报id", 120);
             listView5.Columns.Add("举报用户", 120);
             listView5.Columns.Add("被举报用户", 120);
-            if(type ==0)
+            if (type == 0)
             {
                 listView5.Columns.Add("帖子id", 120);
                 listView5.Columns.Add("帖子标题", 200);
             }
-            else if(type ==1)
+            else if (type == 1)
             {
                 listView5.Columns.Add("回复id", 120);
                 listView5.Columns.Add("回复标题", 200);
@@ -639,9 +644,14 @@ namespace Data_Visual
                 ListViewItem It = new ListViewItem();
                 It.Text = mydataset.Tables["report"].Rows[i][0].ToString();
                 for (int j = 1; j < mydataset.Tables["report"].Columns.Count; j++)
+                {
+                    //if (j==3)
+                    //    MessageBox.Show(mydataset.Tables["report"].Rows[i][j].ToString());
                     It.SubItems.Add(mydataset.Tables["report"].Rows[i][j].ToString());
+                }
+
                 listView5.Items.Add(It);
-                //MessageBox.Show(It.SubItems[2].Text);
+                //MessageBox.Show(It.SubItems[3].Text);
             }
             this.listView5.View = System.Windows.Forms.View.Details;
             label14.Visible = true;

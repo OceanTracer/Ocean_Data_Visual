@@ -333,5 +333,11 @@ namespace Data_Visual
             f1.ShowDialog();
             fill_info(登录界面.mail);
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            UserPageHelp form = new UserPageHelp();
+            form.ShowDialog();
+        }
     }
 }

@@ -280,6 +280,12 @@
     <Compile Include="TimeShowHelp.Designer.cs">
       <DependentUpon>TimeShowHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserPageHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserPageHelp.Designer.cs">
+      <DependentUpon>UserPageHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserStatus.cs" />
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TimeShowHelp.resx">
       <DependentUpon>TimeShowHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPageHelp.resx">
+      <DependentUpon>UserPageHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.cs</DependentUpon>
