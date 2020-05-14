@@ -84,7 +84,7 @@ namespace Data_Visual
                 else if (c == 2)
                     MessageBox.Show("您的账号已被禁用！", "登录错误");
                 else if (c == 3)
-                    MessageBox.Show("未知错误！请重试。", "登录错误");
+                    MessageBox.Show("用户名或密码错误！请重试。", "登录错误");
                 else
                 {
                     if (type == 0)

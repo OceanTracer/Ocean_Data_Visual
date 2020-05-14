@@ -508,5 +508,101 @@ namespace Data_Visual
         {
 
         }
+
+
+        /// <summary>
+        /// 查看各种类型举报内容，将查询结果存在mydataset的"report"表中
+        /// </summary>
+        /// <param name="type">举报类型，0为帖子，1为回复</param>
+        /// <param name="reviewed">是否审核过的举报，true为已审核，false为未审核</param>
+        private void SelectReports(int type, bool reviewed)
+        {
+            //查看审核时，可以选择封禁用户、删除帖子/回复
+            //如 DisableUser(reported); DeletePost(post_id); DeleteReply(rep_id)
+            string id, reporter, reported, post_id, rep_id, content, reason, time;
+            
+            if (type == 0)
+            {
+                //举报id，举报者，被举报者，帖子id，帖子标题，举报原因，举报时间
+                //可以将(report_id,reported,post_id)暂存或用特殊方式标记，便于后续删除/封禁/审核操作，
+                //将(reporter,reported,post_title,report_reason,report_time)展示在前台以审阅 下同
+                mysql = @"select report_id, reporter, reported, post_id, post_title, report_reason, report_time from report, posts
+                          where report_type='post' and reviewed=" + (reviewed?"'Y'":"'N'")+" and report.content_id=posts.post_id" +
+                          "order by report_time desc";
+                SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+                mydataset.Clear();
+                myadapter.Fill(mydataset, "report");
+                //后续展示...
+            }
+            else if (type == 1)
+            {
+                //举报id，举报者，被举报者，回复id，回复内容，举报原因，举报时间
+                mysql = @"select report_id, reporter, reported, rep_id, rep_content, report_reason, report_time from report, replies
+                          where report_type='reply' and reviewed=" + (reviewed ? "'Y'" : "'N'") + " and report.content_id=replies.rep_id" +
+                          "order by report_time desc";
+                SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+                mydataset.Clear();
+                myadapter.Fill(mydataset, "report");
+            }
+        }
+
+        /// <summary>
+        /// 查看举报后，无论是否删帖/封禁都可以将举报标记为'已审核'或跳过，此函数将指定id的举报标记为'已审核'
+        /// </summary>
+        /// <param name="report_id"></param>
+        private void ReviewReport(string report_id)
+        {
+            mysql = "update report set reviewed='Y' where report_id=" + report_id;
+            SqlCommand mycmd = new SqlCommand(mysql, myconn);
+            myconn.Open();
+            try
+            {
+                int res = mycmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
+
+
+        /// 删除指定id的帖子
+        private void DeletePost(string post_id)
+        {
+            mysql = "update posts set post_deleted='Y' where post_id=" + post_id;
+            SqlCommand mycmd = new SqlCommand(mysql, myconn);
+            myconn.Open();
+            try
+            {
+                int res = mycmd.ExecuteNonQuery();
+                if (res > 0)
+                    MessageBox.Show("删除帖子成功！", "Ocean");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
+
+        /// 删除指定id的回复
+        private void DeleteReply(string rep_id)
+        {
+            mysql = "update posts set post_deleted='Y' where post_id=" + rep_id;
+            SqlCommand mycmd = new SqlCommand(mysql, myconn);
+            myconn.Open();
+            try
+            {
+                int res = mycmd.ExecuteNonQuery();
+                if (res > 0)
+                    MessageBox.Show("删除回复成功！", "Ocean");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
+        }
     }
 }

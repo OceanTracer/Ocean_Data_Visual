@@ -86,6 +86,18 @@ create table replies
 )
 GO
 
+create table report
+(
+	report_id int not null identity(1,1) primary key,
+	reporter varchar(40) foreign key references user_info(umail),	--举报人
+	reported varchar(40) foreign key references user_info(umail),	--被举报人
+	report_type varchar(5) check(report_type in ('post','reply')),
+	content_id int not null,
+	report_reason varchar(256),
+	report_time datetime default current_timestamp,
+	reviewed char(1) default 'N' check(reviewed in ('Y','N'))
+)
+
 
 insert into user_info  VALUES('user@test.com','123321','test_user',null,1,null,null,'Y',0,null,null)
 insert into user_info  VALUES('admin@1.com','admin','Admin',null,0,null,null,'Y',0,null,null)
@@ -149,20 +161,31 @@ insert into replies VALUES('user@test.com',7,'Hi there',GETDATE(),default)
 insert into replies VALUES('11@qq.com',8,'loveu',GETDATE(),default)
 insert into replies VALUES('admin@1.com',9,'thanks for feedback',GETDATE(),default)
 
-SELECT post_title,uname,post_content,post_time,post_repcnt
+SELECT post_title,posts.umail,uname,post_content,post_time,post_repcnt
 FROM posts,user_info
 WHERE post_deleted='N' and post_id=1 and posts.umail=user_info.umail
 
-SELECT uname,rep_content,rep_time
+SELECT rep_content,replies.umail,uname,rep_time,rep_id
 FROM replies,user_info
 WHERE rep_deleted='N' and post_id=1 and replies.umail=user_info.umail
 ORDER BY rep_time
+
+SELECT report_id, reporter, reported, post_id, post_title, report_reason, report_time
+FROM report, posts
+WHERE report_type='post' and reviewed='Y' and report.content_id=posts.post_id
+ORDER BY report_time DESC
+
+SELECT report_id, reporter, reported, rep_id, rep_content, report_reason, report_time
+FROM report, replies
+WHERE report_type='reply' and reviewed='N' and report.content_id=replies.rep_id
+ORDER BY report_time DESC
 
 GO
 
 DROP TABLE replies
 TRUNCATE TABLE posts
 GO
+
 
 /*发帖时增加经验*/
 CREATE TRIGGER postExp

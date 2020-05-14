@@ -18,11 +18,7 @@ namespace Data_Visual
         {
             InitializeComponent();
         }
-
-        SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
-        DataSet mydataset = new DataSet();
-        string sql;
-
+        public string reason = "";
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -31,28 +27,19 @@ namespace Data_Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("您确定要举报改科普的内容吗？您的举报都会被记录在案！", "确定举报", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if(richTextBox1.Text=="")
+            {
+                MessageBox.Show("请填写举报原因！", "Ocean");
+                return;
+            }
+            DialogResult dr = MessageBox.Show("您确定要举报该内容吗？您的举报会被记录在案！", "确定举报", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.OK)
             {
-                sql="update collect set isComplaint='Y',Com_content='"+richTextBox1.Text.ToString()+"'" +
-                  " where umail='" + 登录界面.mail + "' and collect_num="+account.click_num.ToString()+"";
-                SqlCommand mycmd = new SqlCommand(sql, myconn);
-                myconn.Open();
-                try
-                {
-                    mycmd.ExecuteNonQuery();
-                    MessageBox.Show("举报成功！", "提示");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                myconn.Close();
-            }
-            else
-            {
+                reason = richTextBox1.Text;
+                Close();
+                /*sql="update collect set isComplaint='Y',Com_content='"+richTextBox1.Text.ToString()+"'" +
+                  " where umail='" + 登录界面.mail + "' and collect_num="+account.click_num.ToString()+"";*/
             }
         }
-
     }
 }
