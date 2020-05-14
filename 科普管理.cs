@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Microsoft.Office.Interop.Excel;//Excel
+using System.Reflection;
+using System.Runtime.InteropServices;
+using Microsoft.Office.Interop.Word;
 
 namespace Data_Visual
 {
@@ -409,11 +410,6 @@ namespace Data_Visual
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -483,6 +479,141 @@ namespace Data_Visual
             pictureBox6.Image = null;
             richTextBox4.Text = "";
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage5;
+        }
+
+        public static object[,] GetExcelRangeData(string excelPath, string stCell)
+        {
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            Workbook workBook = null;
+            object oMissiong = Missing.Value;
+            try
+            {
+                workBook = app.Workbooks.Open(excelPath, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong,
+                    oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong);
+                if (workBook == null)
+                    return null;
+
+
+                Worksheet workSheet = (Worksheet)workBook.Worksheets.Item[1];
+                int rowCount = workSheet.UsedRange.Cells.Rows.Count;
+                string edCell;
+                edCell = "F" + rowCount.ToString();
+                //使用下述语句可以从头读取到最后，按需使用
+                //var maxN = workSheet.Range[startCell].End[XlDirection.xlDown].Row;
+                return workSheet.Range[stCell + ":" + edCell].Value2;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                //COM组件方式调用完记得释放资源
+                if (workBook != null)
+                {
+                    workBook.Close(false, oMissiong, oMissiong);
+                    Marshal.ReleaseComObject(workBook);
+                    app.Workbooks.Close();
+                    app.Quit();
+                    Marshal.ReleaseComObject(app);
+                }
+            }
+        }
+
+        string dt2ctname;
+        int row_count;
+        System.Data.DataTable dt = new System.Data.DataTable();
+        private void button9_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            System.Data.DataTable dt2 = new System.Data.DataTable();
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "EXCEL FILE|*.xlsx;*.xls";
+            string strpath;
+            string filename;
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    strpath = file.FileName;
+                    filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
+                    dt2ctname = filename.Substring(0, filename.LastIndexOf("."));//去掉后缀名
+                    object[,] data = GetExcelRangeData(strpath, "A2");
+                    for (int i = 0; i < data.GetLength(1); i++)
+                        dt2.Columns.Add(i.ToString(), typeof(object));
+                    //MessageBox.Show("读好了");
+                    row_count = data.GetLength(0);
+                    for (int i = 0; i < data.GetLength(0); i++)
+                    {
+                        object[] dr = new object[data.GetLength(1)];
+                        for (int j = 0; j < data.GetLength(1); j++)
+                        {
+                            dr[j] = data[i + 1, j + 1];
+                        }
+                        dt2.Rows.Add(dr);
+                        Console.WriteLine(i.ToString());
+                    }
+                    //MessageBox.Show("读好了");
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dt2;
+                    dataGridView1.DataSource = bs;
+                    dataGridView1.Columns[0].HeaderCell.Value = "题干";
+                    dataGridView1.Columns[1].HeaderCell.Value = "A";
+                    dataGridView1.Columns[2].HeaderCell.Value = "B";
+                    dataGridView1.Columns[3].HeaderCell.Value = "C";
+                    dataGridView1.Columns[4].HeaderCell.Value = "D";
+                    dataGridView1.Columns[5].HeaderCell.Value = "正确选项";
+                    dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                    dt = dt2;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (dt2ctname == null)
+                return;
+            try
+            {
+                if (dt != null)
+                {
+                    mysql = "select count(num) from question";                
+                    SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+                    mydataset.Clear();
+                    myadapter.Fill(mydataset, "question");
+                    id = Convert.ToInt32(mydataset.Tables["question"].Rows[0][0]);
+                    for(int i=0;i<row_count;i++)
+                    {
+                        string mysql = "insert into question values('" + (id + i + 1).ToString() + "','" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[2].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[4].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[5].Value.ToString() + "')";
+                        //Console.WriteLine(mysql);
+                        SqlCommand updatecmd1 = new SqlCommand(mysql, myconn);
+                        myconn.Open();
+                        {
+                            updatecmd1.ExecuteNonQuery();
+                        }
+                        myconn.Close();
+                    }
+                    MessageBox.Show("添加成功！");
+                }
+                else
+                {
+                    MessageBox.Show("DataTable为空，请先导入数据");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

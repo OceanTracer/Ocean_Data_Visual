@@ -110,7 +110,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(231, 48);
             this.button8.TabIndex = 20;
-            this.button8.Text = "查看近三月的经纬剖面差值";
+            this.button8.Text = "查看近三个月的经纬剖面差值";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
