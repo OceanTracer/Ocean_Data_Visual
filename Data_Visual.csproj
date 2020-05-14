@@ -628,6 +628,15 @@
   <ItemGroup>
     <None Include="bin\x64\Debug\pic\liucheng.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\logo_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\logo_white_op10.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

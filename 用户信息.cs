@@ -706,7 +706,7 @@ namespace Data_Visual
                     if (dr == DialogResult.OK)
                     {
                         DeletePost(textBox5.Text);
-                        MessageBox.Show("已删除该条帖子");
+                        //MessageBox.Show("已删除该条帖子");
                     }
 
                 }
@@ -729,7 +729,7 @@ namespace Data_Visual
                     if (dr == DialogResult.OK)
                     {
                         DeletePost(textBox5.Text);
-                        MessageBox.Show("已删除该条回复");
+                        //MessageBox.Show("已删除该条回复");
                     }
 
                 }

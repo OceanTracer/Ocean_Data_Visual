@@ -108,7 +108,7 @@ namespace Data_Visual
         private void 用户主页_Load(object sender, EventArgs e)
         {
             UserStatus.status = 1;
-
+            
         }
         void SectionGet()
         {
@@ -175,5 +175,6 @@ namespace Data_Visual
                 timer1.Dispose();
             }
         }
+
     }
 }
