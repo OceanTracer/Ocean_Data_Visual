@@ -69,20 +69,7 @@ namespace Data_Visual
             
         }
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-            管理员页面 f14 = new 管理员页面();
-            f14.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            管理员页面 f14 = new 管理员页面();
-            f14.ShowDialog();
-            Close();
-        }
-
+       
         private void LoginButton_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "") 
@@ -100,17 +87,18 @@ namespace Data_Visual
                     MessageBox.Show("未知错误！请重试。", "登录错误");
                 else
                 {
-                    Hide();
                     if (type == 0)
                     {
                         管理员页面 f_adm = new 管理员页面();
                         f_adm.Owner = this.Owner;
+                        Hide();
                         f_adm.ShowDialog();
                     }
-                    if (type == 1)
+                    else
                     {
                         用户主页 f_see = new 用户主页();
                         f_see.Owner = this.Owner;
+                        Hide();
                         f_see.ShowDialog();
                     }
                 }

@@ -72,6 +72,7 @@
             this.runlabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.labelLevel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.InfoGroupBox.SuspendLayout();
             this.EditGroupBox.SuspendLayout();
@@ -111,7 +112,7 @@
             this.ovalShape1.BorderColor = System.Drawing.SystemColors.Window;
             this.ovalShape1.BorderWidth = 4;
             this.ovalShape1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ovalShape1.Location = new System.Drawing.Point(45, 129);
+            this.ovalShape1.Location = new System.Drawing.Point(39, 118);
             this.ovalShape1.Name = "ovalShape1";
             this.ovalShape1.SelectionColor = System.Drawing.SystemColors.Window;
             this.ovalShape1.Size = new System.Drawing.Size(132, 132);
@@ -122,11 +123,11 @@
             this.labelUname.AutoSize = true;
             this.labelUname.BackColor = System.Drawing.Color.Transparent;
             this.labelUname.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.labelUname.Font = new System.Drawing.Font("张海山锐线体简", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelUname.Font = new System.Drawing.Font("张海山锐线体简", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelUname.ForeColor = System.Drawing.Color.Black;
-            this.labelUname.Location = new System.Drawing.Point(93, 346);
+            this.labelUname.Location = new System.Drawing.Point(95, 333);
             this.labelUname.Name = "labelUname";
-            this.labelUname.Size = new System.Drawing.Size(95, 33);
+            this.labelUname.Size = new System.Drawing.Size(99, 34);
             this.labelUname.TabIndex = 6;
             this.labelUname.Text = "用户名";
             // 
@@ -135,19 +136,19 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label3.Font = new System.Drawing.Font("张海山锐线体简", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("张海山锐线体简", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(80, 396);
+            this.label3.Location = new System.Drawing.Point(84, 408);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 33);
+            this.label3.Size = new System.Drawing.Size(120, 30);
             this.label3.TabIndex = 7;
             this.label3.Text = "Welcome.";
             // 
             // LogoutButton
             // 
-            this.LogoutButton.BackColor = System.Drawing.Color.White;
+            this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
             this.LogoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LogoutButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LogoutButton.ForeColor = System.Drawing.Color.Black;
             this.LogoutButton.Location = new System.Drawing.Point(936, 522);
@@ -336,7 +337,6 @@
             this.labelDesire.Size = new System.Drawing.Size(65, 24);
             this.labelDesire.TabIndex = 35;
             this.labelDesire.Text = "Desire";
-            this.labelDesire.Click += new System.EventHandler(this.labelName_Click);
             // 
             // label21
             // 
@@ -367,7 +367,6 @@
             this.label8.Size = new System.Drawing.Size(70, 24);
             this.label8.TabIndex = 24;
             this.label8.Text = "兴趣：";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -629,6 +628,19 @@
             this.label10.TabIndex = 50;
             this.label10.Text = "帮助";
             // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.BackColor = System.Drawing.Color.Transparent;
+            this.labelLevel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.labelLevel.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelLevel.Location = new System.Drawing.Point(84, 372);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(121, 24);
+            this.labelLevel.TabIndex = 51;
+            this.labelLevel.Text = "Lv.1     Exp.0";
+            // 
             // 用户中心
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -636,6 +648,7 @@
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1144, 598);
+            this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.runlabel);
@@ -714,5 +727,6 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxMail;
+        private System.Windows.Forms.Label labelLevel;
     }
 }

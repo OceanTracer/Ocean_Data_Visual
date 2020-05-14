@@ -35,7 +35,7 @@ namespace Data_Visual
                 myconn.Open();
                 int res = mycmd.ExecuteNonQuery();
                 if (res > 0)
-                    MessageBox.Show("发送成功！", "Ocean");
+                    MessageBox.Show("发送成功！经验+5.", "Ocean");
                 myconn.Close();
             }
             catch(Exception ex)

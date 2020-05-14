@@ -164,6 +164,72 @@ DROP TABLE replies
 TRUNCATE TABLE posts
 GO
 
+/*发帖时增加经验*/
+CREATE TRIGGER postExp
+ON posts
+AFTER INSERT
+AS
+	DECLARE @umail VARCHAR(40)
+	SELECT @umail=umail FROM inserted
+	UPDATE user_info SET experience=experience+5 WHERE umail=@umail
+GO 
+
+
+/*发回复时增加经验*/
+CREATE TRIGGER replyExp
+ON replies
+AFTER INSERT
+AS
+	DECLARE @umail VARCHAR(40)
+	SELECT @umail=umail FROM inserted
+	UPDATE user_info SET experience=experience+1 WHERE umail=@umail
+GO
+
+
+/*用户增加经验时升级*/
+CREATE TRIGGER levelUp
+ON user_info
+FOR UPDATE
+AS
+	DECLARE @umail VARCHAR(40)
+	DECLARE @exp_new INT, @exp_old INT, @level INT, @type INT
+	SELECT @umail=umail,@exp_new=experience FROM inserted
+	SELECT @exp_old=experience,@type=u_status FROM deleted
+	IF @exp_new!=@exp_old AND @type!=0	--update前后经验变化，且不是管理员
+	BEGIN
+		IF @exp_new>=6000
+			SELECT @level=12
+		ELSE IF @exp_new>=3000
+			SELECT @level=11
+		ELSE IF @exp_new>=2000
+			SELECT @level=10
+		ELSE IF @exp_new>=1000
+			SELECT @level=9
+		ELSE IF @exp_new>=500
+			SELECT @level=8
+		ELSE IF @exp_new>=200
+			SELECT @level=7
+		ELSE IF @exp_new>=100
+			SELECT @level=6
+		ELSE IF @exp_new>=50
+			SELECT @level=5
+		ELSE IF @exp_new>=30
+			SELECT @level=4
+		ELSE IF @exp_new>=15
+			SELECT @level=3
+		ELSE IF @exp_new>=5
+			SELECT @level=2
+		ELSE
+			SELECT @level=1
+		UPDATE user_info SET u_status=@level WHERE umail=@umail
+	END
+GO 
+--测试
+UPDATE user_info SET experience=experience+6 WHERE umail='user@test.com'
+SELECT * FROM user_info WHERE umail='user@test.com'
+GO
+
+
 /*回复帖子时更新被回复贴的回复总数*/
 CREATE TRIGGER replyPost
 ON replies

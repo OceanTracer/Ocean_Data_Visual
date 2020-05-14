@@ -123,9 +123,10 @@ namespace Data_Visual
 
             if (i == N)
             {
-                MessageBox.Show("恭喜回答完毕！共回答对"+right_num.ToString()+"道题目");
+                MessageBox.Show("恭喜回答完毕！共回答对" + right_num.ToString() + "道题目，经验+" + right_num.ToString() + ".");
                 button5.Enabled = false;
                 i = 0;
+                UpdateExp();
             }
             else
             {
@@ -143,12 +144,27 @@ namespace Data_Visual
             }
             else
             {
-                MessageBox.Show("共回答对" + right_num.ToString() + "道题目");
+                MessageBox.Show("共回答对" + right_num.ToString() + "道题目，经验+" + right_num.ToString() + ".");
+                UpdateExp();
                 Close();
                 Owner.Show();
             }
-            
+        }
 
+        private void UpdateExp()
+        {
+            mysql = "update user_info set experience=experience+" + right_num.ToString() + "where umail='" + 登录界面.mail + "'";
+            SqlCommand mycmd = new SqlCommand(mysql, myconn);
+            myconn.Open();
+            try
+            {
+                mycmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            myconn.Close();
         }
     }
 }

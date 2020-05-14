@@ -32,7 +32,7 @@ namespace Data_Visual
         {
             try
             {
-                mysql = "select uname, sex, desire, describe, portrait from user_info where umail='" + mail+ "'";
+                mysql = "select uname, sex, desire, describe, portrait, u_status, experience from user_info where umail='" + mail+ "'";
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
                 myadapter.Fill(mydataset, "info");
@@ -41,7 +41,10 @@ namespace Data_Visual
                 labelDesire.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][2]);
                 labelDesc.Text = Convert.ToString(mydataset.Tables["info"].Rows[0][3]);
                 labelMail.Text = mail;
-                if(!mydataset.Tables["info"].Rows[0][4].IsNull())
+                string level = mydataset.Tables["info"].Rows[0]["u_status"].ToString();
+                string exp = mydataset.Tables["info"].Rows[0]["experience"].ToString();
+                labelLevel.Text = "Lv." + level + "     Exp." + exp;
+                if (!mydataset.Tables["info"].Rows[0]["portrait"].IsNull())
                 {//若用户上传过头像，则显示用户头像；否则显示系统默认头像
                     byte[] bytes = new byte[0];
                     bytes = (byte[])mydataset.Tables["info"].Rows[0][4];
@@ -113,7 +116,7 @@ namespace Data_Visual
         {
 
         }
-
+        TimeSpan sign_intervel;
         private void 用户中心_Load(object sender, EventArgs e)
         {
             fill_info(登录界面.mail);
@@ -129,9 +132,8 @@ namespace Data_Visual
                                                                                       //MessageBox.Show((Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")) -Convert.ToDateTime( dt.ToString("yyyy-MM-dd"))).ToString());
                 DateTime dt1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));//只留下日期
                 DateTime dt2 = Convert.ToDateTime(dt.ToString("yyyy-MM-dd"));
-                System.TimeSpan dt3 = dt1 - dt2;
-                double getDay = dt3.TotalDays;
-                if (getDay >= 1)  //注意测试的时候不要出现负数时间！
+                sign_intervel = dt1 - dt2;
+                if (sign_intervel.TotalDays >= 1)  //注意测试的时候不要出现负数时间！
                 {
                     button1.Text = "每日签到";
                     button1.Enabled = true;
@@ -141,10 +143,7 @@ namespace Data_Visual
                     button1.Text = "已签到";
                     button1.Enabled = false;
                 }
-
             }
-            
-
         }
 
         private void MyFav_Click(object sender, EventArgs e)
@@ -158,16 +157,6 @@ namespace Data_Visual
                 Hide();
                 f1.ShowDialog();
             }
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelName_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -246,13 +235,14 @@ namespace Data_Visual
                 f1.Owner = this;
                 Hide();
                 f1.ShowDialog();
+                fill_info(登录界面.mail);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            string mycmd = "update user_info set last_sign=getdate() where umail='" + 登录界面.mail + "'";
+            int exp_bonus = sign_intervel.TotalDays == 1 ? 8 : 6;   //连续签到+8，否则+6
+            string mycmd = "update user_info set last_sign=getdate(),experience=experience+" + exp_bonus.ToString() + " where umail='" + 登录界面.mail + "'";
             SqlCommand sqlCommand = new SqlCommand(mycmd, myconn);
             Console.WriteLine(mycmd);
             try
@@ -260,7 +250,10 @@ namespace Data_Visual
                 myconn.Open();
                 {
                     sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("签到成功！");
+                    if (exp_bonus == 6)
+                        MessageBox.Show("签到成功！经验+" + exp_bonus.ToString() + ".", "Ocean");
+                    else
+                        MessageBox.Show("连续签到！经验+" + exp_bonus.ToString() + ".", "Ocean");
                     button1.Text = "已签到";
                     button1.Enabled = false;                  
                 }
@@ -269,8 +262,9 @@ namespace Data_Visual
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                return;
+                myconn.Close();
             }
+            fill_info(登录界面.mail);
         }
 
         /// <summary>
@@ -318,6 +312,7 @@ namespace Data_Visual
             f1.Owner = this;
             Hide();
             f1.ShowDialog();
+            fill_info(登录界面.mail);
         }
     }
 }
