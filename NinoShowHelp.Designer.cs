@@ -163,30 +163,36 @@
             // 
             // richTextBox2
             // 
+            this.richTextBox2.BackColor = System.Drawing.Color.White;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Font = new System.Drawing.Font("苹方 常规", 11.95F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox2.Location = new System.Drawing.Point(33, 50);
             this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(813, 50);
             this.richTextBox2.TabIndex = 46;
             this.richTextBox2.Text = "该窗体功能主要为三个Nino区指数的可视化，以及综合三种指数计算厄尔尼诺指数的可视化，提供功能如下：";
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.Location = new System.Drawing.Point(72, 235);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(534, 29);
             this.richTextBox1.TabIndex = 47;
             this.richTextBox1.Text = "注：";
             // 
             // richTextBox3
             // 
+            this.richTextBox3.BackColor = System.Drawing.Color.White;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox3.Location = new System.Drawing.Point(413, 313);
             this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.ReadOnly = true;
             this.richTextBox3.Size = new System.Drawing.Size(265, 73);
             this.richTextBox3.TabIndex = 48;
             this.richTextBox3.Text = "您可以通过点击Tabcontrol的不同Index，切换不同的对应NIno区的数据图像，以及导出不同Nino区的数据至xls文件";
@@ -202,20 +208,24 @@
             // 
             // richTextBox4
             // 
+            this.richTextBox4.BackColor = System.Drawing.Color.White;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox4.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox4.Location = new System.Drawing.Point(413, 410);
             this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.ReadOnly = true;
             this.richTextBox4.Size = new System.Drawing.Size(265, 73);
             this.richTextBox4.TabIndex = 50;
             this.richTextBox4.Text = "如果您对Nino区的了解不够充分，可以前往科普内容的厄尔尼诺专题版块进行学习了解";
             // 
             // richTextBox5
             // 
+            this.richTextBox5.BackColor = System.Drawing.Color.White;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox5.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox5.Location = new System.Drawing.Point(164, 508);
             this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.ReadOnly = true;
             this.richTextBox5.Size = new System.Drawing.Size(514, 31);
             this.richTextBox5.TabIndex = 51;
             this.richTextBox5.Text = "您可以按照需求选择不同的可视化，如果有任何问题可以在问答模块中询问管理员。";
@@ -235,10 +245,12 @@
             // 
             // richTextBox6
             // 
+            this.richTextBox6.BackColor = System.Drawing.Color.White;
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox6.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox6.Location = new System.Drawing.Point(151, 235);
             this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.ReadOnly = true;
             this.richTextBox6.Size = new System.Drawing.Size(523, 27);
             this.richTextBox6.TabIndex = 53;
             this.richTextBox6.Text = "您需要首先点击                       键，然后才能使用                                           " +
