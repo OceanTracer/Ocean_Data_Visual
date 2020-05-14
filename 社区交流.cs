@@ -39,6 +39,17 @@ namespace Data_Visual
             }
         }
 
+        int status;
+        void get_status()
+        {
+            string mysql = "select u_status from user_info where umail='" + 登录界面.mail + "'";
+            SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "status");
+            status = Convert.ToInt32(mydataset.Tables["status"].Rows[0][0]);
+
+        }
+
         private void FetchPosts(int section, int page)
         {
             SqlCommand mycmd = new SqlCommand("fetchPosts", myconn);   //利用数据库的存储过程实现
@@ -177,6 +188,12 @@ namespace Data_Visual
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
+            get_status();
+            if (status < 7)
+            {
+                MessageBox.Show("您的等级不足7级，请继续加油！");
+                return;
+            }
             发送帖子 fsend = new 发送帖子();
             fsend.Owner = this;
             fsend.ShowDialog();

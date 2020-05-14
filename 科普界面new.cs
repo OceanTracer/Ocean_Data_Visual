@@ -64,6 +64,17 @@ namespace Data_Visual
                 alist[i] = collect_num;
             }
         }
+        int status;
+        void get_status()
+        {
+            string mysql = "select u_status from user_info where umail='" + 登录界面.mail + "'";
+            SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+            DataSet mydataset = new DataSet();
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "status");
+            status = Convert.ToInt32(mydataset.Tables["status"].Rows[0][0]);
+
+        }
 
         private void fetchCollect(int id)
         {
@@ -172,6 +183,12 @@ namespace Data_Visual
 
         private void buttonUpload_Click(object sender, EventArgs e)
         {
+            get_status();
+            if (status < 5)
+            {
+                MessageBox.Show("您的等级不足9级，请继续加油！");
+                return;
+            }
             科普上传 form = new 科普上传();
             form.Owner = this;
             form.ShowDialog();

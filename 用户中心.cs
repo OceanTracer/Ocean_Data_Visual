@@ -28,6 +28,18 @@ namespace Data_Visual
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
         string mysql;
         DataSet mydataset = new DataSet();
+
+        int status;
+        void get_status()
+        {
+            mysql = "select u_status from user_info where umail='" + 登录界面.mail + "'";
+            SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "status");
+            status = Convert.ToInt32(mydataset.Tables["status"].Rows[0][0]);
+
+        }
+
         private void fill_info(string mail)
         {
             try
@@ -227,6 +239,13 @@ namespace Data_Visual
 
         private void runlabel_Click(object sender, EventArgs e)
         {
+            get_status();
+            if (status < 3)
+            {
+                MessageBox.Show("您的等级不足3级，请继续加油！");
+                return;
+            }
+                
             if (登录界面.mail == "")
                 MessageBox.Show("未登录！");
             else
