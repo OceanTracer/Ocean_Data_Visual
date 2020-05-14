@@ -46,7 +46,9 @@
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -277,12 +279,24 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::Data_Visual.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(627, 248);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(203, 203);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
             // UserPageHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg6;
             this.ClientSize = new System.Drawing.Size(858, 478);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.richTextBox6);
@@ -303,8 +317,10 @@
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserPageHelp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UserPageHelp";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,5 +346,6 @@
         private System.Windows.Forms.RichTextBox richTextBox6;
         private System.Windows.Forms.RichTextBox richTextBox7;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
