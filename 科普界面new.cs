@@ -94,7 +94,6 @@ namespace Data_Visual
             }
             label1.Text = cur.ToString() + "/" + FileCount.ToString();
             label2.Text = "此科普由用户 " + upload_user + " 上传.";
-            label3.Location = new Point(label2.Location.X + label2.Size.Width - 4, label2.Location.Y);
         }
 
         int cur = 1;
@@ -191,11 +190,6 @@ namespace Data_Visual
             Bitmap bmp = new Bitmap(img);
             bmp.Save(filename+".jpg", ImageFormat.Jpeg);
             MessageBox.Show("保存成功！", "Ocean");
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
