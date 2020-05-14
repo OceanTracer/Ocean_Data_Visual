@@ -29,7 +29,18 @@ namespace Data_Visual
             flowLayoutPanel1.Controls.Clear();
             FetchReplies(post_id);
         }
-        
+
+        int status;
+        void get_status()
+        {
+            string mysql = "select u_status from user_info where umail='" + 登录界面.mail + "'";
+            SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "status");
+            status = Convert.ToInt32(mydataset.Tables["status"].Rows[0][0]);
+
+        }
+
         private void FetchPost(int post_id)
         {
             sql = @"SELECT post_title,posts.umail,uname,post_content,post_time,post_repcnt
@@ -112,12 +123,20 @@ namespace Data_Visual
 
         private void ReplyReport_Click(object sender, EventArgs e)
         {
+            get_status();
+            if (status < 7)
+            {
+                MessageBox.Show("您的等级不足7级，请继续加油！");
+                return;
+            }
             Label l = (Label)sender;
             string[] para = (string[])l.Tag;
             string rep_umail = para[0], rep_id = para[1], reason;
             举报界面 fr = new 举报界面();
             fr.ShowDialog();
             reason = fr.reason;
+            if (reason == "")
+                return;
             sql = "insert into report values('" + 登录界面.mail + "','" + rep_umail +
                 "','reply'," + rep_id + ",'" + reason + "',GETDATE(),'N')";
             SqlCommand mycmd = new SqlCommand(sql, myconn);
@@ -137,9 +156,17 @@ namespace Data_Visual
 
         private void PostReport_Click(object sender, EventArgs e)
         {
+            get_status();
+            if (status < 7)
+            {
+                MessageBox.Show("您的等级不足7级，请继续加油！");
+                return;
+            }
             举报界面 fr = new 举报界面();
             fr.ShowDialog();
             string reason = fr.reason;
+            if (reason == "")
+                return;
             sql = "insert into report values('" + 登录界面.mail + "','" + post_umail +
                 "','post'," + post_id.ToString() + ",'" + reason + "',GETDATE(),'N')";
             SqlCommand mycmd = new SqlCommand(sql, myconn);
@@ -159,6 +186,13 @@ namespace Data_Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
+            get_status();
+            if (status < 5)
+            {
+                MessageBox.Show("您的等级不足5级，请继续加油！");
+                return;
+            }
+
             if (richTextBox2.Text == "")
             {
                 MessageBox.Show("请输入回复内容！", "Ocean");
