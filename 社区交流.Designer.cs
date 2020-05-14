@@ -192,6 +192,7 @@
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label17);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel5.Location = new System.Drawing.Point(4, 319);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(819, 73);
@@ -245,6 +246,7 @@
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label13);
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel4.Location = new System.Drawing.Point(4, 240);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(819, 73);
@@ -298,6 +300,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Location = new System.Drawing.Point(4, 161);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(819, 73);
@@ -351,6 +354,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Location = new System.Drawing.Point(4, 82);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(819, 73);
@@ -404,6 +408,7 @@
             this.panel1.Controls.Add(this.labelTime);
             this.panel1.Controls.Add(this.labelPoster);
             this.panel1.Controls.Add(this.labelTitle);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(820, 73);

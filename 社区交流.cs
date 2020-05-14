@@ -50,7 +50,7 @@ namespace Data_Visual
             page_size.Value = PAGESIZE;
             sec.Value = section;
             mycmd.Parameters.AddRange(new SqlParameter[] { page_num, page_size, sec });
-            PanelInit();
+            //PanelInit();
             myconn.Open();
             try
             {
@@ -58,6 +58,8 @@ namespace Data_Visual
                 int i = 0;
                 while (res.Read())
                 {
+                    panels[i].Enabled = true;
+                    panels[i].Visible = true;
                     panels[i].Controls[3].Text = res["post_title"].ToString();
                     panels[i].Controls[2].Text = res["uname"].ToString();
                     panels[i].Controls[1].Text = res["post_time"].ToString();

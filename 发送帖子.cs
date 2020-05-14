@@ -42,6 +42,7 @@ namespace Data_Visual
             {
                 MessageBox.Show(ex.ToString());
             }
+            this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

@@ -50,6 +50,18 @@ create table notice
 )
 GO
 
+create table question
+(
+	num int not null primary key,
+	contents varchar(1000) not null,
+	A varchar(64) not null,
+	B varchar(64) not null,
+	C varchar(64) not null,
+	D varchar(64) not null,
+	right_ans varchar(64) not null,
+)
+GO
+
 create table posts
 (
   post_id int not null identity(1,1) primary key,
@@ -92,14 +104,7 @@ insert into collect VALUES('1@qq.com',3,GETDATE())
 insert into collect VALUES('1@qq.com',4,GETDATE())
 insert into collect VALUES('11@qq.com',3,GETDATE())
 
-insert into collect_info VALUES('1','\\pic_all\\1.jpg','\\pic_all\\1.txt')
-insert into collect_info VALUES('2','\\pic_all\\2.jpg','\\pic_all\\2.txt')
-insert into collect_info VALUES('3','\\pic_all\\3.jpg','\\pic_all\\3.txt')
-insert into collect_info VALUES('4','\\pic_all\\4.jpg','\\pic_all\\4.txt')
-insert into collect_info VALUES('5','\\pic_all\\5.jpg','\\pic_all\\5.txt')
-insert into collect_info VALUES('6','\\pic_all\\6.jpg','\\pic_all\\6.txt')
-insert into collect_info VALUES('7','\\pic_all\\7.jpg','\\pic_all\\7.txt')
-insert into collect_info VALUES('8','\\pic_all\\8.jpg','\\pic_all\\8.txt')
+
 
 select uname, sex, desire, describe from user_info where umail='user@test.com'
 
@@ -133,7 +138,7 @@ insert into replies VALUES('admin@1.com',1,'Hi there',GETDATE(),default)
 insert into replies VALUES('admin@1.com',1,'I am your admin',GETDATE(),default)
 insert into replies VALUES('admin@1.com',1,'Have a good day',GETDATE(),default)
 insert into replies VALUES('0508@test.com',1,'Hello',GETDATE(),default)
-insert into replies VALUES('0508@test.com',1,'I am new here',GETDATE(),default)
+insert into replies VALUES('0508@test.com',1,'I ''m new here',GETDATE(),default)
 insert into replies VALUES('user@test.com',1,'test',GETDATE(),default)
 insert into replies VALUES('1@qq.com',2,'Hey there',GETDATE(),default)
 insert into replies VALUES('admin@1.com',3,'Hello there',GETDATE(),default)
@@ -155,8 +160,9 @@ ORDER BY rep_time
 
 GO
 
-
-TRUNCATE TABLE replies
+DROP TABLE replies
+TRUNCATE TABLE posts
+GO
 
 /*回复帖子时更新被回复贴的回复总数*/
 CREATE TRIGGER replyPost
