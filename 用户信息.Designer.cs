@@ -55,6 +55,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.定义 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,6 +66,20 @@
             this.listView4 = new System.Windows.Forms.ListView();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.NoticeBox = new System.Windows.Forms.GroupBox();
+            this.ReportBox = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.listView5 = new System.Windows.Forms.ListView();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -70,7 +87,10 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.NoticeBox.SuspendLayout();
+            this.ReportBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox3
@@ -104,6 +124,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(167, 46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -401,6 +422,52 @@
             this.label9.TabIndex = 36;
             this.label9.Text = "请输入用户邮箱：";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.White;
+            this.tabPage6.Controls.Add(this.button11);
+            this.tabPage6.Controls.Add(this.textBox6);
+            this.tabPage6.Controls.Add(this.label17);
+            this.tabPage6.Controls.Add(this.button10);
+            this.tabPage6.Controls.Add(this.textBox5);
+            this.tabPage6.Controls.Add(this.label16);
+            this.tabPage6.Controls.Add(this.button9);
+            this.tabPage6.Controls.Add(this.textBox4);
+            this.tabPage6.Controls.Add(this.label15);
+            this.tabPage6.Controls.Add(this.button8);
+            this.tabPage6.Controls.Add(this.button7);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(294, 342);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "举报受理";
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.White;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button8.Location = new System.Drawing.Point(161, 36);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(106, 34);
+            this.button8.TabIndex = 40;
+            this.button8.Text = "回复举报记录";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button7.Location = new System.Drawing.Point(23, 36);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(100, 34);
+            this.button7.TabIndex = 39;
+            this.button7.Text = "帖子举报记录";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // 定义
             // 
             this.定义.AutoSize = true;
@@ -408,7 +475,7 @@
             this.定义.Cursor = System.Windows.Forms.Cursors.Hand;
             this.定义.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.定义.ForeColor = System.Drawing.Color.Black;
-            this.定义.Location = new System.Drawing.Point(52, 140);
+            this.定义.Location = new System.Drawing.Point(52, 93);
             this.定义.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.定义.Name = "定义";
             this.定义.Size = new System.Drawing.Size(86, 22);
@@ -423,7 +490,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(52, 195);
+            this.label1.Location = new System.Drawing.Point(52, 148);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 22);
@@ -438,7 +505,7 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(52, 252);
+            this.label2.Location = new System.Drawing.Point(52, 203);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 22);
@@ -453,7 +520,7 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(52, 306);
+            this.label3.Location = new System.Drawing.Point(52, 258);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 22);
@@ -468,7 +535,7 @@
             this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(52, 363);
+            this.label4.Location = new System.Drawing.Point(52, 313);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 22);
@@ -480,9 +547,9 @@
             // 
             this.listView4.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(475, 454);
+            this.listView4.Location = new System.Drawing.Point(6, 49);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(769, 149);
+            this.listView4.Size = new System.Drawing.Size(768, 133);
             this.listView4.TabIndex = 43;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.Visible = false;
@@ -494,7 +561,7 @@
             this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label12.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(474, 425);
+            this.label12.Location = new System.Drawing.Point(5, 17);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 20);
@@ -512,16 +579,181 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label13.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(52, 368);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 22);
+            this.label13.TabIndex = 46;
+            this.label13.Text = "举报受理";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // NoticeBox
+            // 
+            this.NoticeBox.BackColor = System.Drawing.Color.White;
+            this.NoticeBox.Controls.Add(this.label12);
+            this.NoticeBox.Controls.Add(this.listView4);
+            this.NoticeBox.Location = new System.Drawing.Point(466, 423);
+            this.NoticeBox.Name = "NoticeBox";
+            this.NoticeBox.Size = new System.Drawing.Size(778, 193);
+            this.NoticeBox.TabIndex = 47;
+            this.NoticeBox.TabStop = false;
+            // 
+            // ReportBox
+            // 
+            this.ReportBox.BackColor = System.Drawing.Color.White;
+            this.ReportBox.Controls.Add(this.label14);
+            this.ReportBox.Controls.Add(this.listView5);
+            this.ReportBox.Location = new System.Drawing.Point(466, 423);
+            this.ReportBox.Name = "ReportBox";
+            this.ReportBox.Size = new System.Drawing.Size(778, 193);
+            this.ReportBox.TabIndex = 48;
+            this.ReportBox.TabStop = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label14.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(5, 17);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 20);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "举报记录：";
+            this.label14.Visible = false;
+            // 
+            // listView5
+            // 
+            this.listView5.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listView5.HideSelection = false;
+            this.listView5.Location = new System.Drawing.Point(6, 49);
+            this.listView5.Name = "listView5";
+            this.listView5.Size = new System.Drawing.Size(768, 133);
+            this.listView5.TabIndex = 43;
+            this.listView5.UseCompatibleStateImageBehavior = false;
+            this.listView5.Visible = false;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(53, 276);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(120, 21);
+            this.textBox4.TabIndex = 42;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(5, 244);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(218, 20);
+            this.label15.TabIndex = 41;
+            this.label15.Text = "请输入已处理的举报记录ID：";
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button9.Location = new System.Drawing.Point(197, 267);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(70, 34);
+            this.button9.TabIndex = 43;
+            this.button9.Text = "提交";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button10.Location = new System.Drawing.Point(197, 122);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(70, 34);
+            this.button10.TabIndex = 46;
+            this.button10.Text = "提交";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(53, 123);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(120, 21);
+            this.textBox5.TabIndex = 45;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label16.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(5, 91);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(185, 20);
+            this.label16.TabIndex = 44;
+            this.label16.Text = "请输入要删除的帖子ID：";
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.White;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button11.Location = new System.Drawing.Point(197, 196);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(70, 34);
+            this.button11.TabIndex = 49;
+            this.button11.Text = "提交";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(53, 197);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(120, 21);
+            this.textBox6.TabIndex = 48;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label17.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(5, 165);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(186, 20);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "请输入要删除的回复ID：";
+            // 
             // 用户信息
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.bg8;
             this.ClientSize = new System.Drawing.Size(1268, 634);
+            this.Controls.Add(this.ReportBox);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listView4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -529,6 +761,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.NoticeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "用户信息";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -544,7 +777,13 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.NoticeBox.ResumeLayout(false);
+            this.NoticeBox.PerformLayout();
+            this.ReportBox.ResumeLayout(false);
+            this.ReportBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,5 +826,22 @@
         private System.Windows.Forms.ListView listView4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox NoticeBox;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.GroupBox ReportBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ListView listView5;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label17;
     }
 }

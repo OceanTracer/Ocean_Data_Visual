@@ -502,6 +502,8 @@ namespace Data_Visual
             label12.Visible = true;
             listView4.Visible = true;
             Notice_Update();
+            ReportBox.SendToBack();
+            NoticeBox.BringToFront();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -528,7 +530,8 @@ namespace Data_Visual
                 //将(reporter,reported,post_title,report_reason,report_time)展示在前台以审阅 下同
                 mysql = @"select report_id, reporter, reported, post_id, post_title, report_reason, report_time from report, posts
                           where report_type='post' and reviewed=" + (reviewed?"'Y'":"'N'")+" and report.content_id=posts.post_id" +
-                          "order by report_time desc";
+                          " order by report_time desc";
+                //Console.WriteLine(mysql);
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
                 myadapter.Fill(mydataset, "report");
@@ -539,7 +542,8 @@ namespace Data_Visual
                 //举报id，举报者，被举报者，回复id，回复内容，举报原因，举报时间
                 mysql = @"select report_id, reporter, reported, rep_id, rep_content, report_reason, report_time from report, replies
                           where report_type='reply' and reviewed=" + (reviewed ? "'Y'" : "'N'") + " and report.content_id=replies.rep_id" +
-                          "order by report_time desc";
+                          " order by report_time desc";
+                Console.WriteLine(mysql);
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 mydataset.Clear();
                 myadapter.Fill(mydataset, "report");
@@ -603,6 +607,127 @@ namespace Data_Visual
                 MessageBox.Show(ex.ToString());
             }
             myconn.Close();
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage6;
+        }
+
+        void ReportListRefresh(int type)
+        {
+            SelectReports(type, false);
+            listView5.Clear();
+            listView5.Columns.Add("举报id", 120);
+            listView5.Columns.Add("举报用户", 120);
+            listView5.Columns.Add("被举报用户", 120);
+            if(type ==0)
+            {
+                listView5.Columns.Add("帖子id", 120);
+                listView5.Columns.Add("帖子标题", 200);
+            }
+            else if(type ==1)
+            {
+                listView5.Columns.Add("回复id", 120);
+                listView5.Columns.Add("回复标题", 200);
+            }
+            listView5.Columns.Add("举报原因", 250);
+            listView5.Columns.Add("举报时间", 120);
+            for (int i = 0; i < mydataset.Tables["report"].Rows.Count; i++)
+            {
+                //MessageBox.Show(i.ToString());
+                ListViewItem It = new ListViewItem();
+                It.Text = mydataset.Tables["report"].Rows[i][0].ToString();
+                for (int j = 1; j < mydataset.Tables["report"].Columns.Count; j++)
+                    It.SubItems.Add(mydataset.Tables["report"].Rows[i][j].ToString());
+                listView5.Items.Add(It);
+                //MessageBox.Show(It.SubItems[2].Text);
+            }
+            this.listView5.View = System.Windows.Forms.View.Details;
+            label14.Visible = true;
+            listView5.Visible = true;
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //举报id，举报者，被举报者，帖子id，帖子标题，举报原因，举报时间
+            NoticeBox.SendToBack();
+            ReportBox.BringToFront();
+            ReportListRefresh(0);
+            report_state = 0;//帖子
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            NoticeBox.SendToBack();
+            ReportBox.BringToFront();
+            //举报id，举报者，被举报者，回复id，回复内容，举报原因，举报时间
+            ReportListRefresh(1);
+            report_state = 1; //回复
+        }
+        int report_state = 0;
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text.Trim() =="")
+                MessageBox.Show("请输入举报记录ID");
+            else
+            {
+                try
+                {
+                    ReviewReport(textBox4.Text);
+                    MessageBox.Show("已处理该条举报记录");
+                    ReportListRefresh(report_state);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (textBox5.Text.Trim() == "")
+                MessageBox.Show("请输入待删除的帖子ID");
+            else
+            {
+                try
+                {
+                    DialogResult dr = MessageBox.Show("将删除ID为\t" + textBox5.Text + "\t的帖子", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dr == DialogResult.OK)
+                    {
+                        DeletePost(textBox5.Text);
+                        MessageBox.Show("已删除该条帖子");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (textBox6.Text.Trim() == "")
+                MessageBox.Show("请输入待删除的回复ID");
+            else
+            {
+                try
+                {
+                    DialogResult dr = MessageBox.Show("将删除ID为\t" + textBox6.Text + "\t的回复", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dr == DialogResult.OK)
+                    {
+                        DeletePost(textBox5.Text);
+                        MessageBox.Show("已删除该条回复");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }
