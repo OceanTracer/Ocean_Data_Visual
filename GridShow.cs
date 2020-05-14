@@ -514,6 +514,7 @@ namespace Data_Visual
 
         public class SST_single
         {
+            public ObjectId _id { get; set; }
             public double Lon { get; set; }
             public double Lat { get; set; }
             public double Band { get; set; }
