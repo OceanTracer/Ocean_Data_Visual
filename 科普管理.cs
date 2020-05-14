@@ -546,7 +546,7 @@ namespace Data_Visual
                     object[,] data = GetExcelRangeData(strpath, "A2");
                     for (int i = 0; i < data.GetLength(1); i++)
                         dt2.Columns.Add(i.ToString(), typeof(object));
-                    MessageBox.Show("读好了");
+                    //MessageBox.Show("读好了");
                     row_count = data.GetLength(0);
                     for (int i = 0; i < data.GetLength(0); i++)
                     {
@@ -558,7 +558,7 @@ namespace Data_Visual
                         dt2.Rows.Add(dr);
                         Console.WriteLine(i.ToString());
                     }
-                    MessageBox.Show("读好了");
+                    //MessageBox.Show("读好了");
                     BindingSource bs = new BindingSource();
                     bs.DataSource = dt2;
                     dataGridView1.DataSource = bs;
@@ -594,15 +594,16 @@ namespace Data_Visual
                     id = Convert.ToInt32(mydataset.Tables["question"].Rows[0][0]);
                     for(int i=0;i<row_count;i++)
                     {
-                        string sql = "insert into question values('" + (id + i + 1).ToString() + "','" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[2].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[4].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[5].Value.ToString() + "')";
+                        string mysql = "insert into question values('" + (id + i + 1).ToString() + "','" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[2].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[4].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[5].Value.ToString() + "')";
+                        //Console.WriteLine(mysql);
                         SqlCommand updatecmd1 = new SqlCommand(mysql, myconn);
                         myconn.Open();
                         {
                             updatecmd1.ExecuteNonQuery();
                         }
                         myconn.Close();
-                        MessageBox.Show("添加成功！");
                     }
+                    MessageBox.Show("添加成功！");
                 }
                 else
                 {

@@ -192,5 +192,10 @@ namespace Data_Visual
             bmp.Save(filename+".jpg", ImageFormat.Jpeg);
             MessageBox.Show("保存成功！", "Ocean");
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
