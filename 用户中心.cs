@@ -28,7 +28,6 @@ namespace Data_Visual
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
         string mysql;
         DataSet mydataset = new DataSet();
-
         private void fill_info(string mail)
         {
             try
@@ -311,6 +310,14 @@ namespace Data_Visual
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            社区交流 f1 = new 社区交流();
+            f1.Owner = this;
+            Hide();
+            f1.ShowDialog();
         }
     }
 }

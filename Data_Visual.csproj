@@ -139,6 +139,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\nino_plot.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="series_acf_pacf, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\Lenovo\Desktop\package\series_acf_pacf\for_redistribution_files_only\series_acf_pacf.dll</HintPath>
@@ -161,6 +163,7 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -174,9 +177,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\time_series_plot.dll</HintPath>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account.cs" />
@@ -288,6 +293,18 @@
     <Compile Include="厄尔尼诺专题.Designer.cs">
       <DependentUpon>厄尔尼诺专题.cs</DependentUpon>
     </Compile>
+    <Compile Include="发送帖子.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="发送帖子.Designer.cs">
+      <DependentUpon>发送帖子.cs</DependentUpon>
+    </Compile>
+    <Compile Include="帖子详情.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="帖子详情.Designer.cs">
+      <DependentUpon>帖子详情.cs</DependentUpon>
+    </Compile>
     <Compile Include="我的收藏.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +364,12 @@
     </Compile>
     <Compile Include="举报界面.designer.cs">
       <DependentUpon>举报界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="社区交流.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="社区交流.Designer.cs">
+      <DependentUpon>社区交流.cs</DependentUpon>
     </Compile>
     <Compile Include="科普上传.cs">
       <SubType>Form</SubType>
@@ -430,6 +453,12 @@
     <EmbeddedResource Include="厄尔尼诺专题.resx">
       <DependentUpon>厄尔尼诺专题.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="发送帖子.resx">
+      <DependentUpon>发送帖子.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="帖子详情.resx">
+      <DependentUpon>帖子详情.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="我的收藏.resx">
       <DependentUpon>我的收藏.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="举报界面.resx">
       <DependentUpon>举报界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="社区交流.resx">
+      <DependentUpon>社区交流.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="科普上传.resx">
       <DependentUpon>科普上传.cs</DependentUpon>
