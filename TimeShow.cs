@@ -384,9 +384,9 @@ namespace Data_Visual
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
-            this.Close();
-            this.Owner.Show();
+            Close();
+            Owner.Show();
+            Dispose();  //由于每次查询的数据不一样，此窗口更适合每次释放
         }
 
         private void TimeShow_Shown(object sender, EventArgs e)

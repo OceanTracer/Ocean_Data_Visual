@@ -32,7 +32,6 @@ namespace Data_Visual
             initializeCount();
             countY();
             fetchCollect(1);
-
         }
 
         private void initializeCount()

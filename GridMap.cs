@@ -16,6 +16,8 @@ namespace Data_Visual
     {
         public GridMap()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
         public ChromiumWebBrowser wb;
@@ -292,6 +294,7 @@ namespace Data_Visual
         {
             this.Close();
             this.Owner.Show();
+            this.Dispose();
         }
     }
 }

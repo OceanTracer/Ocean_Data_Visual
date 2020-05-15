@@ -37,8 +37,7 @@ namespace Data_Visual
             {
                 reason = richTextBox1.Text;
                 Close();
-                /*sql="update collect set isComplaint='Y',Com_content='"+richTextBox1.Text.ToString()+"'" +
-                  " where umail='" + 登录界面.mail + "' and collect_num="+account.click_num.ToString()+"";*/
+                Dispose();
             }
         }
     }

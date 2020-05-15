@@ -15,8 +15,8 @@ namespace Data_Visual
     {
         public 注册成功()
         {
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
@@ -28,7 +28,6 @@ namespace Data_Visual
             Close();
             Owner.Show();
         }
-
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -54,7 +53,6 @@ namespace Data_Visual
                 {
                     MessageBox.Show(ex.ToString());
                 }
-
             }
             myconn.Close();
             Hide();

@@ -19,40 +19,41 @@ namespace Data_Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TimeMap form = new TimeMap();
-            form.Owner = this;
+            TimeMap f_time = new TimeMap();
+            f_time.Owner = this;
             //Hide();
-            form.ShowDialog();
+            f_time.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GridMap form = new GridMap();
-            form.Owner = this;
+            GridMap f_grid = new GridMap();
+            f_grid.Owner = this;
             //Hide();
-            form.ShowDialog();
+            f_grid.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NinoMap form = new NinoMap();
-            form.Owner = this;
+            NinoMap f_nino = new NinoMap();
+            f_nino.Owner = this;
             //Hide();
-            form.ShowDialog();
+            f_nino.ShowDialog();
         }
 
+        DataProcess f_data = new DataProcess(); //预加载
         private void button4_Click(object sender, EventArgs e)
         {
-            DataProcess form = new DataProcess();
-            form.Owner = this;
+            f_data.Owner = this;
             Hide();
-            form.ShowDialog();
+            f_data.ShowDialog();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Owner.Show();
+            Close();
+            Owner.Show();
+            Dispose();
         }
         /*
          当前窗口调用逻辑上的子窗口时，可以将子窗口的Owner属性设置为当前窗口，并隐藏当前窗口，子窗口退出时，
@@ -63,7 +64,7 @@ namespace Data_Visual
          Close不负责销毁对象，仅实现“关闭”；Dispose则是销毁对象并释放资源。
          Close后可以使用Open再次打开数据库连接，而Dispose后不能直接使用Open，而需要重新创建一个SQLConnection对象。
          使用完数据库，需要关闭与数据库的连接，释放占用的资源。通过Dispose方法可以关闭数据库连接。
-         关于二者的关系，有的说Close()内部会调用Dispose()，有的说Dispose()的功能包含Close()，但总结而言，
+         关于二者的关系，Close()内部并不会调用Dispose()，Dispose()似乎包含Close()；总结而言，
          想要重用窗体属性或窗体对象时调用Close(),不需要再重复使用资源时则就调用Dispose()。
         */
         private void Option_Load(object sender, EventArgs e)

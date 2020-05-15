@@ -14,9 +14,10 @@ namespace Data_Visual
     {
         public NinoMap()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,7 +58,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
-            
+            Dispose();
         }
 
         private void NinoMap_Load(object sender, EventArgs e)

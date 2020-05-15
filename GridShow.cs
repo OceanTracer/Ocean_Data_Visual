@@ -305,6 +305,7 @@ namespace Data_Visual
 
             this.Close();
             this.Owner.Show();
+            this.Dispose();
         }
 
         private void button5_Click(object sender, EventArgs e)

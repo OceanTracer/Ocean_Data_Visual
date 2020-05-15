@@ -93,7 +93,6 @@ namespace Data_Visual
             收藏具体内容 f1 = new 收藏具体内容();
             f1.Owner = this;
             f1.ShowDialog();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,6 +109,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();
         }
     }
 }

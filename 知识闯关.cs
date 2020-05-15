@@ -141,6 +141,7 @@ namespace Data_Visual
             {
                 Close();
                 Owner.Show();
+                Dispose();
             }
             else
             {
@@ -148,6 +149,7 @@ namespace Data_Visual
                 UpdateExp();
                 Close();
                 Owner.Show();
+                Dispose();
             }
         }
 

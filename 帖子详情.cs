@@ -223,6 +223,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Data_Visual
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
             fill_info(登录界面.mail);
-            InfoGroupBox.BringToFront();
+            sign_info(登录界面.mail);
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
         string mysql;
@@ -68,41 +68,56 @@ namespace Data_Visual
             }
             catch (Exception)
             {
-                ;//MessageBox.Show("请先完善个人信息！");
-                //return;
+                ;
             }
         }
 
-
-
+        TimeSpan sign_intervel;
+        private void sign_info(string mail)
+        {
+            string sql = "select last_sign from user_info where umail='" + mail + "'";
+            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
+            mydataset.Clear();
+            myadapter.Fill(mydataset, "last_signtime");
+            if (mydataset.Tables["last_signtime"].Rows[0][0].ToString() != "")
+            {
+                DateTime dt;
+                dt = Convert.ToDateTime(mydataset.Tables["last_signtime"].Rows[0][0]);//数据库中存的时间
+                DateTime dt1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));//只留下日期
+                DateTime dt2 = Convert.ToDateTime(dt.ToString("yyyy-MM-dd"));
+                sign_intervel = dt1 - dt2;
+                if (sign_intervel.TotalDays >= 1)  //注意测试的时候不要出现负数时间！
+                {
+                    button1.Text = "每日签到";
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    button1.Text = "已签到";
+                    button1.Enabled = false;
+                }
+            }
+        }
 
         private void InfoLabel_Click(object sender, EventArgs e)
         {
             fill_info(登录界面.mail);
             NoticeBox.SendToBack();
             InfoGroupBox.BringToFront();
-            /*InfoGroupBox.Show();
-            RecordGroupBox.Hide();
-            CVGroupBox.Hide();
-            EditGroupBox.Hide();*/
         }
-
 
         private void HomeLabel_Click(object sender, EventArgs e)
         {
             Close();
             Owner.Show();
-            //求职者主页 f_see = new 求职者主页();
-            //f_see.ShowDialog();
         }
-
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             Close();
+            Dispose();
             welcome f_wel = new welcome();
             f_wel.ShowDialog();
-            
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -118,44 +133,11 @@ namespace Data_Visual
                 radioButtonMan.Checked = true;
             if (labelSex.Text == "女")
                 radioButtonWoman.Checked = true;
-            /*InfoGroupBox.Hide();
-            CVGroupBox.Hide();
-            RecordGroupBox.Hide();
-            EditGroupBox.Show();*/
         }
 
-        private void shapeContainer1_Load(object sender, EventArgs e)
-        {
-
-        }
-        TimeSpan sign_intervel;
         private void 用户中心_Load(object sender, EventArgs e)
         {
-            fill_info(登录界面.mail);
-            string sql = "select last_sign from user_info where umail='" + 登录界面.mail + "'";
-            SqlDataAdapter myadapter = new SqlDataAdapter(sql, myconn);
-            mydataset.Clear();
-            myadapter.Fill(mydataset, "last_signtime");
-            if(mydataset.Tables["last_signtime"].Rows[0][0].ToString()!="")
-            {
-                DateTime dt;
-                dt = Convert.ToDateTime(mydataset.Tables["last_signtime"].Rows[0][0]);//数据库中存的时间
-                                                                                      // MessageBox.Show((DateTime.Now - dt).ToString());
-                                                                                      //MessageBox.Show((Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")) -Convert.ToDateTime( dt.ToString("yyyy-MM-dd"))).ToString());
-                DateTime dt1 = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));//只留下日期
-                DateTime dt2 = Convert.ToDateTime(dt.ToString("yyyy-MM-dd"));
-                sign_intervel = dt1 - dt2;
-                if (sign_intervel.TotalDays >= 1)  //注意测试的时候不要出现负数时间！
-                {
-                    button1.Text = "每日签到";
-                    button1.Enabled = true;
-                }
-                else
-                {
-                    button1.Text = "已签到";
-                    button1.Enabled = false;
-                }
-            }
+            InfoGroupBox.BringToFront();
         }
 
         private void MyFav_Click(object sender, EventArgs e)
@@ -192,8 +174,6 @@ namespace Data_Visual
                 }
             myconn.Close();
 
-            /*EditGroupBox.Hide();
-            InfoGroupBox.Show();*/
             EditGroupBox.SendToBack();
             NoticeBox.SendToBack();
             InfoGroupBox.BringToFront();
@@ -222,7 +202,6 @@ namespace Data_Visual
         private void RecordLabel_Click(object sender, EventArgs e)
         {
             NoticeBox.BringToFront();
-
             listView1.Clear();
             listView1.Columns.Add("通知内容", 400);
             listView1.Columns.Add("通知时间", 150);
@@ -322,7 +301,6 @@ namespace Data_Visual
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
 
         private void label6_Click(object sender, EventArgs e)

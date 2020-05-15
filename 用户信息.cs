@@ -26,6 +26,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();
         }
 
         private void 用户信息_Load(object sender, EventArgs e)

@@ -16,20 +16,22 @@ namespace Data_Visual
     {
         public TimeMap()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
         public ChromiumWebBrowser wb;
 
         private void TimeMap_Load(object sender, EventArgs e)
         {
-             if (CefSharp.Cef.IsInitialized == false)
-                  WbInit();
-             string sURL = Application.StartupPath + @"/BaiduMap/point.html";
-             wb = new ChromiumWebBrowser(sURL);
-             panel1.Controls.Add(wb);
-             wb.Dock = DockStyle.Fill;
-             timer1.Interval = 2000;
-             timer1.Start();
+            if (CefSharp.Cef.IsInitialized == false)
+                WbInit();
+            string sURL = Application.StartupPath + @"/BaiduMap/point.html";
+            wb = new ChromiumWebBrowser(sURL);
+            panel1.Controls.Add(wb);
+            wb.Dock = DockStyle.Fill;
+            timer1.Interval = 2000;
+            timer1.Start();
 
             string MM = "";
             if (UserStatus.status == 1)
@@ -40,7 +42,6 @@ namespace Data_Visual
 
             dateTimePicker1.MaxDate = d1;
             dateTimePicker2.MaxDate = d1;
-
         }
         void WbInit()
         {
@@ -187,8 +188,8 @@ namespace Data_Visual
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            //this.Dispose(); //Dispose()方法在这里会让Cef每次都耗费同样的时间加载；不使用Dispose()似乎可以节省二次加载时间(不是很确定)
             this.Owner.Show();
+            this.Dispose(); //Dispose()方法在这里会让Cef每次都耗费同样的时间加载；不使用Dispose()似乎节省二次加载时间->但是Cef加载不出来
         }
     }
 }

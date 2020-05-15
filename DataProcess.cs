@@ -26,6 +26,8 @@ namespace Data_Visual
     {
         public DataProcess()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
 

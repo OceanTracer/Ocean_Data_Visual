@@ -26,40 +26,31 @@ namespace Data_Visual
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.Hide();
-                welcome fwel = new welcome();
-                fwel.ShowDialog();
-                //this.Close();
-                //this.Owner.Show();
-            }
-            catch (Exception) { }
+            Close();
+            Dispose();
+            welcome fwel = new welcome();
+            fwel.ShowDialog();
         }
 
-        private void labelSearch_Click(object sender, EventArgs e)
+        Option f_vis = new Data_Visual.Option();    //只执行一次，避免内存泄漏
+        private void labelVisual_Click(object sender, EventArgs e)
         {
-            /*  精准查询 f5 = new 精准查询();
-             f5.Owner = this;
-             Hide();
-             f5.ShowDialog();*/
-            Data_Visual.Option form = new Data_Visual.Option();
-            form.Owner = this;
+            f_vis.Owner = this;
             Hide();
-            form.ShowDialog();
+            f_vis.ShowDialog();
         }
 
+        科普界面new f_sci = new 科普界面new();
         private void labelSelect_Click(object sender, EventArgs e)
         {
-            科普界面new f1 = new 科普界面new();
-            f1.Owner = this;
+            f_sci.Owner = this;
             Hide();
-            f1.ShowDialog();
+            f_sci.ShowDialog();
         }
 
+        用户中心 f_user = new 用户中心();
         private void labelUserC_Click(object sender, EventArgs e)
         {
-            用户中心 f_user = new 用户中心();
             f_user.Owner = this;
             Hide();
             f_user.ShowDialog();
@@ -108,7 +99,6 @@ namespace Data_Visual
         private void 用户主页_Load(object sender, EventArgs e)
         {
             UserStatus.status = 1;
-            
         }
         void SectionGet()
         {
@@ -175,6 +165,5 @@ namespace Data_Visual
                 timer1.Dispose();
             }
         }
-
     }
 }

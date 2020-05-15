@@ -63,6 +63,7 @@ namespace Data_Visual
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Close();
+            Dispose();
         }
     }
 }

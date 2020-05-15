@@ -184,14 +184,15 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();  //一定要先Owner.Show()再Dispose()，否则owner属性会被释放
         }
 
+        发送帖子 fsend = new 发送帖子();
         private void buttonPost_Click(object sender, EventArgs e)
         {
             get_status();
             if(status==0||status>=7)
             {
-                发送帖子 fsend = new 发送帖子();
                 fsend.Owner = this;
                 fsend.ShowDialog();
             }

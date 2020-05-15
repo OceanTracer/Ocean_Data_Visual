@@ -14,6 +14,8 @@ namespace Data_Visual
     {
         public 厄尔尼诺专题()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
 
@@ -59,6 +61,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();
         }
     }
 }

@@ -14,12 +14,14 @@ namespace Data_Visual
     {
         public UserPageHelp()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Dispose();
         }
     }
 }

@@ -46,6 +46,8 @@ namespace Data_Visual
         #endregion
         public NinoShow()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
 
@@ -479,6 +481,7 @@ namespace Data_Visual
 
             this.Close();
             this.Owner.Show();
+            this.Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)
