@@ -27,13 +27,13 @@ namespace Data_Visual
             Close();
             System.Environment.Exit(0);
         }
+        
         public static int type = 0;
         public static string mail = "", uname = "";
-
-        //登录
         public int login(string email, string password, ref int type)
         {
             /*检查用户是否被禁用*/
+            mydataset.Tables.Clear();
             mysql = "select enabled from user_info where umail='" + email + "'";
             try
             {
@@ -55,7 +55,7 @@ namespace Data_Visual
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
                 myadapter.Fill(mydataset, "_email");
                 string pass = Convert.ToString(mydataset.Tables["_email"].Rows[0][0]);
-                type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);  //用户类型
+                type = Convert.ToInt32(mydataset.Tables["_email"].Rows[0][1]);  //用户等级
                 uname = Convert.ToString(mydataset.Tables["_email"].Rows[0][2]);
                 if (password == pass)
                     return 0;   //成功登录
@@ -65,10 +65,8 @@ namespace Data_Visual
             catch (Exception)
             {
                 return 3;
-            }
-            
+            } 
         }
-        
        
         private void LoginButton_Click(object sender, EventArgs e)
         {
@@ -103,11 +101,6 @@ namespace Data_Visual
                     }
                 }
             }
-        }
-
-        private void 登录界面_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)

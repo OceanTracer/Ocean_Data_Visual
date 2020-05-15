@@ -47,10 +47,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("张海山锐线体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(702, 447);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(936, 559);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 22);
+            this.label2.Size = new System.Drawing.Size(206, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "看到未知的海洋。";
             // 
@@ -60,10 +59,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("张海山锐线体简", 23.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(533, 396);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(711, 495);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 37);
+            this.label1.Size = new System.Drawing.Size(389, 46);
             this.label1.TabIndex = 2;
             this.label1.Text = "To the Infinite Ocean.";
             // 
@@ -73,31 +71,30 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("张海山锐线体简", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(45, 137);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(60, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 38);
+            this.label3.Size = new System.Drawing.Size(220, 47);
             this.label3.TabIndex = 4;
             this.label3.Text = "海的追溯人";
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(103, 295);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Location = new System.Drawing.Point(137, 369);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(120, 21);
+            this.textBox2.Size = new System.Drawing.Size(159, 24);
             this.textBox2.TabIndex = 20;
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(103, 257);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(137, 321);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 21);
+            this.textBox1.Size = new System.Drawing.Size(159, 24);
             this.textBox1.TabIndex = 19;
             // 
             // label4
@@ -106,10 +103,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(49, 257);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(65, 321);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
+            this.label4.Size = new System.Drawing.Size(50, 24);
             this.label4.TabIndex = 21;
             this.label4.Text = "邮箱";
             // 
@@ -119,10 +115,9 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(49, 296);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(65, 370);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 20);
+            this.label5.Size = new System.Drawing.Size(50, 24);
             this.label5.TabIndex = 22;
             this.label5.Text = "密码";
             // 
@@ -133,10 +128,9 @@
             this.ExitLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ExitLabel.Location = new System.Drawing.Point(770, 27);
-            this.ExitLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ExitLabel.Location = new System.Drawing.Point(1027, 34);
             this.ExitLabel.Name = "ExitLabel";
-            this.ExitLabel.Size = new System.Drawing.Size(60, 26);
+            this.ExitLabel.Size = new System.Drawing.Size(77, 32);
             this.ExitLabel.TabIndex = 23;
             this.ExitLabel.Text = "EXIT";
             this.ExitLabel.Click += new System.EventHandler(this.label6_Click);
@@ -148,10 +142,10 @@
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LoginButton.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LoginButton.ForeColor = System.Drawing.Color.Transparent;
-            this.LoginButton.Location = new System.Drawing.Point(53, 345);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
+            this.LoginButton.Location = new System.Drawing.Point(71, 431);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(169, 49);
+            this.LoginButton.Size = new System.Drawing.Size(225, 61);
             this.LoginButton.TabIndex = 24;
             this.LoginButton.Text = "登录";
             this.LoginButton.UseVisualStyleBackColor = false;
@@ -163,20 +157,19 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("张海山锐线体简", 23.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(116, 185);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(155, 231);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(198, 37);
+            this.label6.Size = new System.Drawing.Size(245, 46);
             this.label6.TabIndex = 25;
             this.label6.Text = "Ocean Tracer";
             // 
             // 登录界面
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Data_Visual.Properties.Resources.ocean_concept_e1552645652183;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(858, 478);
+            this.ClientSize = new System.Drawing.Size(1144, 598);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.ExitLabel);
@@ -189,11 +182,10 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "登录界面";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登录界面";
-            this.Load += new System.EventHandler(this.登录界面_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
