@@ -33,7 +33,7 @@ namespace Data_Visual
         {
             科普管理 f1=new 科普管理();
             f1.Owner = this;
-            Hide();
+            //Hide();
             f1.ShowDialog();
         }
 
@@ -41,7 +41,7 @@ namespace Data_Visual
         {           
             Option f2 = new Option();
             f2.Owner = this;
-            Hide();
+            //Hide();
             f2.ShowDialog();
         }
 
@@ -49,7 +49,7 @@ namespace Data_Visual
         {               
             用户信息 f3 = new 用户信息();
             f3.Owner = this;
-            Hide();
+            //Hide();
             f3.ShowDialog();
         }
 

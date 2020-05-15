@@ -124,7 +124,7 @@ namespace Data_Visual
         private void ReplyReport_Click(object sender, EventArgs e)
         {
             get_status();
-            if (status < 7)
+            if (status < 7 && status>0)
             {
                 MessageBox.Show("您的等级不足7级，请继续加油！");
                 return;
@@ -152,12 +152,13 @@ namespace Data_Visual
                 MessageBox.Show(ex.ToString());
             }
             myconn.Close();
+
         }
 
         private void PostReport_Click(object sender, EventArgs e)
         {
             get_status();
-            if (status < 7)
+            if (status < 7 && status>0)
             {
                 MessageBox.Show("您的等级不足7级，请继续加油！");
                 return;
@@ -187,12 +188,11 @@ namespace Data_Visual
         private void button1_Click(object sender, EventArgs e)
         {
             get_status();
-            if (status < 5)
+            if (status>0 && status <5)
             {
                 MessageBox.Show("您的等级不足5级，请继续加油！");
                 return;
             }
-
             if (richTextBox2.Text == "")
             {
                 MessageBox.Show("请输入回复内容！", "Ocean");

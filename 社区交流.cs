@@ -49,7 +49,7 @@ namespace Data_Visual
             status = Convert.ToInt32(mydataset.Tables["status"].Rows[0][0]);
 
         }
-
+        
         private void FetchPosts(int section, int page)
         {
             SqlCommand mycmd = new SqlCommand("fetchPosts", myconn);   //利用数据库的存储过程实现
@@ -189,14 +189,18 @@ namespace Data_Visual
         private void buttonPost_Click(object sender, EventArgs e)
         {
             get_status();
-            if (status < 7)
+            if(status==0||status>=7)
+            {
+                发送帖子 fsend = new 发送帖子();
+                fsend.Owner = this;
+                fsend.ShowDialog();
+            }
+            else
             {
                 MessageBox.Show("您的等级不足7级，请继续加油！");
                 return;
             }
-            发送帖子 fsend = new 发送帖子();
-            fsend.Owner = this;
-            fsend.ShowDialog();
+
         }
 
     }
