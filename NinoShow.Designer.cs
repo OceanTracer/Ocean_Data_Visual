@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NinoShow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.finalBox = new System.Windows.Forms.GroupBox();
@@ -414,9 +415,10 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NinoShow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NinoShow";
+            this.Text = "Nino区指数查询结果";
             this.Load += new System.EventHandler(this.NinoShow_Load);
             this.Shown += new System.EventHandler(this.NinoShow_Shown);
             this.panel1.ResumeLayout(false);

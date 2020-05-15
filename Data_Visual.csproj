@@ -82,6 +82,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>oticon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="anormaly_grid_plot">
       <HintPath>C:\Users\Lenovo\Desktop\package\anormaly_grid_plot\for_redistribution_files_only\anormaly_grid_plot.dll</HintPath>
@@ -636,6 +639,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\x64\Debug\pic\logo_white_op10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x64\Debug\pic\logo_black_op20.png" />
+    <Content Include="oticon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(用户中心));
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
@@ -699,10 +700,11 @@
             this.Controls.Add(this.shapeContainer1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "用户中心";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = " ";
+            this.Text = " 用户中心";
             this.Load += new System.EventHandler(this.用户中心_Load);
             this.panel1.ResumeLayout(false);
             this.InfoGroupBox.ResumeLayout(false);

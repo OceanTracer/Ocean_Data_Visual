@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GridShow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -354,9 +355,10 @@
             this.ClientSize = new System.Drawing.Size(1268, 634);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GridShow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GridShow";
+            this.Text = "经纬剖面查询结果";
             this.Load += new System.EventHandler(this.GridShow_Load);
             this.Shown += new System.EventHandler(this.GridShow_Shown);
             this.panel1.ResumeLayout(false);

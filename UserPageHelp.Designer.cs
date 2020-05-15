@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserPageHelp));
             this.label6 = new System.Windows.Forms.Label();
             this.runlabel = new System.Windows.Forms.Label();
             this.RecordLabel = new System.Windows.Forms.Label();
@@ -185,6 +186,7 @@
             // 
             this.richTextBox3.BackColor = System.Drawing.Color.White;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox3.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox3.Location = new System.Drawing.Point(356, 92);
             this.richTextBox3.Name = "richTextBox3";
@@ -197,6 +199,7 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.White;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox2.Font = new System.Drawing.Font("苹方 常规", 11.95F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox2.Location = new System.Drawing.Point(22, 57);
             this.richTextBox2.Name = "richTextBox2";
@@ -209,6 +212,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox1.Font = new System.Drawing.Font("苹方 常规", 11.95F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.Location = new System.Drawing.Point(356, 57);
             this.richTextBox1.Name = "richTextBox1";
@@ -221,6 +225,7 @@
             // 
             this.richTextBox4.BackColor = System.Drawing.Color.White;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox4.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox4.Font = new System.Drawing.Font("苹方 常规", 11.95F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox4.Location = new System.Drawing.Point(613, 57);
             this.richTextBox4.Name = "richTextBox4";
@@ -233,6 +238,7 @@
             // 
             this.richTextBox5.BackColor = System.Drawing.Color.White;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox5.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox5.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox5.Location = new System.Drawing.Point(613, 92);
             this.richTextBox5.Name = "richTextBox5";
@@ -245,6 +251,7 @@
             // 
             this.richTextBox6.BackColor = System.Drawing.Color.White;
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox6.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox6.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox6.Location = new System.Drawing.Point(356, 227);
             this.richTextBox6.Name = "richTextBox6";
@@ -258,6 +265,7 @@
             // 
             this.richTextBox7.BackColor = System.Drawing.Color.White;
             this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox7.Cursor = System.Windows.Forms.Cursors.Default;
             this.richTextBox7.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox7.Location = new System.Drawing.Point(235, 420);
             this.richTextBox7.Name = "richTextBox7";
@@ -316,9 +324,10 @@
             this.Controls.Add(this.MyFav);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserPageHelp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "UserPageHelp";
+            this.Text = "用户主页帮助";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

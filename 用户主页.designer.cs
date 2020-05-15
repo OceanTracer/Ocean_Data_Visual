@@ -175,10 +175,11 @@
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "用户主页";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "求职者主页";
+            this.Text = "用户主页";
             this.Load += new System.EventHandler(this.用户主页_Load);
             this.Shown += new System.EventHandler(this.用户主页_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

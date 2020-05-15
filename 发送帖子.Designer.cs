@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(发送帖子));
             this.richTextBoxTitle = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.richTextBoxTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxTitle.Font = new System.Drawing.Font("张海山锐线体简", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBoxTitle.Location = new System.Drawing.Point(99, 92);
-            this.richTextBoxTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBoxTitle.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBoxTitle.Name = "richTextBoxTitle";
             this.richTextBoxTitle.Size = new System.Drawing.Size(348, 32);
             this.richTextBoxTitle.TabIndex = 0;
@@ -78,7 +79,7 @@
             this.richTextBoxContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxContent.Font = new System.Drawing.Font("张海山锐线体简", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBoxContent.Location = new System.Drawing.Point(99, 137);
-            this.richTextBoxContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBoxContent.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBoxContent.Name = "richTextBoxContent";
             this.richTextBoxContent.Size = new System.Drawing.Size(348, 178);
             this.richTextBoxContent.TabIndex = 3;
@@ -107,7 +108,7 @@
             "交流杂谈",
             "版务意见"});
             this.cbSection.Location = new System.Drawing.Point(99, 53);
-            this.cbSection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSection.Margin = new System.Windows.Forms.Padding(2);
             this.cbSection.Name = "cbSection";
             this.cbSection.Size = new System.Drawing.Size(92, 25);
             this.cbSection.TabIndex = 5;
@@ -119,7 +120,7 @@
             this.buttonLaunch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLaunch.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonLaunch.Location = new System.Drawing.Point(482, 214);
-            this.buttonLaunch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLaunch.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLaunch.Name = "buttonLaunch";
             this.buttonLaunch.Size = new System.Drawing.Size(88, 35);
             this.buttonLaunch.TabIndex = 6;
@@ -133,7 +134,7 @@
             this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCancel.Font = new System.Drawing.Font("张海山锐线体简", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonCancel.Location = new System.Drawing.Point(482, 279);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(88, 35);
             this.buttonCancel.TabIndex = 7;
@@ -158,7 +159,8 @@
             this.Controls.Add(this.richTextBoxTitle);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "发送帖子";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "发送帖子";

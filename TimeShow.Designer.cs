@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeShow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.button7 = new System.Windows.Forms.Button();
@@ -326,9 +327,10 @@
             this.ClientSize = new System.Drawing.Size(1268, 634);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TimeShow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TimeShow";
+            this.Text = "时间序列查询结果";
             this.Load += new System.EventHandler(this.TimeShow_Load);
             this.Shown += new System.EventHandler(this.TimeShow_Shown);
             this.panel1.ResumeLayout(false);

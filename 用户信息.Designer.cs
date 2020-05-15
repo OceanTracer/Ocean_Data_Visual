@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(用户信息));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -57,6 +58,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.定义 = new System.Windows.Forms.Label();
@@ -70,10 +73,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.NoticeBox = new System.Windows.Forms.GroupBox();
             this.ReportBox = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button12 = new System.Windows.Forms.Button();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -430,6 +431,32 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "举报受理";
             // 
+            // richTextBox5
+            // 
+            this.richTextBox5.BackColor = System.Drawing.Color.White;
+            this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox5.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBox5.Location = new System.Drawing.Point(23, 159);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.ReadOnly = true;
+            this.richTextBox5.Size = new System.Drawing.Size(244, 146);
+            this.richTextBox5.TabIndex = 64;
+            this.richTextBox5.Text = "您只需通过点击”帖子举报记录“与”回复举报记录“即可切换举报记录类型，在右侧选中举报记录，点击”处理选中举报记录“即可删除被举报帖子/回复，并标记该举报记录为已处" +
+    "理";
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.White;
+            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button12.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button12.Location = new System.Drawing.Point(23, 98);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(244, 34);
+            this.button12.TabIndex = 50;
+            this.button12.Text = "处理选中举报记录";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.White;
@@ -605,6 +632,20 @@
             this.ReportBox.TabIndex = 48;
             this.ReportBox.TabStop = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.Color.Gray;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("苹方 常规", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(752, 325);
+            this.dataGridView1.TabIndex = 45;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -619,46 +660,6 @@
             this.label14.TabIndex = 44;
             this.label14.Text = "举报记录：";
             this.label14.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("苹方 常规", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(752, 325);
-            this.dataGridView1.TabIndex = 45;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.White;
-            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button12.Font = new System.Drawing.Font("张海山锐线体简", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button12.Location = new System.Drawing.Point(23, 98);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(244, 34);
-            this.button12.TabIndex = 50;
-            this.button12.Text = "处理选中举报记录";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // richTextBox5
-            // 
-            this.richTextBox5.BackColor = System.Drawing.Color.White;
-            this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox5.Font = new System.Drawing.Font("苹方 常规", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox5.Location = new System.Drawing.Point(23, 159);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.ReadOnly = true;
-            this.richTextBox5.Size = new System.Drawing.Size(244, 146);
-            this.richTextBox5.TabIndex = 64;
-            this.richTextBox5.Text = "您只需通过点击”帖子举报记录“与”回复举报记录“即可切换举报记录类型，在右侧选中举报记录，点击”处理选中举报记录“即可删除被举报帖子/回复，并标记该举报记录为已处" +
-    "理";
             // 
             // 用户信息
             // 
@@ -678,6 +679,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.NoticeBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "用户信息";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户信息";

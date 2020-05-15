@@ -203,6 +203,16 @@ namespace Data_Visual.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap logo_black_op20 {
+            get {
+                object obj = ResourceManager.GetObject("logo_black_op20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap logo_white_op10 {
             get {
                 object obj = ResourceManager.GetObject("logo_white_op10", resourceCulture);
