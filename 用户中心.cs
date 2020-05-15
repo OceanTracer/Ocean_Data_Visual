@@ -273,7 +273,7 @@ namespace Data_Visual
             /*选择头像并在本地显示*/
             OpenFileDialog opdia = new OpenFileDialog();
             opdia.Title = "上传头像";
-            opdia.Filter = "图片|*.jpg|*.png|*.bmp";
+            opdia.Filter = "图像文件|*.png;*.jpg;*.bmp";
             if (opdia.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = opdia.FileName;
@@ -281,6 +281,12 @@ namespace Data_Visual
             ovalShape1.BackgroundImage = portrait;
             /*上传数据库*/
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            if (fs.Length > 1024 * 1024)
+            {
+                MessageBox.Show("您选择的图片过大！请选择小于1M的图片。", "Ocean");
+                fs.Dispose();
+                return;
+            }
             Byte[] bytes = new byte[fs.Length];
             fs.Read(bytes, 0, Convert.ToInt32(fs.Length));
             fs.Close();

@@ -120,10 +120,18 @@ namespace Data_Visual
         {
             OpenFileDialog opdia = new OpenFileDialog();
             opdia.Title = "请选择图像";
-            opdia.Filter = "图片|*.jpg|*.png|*.bmp";
+            opdia.Filter = "图像文件|*.png;*.jpg;*.bmp";
             if (opdia.ShowDialog() == DialogResult.OK)
             {
                 filename_img = opdia.FileName;
+                FileStream fs = new FileStream(filename_img, FileMode.Open, FileAccess.Read);
+                if (fs.Length > 1024 * 1024)
+                {
+                    MessageBox.Show("您选择的图片过大！请选择小于1MB的图片。", "Ocean");
+                    fs.Dispose();
+                    return;
+                }
+                fs.Dispose();
                 pictureBox1.Load(filename_img);
                 inopen = 1;
             }                          
@@ -263,8 +271,7 @@ namespace Data_Visual
         private void button6_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
-            file.Multiselect = true;
-            file.Filter = "图像文件|*.png;*.jpg";
+            file.Filter = "图像文件|*.png;*.jpg;*.bmp";
 
             string filename;
 
@@ -272,15 +279,18 @@ namespace Data_Visual
             {
                 try
                 {
-                    foreach (string this_file in file.FileNames)
+                    filename_img = file.FileName;
+                    FileStream fs = new FileStream(filename_img, FileMode.Open, FileAccess.Read);
+                    if (fs.Length > 1024 * 1024)
                     {
-                        filename_img = file.FileName;
-                        filename = filename_img.Substring(filename_img.LastIndexOf("\\") + 1);//去掉了路径
-                        pictureBox2.Image = Image.FromFile(filename_img);
-                        //Console.WriteLine(pathName + '\\' + fileName+".nc");
-                        inopen = 1;
+                        MessageBox.Show("您选择的图片过大！请选择小于1MB的图片。", "Ocean");
+                        fs.Dispose();
+                        return;
                     }
-
+                    fs.Dispose();
+                    filename = filename_img.Substring(filename_img.LastIndexOf("\\") + 1);//去掉了路径
+                    pictureBox2.Image = Image.FromFile(filename_img);
+                    inopen = 1;
                 }
                 catch (Exception ex)
                 {
@@ -292,7 +302,6 @@ namespace Data_Visual
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
-            file.Multiselect = true;
             file.Filter = "文本文件|*.txt";
 
             string strpath;
@@ -302,14 +311,10 @@ namespace Data_Visual
             {
                 try
                 {
-                    foreach (string this_file in file.FileNames)
-                    {
-                        strpath = file.FileName;
-                        filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
-                        TXT_read2(strpath);
-                       // richTextBox2.Text = TXT_read(strpath);
-                    }
 
+                    strpath = file.FileName;
+                    filename = strpath.Substring(strpath.LastIndexOf("\\") + 1);//去掉了路径
+                    TXT_read2(strpath);
                 }
                 catch (Exception ex)
                 {

@@ -39,10 +39,18 @@ namespace Data_Visual
         {
             OpenFileDialog opdia = new OpenFileDialog();
             opdia.Title = "请选择图像";
-            opdia.Filter = "图片|*.jpg|*.png|*.bmp";
+            opdia.Filter = "图像文件|*.png;*.jpg;*.bmp";
             if (opdia.ShowDialog() == DialogResult.Cancel)
                 return;
             imagefile = opdia.FileName;
+            FileStream fs = new FileStream(imagefile, FileMode.Open, FileAccess.Read);
+            if (fs.Length > 1024 * 1024)
+            {
+                MessageBox.Show("您选择的图片过大！请选择小于1M的图片。", "Ocean");
+                fs.Dispose();
+                return;
+            }
+            fs.Dispose();
             label1.Visible = false;
             label1.Enabled = false;
             skinPictureBox1.Load(imagefile);
@@ -66,9 +74,15 @@ namespace Data_Visual
             Close();
         }
 
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            label2.Visible = false;
+            label2.Enabled = false;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if(imagefile=="" || textfile=="")
+            if(imagefile=="" || richTextBox1.Text == "")
             {
                 MessageBox.Show("请先选择图像与本文", "Ocean");
                 return;
@@ -91,7 +105,7 @@ namespace Data_Visual
 
                 int res = cmd.ExecuteNonQuery();
                 if (res > 0)
-                    MessageBox.Show("上传成功！", "Ocean");
+                    MessageBox.Show("上传成功！已移交管理员审核。", "Ocean");
                 myconn.Close();
             }
             catch(Exception ex)
