@@ -523,7 +523,7 @@ namespace Data_Visual
         {
             //查看审核时，可以选择封禁用户、删除帖子/回复
             //如 DisableUser(reported); DeletePost(post_id); DeleteReply(rep_id)
-            string id, reporter, reported, post_id, rep_id, content, reason, time;
+            //string id, reporter, reported, post_id, rep_id, content, reason, time;
             
             if (type == 0)
             {
@@ -599,7 +599,7 @@ namespace Data_Visual
         /// 删除指定id的回复
         private void DeleteReply(string rep_id)
         {
-            mysql = "update posts set post_deleted='Y' where post_id=" + rep_id;
+            mysql = "update replies set rep_deleted='Y' where rep_id=" + rep_id;
             SqlCommand mycmd = new SqlCommand(mysql, myconn);
             myconn.Open();
             try

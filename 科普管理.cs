@@ -609,7 +609,7 @@ namespace Data_Visual
                     MessageBox.Show("DataTable为空，请先导入数据");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("格式错误！请重新导入");
             }

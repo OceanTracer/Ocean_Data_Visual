@@ -255,27 +255,24 @@ namespace Data_Visual
         }
         void FigureClose()
         {
-            int flag = 0;
+            //int flag = 0;
             if(startload != null)
                 startload.Abort();
             if (figure1 != IntPtr.Zero && IsWindow(figure1))
             {
-                flag = 1;
+                //flag = 1;
                 SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
                 // MessageBox.Show("我应该关了");
-
             }
             else
             {
                 figure1 = IntPtr.Zero;
                 // MessageBox.Show("没找到这个窗口");
             }
-
             //if (flag == 1 && IsWindow(figure1))
             //{
             //    MessageBox.Show("窗口未关闭");
             //}
-
         }
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
