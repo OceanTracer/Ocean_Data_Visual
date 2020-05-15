@@ -501,6 +501,7 @@ namespace Data_Visual
         {
             label12.Visible = true;
             listView4.Visible = true;
+            dataGridView1.Visible = false;
             Notice_Update();
             ReportBox.SendToBack();
             NoticeBox.BringToFront();
@@ -528,8 +529,8 @@ namespace Data_Visual
                 //举报id，举报者，被举报者，帖子id，帖子标题，举报原因，举报时间
                 //可以将(report_id,reported,post_id)暂存或用特殊方式标记，便于后续删除/封禁/审核操作，
                 //将(reporter,reported,post_title,report_reason,report_time)展示在前台以审阅 下同
-                mysql = @"select report_id, reporter, reported, post_id, post_title, report_reason, report_time from report, posts
-                          where report_type='post' and reviewed=" + (reviewed ?"'Y'":"'N'")+" and report.content_id=posts.post_id" +
+                mysql = @"select report_id, reporter, reported, post_id, post_title, report_reason, report_time, reviewed from report, posts
+                          where report_type='post' "+" and report.content_id=posts.post_id" +
                           " order by report_time desc";
                 //Console.WriteLine(mysql);
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
@@ -541,8 +542,8 @@ namespace Data_Visual
             else if (type == 1)
             {
                 //举报id，举报者，被举报者，回复id，回复内容，举报原因，举报时间
-                mysql = @"select report_id, reporter, reported, rep_id, rep_content, report_reason, report_time from report, replies
-                          where report_type='reply' and reviewed=" + (reviewed ? "'Y'" : "'N'") + " and report.content_id=replies.rep_id" +
+                mysql = @"select report_id, reporter, reported, rep_id, rep_content, report_reason, report_time, reviewed from report, replies
+                          where report_type='reply' " + " and report.content_id=replies.rep_id" +
                           " order by report_time desc";
                 Console.WriteLine(mysql);
                 SqlDataAdapter myadapter = new SqlDataAdapter(mysql, myconn);
@@ -621,47 +622,50 @@ namespace Data_Visual
         void ReportListRefresh(int type)
         {
             SelectReports(type, false);
-            listView5.Clear();
-            listView5.Columns.Clear();
-            listView5.Columns.Add("举报id", 120);
-            listView5.Columns.Add("举报用户", 120);
-            listView5.Columns.Add("被举报用户", 120);
-            if (type == 0)
-            {
-                listView5.Columns.Add("帖子id", 120);
-                listView5.Columns.Add("帖子标题", 200);
-            }
-            else if (type == 1)
-            {
-                listView5.Columns.Add("回复id", 120);
-                listView5.Columns.Add("回复标题", 200);
-            }
-            listView5.Columns.Add("举报原因", 250);
-            listView5.Columns.Add("举报时间", 120);
-            for (int i = 0; i < mydataset.Tables["report"].Rows.Count; i++)
-            {
-                //MessageBox.Show(i.ToString());
-                ListViewItem It = new ListViewItem();
-                It.Text = mydataset.Tables["report"].Rows[i][0].ToString();
-                for (int j = 1; j < mydataset.Tables["report"].Columns.Count; j++)
-                {
-                    //if (j==3)
-                    //    MessageBox.Show(mydataset.Tables["report"].Rows[i][j].ToString());
-                    It.SubItems.Add(mydataset.Tables["report"].Rows[i][j].ToString());
-                }
+            DataTable dt = new DataTable();
+            dt = mydataset.Tables["report"];
 
-                listView5.Items.Add(It);
-                //MessageBox.Show(It.SubItems[3].Text);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i][7].ToString() == "Y")
+                    dt.Rows[i][7] = "已处理";
+                else
+                    dt.Rows[i][7] = "未处理";
             }
-            this.listView5.View = System.Windows.Forms.View.Details;
-            label14.Visible = true;
-            listView5.Visible = true;
+
+            BindingSource bind = new BindingSource();
+            bind.DataSource = dt;
+            dataGridView1.DataSource = bind;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+
+            dataGridView1.ColumnHeadersVisible = true;
+            dataGridView1.Columns[0].HeaderText = "举报ID";
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].HeaderText = "举报用户";
+            dataGridView1.Columns[2].HeaderText = "被举报用户";
+
+            if(type == 0)
+            {
+                dataGridView1.Columns[3].HeaderText = "帖子ID";
+                dataGridView1.Columns[4].HeaderText = "帖子标题";
+            }
+            else
+            {
+                dataGridView1.Columns[3].HeaderText = "回复ID";
+                dataGridView1.Columns[4].HeaderText = "回复标题";
+            }
+            dataGridView1.Columns[3].Width = 60;
+            dataGridView1.Columns[5].HeaderText = "举报原因";
+            dataGridView1.Columns[6].HeaderText = "举报时间";
+            dataGridView1.Columns[7].HeaderText = "处理状态";
         }
         private void button7_Click(object sender, EventArgs e)
         {
             //举报id，举报者，被举报者，帖子id，帖子标题，举报原因，举报时间
             NoticeBox.SendToBack();
             ReportBox.BringToFront();
+            label14.Visible = true;
+            dataGridView1.Visible = true;
             ReportListRefresh(0);
             report_state = 0;//帖子
         }
@@ -672,66 +676,31 @@ namespace Data_Visual
             ReportBox.BringToFront();
             //举报id，举报者，被举报者，回复id，回复内容，举报原因，举报时间
             ReportListRefresh(1);
+            label14.Visible = true;
+            dataGridView1.Visible = true;
             report_state = 1; //回复
         }
         int report_state = 0;
-        private void button9_Click(object sender, EventArgs e)
+
+        private void button12_Click(object sender, EventArgs e)
         {
-            if (textBox4.Text.Trim() =="")
-                MessageBox.Show("请输入举报记录ID");
+            if (dataGridView1.CurrentRow == null)
+                MessageBox.Show("请选中要通过处理的举报记录");
             else
             {
                 try
                 {
-                    ReviewReport(textBox4.Text);
+                    if (report_state == 0)
+                    {
+                        DeletePost(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString());
+                    }
+                    else if (report_state == 1)
+                    {
+                        DeleteReply(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString());
+                    }
+                    ReviewReport(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString());
                     MessageBox.Show("已处理该条举报记录");
                     ReportListRefresh(report_state);
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            if (textBox5.Text.Trim() == "")
-                MessageBox.Show("请输入待删除的帖子ID");
-            else
-            {
-                try
-                {
-                    DialogResult dr = MessageBox.Show("将删除ID为\t" + textBox5.Text + "\t的帖子", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr == DialogResult.OK)
-                    {
-                        DeletePost(textBox5.Text);
-                        //MessageBox.Show("已删除该条帖子");
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            if (textBox6.Text.Trim() == "")
-                MessageBox.Show("请输入待删除的回复ID");
-            else
-            {
-                try
-                {
-                    DialogResult dr = MessageBox.Show("将删除ID为\t" + textBox6.Text + "\t的回复", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr == DialogResult.OK)
-                    {
-                        DeletePost(textBox5.Text);
-                        //MessageBox.Show("已删除该条回复");
-                    }
-
                 }
                 catch (Exception ex)
                 {

@@ -612,7 +612,7 @@ namespace Data_Visual
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("格式错误！请重新导入");
             }
         }
     }
