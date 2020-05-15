@@ -228,7 +228,7 @@
             this.richTextBox5.ReadOnly = true;
             this.richTextBox5.Size = new System.Drawing.Size(514, 31);
             this.richTextBox5.TabIndex = 51;
-            this.richTextBox5.Text = "您可以按照需求选择不同的可视化，如果有任何问题可以在问答模块中询问管理员。";
+            this.richTextBox5.Text = "您可以按照需求选择不同的可视化，如果有任何问题可以在社区发帖询问管理员。";
             // 
             // pictureBox3
             // 

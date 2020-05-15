@@ -145,5 +145,6 @@ namespace Data_Visual
             Hide();
             f4.ShowDialog();
         }
+
     }
 }

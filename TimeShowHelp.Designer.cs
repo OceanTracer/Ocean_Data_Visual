@@ -200,7 +200,7 @@
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(357, 50);
             this.richTextBox1.TabIndex = 34;
-            this.richTextBox1.Text = "您可以按照需求进行不同方向的数据分析，\n如果有任何问题可以在问答模块中询问管理员。";
+            this.richTextBox1.Text = "您可以按照需求进行不同方向的数据分析，\n如果有任何问题可以在社区发帖询问管理员。";
             // 
             // pictureBox1
             // 
