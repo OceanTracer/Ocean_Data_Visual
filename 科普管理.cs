@@ -17,6 +17,8 @@ namespace Data_Visual
     {
         public 科普管理()
         {
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
         SqlConnection myconn = new SqlConnection(@"Data Source=" + sql_source.dt_source + " ; Initial Catalog=OT_user;User ID=sa;Password=Cptbtptp123");
@@ -255,6 +257,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -331,7 +334,6 @@ namespace Data_Visual
                     {
                         myconn.Open();
                         string cmdText = "insert into collect_info values('"+id.ToString()+"','" + richTextBox2.Text + "', @imgfile,'" + 登录界面.mail + "','Y')";
-                        //string cmdText = "insert into collect_info values('" + richTextBox1.Text + "', @imgfile, null)";
                         SqlCommand cmd = new SqlCommand(cmdText, myconn);
                         SqlParameter para = new SqlParameter("@imgfile", SqlDbType.Image);
                         para.Value = bytes;
@@ -353,10 +355,6 @@ namespace Data_Visual
                 pictureBox2.Image = null;
                 richTextBox2.Text = "";
             }
-            else
-            {
-                //
-            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -368,13 +366,9 @@ namespace Data_Visual
                 mysql = "delete from collect_info where collect_num = '" + to_delete + "'";
                 SqlCommand mycmd1 = new SqlCommand(mysql, myconn);
 
-                string mysql1 = "delete from collect where collect_num = '" + to_delete + "'";
-                SqlCommand mycmd2 = new SqlCommand(mysql1, myconn);
-
                 myconn.Open();
                 {
                     mycmd1.ExecuteNonQuery();//删除收藏
-                    mycmd2.ExecuteNonQuery();//删除该收藏的收藏记录
                 }
                 myconn.Close();
 

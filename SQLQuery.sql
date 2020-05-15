@@ -146,11 +146,11 @@ insert into posts VALUES('0508@test.com','TESTPOST8','content',GETDATE(),default
 insert into posts VALUES('0508@test.com','TESTPOST9','content',GETDATE(),default,4,default)
 insert into posts VALUES('0508@test.com','有人在吗','我新来的',GETDATE(),default,3,default)
 
-insert into replies VALUES('admin@1.com',1,'Hi there',GETDATE(),default)
-insert into replies VALUES('admin@1.com',1,'I am your admin',GETDATE(),default)
-insert into replies VALUES('admin@1.com',1,'Have a good day',GETDATE(),default)
-insert into replies VALUES('0508@test.com',1,'Hello',GETDATE(),default)
-insert into replies VALUES('0508@test.com',1,'I ''m new here',GETDATE(),default)
+insert into replies VALUES('admin@1.com',1,'Hi there',DATEADD(day,-1,GETDATE()),default)
+insert into replies VALUES('admin@1.com',1,'I am your admin',DATEADD(day,-1,GETDATE()),default)
+insert into replies VALUES('admin@1.com',1,'Have a good day',DATEADD(day,-1,GETDATE()),default)
+insert into replies VALUES('0508@test.com',1,'Hello',DATEADD(day,-1,GETDATE()),default)
+insert into replies VALUES('0508@test.com',1,'I ''m new here',DATEADD(day,-1,GETDATE()),default)
 insert into replies VALUES('user@test.com',1,'test',GETDATE(),default)
 insert into replies VALUES('1@qq.com',2,'Hey there',GETDATE(),default)
 insert into replies VALUES('admin@1.com',3,'Hello there',GETDATE(),default)
@@ -182,10 +182,21 @@ ORDER BY report_time DESC
 
 GO
 
-DROP TABLE replies
-TRUNCATE TABLE posts
-GO
 
+
+/*删除科普时删除对应的收藏*/
+CREATE TRIGGER deleteCollect
+ON collect_info
+INSTEAD OF DELETE
+AS
+	DECLARE @collect_num INT
+	SELECT @collect_num=collect_num FROM deleted
+	DELETE FROM collect WHERE collect_num=@collect_num
+	DELETE FROM collect_info WHERE collect_num=@collect_num
+GO
+--测试
+DELETE FROM collect_info WHERE collect_num=11
+GO
 
 /*发帖时增加经验*/
 CREATE TRIGGER postExp
@@ -263,6 +274,16 @@ AS
 	UPDATE posts SET post_repcnt=post_repcnt+1 WHERE post_id=@post_id
 GO
 
+/*删除回复时更新被回复贴的回复总数*/
+CREATE TRIGGER deleteReply
+ON replies
+AFTER DELETE
+AS
+	DECLARE @post_id INT
+	SELECT @post_id=post_id FROM deleted i
+	UPDATE posts SET post_repcnt=post_repcnt-1 WHERE post_id=@post_id
+GO
+
 
 /*获取指定页数的帖子*/
 CREATE PROC fetchPosts
@@ -283,28 +304,13 @@ EXEC fetchPosts @page_num,@page_size,@section
 GO
 
 
-/*获取指定帖子的回复
-CREATE PROC fetchReplies
-@page_num INT,		--当前页  
-@page_size INT,		--每页多少条
-@post_id SMALLINT	--帖子id
-AS  
-	SELECT uname,rep_content,rep_time
-	FROM replies,user_info
-	WHERE rep_deleted='N' and post_id=@post_id and replies.umail=user_info.umail
-	ORDER BY rep_time
-	OFFSET (@page_size*(@page_num - 1)) ROW FETCH NEXT @page_size ROWS ONLY;
-GO*/
-
-
-
 /*向所有用户群发通知*/
 CREATE PROC groupNotice
 @notice_content VARCHAR(400)
 AS
 	DECLARE @_umail VARCHAR(40)
 	DECLARE lcursor CURSOR
-	FOR (SELECT umail FROM user_info WHERE u_status=1)
+	FOR (SELECT umail FROM user_info WHERE u_status!=0)
 	OPEN lcursor
 	FETCH NEXT FROM lcursor INTO @_umail
 	WHILE @@FETCH_STATUS=0
@@ -320,3 +326,24 @@ DECLARE @notice_content VARCHAR(400)
 SELECT @notice_content='helloworld!'
 EXEC groupNotice @notice_content
 GO
+
+--0515修复数据
+INSERT INTO posts VALUES
+('0508@test.com','有人在吗','我新来的','2020/5/14 9:02:21',5,3,'Y'),
+('0508@test.com','TESTPOST9','content','2020/5/14 9:02:41',0,4,'N'),
+('0508@test.com','你要跳舞吗','你你你你要跳舞吗','2020/5/14 9:02:46',1,3,'N'),
+('0508@test.com','TESTPOST7','content','2020/5/14 9:02:50',1,2,'N'),
+('0508@test.com','TESTPOST6','content','2020/5/14 9:02:54',0,1,'Y'),
+('user@test.com','你可以在这里发帖或提问','这里是帖子的内容','2020/5/14 9:08:12',4,1,'N'),
+('0508@test.com','主要是为了测试翻页','请输入内容','2020/5/14 9:15:02',0,3,'Y'),
+('0508@test.com','主要是为了测试翻页','请输入内容','2020/5/14 9:15:08',0,3,'N'),
+('0508@test.com','主要是为了测试翻页','请输入内容','2020/5/14 9:15:10',0,3,'N'),
+('0508@test.com','主要是为了测试翻页','请输入内容','2020/5/14 9:15:14',0,3,'Y'),
+('0508@test.com','主要是为了测试翻页','请输入内容','2020/5/14 9:15:20',0,3,'N'),
+('1@qq.com','翻页成功','翻页成功','2020/5/14 9:20:21',0,4,'N'),
+('1@qq.com','科普内容测试','测试','2020/5/14 9:22:57',1,2,'Y'),
+('1@qq.com','请输入标题','请输入内容','2020/5/14 11:03:03',0,0,'Y'),
+('0508@test.com','关系型数据库确实是非常好的模型','就是有点费头发','2020/5/14 17:22:52',1,2,'N'),
+('1@qq.com','设计是不是太间约了一点','感觉白白的好空','2020/5/14 18:11:53',0,4,'N'),
+('admin@1.com','管理员发帖试一试','test1','2020/5/15 8:24:03',1,3,'N'),
+('admin@1.com','1','1','2020/5/15 8:30:05',4,3,'N')
