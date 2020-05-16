@@ -10,9 +10,7 @@ using System.Windows.Forms;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MathWorks.MATLAB.NET.Arrays;
-using series_acf_pacf;
-using series_anormal;
-using series_spectrum;
+using series_all;
 using my_sarima;
 using System.Threading;
 using System.Runtime.InteropServices;//API
@@ -59,6 +57,9 @@ namespace Data_Visual
         public delegate void UpdateUI();//委托用于更新UI
         Thread startload;//线程用于matlab窗体处理
         IntPtr figure1;//图像句柄
+        IntPtr figure2;//图像句柄
+        IntPtr figure3;//图像句柄
+        IntPtr figure4;//图像句柄
 
         /// <summary>
         /// 图像句柄调用
@@ -118,24 +119,15 @@ namespace Data_Visual
             pictureBox1.Visible = false;
 
         }
-        AnormalPlot plot_1 = new AnormalPlot();
-        SpectrumPlot plot_2 = new SpectrumPlot();
-        AcfPlot plot_3 = new AcfPlot();
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                FigureClose();
-                AnormalPlot();
-                ListViewItem res = listView2.FindItemWithText("Std", true, 0, false);
-                if (res == null)
-                {
-                    it = new ListViewItem();
-                    it.Text = "Std";
-                    it.SubItems.Add(Std.ToString());
-                    listView2.Items.Add(it);
-                }
+                SpectrumBox.SendToBack();
+                AcfBox.SendToBack();
+                SarimaBox.SendToBack();
+                AnomalyBox.BringToFront();
             }
             catch(Exception ex)
             {
@@ -143,65 +135,22 @@ namespace Data_Visual
             }
         }
         double Std = -1;
-        void AnormalPlot()
-        {
-            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
-            MWCellArray time_m = new MWCellArray(section);
-            MWArray result;
-            for (int i = 0; i < section; i++)
-            {
-                band_m[i + 1] = band[i];
-                time_m[i + 1] = time[i];
-            }
-            if (section <= 36)
-                result = plot_1.series_anormal(band_m, time_m, 1);
-            else
-                result = plot_1.series_anormal(band_m, time_m, 0);
-            var temp = result.ToString();
-            Std = Convert.ToDouble(temp);
-        }
-
-        void SpectrumPlot()
-        {
-            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
-            MWCellArray time_m = new MWCellArray(section);
-            for (int i = 0; i < section; i++)
-            {
-                band_m[i + 1] = band[i];
-                time_m[i + 1] = time[i];
-            }
-            MWArray result;
-            if (section <= 36)
-                result = plot_2.series_spectrum(band_m, time_m, 1);
-            else
-                result = plot_2.series_spectrum(band_m, time_m, 0);
-        }
-        List<double> pq = new List<double>();
-        void AcfPlot()
-        {
-            FigureClose();
-            MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
-            MWArray result;
-            for (int i = 0; i < section; i++)
-            {
-                band_m[i + 1] = band[i];
-            }
-            result = plot_3.series_acf_pacf(band_m);
-            var temp = result.ToArray();
-            foreach( var it in temp)
-            {
-                pq.Add(Convert.ToDouble(it));
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 figure1 = IntPtr.Zero;
+                figure2 = IntPtr.Zero;
+                figure3 = IntPtr.Zero;
+                figure4 = IntPtr.Zero;
                 startload = new Thread(new ThreadStart(startload_run));
                 //运行线程方法
                 startload.Start();
+                button1.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
             }
             catch(Exception ex)
             {
@@ -210,20 +159,25 @@ namespace Data_Visual
         }
         void startload_run()
         {
+
             int count50ms = 0;
             //实例化matlab对象
+
+
             //循环查找figure1窗体
-            while (figure1 == IntPtr.Zero)
+            while (figure1 == IntPtr.Zero || figure2 == IntPtr.Zero || figure3 == IntPtr.Zero || figure4 == IntPtr.Zero)
             {
                 //查找matlab的Figure 1窗体
                 figure1 = FindWindow("SunAwtFrame", "Figure 1");
+                figure2 = FindWindow("SunAwtFrame", "Figure 2");
+                figure3 = FindWindow("SunAwtFrame", "Figure 3");
+                figure4 = FindWindow("SunAwtFrame", "Figure 4");
                 //延时50ms
                 Thread.Sleep(50);
                 count50ms++;
                 //20s超时设置
                 if (count50ms >= 400)
                 {
-                    MessageBox.Show( "matlab资源加载时间过长！");
                     return;
                 }
             }
@@ -239,29 +193,58 @@ namespace Data_Visual
                 //移动到panel里合适的位置并重绘
                 MoveWindow(figure1, 0, 0, panel2.Width, panel2.Height, true);
 
+                //设置matlab图像窗体的父窗体为panel
+                SetParent(figure2, panel3.Handle);
+                //获取窗体原来的风格
+                style = GetWindowLong(figure2, GWL_STYLE);
+                //设置新风格，去掉标题,不能通过边框改变尺寸
+                SetWindowLong(figure2, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
+                //移动到panel里合适的位置并重绘
+                MoveWindow(figure1, 0, 0, panel3.Width, panel3.Height, true);
 
+                //设置matlab图像窗体的父窗体为panel
+                SetParent(figure3, panel4.Handle);
+                //获取窗体原来的风格
+                style = GetWindowLong(figure3, GWL_STYLE);
+                //设置新风格，去掉标题,不能通过边框改变尺寸
+                SetWindowLong(figure3, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
+                //移动到panel里合适的位置并重绘
+                MoveWindow(figure3, 0, 0, panel4.Width, panel4.Height, true);
+
+                //设置matlab图像窗体的父窗体为panel
+                SetParent(figure4, panel5.Handle);
+                //获取窗体原来的风格
+                style = GetWindowLong(figure4, GWL_STYLE);
+                //设置新风格，去掉标题,不能通过边框改变尺寸
+                SetWindowLong(figure4, GWL_STYLE, style & ~WS_CAPTION & ~WS_THICKFRAME);
+                //移动到panel里合适的位置并重绘
+                MoveWindow(figure4, 0, 0, panel5.Width, panel5.Height, true);
             };
             panel2.Invoke(update);
+            panel3.Invoke(update);
+            panel4.Invoke(update);
+            panel5.Invoke(update);
             //再移动一次，防止显示错误
             Thread.Sleep(100);
             MoveWindow(figure1, 0, 0, panel2.Width, panel2.Height, true);
-            startload.Abort();
-
-            while (startload.ThreadState != ThreadState.Aborted)
-            {
-                //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止
-                Thread.Sleep(100);
-            }
+            MoveWindow(figure2, 0, 0, panel3.Width, panel3.Height, true);
+            MoveWindow(figure3, 0, 0, panel4.Width, panel4.Height, true);
+            MoveWindow(figure4, 0, 0, panel5.Width, panel5.Height, true);
         }
+
         void FigureClose()
         {
             //int flag = 0;
             if(startload != null)
                 startload.Abort();
-            if (figure1 != IntPtr.Zero && IsWindow(figure1))
+            if (figure1 != IntPtr.Zero && IsWindow(figure1) && figure2 != IntPtr.Zero && IsWindow(figure2) && figure1 != IntPtr.Zero && IsWindow(figure2) && figure2 != IntPtr.Zero && IsWindow(figure2))
             {
                 //flag = 1;
                 SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                SendMessage(figure2, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                SendMessage(figure3, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                SendMessage(figure4, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
+                panel1.Controls.Clear();
                 // MessageBox.Show("我应该关了");
             }
             else
@@ -382,6 +365,7 @@ namespace Data_Visual
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Close();
+            FigureClose();
             Owner.Show();
             Dispose();  //由于每次查询的数据不一样，此窗口更适合每次释放
         }
@@ -422,8 +406,10 @@ namespace Data_Visual
         {
             try
             {
-                FigureClose();
-                SpectrumPlot();
+                AnomalyBox.SendToBack();
+                AcfBox.SendToBack();
+                SarimaBox.SendToBack();
+                SpectrumBox.BringToFront();
             }
             catch (Exception ex)
             {
@@ -435,22 +421,10 @@ namespace Data_Visual
         {
             try
             {
-                FigureClose();
-                AcfPlot();
-                ListViewItem res = listView2.FindItemWithText("p", true, 0, false);
-                if (res == null)
-                {
-                    it = new ListViewItem();
-                    it.Text = "p";
-                    it.SubItems.Add(pq[0].ToString());
-                    listView2.Items.Add(it);
-
-                    it = new ListViewItem();
-                    it.Text = "q";
-                    it.SubItems.Add(pq[1].ToString());
-                    listView2.Items.Add(it);
-                }
-                button6.Enabled = true;
+                AnomalyBox.SendToBack();
+                SpectrumBox.SendToBack();
+                SarimaBox.SendToBack();
+                AcfBox.BringToFront();
             }
             catch (Exception ex)
             {
@@ -463,18 +437,10 @@ namespace Data_Visual
         {
             try
             {
-                MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
-                MWCellArray time_m = new MWCellArray(section);
-                for (int i = 0; i < section; i++)
-                {
-                    band_m[i + 1] = band[i] - 273.15;
-                    time_m[i + 1] = time[i];
-                }
-                MWArray result;
-                if (section <= 48)
-                    MessageBox.Show("选取时间区间过短，无法进行SARIMA预测");
-                else
-                    result = sarima.my_sarima(band_m, time_m, pq[0], pq[1]);
+                AnomalyBox.SendToBack();
+                SpectrumBox.SendToBack();
+                AcfBox.SendToBack();
+                SarimaBox.BringToFront();
             }
             catch (Exception ex)
             {
@@ -505,6 +471,75 @@ namespace Data_Visual
                 timer1.Stop();
                 timer1.Dispose();
             }
+
+        }
+        SeriesAllPlot plot_all = new SeriesAllPlot();
+        List<double> pq = new List<double>();
+        void AllPlot()
+        {
+            if(section <= 48)
+            {
+                MessageBox.Show("时间序列过短，无法进行SARIMA预测");
+            }
+            if(band[0]==0)
+            {
+                MessageBox.Show("您选择的地点是陆地或没有数据，请重新查询");
+            }
+            else
+            {
+                MWNumericArray band_m = new MWNumericArray(MWArrayComplexity.Real, 1, section);
+                MWCellArray time_m = new MWCellArray(section);
+                MWArray result;
+                for (int i = 0; i < section; i++)
+                {
+                    band_m[i + 1] = band[i];
+                    time_m[i + 1] = time[i];
+                }
+                if (section <= 36)
+                    result = plot_all.series_all(band_m, time_m, 1, section);
+                else
+                    result = plot_all.series_all(band_m, time_m, 0, section);
+                List<string> temp = new List<string>();
+                foreach (var item in result.ToArray())
+                {
+                    temp.Add(item.ToString());
+                }
+                Std = Convert.ToDouble(temp[0]);
+                pq.Add(Convert.ToDouble(2));
+                pq.Add(Convert.ToDouble(2));
+
+                it = new ListViewItem();
+                it.Text = "Std";
+                it.SubItems.Add(Std.ToString());
+                listView2.Items.Add(it);
+
+                it = new ListViewItem();
+                it.Text = "p";
+                it.SubItems.Add(pq[0].ToString());
+                listView2.Items.Add(it);
+
+                it = new ListViewItem();
+                it.Text = "q";
+                it.SubItems.Add(pq[1].ToString());
+                listView2.Items.Add(it);
+
+                button2.Enabled = true;
+            }
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AllPlot();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SpectrumBox_Enter(object sender, EventArgs e)
+        {
 
         }
     }

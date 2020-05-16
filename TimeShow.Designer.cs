@@ -31,6 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeShow));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SarimaBox = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.AcfBox = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.SpectrumBox = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.AnomalyBox = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -47,20 +58,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.SarimaBox.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.AcfBox.SuspendLayout();
+            this.SpectrumBox.SuspendLayout();
+            this.AnomalyBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.SarimaBox);
+            this.panel1.Controls.Add(this.AcfBox);
+            this.panel1.Controls.Add(this.SpectrumBox);
+            this.panel1.Controls.Add(this.AnomalyBox);
+            this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.listView2);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
@@ -77,20 +94,129 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1268, 634);
             this.panel1.TabIndex = 0;
             // 
+            // SarimaBox
+            // 
+            this.SarimaBox.Controls.Add(this.panel5);
+            this.SarimaBox.Location = new System.Drawing.Point(491, 65);
+            this.SarimaBox.Name = "SarimaBox";
+            this.SarimaBox.Size = new System.Drawing.Size(750, 545);
+            this.SarimaBox.TabIndex = 36;
+            this.SarimaBox.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.pictureBox1);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 17);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(744, 525);
+            this.panel5.TabIndex = 0;
+            // 
+            // AcfBox
+            // 
+            this.AcfBox.Controls.Add(this.panel4);
+            this.AcfBox.Location = new System.Drawing.Point(491, 65);
+            this.AcfBox.Name = "AcfBox";
+            this.AcfBox.Size = new System.Drawing.Size(750, 545);
+            this.AcfBox.TabIndex = 35;
+            this.AcfBox.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 17);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(744, 525);
+            this.panel4.TabIndex = 0;
+            // 
+            // SpectrumBox
+            // 
+            this.SpectrumBox.Controls.Add(this.panel3);
+            this.SpectrumBox.Location = new System.Drawing.Point(491, 65);
+            this.SpectrumBox.Name = "SpectrumBox";
+            this.SpectrumBox.Size = new System.Drawing.Size(750, 545);
+            this.SpectrumBox.TabIndex = 34;
+            this.SpectrumBox.TabStop = false;
+            this.SpectrumBox.Enter += new System.EventHandler(this.SpectrumBox_Enter);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 17);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(744, 525);
+            this.panel3.TabIndex = 0;
+            // 
+            // AnomalyBox
+            // 
+            this.AnomalyBox.Controls.Add(this.panel2);
+            this.AnomalyBox.Location = new System.Drawing.Point(491, 65);
+            this.AnomalyBox.Name = "AnomalyBox";
+            this.AnomalyBox.Size = new System.Drawing.Size(750, 545);
+            this.AnomalyBox.TabIndex = 33;
+            this.AnomalyBox.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(744, 525);
+            this.panel2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::Data_Visual.Properties.Resources.load;
+            this.pictureBox1.Location = new System.Drawing.Point(238, 198);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 78);
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.White;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button8.Location = new System.Drawing.Point(192, 389);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(269, 41);
+            this.button8.TabIndex = 25;
+            this.button8.Text = "绘图";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("苹方 粗体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(361, 243);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(177, 33);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "数据查询中......";
+            // 
             // listView2
             // 
             this.listView2.Font = new System.Drawing.Font("苹方 常规", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(192, 389);
+            this.listView2.Location = new System.Drawing.Point(192, 449);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(269, 212);
+            this.listView2.Size = new System.Drawing.Size(269, 152);
             this.listView2.TabIndex = 24;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
@@ -125,6 +251,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Enabled = false;
             this.button5.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button5.Location = new System.Drawing.Point(49, 502);
             this.button5.Name = "button5";
@@ -138,6 +265,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Enabled = false;
             this.button4.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.Location = new System.Drawing.Point(49, 446);
             this.button4.Name = "button4";
@@ -190,6 +318,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(49, 389);
             this.button1.Name = "button1";
@@ -282,38 +411,6 @@
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(514, 70);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(725, 539);
-            this.panel2.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::Data_Visual.Properties.Resources.load;
-            this.pictureBox1.Location = new System.Drawing.Point(151, 208);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 78);
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("苹方 粗体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(274, 253);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(177, 33);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "数据查询中......";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -335,10 +432,14 @@
             this.Shown += new System.EventHandler(this.TimeShow_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.SarimaBox.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.AcfBox.ResumeLayout(false);
+            this.SpectrumBox.ResumeLayout(false);
+            this.AnomalyBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,5 +467,13 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.GroupBox AnomalyBox;
+        private System.Windows.Forms.GroupBox SpectrumBox;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox AcfBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox SarimaBox;
+        private System.Windows.Forms.Panel panel5;
     }
 }

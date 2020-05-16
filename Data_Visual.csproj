@@ -148,6 +148,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\Lenovo\Desktop\package\series_acf_pacf\for_redistribution_files_only\series_acf_pacf.dll</HintPath>
     </Reference>
+    <Reference Include="series_all, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\series_all.dll</HintPath>
+    </Reference>
     <Reference Include="series_anormal, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x64\Debug\series_anormal.dll</HintPath>
