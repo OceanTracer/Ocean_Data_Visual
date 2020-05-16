@@ -94,7 +94,7 @@ namespace Data_Visual
                     var list = (List<object>)response.Result;
                     if (list[0] == null)
                     {
-                        MessageBox.Show("请先在地图中点击选择");
+                        MessageBox.Show("请先在地图中点击选择","Ocean");
                         return;
                     }
                     else

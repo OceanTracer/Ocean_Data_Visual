@@ -55,6 +55,8 @@ namespace Data_Visual
             labelRepcnt.Text = "回复量：" + mydataset.Tables["post"].Rows[0]["post_repcnt"].ToString();
             richTextBox1.Text = mydataset.Tables["post"].Rows[0]["post_content"].ToString();
             post_umail = mydataset.Tables["post"].Rows[0]["umail"].ToString();
+            if (post_umail == 登录界面.mail)    //不能举报自己发的帖
+                labelPostReport.Visible = false;
         }
 
         private void FetchReplies(int post_id)
@@ -103,13 +105,16 @@ namespace Data_Visual
             labelTime.Location = new Point(73, 36);
             labelSeq.Font = new Font("张海山锐线体简", 9F, FontStyle.Bold);
             labelSeq.Location = new Point(panel.Width - 39, 7);
-            labelReport.Font=new Font("张海山锐线体简", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, ((byte)(134)));
-            labelReport.ForeColor = SystemColors.HotTrack;
-            labelReport.Cursor = Cursors.Hand;
-            labelReport.Text = "举报";
-            labelReport.Tag = new string[] { umail, rep_id};   //用于举报时标识被举报人和rep_id
-            labelReport.Click += ReplyReport_Click;
-            labelReport.Location = new Point(panel.Width - 51, 34);
+            if (umail != 登录界面.mail)
+            {//不能举报自己的回复
+                labelReport.Font = new Font("张海山锐线体简", 9F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, ((byte)(134)));
+                labelReport.ForeColor = SystemColors.HotTrack;
+                labelReport.Cursor = Cursors.Hand;
+                labelReport.Text = "举报";
+                labelReport.Tag = new string[] { umail, rep_id };   //用于举报时标识被举报人和rep_id
+                labelReport.Click += ReplyReport_Click;
+                labelReport.Location = new Point(panel.Width - 51, 34);
+            }
             //labelTime.Location = new Point(panel.Width - 121, 34);
 
             labelContent.AutoSize = labelName.AutoSize = labelSeq.AutoSize = labelTime.AutoSize = true;
@@ -209,7 +214,7 @@ namespace Data_Visual
                 {
                     //MessageBox.Show("回复成功", "Ocean");
                     lastseq += 1;
-                    AddReplyPanel(richTextBox2.Text, 登录界面.uname, DateTime.Now.ToString(), 登录界面.mail, "1", lastseq);
+                    AddReplyPanel(richTextBox2.Text, 登录界面.uname, DateTime.Now.ToString(), 登录界面.mail, "0", lastseq);
                 }
             }
             catch(Exception ex)

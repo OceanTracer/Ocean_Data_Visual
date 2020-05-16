@@ -130,7 +130,7 @@ namespace Data_Visual
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            sql = "select count(*) from posts where post_section=" + section.ToString();
+            sql = "select count(*) from posts where post_deleted='N' and post_section=" + section.ToString();
             SqlCommand mycmd = new SqlCommand(sql, myconn);
             myconn.Open();
             try
