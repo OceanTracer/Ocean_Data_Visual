@@ -53,7 +53,6 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
-            Dispose();
         }
         /*
          当前窗口调用逻辑上的子窗口时，可以将子窗口的Owner属性设置为当前窗口，并隐藏当前窗口，子窗口退出时，

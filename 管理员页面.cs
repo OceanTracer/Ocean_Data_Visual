@@ -37,9 +37,9 @@ namespace Data_Visual
             f1.ShowDialog();
         }
 
+        Option f2 = new Option();
         private void label2_Click(object sender, EventArgs e)
         {           
-            Option f2 = new Option();
             f2.Owner = this;
             //Hide();
             f2.ShowDialog();

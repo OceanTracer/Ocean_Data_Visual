@@ -40,9 +40,9 @@ namespace Data_Visual
             f_vis.ShowDialog();
         }
 
-        科普界面new f_sci = new 科普界面new();
         private void labelSelect_Click(object sender, EventArgs e)
         {
+            科普界面new f_sci = new 科普界面new();  //如果预加载可能耗时过多
             f_sci.Owner = this;
             Hide();
             f_sci.ShowDialog();

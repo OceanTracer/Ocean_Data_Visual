@@ -165,6 +165,7 @@ namespace Data_Visual
         {
             Close();
             Owner.Show();
+            Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)
