@@ -11,7 +11,6 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MathWorks.MATLAB.NET.Arrays;
 using series_all;
-using my_sarima;
 using System.Threading;
 using System.Runtime.InteropServices;//API
 using Microsoft.Office.Interop.Excel;//Excel
@@ -433,8 +432,7 @@ namespace Data_Visual
                 MessageBox.Show(ex.ToString());
             }
 
-        }
-        MySarima sarima = new MySarima();
+        }   
         private void button6_Click(object sender, EventArgs e)
         {
             try
