@@ -235,21 +235,23 @@ namespace Data_Visual
         void FigureClose()
         {
             //int flag = 0;
-            if(startload != null)
+            if (startload != null)
                 startload.Abort();
-            if (figure1 != IntPtr.Zero && IsWindow(figure1) && figure2 != IntPtr.Zero && IsWindow(figure2) && figure1 != IntPtr.Zero && IsWindow(figure2) && figure2 != IntPtr.Zero && IsWindow(figure2))
+            if (figure1 != IntPtr.Zero && IsWindow(figure1))
             {
                 //flag = 1;
                 SendMessage(figure1, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
                 SendMessage(figure2, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
                 SendMessage(figure3, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
                 SendMessage(figure4, WM_CLOSE, 0, 0);  // 调用了 发送消息 发送关闭窗口的消息
-                panel1.Controls.Clear();
                 // MessageBox.Show("我应该关了");
             }
             else
             {
                 figure1 = IntPtr.Zero;
+                figure2 = IntPtr.Zero;
+                figure3 = IntPtr.Zero;
+                figure4 = IntPtr.Zero;
                 // MessageBox.Show("没找到这个窗口");
             }
             //if (flag == 1 && IsWindow(figure1))

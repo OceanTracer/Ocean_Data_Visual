@@ -31,6 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GridShow));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.MonthAnomBox = new System.Windows.Forms.GroupBox();
+            this.ThisMonthBox = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.YearAnomBox = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ThisYearBox = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.ThisTimeBox = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -48,20 +60,33 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.MonthAnomBox.SuspendLayout();
+            this.ThisMonthBox.SuspendLayout();
+            this.YearAnomBox.SuspendLayout();
+            this.ThisYearBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.ThisTimeBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.MonthAnomBox);
+            this.panel1.Controls.Add(this.ThisMonthBox);
+            this.panel1.Controls.Add(this.YearAnomBox);
+            this.panel1.Controls.Add(this.ThisYearBox);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.ThisTimeBox);
+            this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
@@ -79,7 +104,6 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -87,15 +111,129 @@
             this.panel1.Size = new System.Drawing.Size(1268, 634);
             this.panel1.TabIndex = 1;
             // 
+            // MonthAnomBox
+            // 
+            this.MonthAnomBox.Controls.Add(this.panel7);
+            this.MonthAnomBox.Location = new System.Drawing.Point(532, 53);
+            this.MonthAnomBox.Name = "MonthAnomBox";
+            this.MonthAnomBox.Size = new System.Drawing.Size(709, 553);
+            this.MonthAnomBox.TabIndex = 41;
+            this.MonthAnomBox.TabStop = false;
+            // 
+            // ThisMonthBox
+            // 
+            this.ThisMonthBox.Controls.Add(this.panel5);
+            this.ThisMonthBox.Location = new System.Drawing.Point(532, 53);
+            this.ThisMonthBox.Name = "ThisMonthBox";
+            this.ThisMonthBox.Size = new System.Drawing.Size(709, 553);
+            this.ThisMonthBox.TabIndex = 40;
+            this.ThisMonthBox.TabStop = false;
+            this.ThisMonthBox.Enter += new System.EventHandler(this.ThisMonthBox_Enter);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 17);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(703, 533);
+            this.panel5.TabIndex = 0;
+            // 
+            // YearAnomBox
+            // 
+            this.YearAnomBox.Controls.Add(this.panel4);
+            this.YearAnomBox.Location = new System.Drawing.Point(532, 53);
+            this.YearAnomBox.Name = "YearAnomBox";
+            this.YearAnomBox.Size = new System.Drawing.Size(709, 553);
+            this.YearAnomBox.TabIndex = 39;
+            this.YearAnomBox.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 17);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(703, 533);
+            this.panel4.TabIndex = 0;
+            // 
+            // ThisYearBox
+            // 
+            this.ThisYearBox.Controls.Add(this.panel3);
+            this.ThisYearBox.Location = new System.Drawing.Point(532, 53);
+            this.ThisYearBox.Name = "ThisYearBox";
+            this.ThisYearBox.Size = new System.Drawing.Size(709, 553);
+            this.ThisYearBox.TabIndex = 38;
+            this.ThisYearBox.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 17);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(703, 533);
+            this.panel3.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.panel6);
+            this.groupBox1.Location = new System.Drawing.Point(1552, 739);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(709, 553);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 17);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(703, 533);
+            this.panel6.TabIndex = 0;
+            // 
+            // ThisTimeBox
+            // 
+            this.ThisTimeBox.Controls.Add(this.panel2);
+            this.ThisTimeBox.Location = new System.Drawing.Point(532, 53);
+            this.ThisTimeBox.Name = "ThisTimeBox";
+            this.ThisTimeBox.Size = new System.Drawing.Size(709, 553);
+            this.ThisTimeBox.TabIndex = 37;
+            this.ThisTimeBox.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(703, 533);
+            this.panel2.TabIndex = 0;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button10.ForeColor = System.Drawing.Color.Black;
+            this.button10.Location = new System.Drawing.Point(230, 450);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(124, 41);
+            this.button10.TabIndex = 22;
+            this.button10.Text = "可视分析";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button9.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button9.ForeColor = System.Drawing.Color.Black;
-            this.button9.Location = new System.Drawing.Point(270, 447);
+            this.button9.Location = new System.Drawing.Point(58, 400);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(230, 47);
+            this.button9.Size = new System.Drawing.Size(150, 41);
             this.button9.TabIndex = 21;
             this.button9.Text = "数据检查";
             this.button9.UseVisualStyleBackColor = false;
@@ -190,7 +328,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(214, 400);
+            this.button3.Location = new System.Drawing.Point(230, 400);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 41);
             this.button3.TabIndex = 11;
@@ -204,7 +342,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(59, 400);
+            this.button2.Location = new System.Drawing.Point(376, 450);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 41);
             this.button2.TabIndex = 9;
@@ -218,9 +356,9 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("张海山锐线体简", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(59, 447);
+            this.button1.Location = new System.Drawing.Point(59, 450);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 47);
+            this.button1.Size = new System.Drawing.Size(149, 41);
             this.button1.TabIndex = 8;
             this.button1.Text = "查看目标经纬剖面";
             this.button1.UseVisualStyleBackColor = false;
@@ -310,21 +448,15 @@
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // panel2
+            // timer1
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(567, 58);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(675, 551);
-            this.panel2.TabIndex = 0;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::Data_Visual.Properties.Resources.load;
-            this.pictureBox2.Location = new System.Drawing.Point(126, 214);
+            this.pictureBox2.Location = new System.Drawing.Point(196, 229);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(117, 78);
             this.pictureBox2.TabIndex = 33;
@@ -336,15 +468,22 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("苹方 粗体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(249, 259);
+            this.label7.Location = new System.Drawing.Point(319, 274);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 33);
             this.label7.TabIndex = 30;
             this.label7.Text = "数据查询中......";
             // 
-            // timer1
+            // panel7
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.pictureBox2);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 17);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(703, 533);
+            this.panel7.TabIndex = 0;
             // 
             // GridShow
             // 
@@ -363,10 +502,16 @@
             this.Shown += new System.EventHandler(this.GridShow_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.MonthAnomBox.ResumeLayout(false);
+            this.ThisMonthBox.ResumeLayout(false);
+            this.YearAnomBox.ResumeLayout(false);
+            this.ThisYearBox.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.ThisTimeBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,7 +528,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button4;
@@ -393,6 +537,19 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.GroupBox ThisTimeBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.GroupBox MonthAnomBox;
+        private System.Windows.Forms.GroupBox ThisMonthBox;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.GroupBox YearAnomBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox ThisYearBox;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

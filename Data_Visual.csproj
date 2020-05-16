@@ -97,6 +97,10 @@
       <HintPath>packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="grid_all, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\grid_all.dll</HintPath>
+    </Reference>
     <Reference Include="ll_grid_plot, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\Lenovo\Desktop\package\ll_grid_plot\for_redistribution_files_only\ll_grid_plot.dll</HintPath>
