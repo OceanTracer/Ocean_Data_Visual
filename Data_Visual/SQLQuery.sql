@@ -275,13 +275,29 @@ AS
 GO
 
 /*删除回复时更新被回复贴的回复总数*/
-CREATE TRIGGER deleteReply
+CREATE TRIGGER deleteReplies
 ON replies
 AFTER DELETE
 AS
 	DECLARE @post_id INT
 	SELECT @post_id=post_id FROM deleted i
 	UPDATE posts SET post_repcnt=post_repcnt-1 WHERE post_id=@post_id
+GO
+
+
+/*删除回复时更新被回复贴的回复总数*/
+CREATE TRIGGER deleteReply
+ON replies
+AFTER UPDATE
+AS
+	DECLARE @old_status CHAR(1), @new_status CHAR(1), @post_id INT
+	SELECT @old_status=rep_deleted FROM deleted
+	SELECT @new_status=rep_deleted FROM inserted
+	IF @old_status='N' AND @new_status='Y'
+	BEGIN
+		SELECT @post_id=post_id FROM inserted
+		UPDATE posts SET post_repcnt=post_repcnt-1 WHERE post_id=@post_id
+	END
 GO
 
 
